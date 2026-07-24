@@ -1,0 +1,667 @@
+[
+  {
+    "slug": "agnaktor",
+    "filename": "agnaktor.png",
+    "source": "MHST2-Agnaktor_Icon.png"
+  },
+  {
+    "slug": "altaroth",
+    "filename": "altaroth.png",
+    "source": "MHST2-Altaroth_Icon.png"
+  },
+  {
+    "slug": "anjanath",
+    "filename": "anjanath.png",
+    "source": "MHST2-Anjanath_Icon.png"
+  },
+  {
+    "slug": "apceros",
+    "filename": "apceros.png",
+    "source": "MHST2-Apceros_Icon.png"
+  },
+  {
+    "slug": "aptonoth",
+    "filename": "aptonoth.png",
+    "source": "MHST2-Aptonoth_Icon.png"
+  },
+  {
+    "slug": "arzuros",
+    "filename": "arzuros.png",
+    "source": "MHST2-Arzuros_Icon.png"
+  },
+  {
+    "slug": "ash-kecha-wacha",
+    "filename": "ash-kecha-wacha.png",
+    "source": "MHST2-Ash_Kecha_Wacha_Icon.png"
+  },
+  {
+    "slug": "astalos",
+    "filename": "astalos.png",
+    "source": "MHST2-Astalos_Icon.png"
+  },
+  {
+    "slug": "azure-rathalos",
+    "filename": "azure-rathalos.png",
+    "source": "MHST2-Azure_Rathalos_Icon.png"
+  },
+  {
+    "slug": "baggi",
+    "filename": "baggi.png",
+    "source": "MHST2-Baggi_Icon.png"
+  },
+  {
+    "slug": "barioth",
+    "filename": "barioth.png",
+    "source": "MHST2-Barioth_Icon.png"
+  },
+  {
+    "slug": "barrel-felyne",
+    "filename": "barrel-felyne.png",
+    "source": "MHST2-Barrel_Felyne_Icon.png"
+  },
+  {
+    "slug": "barroth",
+    "filename": "barroth.png",
+    "source": "MHST2-Barroth_Icon.png"
+  },
+  {
+    "slug": "basarios",
+    "filename": "basarios.png",
+    "source": "MHST2-Basarios_Icon.png"
+  },
+  {
+    "slug": "bazelgeuse",
+    "filename": "bazelgeuse.png",
+    "source": "MHST2-Bazelgeuse_Icon.png"
+  },
+  {
+    "slug": "black-diablos",
+    "filename": "black-diablos.png",
+    "source": "MHST2-Black_Diablos_Icon.png"
+  },
+  {
+    "slug": "black-gravios",
+    "filename": "black-gravios.png",
+    "source": "MHST2-Black_Gravios_Icon.png"
+  },
+  {
+    "slug": "bloodbath-diablos",
+    "filename": "bloodbath-diablos.png",
+    "source": "MHST2-Bloodbath_Diablos_Icon.png"
+  },
+  {
+    "slug": "blue-yian-kut-ku",
+    "filename": "blue-yian-kut-ku.png",
+    "source": "MHST2-Blue_Yian_Kut-Ku_Icon.png"
+  },
+  {
+    "slug": "bnahabra",
+    "filename": "bnahabra.png",
+    "source": "MHST2-Bnahabra_Icon.png"
+  },
+  {
+    "slug": "boltreaver-astalos",
+    "filename": "boltreaver-astalos.png",
+    "source": "MHST2-Boltreaver_Astalos_Icon.png"
+  },
+  {
+    "slug": "brachydios",
+    "filename": "brachydios.png",
+    "source": "MHST2-Brachydios_Icon.png"
+  },
+  {
+    "slug": "brown-slagtoth",
+    "filename": "brown-slagtoth.png",
+    "source": "MHST2-Brown_Slagtoth_Icon.png"
+  },
+  {
+    "slug": "brute-tigrex",
+    "filename": "brute-tigrex.png",
+    "source": "MHST2-Brute_Tigrex_Icon.png"
+  },
+  {
+    "slug": "bulldrome",
+    "filename": "bulldrome.png",
+    "source": "MHST2-Bulldrome_Icon.png"
+  },
+  {
+    "slug": "bullfango",
+    "filename": "bullfango.png",
+    "source": "MHST2-Bullfango_Icon.png"
+  },
+  {
+    "slug": "cephadrome",
+    "filename": "cephadrome.png",
+    "source": "MHST2-Cephadrome_Icon.png"
+  },
+  {
+    "slug": "cephalos",
+    "filename": "cephalos.png",
+    "source": "MHST2-Cephalos_Icon.png"
+  },
+  {
+    "slug": "conga",
+    "filename": "conga.png",
+    "source": "MHST2-Conga_Icon.png"
+  },
+  {
+    "slug": "congalala",
+    "filename": "congalala.png",
+    "source": "MHST2-Congalala_Icon.png"
+  },
+  {
+    "slug": "crimson-qurupeco",
+    "filename": "crimson-qurupeco.png",
+    "source": "MHST2-Crimson_Qurupeco_Icon.png"
+  },
+  {
+    "slug": "daimyo-hermitaur",
+    "filename": "daimyo-hermitaur.png",
+    "source": "MHST2-Daimyo_Hermitaur_Icon.png"
+  },
+  {
+    "slug": "desert-seltas-queen",
+    "filename": "desert-seltas-queen.png",
+    "source": "MHST2-Desert_Seltas_Queen_Icon.png"
+  },
+  {
+    "slug": "deviljho",
+    "filename": "deviljho.png",
+    "source": "MHST2-Deviljho_Icon.png"
+  },
+  {
+    "slug": "diablos",
+    "filename": "diablos.png",
+    "source": "MHST2-Diablos_Icon.png"
+  },
+  {
+    "slug": "dreadking-rathalos",
+    "filename": "dreadking-rathalos.png",
+    "source": "MHST2-Dreadking_Rathalos_Icon.png"
+  },
+  {
+    "slug": "dreadqueen-rathian",
+    "filename": "dreadqueen-rathian.png",
+    "source": "MHST2-Dreadqueen_Rathian_Icon.png"
+  },
+  {
+    "slug": "duramboros",
+    "filename": "duramboros.png",
+    "source": "MHST2-Duramboros_Icon.png"
+  },
+  {
+    "slug": "elderfrost-gammoth",
+    "filename": "elderfrost-gammoth.png",
+    "source": "MHST2-Elderfrost_Gammoth_Icon.png"
+  },
+  {
+    "slug": "emerald-congalala",
+    "filename": "emerald-congalala.png",
+    "source": "MHST2-Emerald_Congalala_Icon.png"
+  },
+  {
+    "slug": "fulgur-anjanath",
+    "filename": "fulgur-anjanath.png",
+    "source": "MHST2-Fulgur_Anjanath_Icon.png"
+  },
+  {
+    "slug": "gammoth",
+    "filename": "gammoth.png",
+    "source": "MHST2-Gammoth_Icon.png"
+  },
+  {
+    "slug": "gargwa",
+    "filename": "gargwa.png",
+    "source": "MHST2-Gargwa_Icon.png"
+  },
+  {
+    "slug": "gendrome",
+    "filename": "gendrome.png",
+    "source": "MHST2-Gendrome_Icon.png"
+  },
+  {
+    "slug": "genprey",
+    "filename": "genprey.png",
+    "source": "MHST2-Genprey_Icon.png"
+  },
+  {
+    "slug": "glacial-agnaktor",
+    "filename": "glacial-agnaktor.png",
+    "source": "MHST2-Glacial_Agnaktor_Icon.png"
+  },
+  {
+    "slug": "glavenus",
+    "filename": "glavenus.png",
+    "source": "MHST2-Glavenus_Icon.png"
+  },
+  {
+    "slug": "gold-rathian",
+    "filename": "gold-rathian.png",
+    "source": "MHST2-Gold_Rathian_Icon.png"
+  },
+  {
+    "slug": "gravios",
+    "filename": "gravios.png",
+    "source": "MHST2-Gravios_Icon.png"
+  },
+  {
+    "slug": "great-baggi",
+    "filename": "great-baggi.png",
+    "source": "MHST2-Great_Baggi_Icon.png"
+  },
+  {
+    "slug": "great-dracophage-bug",
+    "filename": "great-dracophage-bug.png",
+    "source": "MHST2-Great_Dracophage_Bug_Icon.png"
+  },
+  {
+    "slug": "great-jaggi",
+    "filename": "great-jaggi.png",
+    "source": "MHST2-Great_Jaggi_Icon.png"
+  },
+  {
+    "slug": "great-thunderbug",
+    "filename": "great-thunderbug.png",
+    "source": "MHST2-Great_Thunderbug_Icon.png"
+  },
+  {
+    "slug": "green-nargacuga",
+    "filename": "green-nargacuga.png",
+    "source": "MHST2-Green_Nargacuga_Icon.png"
+  },
+  {
+    "slug": "green-plesioth",
+    "filename": "green-plesioth.png",
+    "source": "MHST2-Green_Plesioth_Icon.png"
+  },
+  {
+    "slug": "grimclaw-tigrex",
+    "filename": "grimclaw-tigrex.png",
+    "source": "MHST2-Grimclaw_Tigrex_Icon.png"
+  },
+  {
+    "slug": "gypceros",
+    "filename": "gypceros.png",
+    "source": "MHST2-Gypceros_Icon.png"
+  },
+  {
+    "slug": "hellblade-glavenus",
+    "filename": "hellblade-glavenus.png",
+    "source": "MHST2-Hellblade_Glavenus_Icon.png"
+  },
+  {
+    "slug": "hermitaur",
+    "filename": "hermitaur.png",
+    "source": "MHST2-Hermitaur_Icon.png"
+  },
+  {
+    "slug": "iodrome",
+    "filename": "iodrome.png",
+    "source": "MHST2-Iodrome_Icon.png"
+  },
+  {
+    "slug": "ioprey",
+    "filename": "ioprey.png",
+    "source": "MHST2-Ioprey_Icon.png"
+  },
+  {
+    "slug": "ivory-lagiacrus",
+    "filename": "ivory-lagiacrus.png",
+    "source": "MHST2-Ivory_Lagiacrus_Icon.png"
+  },
+  {
+    "slug": "jade-barroth",
+    "filename": "jade-barroth.png",
+    "source": "MHST2-Jade_Barroth_Icon.png"
+  },
+  {
+    "slug": "jaggi",
+    "filename": "jaggi.png",
+    "source": "MHST2-Jaggi_Icon.png"
+  },
+  {
+    "slug": "jaggia",
+    "filename": "jaggia.png",
+    "source": "MHST2-Jaggia_Icon.png"
+  },
+  {
+    "slug": "kecha-wacha",
+    "filename": "kecha-wacha.png",
+    "source": "MHST2-Kecha_Wacha_Icon.png"
+  },
+  {
+    "slug": "kelbi",
+    "filename": "kelbi.png",
+    "source": "MHST2-Kelbi_Icon.png"
+  },
+  {
+    "slug": "khezu",
+    "filename": "khezu.png",
+    "source": "MHST2-Khezu_Icon.png"
+  },
+  {
+    "slug": "kirin",
+    "filename": "kirin.png",
+    "source": "MHST2-Kirin_Icon.png"
+  },
+  {
+    "slug": "konchu",
+    "filename": "konchu.png",
+    "source": "MHST2-Konchu_Icon.png"
+  },
+  {
+    "slug": "kulu-ya-ku",
+    "filename": "kulu-ya-ku.png",
+    "source": "MHST2-Kulu-Ya-Ku_Icon.png"
+  },
+  {
+    "slug": "kulve-taroth",
+    "filename": "kulve-taroth.png",
+    "source": "MHST2-Kulve_Taroth_Icon.png"
+  },
+  {
+    "slug": "kushala-daora",
+    "filename": "kushala-daora.png",
+    "source": "MHST2-Kushala_Daora_Icon.png"
+  },
+  {
+    "slug": "lagiacrus",
+    "filename": "lagiacrus.png",
+    "source": "MHST2-Lagiacrus_Icon.png"
+  },
+  {
+    "slug": "lagombi",
+    "filename": "lagombi.png",
+    "source": "MHST2-Lagombi_Icon.png"
+  },
+  {
+    "slug": "larinoth",
+    "filename": "larinoth.png",
+    "source": "MHST2-Larinoth_Icon.png"
+  },
+  {
+    "slug": "legiana",
+    "filename": "legiana.png",
+    "source": "MHST2-Legiana_Icon.png"
+  },
+  {
+    "slug": "ludroth",
+    "filename": "ludroth.png",
+    "source": "MHST2-Ludroth_Icon.png"
+  },
+  {
+    "slug": "mizutsune",
+    "filename": "mizutsune.png",
+    "source": "MHST2-Mizutsune_Icon.png"
+  },
+  {
+    "slug": "molten-tigrex",
+    "filename": "molten-tigrex.png",
+    "source": "MHST2-Molten_Tigrex_Icon.png"
+  },
+  {
+    "slug": "monoblos",
+    "filename": "monoblos.png",
+    "source": "MHST2-Monoblos_Icon.png"
+  },
+  {
+    "slug": "nargacuga",
+    "filename": "nargacuga.png",
+    "source": "MHST2-Nargacuga_Icon.png"
+  },
+  {
+    "slug": "nergigante",
+    "filename": "nergigante.png",
+    "source": "MHST2-Nergigante_Icon.png"
+  },
+  {
+    "slug": "nerscylla",
+    "filename": "nerscylla.png",
+    "source": "MHST2-Nerscylla_Icon.png"
+  },
+  {
+    "slug": "oltura",
+    "filename": "oltura.png",
+    "source": "MHST2-Oltura_Icon.png"
+  },
+  {
+    "slug": "oltura-worm",
+    "filename": "oltura-worm.png",
+    "source": "MHST2-Oltura_Worm_Icon.png"
+  },
+  {
+    "slug": "oroshi-kirin",
+    "filename": "oroshi-kirin.png",
+    "source": "MHST2-Oroshi_Kirin_Icon.png"
+  },
+  {
+    "slug": "paolumu",
+    "filename": "paolumu.png",
+    "source": "MHST2-Paolumu_Icon.png"
+  },
+  {
+    "slug": "pink-rathian",
+    "filename": "pink-rathian.png",
+    "source": "MHST2-Pink_Rathian_Icon.png"
+  },
+  {
+    "slug": "plesioth",
+    "filename": "plesioth.png",
+    "source": "MHST2-Plesioth_Icon.png"
+  },
+  {
+    "slug": "plum-daimyo-hermitaur",
+    "filename": "plum-daimyo-hermitaur.png",
+    "source": "MHST2-Plum_Daimyo_Hermitaur_Icon.png"
+  },
+  {
+    "slug": "popo",
+    "filename": "popo.png",
+    "source": "MHST2-Popo_Icon.png"
+  },
+  {
+    "slug": "pukei-pukei",
+    "filename": "pukei-pukei.png",
+    "source": "MHST2-Pukei-Pukei_Icon.png"
+  },
+  {
+    "slug": "purple-gypceros",
+    "filename": "purple-gypceros.png",
+    "source": "MHST2-Purple_Gypceros_Icon.png"
+  },
+  {
+    "slug": "purple-ludroth",
+    "filename": "purple-ludroth.png",
+    "source": "MHST2-Purple_Ludroth_Icon.png"
+  },
+  {
+    "slug": "question-mark",
+    "filename": "question-mark.png",
+    "source": "MHST2-Question_Mark_Icon.png"
+  },
+  {
+    "slug": "qurupeco",
+    "filename": "qurupeco.png",
+    "source": "MHST2-Qurupeco_Icon.png"
+  },
+  {
+    "slug": "rajang",
+    "filename": "rajang.png",
+    "source": "MHST2-Rajang_Icon.png"
+  },
+  {
+    "slug": "rathalos",
+    "filename": "rathalos.png",
+    "source": "MHST2-Rathalos_Icon.png"
+  },
+  {
+    "slug": "rathian",
+    "filename": "rathian.png",
+    "source": "MHST2-Rathian_Icon.png"
+  },
+  {
+    "slug": "red-khezu",
+    "filename": "red-khezu.png",
+    "source": "MHST2-Red_Khezu_Icon.png"
+  },
+  {
+    "slug": "remobra",
+    "filename": "remobra.png",
+    "source": "MHST2-Remobra_Icon.png"
+  },
+  {
+    "slug": "rhenoplos",
+    "filename": "rhenoplos.png",
+    "source": "MHST2-Rhenoplos_Icon.png"
+  },
+  {
+    "slug": "royal-ludroth",
+    "filename": "royal-ludroth.png",
+    "source": "MHST2-Royal_Ludroth_Icon.png"
+  },
+  {
+    "slug": "ruby-basarios",
+    "filename": "ruby-basarios.png",
+    "source": "MHST2-Ruby_Basarios_Icon.png"
+  },
+  {
+    "slug": "sand-barioth",
+    "filename": "sand-barioth.png",
+    "source": "MHST2-Sand_Barioth_Icon.png"
+  },
+  {
+    "slug": "seltas",
+    "filename": "seltas.png",
+    "source": "MHST2-Seltas_Icon.png"
+  },
+  {
+    "slug": "seltas-queen",
+    "filename": "seltas-queen.png",
+    "source": "MHST2-Seltas_Queen_Icon.png"
+  },
+  {
+    "slug": "seregios",
+    "filename": "seregios.png",
+    "source": "MHST2-Seregios_Icon.png"
+  },
+  {
+    "slug": "shakalaka",
+    "filename": "shakalaka.png",
+    "source": "MHST2-Shakalaka_Icon.png"
+  },
+  {
+    "slug": "shrouded-nerscylla",
+    "filename": "shrouded-nerscylla.png",
+    "source": "MHST2-Shrouded_Nerscylla_Icon.png"
+  },
+  {
+    "slug": "silver-rathalos",
+    "filename": "silver-rathalos.png",
+    "source": "MHST2-Silver_Rathalos_Icon.png"
+  },
+  {
+    "slug": "silverwind-nargacuga",
+    "filename": "silverwind-nargacuga.png",
+    "source": "MHST2-Silverwind_Nargacuga_Icon.png"
+  },
+  {
+    "slug": "slagtoth",
+    "filename": "slagtoth.png",
+    "source": "MHST2-Slagtoth_Icon.png"
+  },
+  {
+    "slug": "soulseer-mizutsune",
+    "filename": "soulseer-mizutsune.png",
+    "source": "MHST2-Soulseer_Mizutsune_Icon.png"
+  },
+  {
+    "slug": "stygian-zinogre",
+    "filename": "stygian-zinogre.png",
+    "source": "MHST2-Stygian_Zinogre_Icon.png"
+  },
+  {
+    "slug": "teostra",
+    "filename": "teostra.png",
+    "source": "MHST2-Teostra_Icon.png"
+  },
+  {
+    "slug": "tetsucabra",
+    "filename": "tetsucabra.png",
+    "source": "MHST2-Tetsucabra_Icon.png"
+  },
+  {
+    "slug": "thunderlord-zinogre",
+    "filename": "thunderlord-zinogre.png",
+    "source": "MHST2-Thunderlord_Zinogre_Icon.png"
+  },
+  {
+    "slug": "tigrex",
+    "filename": "tigrex.png",
+    "source": "MHST2-Tigrex_Icon.png"
+  },
+  {
+    "slug": "tobi-kadachi",
+    "filename": "tobi-kadachi.png",
+    "source": "MHST2-Tobi-Kadachi_Icon.png"
+  },
+  {
+    "slug": "uragaan",
+    "filename": "uragaan.png",
+    "source": "MHST2-Uragaan_Icon.png"
+  },
+  {
+    "slug": "uroktor",
+    "filename": "uroktor.png",
+    "source": "MHST2-Uroktor_Icon.png"
+  },
+  {
+    "slug": "velkhana",
+    "filename": "velkhana.png",
+    "source": "MHST2-Velkhana_Icon.png"
+  },
+  {
+    "slug": "velocidrome",
+    "filename": "velocidrome.png",
+    "source": "MHST2-Velocidrome_Icon.png"
+  },
+  {
+    "slug": "velociprey",
+    "filename": "velociprey.png",
+    "source": "MHST2-Velociprey_Icon.png"
+  },
+  {
+    "slug": "vespoid",
+    "filename": "vespoid.png",
+    "source": "MHST2-Vespoid_Icon.png"
+  },
+  {
+    "slug": "white-monoblos",
+    "filename": "white-monoblos.png",
+    "source": "MHST2-White_Monoblos_Icon.png"
+  },
+  {
+    "slug": "yian-garuga",
+    "filename": "yian-garuga.png",
+    "source": "MHST2-Yian_Garuga_Icon.png"
+  },
+  {
+    "slug": "yian-kut-ku",
+    "filename": "yian-kut-ku.png",
+    "source": "MHST2-Yian_Kut-Ku_Icon.png"
+  },
+  {
+    "slug": "zamite",
+    "filename": "zamite.png",
+    "source": "MHST2-Zamite_Icon.png"
+  },
+  {
+    "slug": "zamtrios",
+    "filename": "zamtrios.png",
+    "source": "MHST2-Zamtrios_Icon.png"
+  },
+  {
+    "slug": "zinogre",
+    "filename": "zinogre.png",
+    "source": "MHST2-Zinogre_Icon.png"
+  }
+]

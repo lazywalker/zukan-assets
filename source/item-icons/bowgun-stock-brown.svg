@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="64"
+   height="64"
+   viewBox="0 0 16.933333 16.933334"
+   version="1.1"
+   id="svg4846"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="5thGen Item Icon-Bowgun Stock Yellow.svg">
+  <defs
+     id="defs4840" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6"
+     inkscape:cx="8.4569344"
+     inkscape:cy="31.184051"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1304"
+     inkscape:window-height="745"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true" />
+  <metadata
+     id="metadata4843">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-280.06665)">
+    <path
+       style="fill:#d1a756;fill-rule:evenodd;stroke:#000000;stroke-width:0.5291667;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+       d="m 8.4666852,289.49278 c 1.9208758,0 2.8813138,0.64005 2.8813138,0.96007 0,0.32004 -1.280583,0.32004 -1.280583,0.64006 0,0.32002 0.640291,0.96008 1.600729,0.96008 0.960438,0 1.60073,-0.96008 1.60073,-1.92016 0,-0.96008 -2.881314,-2.88023 -2.881314,-2.88023 z"
+       id="path5171"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#5c4721;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.5291667;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 14.869606,281.81216 v 2.24018 h -0.640293 l -1.60073,-1.60013 v -0.64005 z"
+       id="path5089-5"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#d1a756;fill-rule:evenodd;stroke:#000000;stroke-width:0.5291667;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+       d="m 14.229313,286.29252 -4.161897,-4.16033 -1.9208764,1.92015 4.1618974,4.16034 z"
+       id="path5160"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.5291667;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 11.347999,283.41229 -0.640292,0.64005 1.60073,1.60013 0.640293,-0.64005 z"
+       id="path5162"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#5c4721;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.5291667;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 3.9846405,288.85273 -1.6007293,-1.60013 1.2805837,-1.2801 1.9208761,1.92015 z"
+       id="path5169"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#a58242;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.5291667;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 8.7868308,284.69239 c 0,0 -1.6007293,1.92015 -3.2014598,2.88023 -1.6007305,0.96008 -2.8813141,0.96008 -3.2014598,0.96008 -0.3201468,0 -0.3201468,0.32003 -0.3201468,0.32003 0,0.64005 0.9604381,1.60012 1.9208761,2.88023 0.9604381,1.2801 1.2805849,2.24018 1.2805849,2.88024 0,0.64004 0.3201456,0.64004 0.9604381,0.64004 0.6402912,0 2.5611673,-0.96008 2.5611673,-1.60012 0,-0.64006 -0.960438,-0.32003 -0.960438,-1.92016 0,-1.60013 3.5216062,-4.48036 3.5216062,-4.48036 z m -1.9208761,4.48036 c 0,0.64006 0,3.84031 -0.3201456,3.84031 -0.3201456,0 -0.6402925,-0.96007 -0.9604381,-1.60013 -0.3201456,-0.64004 -0.6402924,-0.96008 -0.6402924,-1.2801 0,0 0.960438,-0.96008 1.9208761,-0.96008 z"
+       id="path5164" />
+  </g>
+</svg>

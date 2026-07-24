@@ -1,0 +1,21 @@
+{
+  "_comment": "Official large-monster counts per game, used by tools/audit.py to gauge whether monster-hunter-DB's coverage is complete. Numbers are the franchise-recognized totals (large monsters only), cross-checked against the Monster Hunter Fandom wiki per-game 'Monsters' pages and community tallies. Update these if Capcom adds monsters or if a count is found inaccurate. 'mhdb_game' is the game_full string in monster-hunter-DB's monsters.json that the count should be reconciled against; MHW/MHRise roll their expansions (Iceborne/Sunbreak) into one entry, matching how monster-hunter-DB stores them.",
+  "sources": [
+    "https://monsterhunter.fandom.com/wiki/MHFU:_Monsters",
+    "https://monsterhunter.fandom.com/wiki/MH3U:_Monsters",
+    "https://monsterhunter.fandom.com/wiki/MH4U:_Monsters",
+    "https://monsterhunter.fandom.com/wiki/MHGU:_Monsters",
+    "https://monsterhunter.fandom.com/wiki/MHWI:_Monsters",
+    "https://monsterhunter.fandom.com/wiki/MHRS:_Monsters",
+    "https://monsterhunter.fandom.com/wiki/MHWilds:_Monsters"
+  ],
+  "counts": {
+    "Monster Hunter Freedom Unite": 58,
+    "Monster Hunter 3 Ultimate": 51,
+    "Monster Hunter 4 Ultimate": 75,
+    "Monster Hunter Generations Ultimate": 93,
+    "Monster Hunter World": 71,
+    "Monster Hunter Rise": 78,
+    "Monster Hunter Wilds": 34
+  }
+}

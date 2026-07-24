@@ -1,0 +1,50 @@
+name: Release
+
+# Runs the full pipeline and publishes data/ + icons/ as a Release artifact
+# (tar.gz) for the zukan tool's build.rs to download.
+#
+# Auto-triggers when a PR is merged to master (e.g. the upstream-update PR
+# from check-upstream.yml, or a manual code change). Manual dispatch is also
+# available for ad-hoc releases.
+
+on:
+  pull_request:
+    types: [closed]
+  workflow_dispatch:
+    inputs:
+      skip_publish:
+        description: "Skip publishing (just build + validate)"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    # Only run on merged PRs (not just closed/rejected), plus manual dispatch.
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run pipeline
+        id: pipeline
+        uses: ./.github/actions/run-pipeline
+
+      - name: Package release artifact
+        run: tar czf zukan-assets-bin.tar.gz data/ icons/
+
+      - name: Publish release artifact
+        if: ${{ !inputs.skip_publish }}
+        run: |
+          # Create or move the tag to current commit, then publish.
+          git tag -f assets-latest HEAD
+          git push -f origin assets-latest
+          gh release create assets-latest zukan-assets-bin.tar.gz \
+            --title "zukan-assets build output" \
+            --notes "Build output for the zukan terminal tool." \
+            --latest
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

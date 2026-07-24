@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="64"
+   height="64"
+   viewBox="0 0 16.933333 16.933334"
+   version="1.1"
+   id="svg4846"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="5thGen Item Icon-Assassins Hood Yellow.svg">
+  <defs
+     id="defs4840" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6"
+     inkscape:cx="1.5799989"
+     inkscape:cy="30.930372"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1304"
+     inkscape:window-height="745"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true" />
+  <metadata
+     id="metadata4843">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-280.06665)">
+    <path
+       style="display:inline;opacity:1;vector-effect:none;fill:#a58242;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.5291667;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 8.4666589,286.15207 -3.175,1.5875 v 2.91041 c 0,0.79375 1.0583299,2.91042 3.175,2.91042 2.1166701,0 3.1750001,-2.11667 3.1750001,-2.91042 v -2.91041 z"
+       id="path2835"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       style="display:inline;opacity:1;vector-effect:none;fill:#d1a756;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.5291667;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 8.4666663,281.12498 c -4.7625,0 -3.96875,6.87917 -4.7625,8.46667 -0.5291693,1.05834 -1.8520833,2.11667 -1.8520833,2.11667 l 1.0583333,3.175 1.3229167,-1.85209 2.1166666,2.91042 h 1.3229167 l -2.38125,-4.23333 v -1.05834 l 2.1166667,-2.38125 0.79375,0.79375 h 0.2645833 0.2645834 l 0.79375,-0.79375 2.1166663,2.38125 v 1.05834 l -2.3812497,4.23333 h 1.3229167 l 2.116668,-2.91042 1.322916,1.85209 1.058334,-3.175 c 0,0 -1.322914,-1.05833 -1.852084,-2.11667 -0.793751,-1.5875 0,-8.46667 -4.7625007,-8.46667 z"
+       id="path2817" />
+  </g>
+</svg>
