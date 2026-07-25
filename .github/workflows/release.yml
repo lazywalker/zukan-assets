@@ -27,7 +27,7 @@ jobs:
     if: ${{ github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Run pipeline
         id: pipeline
@@ -39,13 +39,20 @@ jobs:
       - name: Publish release artifact
         if: ${{ !inputs.skip_publish }}
         run: |
-          # Create or move the tag to current commit, then publish.
-          git tag -f assets-latest HEAD
-          git push -f origin assets-latest
-          gh release create assets-latest zukan-assets-bin.tar.gz \
-            --title "zukan-assets build output" \
-            --notes "Build output for the zukan terminal tool." \
-            --latest \
-            --exclude-source-code
+          # Immutable per-build release tagged assets-v<run_number> (monotonic
+          # repo-wide, never reused). Old releases are kept; --latest moves the
+          # "Latest" marker to this build, so consumers fetching
+          # /releases/latest/download/ always get the newest.
+          TAG="assets-v${{ github.run_number }}"
+          if git ls-remote --tags --exit-code origin "refs/tags/${TAG}" >/dev/null 2>&1; then
+            echo "tag ${TAG} already published (re-run of ${GITHUB_SHA}); skipping"
+            exit 0
+          fi
+          git tag "${TAG}" HEAD
+          git push origin "${TAG}"
+          gh release create "${TAG}" zukan-assets-bin.tar.gz \
+            --title "${TAG}" \
+            --notes "Build output for the zukan terminal tool (commit ${GITHUB_SHA})." \
+            --latest
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

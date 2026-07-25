@@ -24,14 +24,18 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Run pipeline
         id: pipeline
         uses: ./.github/actions/run-pipeline
 
       - name: Open PR if sources changed
-        uses: peter-evans/create-pull-request@v6
+        # Honors the workflow_dispatch `create_pr` input (default true).
+        # Skipped when dispatched with create_pr=false; the weekly schedule
+        # has no inputs, so it always opens the PR.
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.create_pr }}
+        uses: peter-evans/create-pull-request@v8
         with:
           commit-message: |
             chore: update upstream sources
