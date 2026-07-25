@@ -45,6 +45,7 @@ jobs:
           gh release create assets-latest zukan-assets-bin.tar.gz \
             --title "zukan-assets build output" \
             --notes "Build output for the zukan terminal tool." \
-            --latest
+            --latest \
+            --exclude-source-code
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
