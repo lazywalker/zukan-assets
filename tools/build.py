@@ -288,9 +288,14 @@ def build_monsters(lookups: dict, stats: dict) -> list[dict]:
     monsters = raw["monsters"] if isinstance(raw, dict) else raw
 
     out: list[dict] = []
+    seen_slugs: set[str] = set()
     for m in monsters:
         name = m["name"]
         slug = slugify(name)
+        if slug in seen_slugs:
+            stats.setdefault("duplicates", []).append(name)
+            continue
+        seen_slugs.add(slug)
         is_large = m.get("isLarge", False)
         games_out: list[dict] = []
         for g in m.get("games", []):
@@ -497,6 +502,9 @@ def main() -> int:
 
     print("== build summary ==")
     print(f"  monsters: {stats['monster_count']}")
+    dupes = stats.get("duplicates", [])
+    if dupes:
+        print(f"  duplicates skipped: {len(dupes)} — {', '.join(dupes)}")
     print(f"  icon refs: {stats['icon_refs']}")
     print(f"  resolved: {stats['resolved']}")
     print(f"  missing: {len(stats['missing'])}")

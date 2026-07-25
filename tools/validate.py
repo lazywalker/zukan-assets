@@ -99,6 +99,26 @@ def main() -> int:
         w("</details>")
         w("")
 
+    # 1b. duplicate slug detection
+    slug_counts: dict[str, list[int]] = defaultdict(list)
+    for i, m in enumerate(monsters):
+        slug_counts[m.get("slug", "")].append(i)
+    dupes = {s: idxs for s, idxs in slug_counts.items() if len(idxs) > 1}
+
+    w("## Duplicate slugs")
+    w("")
+    if dupes:
+        w(f"**{len(dupes)} slug(s) appear more than once:**")
+        w("")
+        for slug, idxs in sorted(dupes.items()):
+            names = [monsters[i]["name"] for i in idxs]
+            w(f"- `{slug}` — indices {', '.join(map(str, idxs))} ({', '.join(names)})")
+        w("")
+        errors.append(f"duplicate slugs: {', '.join(dupes.keys())}")
+    else:
+        w("none — all slugs are unique")
+    w("")
+
     w("## Icon coverage by game")
     w("")
     w("| game | count |")
