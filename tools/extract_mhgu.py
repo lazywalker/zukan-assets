@@ -19,7 +19,6 @@ import hashlib
 import json
 import sqlite3
 import sys
-from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -59,7 +58,6 @@ def write_meta(record_count: int) -> dict:
         "db_path": str(DB.relative_to(ROOT)),
         "db_sha256": hashlib.sha256(DB.read_bytes()).hexdigest(),
         "db_size": DB.stat().st_size,
-        "extracted_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "monster_count": record_count,
     }
     META_OUT.parent.mkdir(parents=True, exist_ok=True)
