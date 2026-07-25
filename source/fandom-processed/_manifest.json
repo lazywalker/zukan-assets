@@ -5447,10 +5447,24 @@
   },
   {
     "game": "mhrise",
+    "slug": "brachydios-003",
+    "filename": "mhrise/brachydios-003.png",
+    "source": "https://static.wikia.nocookie.net/monsterhunter/images/4/44/MHR-Brachydios_Icon_003.png/revision/latest?cb=20210220025508",
+    "wiki_title": "File:MHR-Brachydios Icon 003.png"
+  },
+  {
+    "game": "mhrise",
     "slug": "crimson-glow-valstrax-001",
     "filename": "mhrise/crimson-glow-valstrax-001.png",
     "source": "https://static.wikia.nocookie.net/monsterhunter/images/4/4e/MHR-Crimson_Glow_Valstrax_Icon_001.png/revision/latest?cb=20210824215700",
     "wiki_title": "File:MHR-Crimson Glow Valstrax Icon 001.png"
+  },
+  {
+    "game": "mhrise",
+    "slug": "crystalbeard-uragaan-001",
+    "filename": "mhrise/crystalbeard-uragaan-001.png",
+    "source": "https://static.wikia.nocookie.net/monsterhunter/images/8/88/MHR-Crystalbeard_Uragaan_Icon_001.png/revision/latest?cb=20210524162214",
+    "wiki_title": "File:MHR-Crystalbeard Uragaan Icon 001.png"
   },
   {
     "game": "mhrise",
@@ -7369,12 +7383,5 @@
     "filename": "mhgu/bloodbath-diablos.png",
     "source": "https://static.wikia.nocookie.net/monsterhunter/images/b/b7/MHGU-Bloodbath_Diablos_Icon.png/revision/latest?cb=20251018023118",
     "wiki_title": "File:MHGU-Bloodbath Diablos Icon.png"
-  },
-  {
-    "game": "mhrise",
-    "slug": "crystalbeard-uragaan-001",
-    "filename": "mhrise/crystalbeard-uragaan-001.png",
-    "source": "https://static.wikia.nocookie.net/monsterhunter/images/8/88/MHR-Crystalbeard_Uragaan_Icon_001.png/revision/latest?cb=20210524162214",
-    "wiki_title": "File:MHR-Crystalbeard Uragaan Icon 001.png"
   }
 ]
