@@ -70,37 +70,57 @@ def main() -> int:
     total_refs = sum(per_game.values())
     resolved_refs = sum(1 for m in monsters for g in m.get("games", []) if g.get("icon"))
 
-    print("=" * 60)
-    print("zukan-assets validation report")
-    print("=" * 60)
-    print(f"monsters:           {len(monsters):>6}")
+    # Markdown report — CI pastes this straight into the PR body.
+    out: list[str] = []
+    w = out.append
+
+    w("# zukan-assets validation report")
+    w("")
+    w("## Summary")
+    w("")
+    w("| category | count |")
+    w("| --- | ---: |")
+    w(f"| monsters | {len(monsters)} |")
     large = sum(1 for m in monsters if m.get("is_large"))
-    print(f"  large:            {large:>6}")
-    print(f"  small:            {len(monsters) - large:>6}")
-    print(f"items:              {len(items):>6}")
-    print(f"endemic life:       {len(endemic):>6}")
-    print()
-    print(f"icon refs total:    {total_refs:>6}")
-    print(f"icon refs resolved: {resolved_refs:>6}")
-    print(f"icon refs missing:  {len(missing):>6}")
+    w(f"| &nbsp;&nbsp;large | {large} |")
+    w(f"| &nbsp;&nbsp;small | {len(monsters) - large} |")
+    w(f"| items | {len(items)} |")
+    w(f"| endemic life | {len(endemic)} |")
+    w(f"| icon refs total | {total_refs} |")
+    w(f"| icon refs resolved | {resolved_refs} |")
+    w(f"| icon refs missing | {len(missing)} |")
+    w("")
     if missing:
-        print("  sample missing (first 10):")
+        w("<details><summary>sample missing (first 10)</summary>")
+        w("")
         for line in missing[:10]:
-            print(f"    - {line}")
-    print()
-    print("icon coverage by game:")
+            w(f"- {line}")
+        w("")
+        w("</details>")
+        w("")
+
+    w("## Icon coverage by game")
+    w("")
+    w("| game | count |")
+    w("| --- | ---: |")
     for game, count in sorted(per_game.items()):
-        print(f"  {game:<10} {count:>4}")
-    print()
-    print("icon sources:")
+        w(f"| {game} | {count} |")
+    w("")
+
+    w("## Icon sources")
+    w("")
+    w("| source | count |")
+    w("| --- | ---: |")
     for src, count in icon_sources.most_common():
-        print(f"  {src:<22} {count:>4}")
-    print()
-    print(f"orphan icons (on disk, unreferenced): {len(orphans)}")
+        w(f"| {src} | {count} |")
+    w("")
+
+    w(f"## Orphan icons (on disk, unreferenced): {len(orphans)}")
+    w("")
     if orphans:
         for o in orphans[:10]:
-            print(f"    - {o.relative_to(ICONS)}")
-    print()
+            w(f"- `{o.relative_to(ICONS)}`")
+        w("")
 
     # 2b. item icon integrity — every items.json icon ref resolves, no orphans.
     item_referenced: set[Path] = set()
@@ -117,36 +137,58 @@ def main() -> int:
     item_on_disk: set[Path] = set(item_dir.glob("*.png")) if item_dir.is_dir() else set()
     item_orphans = sorted(item_on_disk - item_referenced)
     item_resolved = len(item_referenced) - len(item_missing)
-    print("item icons:")
-    print(f"  refs:            {len(item_referenced):>6}")
-    print(f"  resolved:        {item_resolved:>6}")
-    print(f"  missing:         {len(item_missing):>6}")
+    w("## Item icons")
+    w("")
+    w("| metric | count |")
+    w("| --- | ---: |")
+    w(f"| refs | {len(item_referenced)} |")
+    w(f"| resolved | {item_resolved} |")
+    w(f"| missing | {len(item_missing)} |")
+    w(f"| orphans | {len(item_orphans)} |")
+    w("")
     if item_missing:
+        w("<details><summary>missing item icons (first 10)</summary>")
+        w("")
         for line in item_missing[:10]:
-            print(f"    - {line}")
-    print(f"  orphans:         {len(item_orphans):>6}")
+            w(f"- {line}")
+        w("")
+        w("</details>")
+        w("")
     if item_orphans:
+        w("<details><summary>orphan item icons (first 10)</summary>")
+        w("")
         for o in item_orphans[:10]:
-            print(f"    - {o.relative_to(ICONS)}")
-    print()
+            w(f"- `{o.relative_to(ICONS)}`")
+        w("")
+        w("</details>")
+        w("")
+
     numeric_mhw = stats.get("numeric_mhw", 0)
     numeric_wilds = stats.get("numeric_wilds", 0)
-    print(f"mhw-db numeric merge:   {numeric_mhw:>4} monsters")
-    print(f"wilds numeric merge:    {numeric_wilds:>4} monsters")
-    print()
+    w("## Numeric data")
+    w("")
+    w(f"- mhw-db numeric merge: {numeric_mhw} monsters")
+    w(f"- wilds numeric merge: {numeric_wilds} monsters")
+    w("")
 
     # 4. integrity verdict
+    w("## Integrity")
+    w("")
     if missing:
         pct = (resolved_refs / total_refs * 100) if total_refs else 0
-        print(f"resolution rate: {pct:.1f}%")
+        w(f"resolution rate: {pct:.1f}%")
+        w("")
     if errors:
-        print(f"\nINTEGRITY: {len(errors)} error(s)")
+        w(f"**{len(errors)} error(s)**")
         # Missing icon files are a hard error; missing optional refs are not.
         hard = [e for e in errors if e.startswith("missing icon file")]
         if hard:
-            print(f"  ({len(hard)} hard — referenced but absent on disk)")
+            w("")
+            w(f"{len(hard)} hard — referenced but absent on disk")
+            print("\n".join(out))
             return 1
-    print("\nINTEGRITY: ok (all referenced icons present)")
+    w("ok — all referenced icons present")
+    print("\n".join(out))
     return 0
 
 
