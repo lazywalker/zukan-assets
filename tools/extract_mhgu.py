@@ -50,7 +50,8 @@ def write_meta(record_count: int) -> dict:
     """Record which db this extraction read, so a silent re-vendor is detectable.
 
     upstream_commit comes from the .source-commit file written at vendor time;
-    db_sha256/size/mtime are computed from the actual file on disk.
+    db_sha256/size are computed from the actual file. sha256 is the definitive
+    fingerprint — if it changes, the db content changed.
     """
     meta = {
         "source": "gatheringhallstudios/MHGenDatabase",
@@ -58,8 +59,6 @@ def write_meta(record_count: int) -> dict:
         "db_path": str(DB.relative_to(ROOT)),
         "db_sha256": hashlib.sha256(DB.read_bytes()).hexdigest(),
         "db_size": DB.stat().st_size,
-        "db_mtime": datetime.fromtimestamp(DB.stat().st_mtime, tz=timezone.utc)
-        .isoformat(timespec="seconds"),
         "extracted_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "monster_count": record_count,
     }
@@ -135,7 +134,7 @@ def main() -> int:
     meta = write_meta(len(records))
     print(f"extracted {len(records)} monsters -> {OUT.relative_to(ROOT)}")
     print(f"  db: {meta['upstream_commit']} sha256={meta['db_sha256'][:12]}… "
-          f"({meta['db_size']} bytes, mtime {meta['db_mtime']})")
+          f"({meta['db_size']} bytes)")
     return 0
 
 
