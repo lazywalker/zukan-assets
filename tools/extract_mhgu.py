@@ -46,11 +46,31 @@ def _rows(cur, sql, params=()):
     return [dict(zip(cols, r)) for r in cur.fetchall()]
 
 
+def _git_last_commit_iso(path: Path) -> str | None:
+    """Get the ISO timestamp of the last git commit that touched a file.
+
+    More reliable than filesystem mtime, which git checkout resets to the
+    current time (making every CI run look like the db changed).
+    """
+    import subprocess
+    try:
+        r = subprocess.run(
+            ["git", "log", "-1", "--format=%cI", "--", str(path)],
+            capture_output=True, text=True, cwd=ROOT,
+        )
+        if r.returncode == 0 and r.stdout.strip():
+            return r.stdout.strip().replace("\n", "")
+    except Exception:
+        pass
+    return None
+
+
 def write_meta(record_count: int) -> dict:
     """Record which db this extraction read, so a silent re-vendor is detectable.
 
     upstream_commit comes from the .source-commit file written at vendor time;
-    db_sha256/size/mtime are computed from the actual file on disk.
+    db_sha256/size are computed from the actual file on disk.
+    db_last_commit is the git commit timestamp (stable across checkouts).
     """
     meta = {
         "source": "gatheringhallstudios/MHGenDatabase",
@@ -58,8 +78,7 @@ def write_meta(record_count: int) -> dict:
         "db_path": str(DB.relative_to(ROOT)),
         "db_sha256": hashlib.sha256(DB.read_bytes()).hexdigest(),
         "db_size": DB.stat().st_size,
-        "db_mtime": datetime.fromtimestamp(DB.stat().st_mtime, tz=timezone.utc)
-        .isoformat(timespec="seconds"),
+        "db_last_commit": _git_last_commit_iso(DB),
         "extracted_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "monster_count": record_count,
     }
@@ -135,7 +154,7 @@ def main() -> int:
     meta = write_meta(len(records))
     print(f"extracted {len(records)} monsters -> {OUT.relative_to(ROOT)}")
     print(f"  db: {meta['upstream_commit']} sha256={meta['db_sha256'][:12]}… "
-          f"({meta['db_size']} bytes, mtime {meta['db_mtime']})")
+          f"({meta['db_size']} bytes, committed {meta.get('db_last_commit', '?')})")
     return 0
 
 
