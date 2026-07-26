@@ -509,12 +509,13 @@ def apply_i18n(records: list[dict], i18n_path: Path) -> None:
 
 def main() -> int:
     DATA.mkdir(parents=True, exist_ok=True)
-    # Reset icons/ output for idempotency.
+    # Reset icons/ output for idempotency: remove every subdir wholesale so
+    # stale game dirs from a previous build (e.g. a buggy run that created
+    # slugified game_full names like 'monster-hunter-4-ultimate') don't
+    # linger once empty. build_monsters recreates the dirs it needs.
     for d in ICONS.iterdir():
         if d.is_dir():
-            for f in d.glob("*"):
-                if f.is_file():
-                    f.unlink()
+            shutil.rmtree(d, ignore_errors=True)
 
     lookups = build_icon_lookup()
     stats: dict = {
