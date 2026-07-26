@@ -5,8 +5,8 @@ Turns vendored + fetched sources into `data/` and `icons/`.
 ## Pipeline
 
 ```
-fetch_external.py → fetch_item_icons.py → extract_mhgu.py → clean_mhst2.py → split_sprites.py → build.py → normalize.py → clean_background.py → validate.py / audit.py
-   (network)         (item type icons)    (mhgu db→json)   (mhst2 frame)    (fandom raw)      (join)   (48px/32c/enh)  (zero RGB@α0)        (reports)
+fetch_external.py → fetch_item_icons.py → extract_mhgu.py → clean_mhst2.py → split_sprites.py → build.py → normalize.py → clean_halo.py → clean_background.py → validate.py / audit.py
+   (network)         (item type icons)    (mhgu db→json)   (mhst2 frame)    (fandom raw)      (join)   (48px/32c/enh)  (strip halo)  (zero RGB@α0)        (reports)
 ```
 
 The default style keeps icons **transparent** (no background fill). For the
@@ -22,6 +22,7 @@ optional filled-square-card variant, insert `fill_background.py` between
 | `split_sprites.py` | slug-rename Fandom raw icons by game | `source/fandom-raw` manifest | `source/fandom-processed/` |
 | `build.py` | join baseline roster + icons + numeric data + item-type icons | `source/` | `data/`, `icons/` |
 | `normalize.py` | resize to 48px square, enhance contrast/sharpness, quantize to 32 colors | `icons/` | `icons/` (in place) |
+| `clean_halo.py` | strip the feathered white edge (flood-fill from border through semi-transparent near-white px) | `icons/` | `icons/` (in place) |
 | `clean_background.py` | zero RGB on alpha=0 pixels (clear residue from quantize) | `icons/` | `icons/` (in place) |
 | `validate.py` | integrity + coverage report (every icon resolves, no orphans) | `data/`, `icons/` | stdout |
 | `audit.py` | completeness: counts vs official + API cross-check + transparency residue | `data/`, `tools/official_counts.json`, `source/api_cache/`, `icons/` | stdout |
@@ -92,6 +93,7 @@ python3 clean_mhst2.py         # clean MHDB MHST2 dark frames
 python3 split_sprites.py       # slug-rename Fandom raw
 python3 build.py
 python3 normalize.py           # 48px square + contrast enhance + 32 colors (transparent bg)
+python3 clean_halo.py          # strip feathered white edge (Rise/Sunbreak)
 python3 clean_background.py    # zero RGB on transparent pixels
 python3 validate.py            # internal consistency
 python3 audit.py               # completeness vs official counts + APIs + residue

@@ -59,6 +59,13 @@ runs:
       shell: bash
       run: python3 tools/normalize.py
 
+    - name: Strip feathered white halo
+      # Flood-fill from the border through semi-transparent near-white pixels
+      # (the Rise/Sunbreak feathered edge). Must run after normalize, which
+      # regenerates anti-aliasing edges during downscale.
+      shell: bash
+      run: python3 tools/clean_halo.py
+
     - name: Clean background residue
       shell: bash
       run: python3 tools/clean_background.py
