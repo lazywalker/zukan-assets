@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 """Complete the partial background on Monster Hunter icons.
 
+OPTIONAL — this is "style 2" (filled square card). The default pipeline keeps
+icons transparent and does NOT run this script; CI omits it. Run it between
+build.py and normalize.py only if you want the opaque-card look. See
+tools/README.md "Background styles".
+
 monster-hunter-DB's source icons have their background keyed to alpha 0 only
 around the outer ring (a rounded/circular crop), leaving a broken-looking
 frame with transparent gaps. This pass fills those outer transparent regions

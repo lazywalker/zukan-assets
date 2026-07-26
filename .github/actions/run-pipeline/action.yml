@@ -1,7 +1,9 @@
 name: Run ETL pipeline
 description: |
   Runs the full zukan-assets pipeline (fetch → extract → build → normalize →
-  validate). Shared by check-upstream.yml and release.yml to avoid duplication.
+  validate). Icons keep transparent backgrounds (the default style); see
+  tools/README.md "Background styles" for the optional filled-card variant.
+  Shared by check-upstream.yml and release.yml to avoid duplication.
   Outputs `validate-summary` for PR/Release bodies.
 
 outputs:
@@ -51,12 +53,9 @@ runs:
       shell: bash
       run: python3 tools/build.py
 
-    - name: Fill partial backgrounds
-      shell: bash
-      run: python3 tools/fill_background.py
-
     - name: Normalize icons to uniform spec
-      # 48px square, 32 colors, contrast-enhanced.
+      # 48px square, 32 colors, contrast-enhanced. Transparent background is
+      # kept (fill_background.py is skipped) — see tools/README.md "Background styles".
       shell: bash
       run: python3 tools/normalize.py
 

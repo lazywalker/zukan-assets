@@ -9,10 +9,11 @@ This pass brings every icon to one spec:
   - resize to a fixed TARGET_W × TARGET_W square;
   - quantize to a small palette (PALETTE_COLORS) for flat pixel-art regions.
 
-Monster Hunter icons are card-style illustrations with their own backgrounds
-(e.g. the in-game hunter's notebook tiles), not isolated sprites, so the full
-square frame is kept — no transparent-margin trimming. This preserves the
-source art's composition. Runs over icons/ after build.py. Idempotent.
+Icons keep their transparent backgrounds (the default style): the full square
+frame is preserved with no margin trimming, and alpha is left untouched so the
+subject floats on the terminal's own background. For the filled-card variant
+("style 2"), run fill_background.py before this script — see tools/README.md
+"Background styles". Runs over icons/ after build.py. Idempotent.
 """
 
 from __future__ import annotations
@@ -49,13 +50,29 @@ def quantize_rgba(im: Image.Image, colors: int) -> Image.Image:
     return Image.frombytes("RGBA", im.size, bytes(data))
 
 
+def _is_already_normalized(im: Image.Image) -> bool:
+    """True if the image already matches the output spec (size == TARGET_W²).
+
+    normalize()'s enhancement ops (UnsharpMask/Contrast/Color) are NOT
+    idempotent — re-running on an already-normalized image keeps pushing
+    saturation/sharpness and drifts forever. This guard makes the script safe
+    to re-run: it skips anything already at spec.
+
+    Size alone is a reliable signal here: every source icon is ≥54px (the
+    smallest is MH3U's 54×54), so a 48×48 image can only have come from a
+    prior normalize run. Reading PNG dimensions needs only the header (no
+    pixel decode), so this check is ~500× faster than counting colors —
+    matters when scanning 2395 icons.
+    """
+    return im.size == (TARGET_W, TARGET_W)
+
+
 def normalize(im: Image.Image) -> Image.Image:
     im = im.convert("RGBA")
-    # Resize to a fixed square. Monster Hunter icons are card-style
-    # illustrations with their own backgrounds, not isolated sprites, so we
-    # keep the full square frame (no trim) — matching the source art. Item
-    # icons are flood-filled to a card by fill_background.py first, so they go
-    # through the same path.
+    # Resize to a fixed square. The full square frame is kept (no trim) so the
+    # source art's composition is preserved; alpha is left untouched so the
+    # subject floats on a transparent background. The optional style-2 build
+    # runs fill_background.py first to flood-fill the bg into an opaque card.
     im = im.resize((TARGET_W, TARGET_W), Image.LANCZOS)
     # Enhance contrast before quantizing: downscaling averages colors and
     # muddies the monster-vs-background separation, so sharpen edges, stretch
@@ -76,10 +93,18 @@ def main() -> int:
         print("no icons in icons/ (run build.py first)")
         return 1
     processed = 0
+    skipped = 0
     for f in files:
-        normalize(Image.open(f)).save(f)
+        im = Image.open(f)
+        if _is_already_normalized(im):
+            # Already at spec — skip. normalize()'s enhancement ops are not
+            # idempotent, so re-processing would keep drifting each run.
+            skipped += 1
+            continue
+        normalize(im).save(f)
         processed += 1
-    print(f"normalized {processed} icons -> {TARGET_W}px wide, {PALETTE_COLORS} colors")
+    print(f"normalized {processed} icons -> {TARGET_W}px wide, {PALETTE_COLORS} colors"
+          + (f" ({skipped} already at spec, skipped)" if skipped else ""))
     return 0
 
 

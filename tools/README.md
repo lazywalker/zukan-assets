@@ -5,9 +5,13 @@ Turns vendored + fetched sources into `data/` and `icons/`.
 ## Pipeline
 
 ```
-fetch_external.py → fetch_item_icons.py → extract_mhgu.py → clean_mhst2.py → split_sprites.py → build.py → fill_background.py → normalize.py → clean_background.py → validate.py / audit.py
-   (network)         (item type icons)    (mhgu db→json)   (mhst2 frame)    (fandom raw)      (join)   (fill bg ring)   (48px/32c/enh)  (zero RGB@α0)        (reports)
+fetch_external.py → fetch_item_icons.py → extract_mhgu.py → clean_mhst2.py → split_sprites.py → build.py → normalize.py → clean_background.py → validate.py / audit.py
+   (network)         (item type icons)    (mhgu db→json)   (mhst2 frame)    (fandom raw)      (join)   (48px/32c/enh)  (zero RGB@α0)        (reports)
 ```
+
+The default style keeps icons **transparent** (no background fill). For the
+optional filled-square-card variant, insert `fill_background.py` between
+`build.py` and `normalize.py` — see [Background styles](#background-styles).
 
 | Script | Purpose | Reads | Writes |
 |---|---|---|---|
@@ -17,7 +21,6 @@ fetch_external.py → fetch_item_icons.py → extract_mhgu.py → clean_mhst2.py
 | `clean_mhst2.py` | remove dark frame from MHDB MHST2 icons | `source/monster-hunter-DB/icons/MHST2-*` | `source/mhst2-cleaned/` |
 | `split_sprites.py` | slug-rename Fandom raw icons by game | `source/fandom-raw` manifest | `source/fandom-processed/` |
 | `build.py` | join baseline roster + icons + numeric data + item-type icons | `source/` | `data/`, `icons/` |
-| `fill_background.py` | flood-fill the keyed-out bg ring into a full square card | `icons/` | `icons/` (in place) |
 | `normalize.py` | resize to 48px square, enhance contrast/sharpness, quantize to 32 colors | `icons/` | `icons/` (in place) |
 | `clean_background.py` | zero RGB on alpha=0 pixels (clear residue from quantize) | `icons/` | `icons/` (in place) |
 | `validate.py` | integrity + coverage report (every icon resolves, no orphans) | `data/`, `icons/` | stdout |
@@ -26,13 +29,19 @@ fetch_external.py → fetch_item_icons.py → extract_mhgu.py → clean_mhst2.py
 | `item_kind.py` | infer an item's generic icon type from its name (for MHW items w/o kind field) | — | — |
 | `generate_i18n.py` | generate/update localized translations (ja/zh) from wilds API or AI; not part of CI | network (optional) | `source/i18n/*.json` |
 
+Optional (off by default):
+
+| Script | Purpose | Reads | Writes |
+|---|---|---|---|
+| `fill_background.py` | **style 2**: flood-fill the keyed-out bg ring into a full square card | `icons/` | `icons/` (in place) |
+
 ## Icon spec
 
 Every output icon gets normalized to one spec (set in `normalize.py`):
 
-- **48×48 square**, with the partial background ring flood-filled out to a full
-  card (MH icons are card-style illustrations, not isolated sprites, so the
-  whole frame stays).
+- **48×48 square**, transparent background (the subject floats on the
+  terminal's own bg). For the filled-card variant see
+  [Background styles](#background-styles).
 - **32-color palette**, quantized with no dithering (keeps the flat pixel-art
   regions flat).
 - **Contrast enhanced** (sharpen + contrast×1.3 + saturation×1.4) before
@@ -42,6 +51,33 @@ Every output icon gets normalized to one spec (set in `normalize.py`):
   loses almost nothing, so a single stored size covers both.
 
 Bundle: ~3.3MB for 731 monster icons + ~3.1MB for 1664 item icons (~6.4MB total).
+
+## Background styles
+
+There are two supported looks; **transparent is the default**.
+
+- **Style 1 — transparent (default).** Icons keep their alpha channel. The
+  monster floats on whatever color the terminal/background is. This is what
+  the pipeline above produces, and what CI publishes.
+
+- **Style 2 — filled square card.** Flood-fill each icon's keyed-out
+  background ring into a full opaque square, recreating the in-game
+  hunter's-notebook card. Use it when you want every icon to fill its cell
+  with its original card color (MHFU green, MH4U gold, Rise near-white, …).
+
+To build style 2 locally, insert one step between `build.py` and
+`normalize.py`:
+
+```bash
+python3 build.py
+python3 fill_background.py    # style 2 only — fill bg ring → full square card
+python3 normalize.py          # 48px square + contrast enhance + 32 colors
+python3 clean_background.py   # zero RGB on transparent pixels
+```
+
+CI publishes style 1 (transparent). To publish style 2 instead, add the
+`fill_background.py` step back into
+`.github/actions/run-pipeline/action.yml`.
 
 ## Local rebuild
 
@@ -55,17 +91,18 @@ python3 extract_mhgu.py        # extract MHGU db → JSON
 python3 clean_mhst2.py         # clean MHDB MHST2 dark frames
 python3 split_sprites.py       # slug-rename Fandom raw
 python3 build.py
-python3 fill_background.py     # fill partial bg ring → full square card
-python3 normalize.py           # 48px square + contrast enhance + 32 colors
+python3 normalize.py           # 48px square + contrast enhance + 32 colors (transparent bg)
 python3 clean_background.py    # zero RGB on transparent pixels
 python3 validate.py            # internal consistency
 python3 audit.py               # completeness vs official counts + APIs + residue
 ```
 
-`fill_background.py` fills out the partial background (MHDB icons come with a
-keyed-out rounded ring) into a full square card. `normalize.py` then resizes to
-48px, bumps contrast/sharpness/saturation to make up for the downscaling, and
-quantizes to 32 colors.
+The default build keeps icons transparent. For the filled-card look (**style 2**),
+run `python3 fill_background.py` between `build.py` and `normalize.py` — see
+[Background styles](#background-styles).
+
+`normalize.py` resizes to 48px, bumps contrast/sharpness/saturation to make up
+for the downscaling, and quantizes to 32 colors.
 
 `clean_background.py` clears leftover bg color from the RGB channels of
 fully-transparent pixels: monster-hunter-DB's source icons for a few games
