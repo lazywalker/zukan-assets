@@ -14,6 +14,13 @@ from a couple of community APIs.
 > See [LICENSE](LICENSE) for the full notice and [CREDITS.md](CREDITS.md) for
 > per-source terms. Rights holders: please open an issue for takedown.
 
+## Download
+
+The real assets ship as a **Release artifact**, not in this repo and not in the
+"Source code" links on the release page.
+
+- **Latest release:** [`zukan-assets-bin.tar.gz`](https://github.com/lazywalker/zukan-assets/releases/latest/download/zukan-assets-bin.tar.gz)
+
 ## Repository layout
 
 ```

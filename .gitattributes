@@ -1,0 +1,17 @@
+# Keep the auto-generated "Source code" archives (git archive / GitHub
+# release source tarballs) empty on purpose. The real data ships as the
+# latest Release artifact — see README for the download link.
+#
+# Git attributes don't support negation, so every top-level entry that
+# should stay OUT of the source package must be listed explicitly. If you
+# add a new top-level file or directory, add it here with `export-ignore`
+# (directories need a trailing slash) so it doesn't leak into the source
+# package. README.md and LICENSE below are intentionally left un-ignored.
+CREDITS.md export-ignore
+data/ export-ignore
+.github/ export-ignore
+.gitignore export-ignore
+icons/ export-ignore
+source/ export-ignore
+tools/ export-ignore
+.gitattributes export-ignore
