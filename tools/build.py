@@ -30,6 +30,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 from common import (  # noqa: E402
+    GAME_EXPANSION_ICON,
     GAME_PREFIX,
     ICON_TYPO_FIXES,
     fix_icon_ref,
@@ -333,11 +334,25 @@ def build_monsters(lookups: dict, stats: dict) -> list[dict]:
             game_full = g["game"]
             ref = g.get("image")
             stats["icon_refs"] += 1
-            # The output game dir follows the icon's own prefix when present,
-            # so expansions keep their distinction (MHWI -> mhwi, MHRS -> mhrs)
-            # rather than collapsing into the base-game dir.
+            # game_full is authoritative for which game the monster belongs to.
+            # The icon-ref prefix only overrides it for true expansions: MHDB
+            # records Iceborne (MHWI-) icons under "Monster Hunter World" and
+            # Sunbreak (MHRS-) icons under "Monster Hunter Rise", and we keep
+            # the expansion subdir to preserve that distinction. Every other
+            # prefix mismatch is a cross-borrow (e.g. a "Monster Hunter
+            # Generations Ultimate" entry reusing a MH4U- icon) and must NOT
+            # override game_full — doing so used to put MHGU monsters under
+            # mh4u/, hiding them from the mhgu listing.
+            base = GAME_PREFIX.get(game_full)
             icon_game = icon_ref_to_game(ref) if ref else None
-            game = icon_game or GAME_PREFIX.get(game_full)
+            # Keep the expansion subdir only when the icon prefix actually is
+            # the expansion's (and is recognized). icon_game can be None for
+            # unparseable refs (MHWs_, FrontierGen-, MH4-), in which case the
+            # None == None check below would false-positive — guard with `and`.
+            if icon_game and icon_game == GAME_EXPANSION_ICON.get(game_full):
+                game = icon_game
+            else:
+                game = base
             if game is None:
                 stats["unknown_game"].append((name, game_full))
                 game = slugify(game_full)

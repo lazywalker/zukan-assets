@@ -52,6 +52,19 @@ GAME_PREFIX = {
     "Monster Hunter Stories 2": "mhst2",
 }
 
+# True expansion packs: base game_full -> the icon-prefix used by that base's
+# expansion (Iceborne ships MHWI- icons under "Monster Hunter World" entries;
+# Sunbreak ships MHRS- icons under "Monster Hunter Rise" entries). MHDB records
+# these expansion icons against the *base* game_full, so we keep the expansion
+# subdir to preserve the Iceborne/Sunbreak distinction. Every other icon-ref
+# prefix that disagrees with game_full is an MHDB cross-borrow (e.g. a
+# "Monster Hunter Generations Ultimate" entry reusing a MH4U- icon) and must
+# NOT override game_full — see build.build_monsters.
+GAME_EXPANSION_ICON = {
+    "Monster Hunter World": "mhwi",   # Iceborne
+    "Monster Hunter Rise": "mhrs",    # Sunbreak
+}
+
 # The 7 known typo'd icon references in monster-hunter-DB/monsters.json.
 # Each maps the broken image filename -> the corrected one present in
 # source/monster-hunter-DB/icons/.
