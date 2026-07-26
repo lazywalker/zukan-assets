@@ -21,6 +21,7 @@ Outputs are deterministic; re-running produces identical bytes (sorted keys).
 from __future__ import annotations
 
 import json
+import re
 import shutil
 import sys
 from collections import defaultdict
@@ -111,6 +112,17 @@ def copy_icon(src: Path, dest: Path) -> None:
         shutil.copy2(src, dest)
 
 
+def _fandom_clean_slug(slug: str) -> str:
+    """Normalize a Fandom manifest slug to match MHDB monster slugs.
+
+    Fandom wiki filenames carry a 3-digit sequence suffix (e.g. Rathalos
+    'MHR-Rathalos_Icon_001.png' -> slug 'rathalos-001'). MHDB monsters use the
+    bare name ('rathalos'), so we strip the trailing '-NNN'. Only mhrise icons
+    carry this suffix; other games are unaffected.
+    """
+    return re.sub(r"-\d{3}$", "", slug)
+
+
 def build_icon_lookup() -> dict:
     """Build per-source {game_prefix: {slug: path}} lookups from processed dirs."""
     lookups: dict[str, dict[str, dict[str, Path]]] = {}
@@ -123,10 +135,23 @@ def build_icon_lookup() -> dict:
     for rec in mhst2_man:
         add("mhst2-cleaned", "mhst2", rec["slug"], MHST2_CLEANED / rec["filename"])
 
-    # Fandom icons are organised by game already.
+    # Fandom icons are organised by game already. Strip the '-NNN' sequence
+    # suffix (see _fandom_clean_slug); when a monster has multiple variants
+    # (-001, -002, ...), prefer -001 as the canonical icon.
     fandom_man = load_json(FANDOM_OUT / "_manifest.json") or []
+    fandom_seen: dict[str, dict[str, Path]] = {}  # {game: {clean_slug: path}}
     for rec in fandom_man:
-        add("fandom", rec["game"], rec["slug"], FANDOM_OUT / rec["filename"])
+        game = rec["game"]
+        raw_slug = rec["slug"]
+        path = FANDOM_OUT / rec["filename"]
+        clean = _fandom_clean_slug(raw_slug)
+        is_canonical = raw_slug.endswith("-001")
+        slot = fandom_seen.setdefault(game, {})
+        # Prefer -001; otherwise keep the first seen (deterministic via sorted manifest).
+        if clean not in slot or is_canonical:
+            slot[clean] = path
+    for game, slot in fandom_seen.items():
+        lookups.setdefault("fandom", {})[game] = slot
 
     return lookups
 
@@ -196,6 +221,8 @@ def choose_icon(
     Priority is source-specific so a higher-quality derived source can outrank
     the monster-hunter-DB baseline where it overlaps:
       - mhst2: cleaned MHDB (dark frame removed) > raw monster-hunter-DB > fandom
+      - mhrise: Fandom (clean colored art) > monster-hunter-DB (its Rise icons
+        are a monochrome ink style that doesn't render as character art)
       - other games: monster-hunter-DB > fandom
     """
     # Build the ordered candidate list for this game.
@@ -205,6 +232,10 @@ def choose_icon(
     if game == "mhst2":
         p = lookups.get("mhst2-cleaned", {}).get(game, {}).get(slug)
         candidates.append(("mhst2-cleaned", p))
+
+    # mhrise: prefer Fandom's colored icons over MHDB's ink-style ones.
+    if game == "mhrise":
+        candidates.append(("fandom", lookups.get("fandom", {}).get(game, {}).get(slug)))
 
     # monster-hunter-DB baseline.
     if mhdb_ref:

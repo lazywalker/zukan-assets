@@ -137,9 +137,15 @@ pipeline steps. Manual dispatch is available for both.
 For each (monster, game) the build grabs the first icon it can find:
 
 1. cleaned MHDB MHST2 icons (mhst2 only), dark frame removed
-2. monster-hunter-DB baseline (its own game references)
-3. Fandom, same game
-4. Fandom, any game (cross-matched by slug)
+2. Fandom, same game — **mhrise only**: MHDB's Rise icons are a monochrome
+   ink style that doesn't render as character art, so Fandom's colored art is
+   preferred where available (Fandom's mhrise set is partial, so MHDB still
+   fills the gaps — see #3). Fandom slugs carry a `-NNN` wiki sequence suffix
+   that's stripped to match (`rathalos-001` → `rathalos`); when multiple
+   variants exist, `-001` is the canonical pick.
+3. monster-hunter-DB baseline (its own game references)
+4. Fandom, same game
+5. Fandom, any game (cross-matched by slug)
 
 Each output's `games[].icon_source` records which one got used.
 
