@@ -52,7 +52,7 @@ Every output icon gets normalized to one spec (set in `normalize.py`):
   detailed viewing or 24 for compact bash-startup art; one downscale from 48
   loses almost nothing, so a single stored size covers both.
 
-Bundle: ~3.3MB for 731 monster icons + ~3.1MB for 1664 item icons (~6.4MB total).
+Bundle: ~3.9MB for 873 monster icons + ~3.1MB for 1664 item icons (~7.0MB total).
 
 ## Background styles
 
@@ -156,6 +156,19 @@ For each (monster, game) the build grabs the first icon it can find:
 6. Fandom, any game (cross-matched by slug)
 
 Each output's `games[].icon_source` records which one got used.
+
+## Roster supplement (build.py)
+
+monster-hunter-DB is the baseline roster, but it omits six MH4U bosses (the
+Apex variants it doesn't list under other games). `build_monsters` fills
+those gaps from the MH4U db after the MHDB loop: any MH4U db Large monster
+whose slug isn't already in the roster gets a synthesized entry with one
+mh4u game (icon from the vendored bestiary set, numeric data from the same
+db). Small/Minion monsters are skipped so the roster doesn't gain
+unremarkable fauna MHDB chose not to carry. The summary prints how many
+were added each run.
+
+## Idempotency
 
 ## Idempotency
 

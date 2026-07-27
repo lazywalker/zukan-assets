@@ -2,19 +2,21 @@
 """Build data/ and icons/ from all sources.
 
 Pipeline:
-  1. Load monster-hunter-DB monsters.json as the baseline roster (337).
-  2. For each (monster, game) icon reference, resolve it to a processed icon
+  1. Load monster-hunter-DB monsters.json as the baseline roster.
+  2. Supplement the roster with MH4U bosses MHDB omits (Apex variants) from
+     the MH4U db, so they get an icon + numeric data.
+  3. For each (monster, game) icon reference, resolve it to a processed icon
      using the priority chain:
        cleaned MHST2 (mhst2) -> vendored MH4U bestiary (mh4u)
        -> monster-hunter-DB baseline -> Fandom (any game) -> mark missing.
-  3. Copy the chosen icon to icons/<game>/<slug>.png.
-  4. Merge per-game hunter-notes text from the baseline.
-  5. Merge mhw-db (MHW/Iceborne), wilds.mhdb.io (Wilds), MHGU db
+  4. Copy the chosen icon to icons/<game>/<slug>.png.
+  5. Merge per-game hunter-notes text from the baseline.
+  6. Merge mhw-db (MHW/Iceborne), wilds.mhdb.io (Wilds), MHGU db
      (Generations Ultimate), and MH4U db numeric data: description,
      weaknesses, resistances, ailments, locations, rewards, hitzones,
      status, HP.
-  6. Build items.json from both APIs.
-  7. Build endemic_life.json from the baseline.
+  7. Build items.json from both APIs.
+  8. Build endemic_life.json from the baseline.
 
 Outputs are deterministic; re-running produces identical bytes (sorted keys).
 """
@@ -349,6 +351,133 @@ def merge_numeric(baseline: dict) -> dict:
     return enriched
 
 
+def _resolve_games(name: str, slug: str, games: list[dict], lookups: dict, stats: dict) -> list[dict]:
+    """Turn a source's `games[]` list into the built `games[]` shape, resolving icons.
+
+    Shared by the MHDB roster loop and the MH4U roster supplement so the
+    icon-resolution rules (expansion handling, priority chain) stay in one place.
+    """
+    games_out: list[dict] = []
+    for g in games:
+        game_full = g["game"]
+        ref = g.get("image")
+        stats["icon_refs"] += 1
+        # game_full is authoritative for which game the monster belongs to.
+        # The icon-ref prefix only overrides it for true expansions: MHDB
+        # records Iceborne (MHWI-) icons under "Monster Hunter World" and
+        # Sunbreak (MHRS-) icons under "Monster Hunter Rise", and we keep
+        # the expansion subdir to preserve that distinction. Every other
+        # prefix mismatch is a cross-borrow (e.g. a "Monster Hunter
+        # Generations Ultimate" entry reusing a MH4U- icon) and must NOT
+            # override game_full; doing so used to put MHGU monsters under
+            # mh4u/, hiding them from the mhgu listing.
+        base = GAME_PREFIX.get(game_full)
+        icon_game = icon_ref_to_game(ref) if ref else None
+        # Keep the expansion subdir only when the icon prefix actually is
+            # the expansion's (and is recognized). icon_game can be None for
+            # unparseable refs (MHWs_, FrontierGen-, MH4-), in which case the
+            # None == None check below would false-positive; guard with `and`.
+        if icon_game and icon_game == GAME_EXPANSION_ICON.get(game_full):
+            game = icon_game
+        else:
+            game = base
+        if game is None:
+            stats["unknown_game"].append((name, game_full))
+            game = slugify(game_full)
+        icon, origin = choose_icon(slug, game, ref, lookups)
+        entry = {
+            "game": game,
+            "game_full": game_full,
+            "info": g.get("info"),
+            "danger": g.get("danger"),
+        }
+        if icon and icon.exists():
+            dest = ICONS / game / f"{slug}.png"
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            copy_icon(icon, dest)
+            entry["icon"] = f"{game}/{slug}.png"
+            entry["icon_source"] = origin
+            stats["resolved"] += 1
+            stats["origin"][origin] = stats["origin"].get(origin, 0) + 1
+        else:
+            stats["missing"].append((name, game_full, ref))
+        games_out.append(entry)
+    return games_out
+
+
+def _mh4u_supplement(seen_slugs: set[str], lookups: dict, stats: dict) -> list[dict]:
+    """Synthesize roster entries for MH4U monsters MHDB doesn't list.
+
+    MHDB omits six MH4U bosses (the Apex variants minus those it lists under
+    other games, plus Dah'ren Mohran). The MH4U db has their full data and
+    we have their icons vendored, so synthesize a minimal MHDB-shaped record
+    for each missing Large monster: a single mh4u game entry whose `image`
+    is the original upstream filename (so icon_ref_to_game routes it to mh4u
+    and choose_icon finds it in the vendored set). Small/Minion monsters are
+    skipped to avoid padding the roster with unremarkable fauna MHDB chose
+    not to carry.
+    """
+    mh4u = load_json(API_CACHE / "mh4u_monsters.json") or []
+    mh4u_man = {r["slug"]: r for r in (load_json(MH4U_ICONS / "_manifest.json") or [])}
+    out: list[dict] = []
+    for h4 in mh4u:
+        if h4.get("class") != "Large":
+            continue
+        slug = slugify(h4["name"])
+        if slug in seen_slugs:
+            continue
+        # Only emit if we have an icon to attach; otherwise the entry would
+        # be iconless and the data is reachable anyway via numeric.mh4u on
+        # any same-named monster from another game.
+        man = mh4u_man.get(slug)
+        if not man:
+            continue
+        seen_slugs.add(slug)
+        stats.setdefault("mh4u_supplement", []).append(h4["name"])
+        synthesized = {
+            "name": h4["name"],
+            "_id": None,
+            "type": None,
+            "isLarge": True,
+            "games": [{
+                "game": "Monster Hunter 4 Ultimate",
+                "image": man["source"],  # upstream filename, e.g. MH4U-Seregios_Icon.png
+                "info": None,
+                "danger": None,
+            }],
+        }
+        out.append(_build_monster_record(synthesized, lookups, stats))
+    return out
+
+
+def _build_monster_record(m: dict, lookups: dict, stats: dict) -> dict:
+    """Build one output monster record from a source entry (MHDB or synthesized)."""
+    name = m["name"]
+    slug = slugify(name)
+    games_out = _resolve_games(name, slug, m.get("games", []), lookups, stats)
+    record = {
+        "id": m.get("_id", {}).get("$oid") if isinstance(m.get("_id"), dict) else None,
+        "name": name,
+        "slug": slug,
+        "type": m.get("type"),
+        "species": None,
+        "is_large": m.get("isLarge", False),
+        "sub_species": m.get("subSpecies", []),
+        "elements": m.get("elements", []),
+        "ailments": m.get("ailments", []),
+        "weakness": m.get("weakness", []),
+        "games": games_out,
+    }
+    numeric = merge_numeric(m)
+    if numeric:
+        record["numeric"] = numeric
+        if numeric.get("mhw", {}).get("species"):
+            record["species"] = numeric["mhw"]["species"]
+        elif numeric.get("wilds", {}).get("species"):
+            record["species"] = numeric["wilds"]["species"]
+    return record
+
+
 def build_monsters(lookups: dict, stats: dict) -> list[dict]:
     raw = load_json(MHDB / "monsters.json")
     monsters = raw["monsters"] if isinstance(raw, dict) else raw
@@ -356,80 +485,15 @@ def build_monsters(lookups: dict, stats: dict) -> list[dict]:
     out: list[dict] = []
     seen_slugs: set[str] = set()
     for m in monsters:
-        name = m["name"]
-        slug = slugify(name)
+        slug = slugify(m["name"])
         if slug in seen_slugs:
-            stats.setdefault("duplicates", []).append(name)
+            stats.setdefault("duplicates", []).append(m["name"])
             continue
         seen_slugs.add(slug)
-        is_large = m.get("isLarge", False)
-        games_out: list[dict] = []
-        for g in m.get("games", []):
-            game_full = g["game"]
-            ref = g.get("image")
-            stats["icon_refs"] += 1
-            # game_full is authoritative for which game the monster belongs to.
-            # The icon-ref prefix only overrides it for true expansions: MHDB
-            # records Iceborne (MHWI-) icons under "Monster Hunter World" and
-            # Sunbreak (MHRS-) icons under "Monster Hunter Rise", and we keep
-            # the expansion subdir to preserve that distinction. Every other
-            # prefix mismatch is a cross-borrow (e.g. a "Monster Hunter
-            # Generations Ultimate" entry reusing a MH4U- icon) and must NOT
-            # override game_full — doing so used to put MHGU monsters under
-            # mh4u/, hiding them from the mhgu listing.
-            base = GAME_PREFIX.get(game_full)
-            icon_game = icon_ref_to_game(ref) if ref else None
-            # Keep the expansion subdir only when the icon prefix actually is
-            # the expansion's (and is recognized). icon_game can be None for
-            # unparseable refs (MHWs_, FrontierGen-, MH4-), in which case the
-            # None == None check below would false-positive — guard with `and`.
-            if icon_game and icon_game == GAME_EXPANSION_ICON.get(game_full):
-                game = icon_game
-            else:
-                game = base
-            if game is None:
-                stats["unknown_game"].append((name, game_full))
-                game = slugify(game_full)
-            icon, origin = choose_icon(slug, game, ref, lookups)
-            entry = {
-                "game": game,
-                "game_full": game_full,
-                "info": g.get("info"),
-                "danger": g.get("danger"),
-            }
-            if icon and icon.exists():
-                dest = ICONS / game / f"{slug}.png"
-                dest.parent.mkdir(parents=True, exist_ok=True)
-                copy_icon(icon, dest)
-                entry["icon"] = f"{game}/{slug}.png"
-                entry["icon_source"] = origin
-                stats["resolved"] += 1
-                stats["origin"][origin] = stats["origin"].get(origin, 0) + 1
-            else:
-                stats["missing"].append((name, game_full, ref))
-            games_out.append(entry)
+        out.append(_build_monster_record(m, lookups, stats))
 
-        record = {
-            "id": m.get("_id", {}).get("$oid"),
-            "name": name,
-            "slug": slug,
-            "type": m.get("type"),
-            "species": None,
-            "is_large": is_large,
-            "sub_species": m.get("subSpecies", []),
-            "elements": m.get("elements", []),
-            "ailments": m.get("ailments", []),
-            "weakness": m.get("weakness", []),
-            "games": games_out,
-        }
-        numeric = merge_numeric(m)
-        if numeric:
-            record["numeric"] = numeric
-            if numeric.get("mhw", {}).get("species"):
-                record["species"] = numeric["mhw"]["species"]
-            elif numeric.get("wilds", {}).get("species"):
-                record["species"] = numeric["wilds"]["species"]
-        out.append(record)
+    # Fill MH4U roster gaps (Apex variants, Dah'ren Mohran) MHDB doesn't carry.
+    out.extend(_mh4u_supplement(seen_slugs, lookups, stats))
 
     out.sort(key=lambda r: r["name"].lower())
     stats["monster_count"] = len(out)
@@ -587,6 +651,9 @@ def main() -> int:
     dupes = stats.get("duplicates", [])
     if dupes:
         print(f"  duplicates skipped: {len(dupes)} — {', '.join(dupes)}")
+    suppl = stats.get("mh4u_supplement", [])
+    if suppl:
+        print(f"  mh4u roster supplement: {len(suppl)}: {', '.join(suppl)}")
     print(f"  icon refs: {stats['icon_refs']}")
     print(f"  resolved: {stats['resolved']}")
     print(f"  missing: {len(stats['missing'])}")

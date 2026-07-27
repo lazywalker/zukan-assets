@@ -76,7 +76,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -88,7 +88,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -100,7 +100,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -112,7 +112,7 @@
         "ice": 0,
         "thunder": 30,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -124,7 +124,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -136,7 +136,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Break Part)",
@@ -160,7 +160,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly (Break Part)",
@@ -172,7 +172,7 @@
         "ice": 10,
         "thunder": 30,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back (Break Part)",
@@ -184,7 +184,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 25,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Break Part)",
@@ -196,7 +196,7 @@
         "ice": 5,
         "thunder": 30,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Break Part)",
@@ -208,7 +208,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 25,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Break Part)",
@@ -220,7 +220,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -514,7 +514,7 @@
         "ice": 30,
         "thunder": 40,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       }
     ],
     "status": [
@@ -707,7 +707,7 @@
         "ice": 10,
         "thunder": 20,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body",
@@ -719,7 +719,7 @@
         "ice": 5,
         "thunder": 20,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -731,7 +731,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -743,7 +743,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -755,7 +755,7 @@
         "ice": 5,
         "thunder": 20,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Enraged)",
@@ -779,7 +779,7 @@
         "ice": 15,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body (Enraged)",
@@ -791,7 +791,7 @@
         "ice": 5,
         "thunder": 25,
         "dragon": 25,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Enraged)",
@@ -803,7 +803,7 @@
         "ice": 10,
         "thunder": 20,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Enraged)",
@@ -815,7 +815,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Enraged)",
@@ -827,7 +827,7 @@
         "ice": 5,
         "thunder": 20,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       }
     ]
   },
@@ -908,7 +908,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back/Wings",
@@ -920,7 +920,7 @@
         "ice": 25,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -932,7 +932,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing Flaps",
@@ -944,7 +944,7 @@
         "ice": 20,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -956,7 +956,7 @@
         "ice": 8,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -968,7 +968,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail Tip",
@@ -980,7 +980,7 @@
         "ice": 30,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       }
     ]
   },
@@ -1061,7 +1061,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -1073,7 +1073,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -1085,7 +1085,7 @@
         "ice": 15,
         "thunder": 5,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -1097,7 +1097,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -1109,7 +1109,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Break Part)",
@@ -1133,7 +1133,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back (Break Part)",
@@ -1145,7 +1145,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly (Break Part)",
@@ -1157,7 +1157,7 @@
         "ice": 15,
         "thunder": 5,
         "dragon": 40,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing (Break Part)",
@@ -1169,7 +1169,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs (Break Part)",
@@ -1181,7 +1181,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       }
     ]
   },
@@ -1262,7 +1262,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -1274,7 +1274,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body",
@@ -1286,7 +1286,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -1298,7 +1298,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Enraged)",
@@ -1322,7 +1322,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Enraged)",
@@ -1334,7 +1334,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body (Enraged)",
@@ -1346,7 +1346,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Enraged)",
@@ -1358,7 +1358,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ]
   },
@@ -1439,7 +1439,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -1451,7 +1451,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -1463,7 +1463,7 @@
         "ice": 5,
         "thunder": 20,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -1475,7 +1475,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -1487,7 +1487,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -1499,7 +1499,7 @@
         "ice": 15,
         "thunder": 20,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Claw",
@@ -1511,7 +1511,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Break Part)",
@@ -1535,7 +1535,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back (Break Part)",
@@ -1547,7 +1547,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly (Break Part)",
@@ -1559,7 +1559,7 @@
         "ice": 5,
         "thunder": 20,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Break Part)",
@@ -1571,7 +1571,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing (Break Part)",
@@ -1583,7 +1583,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs (Break Part)",
@@ -1595,7 +1595,7 @@
         "ice": 15,
         "thunder": 20,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Claw (Break Part)",
@@ -1607,7 +1607,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       }
     ]
   },
@@ -1688,7 +1688,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body",
@@ -1700,7 +1700,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Resonating Organs",
@@ -1712,7 +1712,7 @@
         "ice": 0,
         "thunder": 20,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -1724,7 +1724,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -1736,7 +1736,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -1748,7 +1748,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Fatiqued)",
@@ -1772,7 +1772,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body (Fatiqued)",
@@ -1784,7 +1784,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Resonating Organs (Fatiqued)",
@@ -1796,7 +1796,7 @@
         "ice": 0,
         "thunder": 20,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Fatiqued)",
@@ -1808,7 +1808,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Fatiqued)",
@@ -1820,7 +1820,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Fatiqued)",
@@ -1832,7 +1832,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ]
   },
@@ -1913,7 +1913,7 @@
         "ice": 5,
         "thunder": 20,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -1925,7 +1925,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -1937,7 +1937,7 @@
         "ice": 10,
         "thunder": 25,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -1949,7 +1949,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -1961,7 +1961,7 @@
         "ice": 10,
         "thunder": 20,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -1973,7 +1973,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Enraged)",
@@ -1997,7 +1997,7 @@
         "ice": 5,
         "thunder": 20,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly (Enraged)",
@@ -2009,7 +2009,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back (Enraged)",
@@ -2021,7 +2021,7 @@
         "ice": 10,
         "thunder": 25,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Enraged)",
@@ -2033,7 +2033,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Enraged)",
@@ -2045,7 +2045,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Enraged)",
@@ -2057,7 +2057,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       }
     ]
   },
@@ -2184,7 +2184,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -2196,7 +2196,7 @@
         "ice": 25,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -2208,7 +2208,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -2220,7 +2220,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Thigh",
@@ -2232,7 +2232,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -2244,7 +2244,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail Tip",
@@ -2256,7 +2256,7 @@
         "ice": 20,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Charged)",
@@ -2280,7 +2280,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back (Charged)",
@@ -2292,7 +2292,7 @@
         "ice": 30,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Charged)",
@@ -2304,7 +2304,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Charged)",
@@ -2316,7 +2316,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Thigh (Charged)",
@@ -2328,7 +2328,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Charged)",
@@ -2340,7 +2340,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail Tip (Charged)",
@@ -2352,7 +2352,7 @@
         "ice": 20,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       }
     ]
   },
@@ -2433,7 +2433,7 @@
         "ice": 50,
         "thunder": 50,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       }
     ],
     "status": [
@@ -2580,7 +2580,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -2592,7 +2592,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Claw",
@@ -2604,7 +2604,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -2616,7 +2616,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Break Part)",
@@ -2652,7 +2652,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Claw (Break Part)",
@@ -2664,7 +2664,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Break Part)",
@@ -2676,7 +2676,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -2842,7 +2842,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -2854,7 +2854,7 @@
         "ice": 20,
         "thunder": 15,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -2866,7 +2866,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -2878,7 +2878,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -2890,7 +2890,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -2902,7 +2902,7 @@
         "ice": 20,
         "thunder": 15,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail Tip",
@@ -2914,7 +2914,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -3089,7 +3089,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 18,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -3101,7 +3101,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 18,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -3113,7 +3113,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 18,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -3125,7 +3125,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 18,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -3137,7 +3137,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 18,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -3149,7 +3149,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail Tip",
@@ -3161,7 +3161,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Break Part)",
@@ -3185,7 +3185,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 18,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back (Break Part)",
@@ -3197,7 +3197,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 18,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly (Break Part)",
@@ -3209,7 +3209,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 33,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Break Part)",
@@ -3221,7 +3221,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 18,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing (Break Part)",
@@ -3233,7 +3233,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 18,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs (Break Part)",
@@ -3245,7 +3245,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail Tip (Break Part)",
@@ -3257,7 +3257,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -3425,7 +3425,7 @@
         "ice": 15,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -3437,7 +3437,7 @@
         "ice": 20,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -3449,7 +3449,7 @@
         "ice": 20,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -3461,7 +3461,7 @@
         "ice": 20,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Tail Inflated)",
@@ -3497,7 +3497,7 @@
         "ice": 15,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Tail Inflated)",
@@ -3509,7 +3509,7 @@
         "ice": 20,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Tail Inflated)",
@@ -3521,7 +3521,7 @@
         "ice": 20,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Tail Inflated)",
@@ -3533,7 +3533,7 @@
         "ice": 35,
         "thunder": 25,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -3697,7 +3697,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back/Wings",
@@ -3709,7 +3709,7 @@
         "ice": 25,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -3721,7 +3721,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing Flaps",
@@ -3733,7 +3733,7 @@
         "ice": 20,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -3745,7 +3745,7 @@
         "ice": 8,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -3757,7 +3757,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail Tip",
@@ -3769,7 +3769,7 @@
         "ice": 30,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -3934,7 +3934,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -3946,7 +3946,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -3958,7 +3958,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -3970,7 +3970,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -3982,7 +3982,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Break Part)",
@@ -4006,7 +4006,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back (Break Part)",
@@ -4018,7 +4018,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly (Break Part)",
@@ -4030,7 +4030,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing (Break Part)",
@@ -4042,7 +4042,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs (Break Part)",
@@ -4054,7 +4054,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -4220,7 +4220,7 @@
         "ice": 30,
         "thunder": 30,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -4232,7 +4232,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -4244,7 +4244,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -4256,7 +4256,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -4268,7 +4268,7 @@
         "ice": 5,
         "thunder": 20,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -4280,7 +4280,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -4426,7 +4426,7 @@
         "ice": 50,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -4589,7 +4589,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -4601,7 +4601,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -4613,7 +4613,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -4625,7 +4625,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail Tip",
@@ -4637,7 +4637,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -4802,7 +4802,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -4814,7 +4814,7 @@
         "ice": 12,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -4826,7 +4826,7 @@
         "ice": 12,
         "thunder": 18,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -4838,7 +4838,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -4850,7 +4850,7 @@
         "ice": 12,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -4862,7 +4862,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Enraged)",
@@ -4886,7 +4886,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly (Enraged)",
@@ -4898,7 +4898,7 @@
         "ice": 12,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back (Enraged)",
@@ -4910,7 +4910,7 @@
         "ice": 12,
         "thunder": 18,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Enraged)",
@@ -4922,7 +4922,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Enraged)",
@@ -4934,7 +4934,7 @@
         "ice": 12,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Enraged)",
@@ -4946,7 +4946,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -5127,7 +5127,7 @@
         "ice": 15,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back/Wing",
@@ -5139,7 +5139,7 @@
         "ice": 17,
         "thunder": 20,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -5151,7 +5151,7 @@
         "ice": 20,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing Flaps",
@@ -5163,7 +5163,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -5175,7 +5175,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -5187,7 +5187,7 @@
         "ice": 20,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -5352,7 +5352,7 @@
         "ice": 40,
         "thunder": 30,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body",
@@ -5364,7 +5364,7 @@
         "ice": 20,
         "thunder": 25,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -5515,7 +5515,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -5527,7 +5527,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 25,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -5539,7 +5539,7 @@
         "ice": 0,
         "thunder": 20,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -5551,7 +5551,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 25,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -5563,7 +5563,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -5575,7 +5575,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Invisible)",
@@ -5599,7 +5599,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back (Invisible)",
@@ -5611,7 +5611,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 25,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Invisible)",
@@ -5623,7 +5623,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing (Invisible)",
@@ -5635,7 +5635,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 25,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Invisible)",
@@ -5647,7 +5647,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Invisible)",
@@ -5659,7 +5659,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -5825,7 +5825,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body",
@@ -5837,7 +5837,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Winglegs",
@@ -5849,7 +5849,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -5861,7 +5861,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -5873,7 +5873,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -5885,7 +5885,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -5897,7 +5897,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Virused)",
@@ -5921,7 +5921,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body (Virused)",
@@ -5933,7 +5933,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Winglegs (Virused)",
@@ -5945,7 +5945,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Virused)",
@@ -5957,7 +5957,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Virused)",
@@ -5969,7 +5969,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing (Virused)",
@@ -5981,7 +5981,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Virused)",
@@ -5993,7 +5993,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -6291,7 +6291,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -6303,7 +6303,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body",
@@ -6315,7 +6315,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -6327,7 +6327,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Break Part)",
@@ -6351,7 +6351,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Break Part)",
@@ -6363,7 +6363,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body (Break Part)",
@@ -6375,7 +6375,7 @@
         "ice": 0,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Break Part)",
@@ -6387,7 +6387,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -6539,200 +6539,6 @@
         }
       }
     },
-    "hitzones": [
-      {
-        "part": "Head",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Neck",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Body",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Thigh",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Tail",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Front Legs",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Back Legs",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Wing",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Head (Enraged)",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Neck (Enraged)",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Body (Enraged)",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Thigh (Enraged)",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Tail (Enraged)",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Front Legs (Enraged)",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Back Legs (Enraged)",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Wing (Enraged)",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      }
-    ],
     "ailments": [
       "Fireblight",
       "Blastblight",
@@ -6871,7 +6677,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body",
@@ -6883,7 +6689,7 @@
         "ice": 0,
         "thunder": 8,
         "dragon": 8,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -6895,7 +6701,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -6907,7 +6713,7 @@
         "ice": 0,
         "thunder": 22,
         "dragon": 22,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Fin",
@@ -6919,7 +6725,7 @@
         "ice": 0,
         "thunder": 22,
         "dragon": 22,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Mouth",
@@ -6931,7 +6737,7 @@
         "ice": 0,
         "thunder": 25,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Blowhole",
@@ -6943,7 +6749,7 @@
         "ice": 0,
         "thunder": 20,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Horn/Back Fin (Break Part)",
@@ -6955,7 +6761,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body (Break Part)",
@@ -6967,7 +6773,7 @@
         "ice": 0,
         "thunder": 8,
         "dragon": 8,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Break Part)",
@@ -6979,7 +6785,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly (Break Part)",
@@ -6991,7 +6797,7 @@
         "ice": 0,
         "thunder": 22,
         "dragon": 22,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Fin (Break Part)",
@@ -7003,7 +6809,7 @@
         "ice": 0,
         "thunder": 22,
         "dragon": 22,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Mouth (Break Part)",
@@ -7015,7 +6821,7 @@
         "ice": 0,
         "thunder": 25,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Blowhole (Break Part)",
@@ -7027,7 +6833,7 @@
         "ice": 0,
         "thunder": 20,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -7177,7 +6983,7 @@
         "ice": 10,
         "thunder": 20,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Shell",
@@ -7189,7 +6995,7 @@
         "ice": 10,
         "thunder": 25,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -7201,7 +7007,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Claw",
@@ -7213,7 +7019,7 @@
         "ice": 10,
         "thunder": 20,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Arms",
@@ -7225,7 +7031,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Guarded)",
@@ -7249,7 +7055,7 @@
         "ice": 10,
         "thunder": 20,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Shell (Guarded)",
@@ -7261,7 +7067,7 @@
         "ice": 10,
         "thunder": 25,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs (Guarded)",
@@ -7273,7 +7079,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Claw (Guarded)",
@@ -7285,7 +7091,7 @@
         "ice": 10,
         "thunder": 20,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Arms (Guarded)",
@@ -7297,7 +7103,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Broken Claw (Guarded)",
@@ -7309,7 +7115,7 @@
         "ice": 10,
         "thunder": 20,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -7470,7 +7276,7 @@
         "ice": 20,
         "thunder": 20,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Blade/Thorn",
@@ -7482,7 +7288,7 @@
         "ice": 15,
         "thunder": 15,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Breast",
@@ -7494,7 +7300,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -7506,7 +7312,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Upper Body",
@@ -7518,7 +7324,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head Weakness",
@@ -7530,7 +7336,7 @@
         "ice": 25,
         "thunder": 25,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Lowermost Lower Body",
@@ -7542,7 +7348,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Uppermost Lower Body",
@@ -7554,7 +7360,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -7566,7 +7372,7 @@
         "ice": 20,
         "thunder": 20,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Break Part)",
@@ -7578,7 +7384,7 @@
         "ice": 20,
         "thunder": 20,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Blade/Thorn (Break Part)",
@@ -7590,7 +7396,7 @@
         "ice": 15,
         "thunder": 15,
         "dragon": 40,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Breast (Break Part)",
@@ -7602,7 +7408,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Break Part)",
@@ -7614,7 +7420,7 @@
         "ice": 15,
         "thunder": 15,
         "dragon": 25,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Upper Body (Break Part)",
@@ -7626,7 +7432,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head Weakness (Break Part)",
@@ -7638,7 +7444,7 @@
         "ice": 25,
         "thunder": 25,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Lowermost Lower Body (Break Part)",
@@ -7650,7 +7456,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Uppermost Lower Body (Break Part)",
@@ -7662,7 +7468,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Break Part)",
@@ -7674,7 +7480,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Enraged)",
@@ -7686,7 +7492,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Blade/Thorn (Enraged)",
@@ -7698,7 +7504,7 @@
         "ice": 15,
         "thunder": 15,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Breast (Enraged)",
@@ -7710,7 +7516,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Enraged)",
@@ -7722,7 +7528,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Upper Body (Enraged)",
@@ -7734,7 +7540,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head Weakness (Enraged)",
@@ -7746,7 +7552,7 @@
         "ice": 25,
         "thunder": 25,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Lowermost Lower Body (Enraged)",
@@ -7758,7 +7564,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Uppermost Lower Body (Enraged)",
@@ -7770,7 +7576,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Enraged)",
@@ -7782,7 +7588,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -8084,7 +7890,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -8096,7 +7902,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -8108,7 +7914,7 @@
         "ice": 25,
         "thunder": 20,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -8278,7 +8084,7 @@
         "ice": 20,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly/Legs",
@@ -8290,7 +8096,7 @@
         "ice": 15,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Claw/Tail Pincer",
@@ -8302,7 +8108,7 @@
         "ice": 20,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -8314,7 +8120,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Break Part)",
@@ -8338,7 +8144,7 @@
         "ice": 15,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly/Legs (Break Part)",
@@ -8350,7 +8156,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Claw/Tail Pincer (Break Part)",
@@ -8362,7 +8168,7 @@
         "ice": 20,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs (Break Part)",
@@ -8374,7 +8180,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -8584,7 +8390,7 @@
         "ice": 10,
         "thunder": 20,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body",
@@ -8596,7 +8402,7 @@
         "ice": 5,
         "thunder": 20,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -8608,7 +8414,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -8620,7 +8426,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -8632,7 +8438,7 @@
         "ice": 5,
         "thunder": 20,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Enraged)",
@@ -8656,7 +8462,7 @@
         "ice": 15,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body (Enraged)",
@@ -8668,7 +8474,7 @@
         "ice": 5,
         "thunder": 25,
         "dragon": 25,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Enraged)",
@@ -8680,7 +8486,7 @@
         "ice": 10,
         "thunder": 20,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Enraged)",
@@ -8692,7 +8498,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Enraged)",
@@ -8704,7 +8510,7 @@
         "ice": 5,
         "thunder": 20,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -8900,7 +8706,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back/Wings",
@@ -8912,7 +8718,7 @@
         "ice": 25,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -8924,7 +8730,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing Flaps",
@@ -8936,7 +8742,7 @@
         "ice": 20,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -8948,7 +8754,7 @@
         "ice": 8,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -8960,7 +8766,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail Tip",
@@ -8972,7 +8778,7 @@
         "ice": 30,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -9137,7 +8943,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -9149,7 +8955,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body",
@@ -9161,7 +8967,7 @@
         "ice": 18,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -9173,7 +8979,7 @@
         "ice": 30,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Guarded)",
@@ -9197,7 +9003,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Guarded)",
@@ -9209,7 +9015,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body (Guarded)",
@@ -9221,7 +9027,7 @@
         "ice": 18,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Guarded)",
@@ -9233,7 +9039,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -9402,7 +9208,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 80,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Neck",
@@ -9414,7 +9220,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Chest",
@@ -9426,7 +9232,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head",
@@ -9438,7 +9244,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 50,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back/Tail",
@@ -9450,7 +9256,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -9462,7 +9268,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -9474,7 +9280,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -9764,7 +9570,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -9776,7 +9582,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body",
@@ -9788,7 +9594,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -9800,7 +9606,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Enraged)",
@@ -9824,7 +9630,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Enraged)",
@@ -9836,7 +9642,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body (Enraged)",
@@ -9848,7 +9654,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Enraged)",
@@ -9860,7 +9666,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -10037,7 +9843,7 @@
         "ice": 80,
         "thunder": 80,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "status": [
@@ -10184,7 +9990,7 @@
         "ice": 30,
         "thunder": 25,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -10480,7 +10286,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 60,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -10492,7 +10298,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 40,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail Tip",
@@ -10504,7 +10310,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Breast",
@@ -10516,7 +10322,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs/Lower Body/Tail",
@@ -10528,7 +10334,7 @@
         "ice": 0,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs/Upper Body/Back",
@@ -10540,79 +10346,7 @@
         "ice": 0,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
-      },
-      {
-        "part": "Head (Enraged)",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Wing (Enraged)",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Tail Tip (Enraged)",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Breast (Enraged)",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Back Legs/Lower Body/Tail (Enraged)",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Front Legs/Upper Body/Back (Enraged)",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -10765,7 +10499,7 @@
         "ice": 10,
         "thunder": 30,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -10777,7 +10511,7 @@
         "ice": 5,
         "thunder": 20,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -10789,7 +10523,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -10801,7 +10535,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -10813,7 +10547,7 @@
         "ice": 10,
         "thunder": 25,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -10825,7 +10559,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail Tip",
@@ -10837,7 +10571,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Break Part)",
@@ -10861,7 +10595,7 @@
         "ice": 10,
         "thunder": 30,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back (Break Part)",
@@ -10873,7 +10607,7 @@
         "ice": 5,
         "thunder": 20,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly (Break Part)",
@@ -10885,7 +10619,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Break Part)",
@@ -10897,7 +10631,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing (Break Part)",
@@ -10909,7 +10643,7 @@
         "ice": 10,
         "thunder": 25,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs (Break Part)",
@@ -10921,7 +10655,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail Tip (Break Part)",
@@ -10933,7 +10667,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -11085,7 +10819,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body",
@@ -11097,7 +10831,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Winglegs",
@@ -11109,7 +10843,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -11121,7 +10855,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -11133,7 +10867,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -11145,7 +10879,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -11157,7 +10891,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Virused)",
@@ -11181,7 +10915,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body (Virused)",
@@ -11193,7 +10927,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Winglegs (Virused)",
@@ -11205,7 +10939,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Virused)",
@@ -11217,7 +10951,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Virused)",
@@ -11229,7 +10963,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing (Virused)",
@@ -11241,7 +10975,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Virused)",
@@ -11253,7 +10987,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -11419,7 +11153,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -11431,7 +11165,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -11443,7 +11177,7 @@
         "ice": 15,
         "thunder": 5,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -11455,7 +11189,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -11467,7 +11201,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Break Part)",
@@ -11491,7 +11225,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back (Break Part)",
@@ -11503,7 +11237,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly (Break Part)",
@@ -11515,7 +11249,7 @@
         "ice": 15,
         "thunder": 5,
         "dragon": 40,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing (Break Part)",
@@ -11527,7 +11261,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs (Break Part)",
@@ -11539,7 +11273,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -11708,7 +11442,7 @@
         "ice": 20,
         "thunder": 20,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       }
     ],
     "status": [
@@ -11875,7 +11609,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -11887,7 +11621,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -11899,7 +11633,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -11911,7 +11645,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -11923,7 +11657,7 @@
         "ice": 20,
         "thunder": 0,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -11935,7 +11669,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -12242,7 +11976,7 @@
         "ice": 10,
         "thunder": 25,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -12814,7 +12548,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -12826,7 +12560,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Claw",
@@ -12838,7 +12572,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -12850,7 +12584,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Break Part)",
@@ -12874,7 +12608,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs (Break Part)",
@@ -12886,7 +12620,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Claw (Break Part)",
@@ -12898,7 +12632,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Break Part)",
@@ -12910,7 +12644,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -13217,7 +12951,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body",
@@ -13229,7 +12963,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -13241,7 +12975,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -13253,7 +12987,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -13265,7 +12999,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -13433,7 +13167,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Lower Body",
@@ -13445,7 +13179,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -13457,7 +13191,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Enraged)",
@@ -13481,7 +13215,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Lower Body (Enraged)",
@@ -13493,7 +13227,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Enraged)",
@@ -13505,7 +13239,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -13802,7 +13536,7 @@
         "ice": 0,
         "thunder": 20,
         "dragon": 25,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -13814,7 +13548,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -13826,7 +13560,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -13838,7 +13572,7 @@
         "ice": 0,
         "thunder": 30,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -13850,7 +13584,7 @@
         "ice": 0,
         "thunder": 20,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -13862,7 +13596,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -13874,7 +13608,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Wind Barriered)",
@@ -13898,7 +13632,7 @@
         "ice": 0,
         "thunder": 25,
         "dragon": 35,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly (Wind Barriered)",
@@ -13910,7 +13644,7 @@
         "ice": 0,
         "thunder": 20,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back (Wind Barriered)",
@@ -13922,7 +13656,7 @@
         "ice": 0,
         "thunder": 20,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Wind Barriered)",
@@ -13934,7 +13668,7 @@
         "ice": 0,
         "thunder": 30,
         "dragon": 40,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Wind Barriered)",
@@ -13946,7 +13680,7 @@
         "ice": 0,
         "thunder": 25,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Wind Barriered)",
@@ -13958,7 +13692,7 @@
         "ice": 0,
         "thunder": 20,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing (Wind Barriered)",
@@ -13970,7 +13704,7 @@
         "ice": 0,
         "thunder": 20,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -14138,7 +13872,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -14150,7 +13884,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Butt",
@@ -14162,7 +13896,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly/Back Legs",
@@ -14174,7 +13908,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -14467,7 +14201,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -14479,7 +14213,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -14491,7 +14225,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -14503,7 +14237,7 @@
         "ice": 15,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -14515,7 +14249,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -14527,7 +14261,7 @@
         "ice": 15,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Claw",
@@ -14539,7 +14273,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Enraged)",
@@ -14563,7 +14297,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly (Enraged)",
@@ -14575,7 +14309,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back (Enraged)",
@@ -14599,7 +14333,7 @@
         "ice": 15,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Enraged)",
@@ -14611,7 +14345,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Enraged)",
@@ -14623,7 +14357,7 @@
         "ice": 15,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Claw (Enraged)",
@@ -14635,7 +14369,7 @@
         "ice": 20,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -14787,7 +14521,7 @@
         "ice": 15,
         "thunder": 30,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back/Wings",
@@ -14799,7 +14533,7 @@
         "ice": 25,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -14811,7 +14545,7 @@
         "ice": 15,
         "thunder": 25,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing Flaps",
@@ -14823,7 +14557,7 @@
         "ice": 10,
         "thunder": 20,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -14835,7 +14569,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -14847,7 +14581,7 @@
         "ice": 15,
         "thunder": 25,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail Tip",
@@ -14859,7 +14593,7 @@
         "ice": 20,
         "thunder": 30,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -15024,7 +14758,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body",
@@ -15036,7 +14770,7 @@
         "ice": 25,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Resonating Organs",
@@ -15048,7 +14782,7 @@
         "ice": 30,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -15060,7 +14794,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -15072,7 +14806,7 @@
         "ice": 35,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -15084,7 +14818,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Fatiqued)",
@@ -15108,7 +14842,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body (Fatiqued)",
@@ -15120,7 +14854,7 @@
         "ice": 25,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Resonating Organs (Fatiqued)",
@@ -15132,7 +14866,7 @@
         "ice": 30,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Fatiqued)",
@@ -15144,7 +14878,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Fatiqued)",
@@ -15156,7 +14890,7 @@
         "ice": 35,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Fatiqued)",
@@ -15168,7 +14902,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -15328,7 +15062,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Breast",
@@ -15340,7 +15074,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -15352,7 +15086,7 @@
         "ice": 5,
         "thunder": 20,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Claw Tip",
@@ -15364,7 +15098,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Thigh",
@@ -15376,7 +15110,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Leg Tip",
@@ -15388,7 +15122,7 @@
         "ice": 0,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Without Hide)",
@@ -15412,7 +15146,7 @@
         "ice": 5,
         "thunder": 35,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Breast (Without Hide)",
@@ -15424,7 +15158,7 @@
         "ice": 5,
         "thunder": 25,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly (Without Hide)",
@@ -15436,7 +15170,7 @@
         "ice": 5,
         "thunder": 20,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Claw Tip (Without Hide)",
@@ -15448,7 +15182,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Thigh (Without Hide)",
@@ -15460,7 +15194,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Leg Tip (Without Hide)",
@@ -15472,7 +15206,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -15639,7 +15373,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Lower Body",
@@ -15651,7 +15385,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -15663,7 +15397,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Enraged)",
@@ -15687,7 +15421,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Lower Body (Enraged)",
@@ -15699,7 +15433,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Enraged)",
@@ -15711,7 +15445,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -15862,7 +15596,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -15874,7 +15608,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -15886,7 +15620,7 @@
         "ice": 5,
         "thunder": 20,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -15898,7 +15632,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -15910,7 +15644,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -15922,7 +15656,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail Tip",
@@ -15934,7 +15668,7 @@
         "ice": 10,
         "thunder": 20,
         "dragon": 25,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -16112,7 +15846,7 @@
         "ice": 20,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Shell",
@@ -16124,7 +15858,7 @@
         "ice": 25,
         "thunder": 20,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -16136,7 +15870,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Claw",
@@ -16148,7 +15882,7 @@
         "ice": 35,
         "thunder": 20,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Arms",
@@ -16160,7 +15894,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Guarded)",
@@ -16184,7 +15918,7 @@
         "ice": 20,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Shell (Guarded)",
@@ -16196,7 +15930,7 @@
         "ice": 25,
         "thunder": 20,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs (Guarded)",
@@ -16208,7 +15942,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Claw (Guarded)",
@@ -16220,7 +15954,7 @@
         "ice": 35,
         "thunder": 20,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Arms (Guarded)",
@@ -16232,7 +15966,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Broken Claw (Guarded)",
@@ -16244,7 +15978,7 @@
         "ice": 35,
         "thunder": 20,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -16414,7 +16148,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       }
     ],
     "status": [
@@ -16561,7 +16295,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -16573,7 +16307,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -16585,7 +16319,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -16597,7 +16331,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -16609,7 +16343,7 @@
         "ice": 20,
         "thunder": 0,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -16621,7 +16355,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -16800,7 +16534,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -16812,7 +16546,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -16824,7 +16558,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -16836,7 +16570,7 @@
         "ice": 15,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail Tip",
@@ -16848,7 +16582,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Horn (Enraged)",
@@ -16884,7 +16618,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Enraged)",
@@ -16896,7 +16630,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Enraged)",
@@ -16908,7 +16642,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Enraged)",
@@ -16920,7 +16654,7 @@
         "ice": 15,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail Tip (Enraged)",
@@ -16932,7 +16666,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -17083,7 +16817,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -17095,7 +16829,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body",
@@ -17107,7 +16841,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -17119,7 +16853,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Enraged)",
@@ -17143,7 +16877,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Enraged)",
@@ -17155,7 +16889,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body (Enraged)",
@@ -17167,7 +16901,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Enraged)",
@@ -17179,7 +16913,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -17380,7 +17114,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -17392,7 +17126,7 @@
         "ice": 10,
         "thunder": 20,
         "dragon": 25,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -17404,7 +17138,7 @@
         "ice": 5,
         "thunder": 20,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -17416,7 +17150,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -17428,7 +17162,7 @@
         "ice": 10,
         "thunder": 25,
         "dragon": 35,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -17440,7 +17174,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -17615,7 +17349,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -17627,7 +17361,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 25,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -17639,7 +17373,7 @@
         "ice": 5,
         "thunder": 20,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -17651,7 +17385,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 25,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -17663,7 +17397,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -17675,7 +17409,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -17861,7 +17595,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body",
@@ -17873,7 +17607,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -17885,7 +17619,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -17897,7 +17631,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -17909,7 +17643,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -18075,7 +17809,7 @@
         "ice": 15,
         "thunder": 5,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Lower Body",
@@ -18087,7 +17821,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 35,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -18237,7 +17971,7 @@
         "ice": 50,
         "thunder": 50,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       }
     ],
     "status": [
@@ -18384,7 +18118,7 @@
         "ice": 18,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -18396,7 +18130,7 @@
         "ice": 18,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -18408,7 +18142,7 @@
         "ice": 20,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -18420,7 +18154,7 @@
         "ice": 18,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -18432,7 +18166,7 @@
         "ice": 18,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -18444,7 +18178,7 @@
         "ice": 13,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail Tip",
@@ -18456,7 +18190,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Break Part)",
@@ -18480,7 +18214,7 @@
         "ice": 18,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back (Break Part)",
@@ -18492,7 +18226,7 @@
         "ice": 18,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly (Break Part)",
@@ -18504,7 +18238,7 @@
         "ice": 35,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Break Part)",
@@ -18516,7 +18250,7 @@
         "ice": 18,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing (Break Part)",
@@ -18528,7 +18262,7 @@
         "ice": 18,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs (Break Part)",
@@ -18540,7 +18274,7 @@
         "ice": 13,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail Tip (Break Part)",
@@ -18552,7 +18286,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -18708,7 +18442,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 25,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -18720,7 +18454,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -18732,7 +18466,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -18744,7 +18478,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 25,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -18756,7 +18490,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -18768,7 +18502,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -18780,7 +18514,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Wind Barriered)",
@@ -18804,7 +18538,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly (Wind Barriered)",
@@ -18816,7 +18550,7 @@
         "ice": 0,
         "thunder": 0,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back (Wind Barriered)",
@@ -18828,7 +18562,7 @@
         "ice": 0,
         "thunder": 0,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Wind Barriered)",
@@ -18840,7 +18574,7 @@
         "ice": 0,
         "thunder": 0,
         "dragon": 35,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Wind Barriered)",
@@ -18852,7 +18586,7 @@
         "ice": 0,
         "thunder": 0,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Wind Barriered)",
@@ -18864,7 +18598,7 @@
         "ice": 0,
         "thunder": 0,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing (Wind Barriered)",
@@ -18876,7 +18610,7 @@
         "ice": 0,
         "thunder": 0,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -19074,7 +18808,7 @@
         "ice": 15,
         "thunder": 25,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body (Enraged)",
@@ -19086,7 +18820,7 @@
         "ice": 20,
         "thunder": 30,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Enraged)",
@@ -19098,7 +18832,7 @@
         "ice": 15,
         "thunder": 25,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Enraged)",
@@ -19110,7 +18844,7 @@
         "ice": 20,
         "thunder": 30,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Enraged)",
@@ -19122,7 +18856,7 @@
         "ice": 20,
         "thunder": 35,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Savaged)",
@@ -19146,7 +18880,7 @@
         "ice": 15,
         "thunder": 25,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body (Savaged)",
@@ -19158,7 +18892,7 @@
         "ice": 20,
         "thunder": 30,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Savaged)",
@@ -19170,7 +18904,7 @@
         "ice": 15,
         "thunder": 25,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Savaged)",
@@ -19182,7 +18916,7 @@
         "ice": 20,
         "thunder": 30,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Savaged)",
@@ -19194,7 +18928,7 @@
         "ice": 20,
         "thunder": 35,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -19401,7 +19135,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -19413,7 +19147,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -19425,7 +19159,7 @@
         "ice": 15,
         "thunder": 35,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -19601,7 +19335,7 @@
         "ice": 15,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly/Legs",
@@ -19613,7 +19347,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Claw/Tail Pincer",
@@ -19625,7 +19359,7 @@
         "ice": 20,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -19637,7 +19371,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Break Part)",
@@ -19661,7 +19395,7 @@
         "ice": 15,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly/Legs (Break Part)",
@@ -19673,7 +19407,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Claw/Tail Pincer (Break Part)",
@@ -19685,7 +19419,7 @@
         "ice": 20,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs (Break Part)",
@@ -19697,7 +19431,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -19870,7 +19604,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -19882,7 +19616,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -19894,7 +19628,7 @@
         "ice": 5,
         "thunder": 20,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -19906,7 +19640,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -19918,7 +19652,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -19930,7 +19664,7 @@
         "ice": 15,
         "thunder": 20,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Claw",
@@ -19942,7 +19676,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Break Part)",
@@ -19966,7 +19700,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back (Break Part)",
@@ -19978,7 +19712,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly (Break Part)",
@@ -19990,7 +19724,7 @@
         "ice": 5,
         "thunder": 20,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Break Part)",
@@ -20002,7 +19736,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing (Break Part)",
@@ -20014,7 +19748,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs (Break Part)",
@@ -20026,7 +19760,7 @@
         "ice": 15,
         "thunder": 20,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Claw (Break Part)",
@@ -20038,7 +19772,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -20234,7 +19968,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body",
@@ -20246,7 +19980,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Winglegs",
@@ -20258,7 +19992,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -20270,7 +20004,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -20282,7 +20016,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -20294,7 +20028,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -20306,7 +20040,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Break Part)",
@@ -20330,7 +20064,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body (Break Part)",
@@ -20342,7 +20076,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Winglegs (Break Part)",
@@ -20354,7 +20088,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Break Part)",
@@ -20366,7 +20100,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Break Part)",
@@ -20378,7 +20112,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing (Break Part)",
@@ -20390,7 +20124,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Break Part)",
@@ -20402,7 +20136,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -20541,7 +20275,7 @@
         "ice": 20,
         "thunder": 20,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Blade/Thorn",
@@ -20553,7 +20287,7 @@
         "ice": 15,
         "thunder": 15,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Breast",
@@ -20565,7 +20299,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -20577,7 +20311,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Upper Body",
@@ -20589,7 +20323,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head Weakness",
@@ -20601,7 +20335,7 @@
         "ice": 25,
         "thunder": 25,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Lowermost Lower Body",
@@ -20613,7 +20347,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Uppermost Lower Body",
@@ -20625,7 +20359,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -20637,7 +20371,7 @@
         "ice": 20,
         "thunder": 20,
         "dragon": 25,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Break Part)",
@@ -20649,7 +20383,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Blade/Thorn (Break Part)",
@@ -20661,7 +20395,7 @@
         "ice": 15,
         "thunder": 15,
         "dragon": 40,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Breast (Break Part)",
@@ -20673,7 +20407,7 @@
         "ice": 15,
         "thunder": 15,
         "dragon": 40,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Break Part)",
@@ -20685,7 +20419,7 @@
         "ice": 15,
         "thunder": 15,
         "dragon": 25,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Upper Body (Break Part)",
@@ -20697,7 +20431,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head Weakness (Break Part)",
@@ -20709,7 +20443,7 @@
         "ice": 25,
         "thunder": 25,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Lowermost Lower Body (Break Part)",
@@ -20721,7 +20455,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Uppermost Lower Body (Break Part)",
@@ -20733,7 +20467,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Break Part)",
@@ -20745,7 +20479,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Enraged)",
@@ -20757,7 +20491,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Blade/Thorn (Enraged)",
@@ -20769,7 +20503,7 @@
         "ice": 15,
         "thunder": 15,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Breast (Enraged)",
@@ -20781,7 +20515,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Enraged)",
@@ -20793,7 +20527,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Upper Body (Enraged)",
@@ -20805,7 +20539,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head Weakness (Enraged)",
@@ -20817,7 +20551,7 @@
         "ice": 25,
         "thunder": 25,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Lowermost Lower Body (Enraged)",
@@ -20829,7 +20563,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Uppermost Lower Body (Enraged)",
@@ -20841,7 +20575,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Enraged)",
@@ -20853,7 +20587,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -21004,7 +20738,7 @@
         "ice": 0,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Breast",
@@ -21016,7 +20750,7 @@
         "ice": 0,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -21028,7 +20762,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Claw Tip",
@@ -21040,7 +20774,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Thigh",
@@ -21052,7 +20786,7 @@
         "ice": 0,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Leg Tip",
@@ -21064,7 +20798,7 @@
         "ice": 0,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Without Hide)",
@@ -21088,7 +20822,7 @@
         "ice": 25,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Breast (Without Hide)",
@@ -21100,7 +20834,7 @@
         "ice": 25,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly (Without Hide)",
@@ -21112,7 +20846,7 @@
         "ice": 15,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Claw Tip (Without Hide)",
@@ -21124,7 +20858,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Thigh (Without Hide)",
@@ -21136,7 +20870,7 @@
         "ice": 20,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Leg Tip (Without Hide)",
@@ -21148,7 +20882,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -21315,7 +21049,7 @@
         "ice": 20,
         "thunder": 30,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -21327,7 +21061,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -21339,7 +21073,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -21351,7 +21085,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -21363,7 +21097,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -21375,7 +21109,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail Tip",
@@ -21387,7 +21121,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Break Part)",
@@ -21411,7 +21145,7 @@
         "ice": 20,
         "thunder": 30,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back (Break Part)",
@@ -21423,7 +21157,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly (Break Part)",
@@ -21435,7 +21169,7 @@
         "ice": 10,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Break Part)",
@@ -21447,7 +21181,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing (Break Part)",
@@ -21459,7 +21193,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs (Break Part)",
@@ -21471,7 +21205,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail Tip (Break Part)",
@@ -21483,7 +21217,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -21638,7 +21372,7 @@
         "ice": 40,
         "thunder": 50,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       }
     ],
     "status": [
@@ -21831,7 +21565,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -21843,7 +21577,7 @@
         "ice": 15,
         "thunder": 20,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -21855,7 +21589,7 @@
         "ice": 10,
         "thunder": 20,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -21867,7 +21601,7 @@
         "ice": 10,
         "thunder": 20,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Thigh",
@@ -21879,7 +21613,7 @@
         "ice": 10,
         "thunder": 25,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -21891,7 +21625,7 @@
         "ice": 5,
         "thunder": 20,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail Tip",
@@ -21903,7 +21637,7 @@
         "ice": 10,
         "thunder": 25,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Charged)",
@@ -21927,7 +21661,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back (Charged)",
@@ -21939,7 +21673,7 @@
         "ice": 0,
         "thunder": 0,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Charged)",
@@ -21951,7 +21685,7 @@
         "ice": 10,
         "thunder": 30,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Charged)",
@@ -21963,7 +21697,7 @@
         "ice": 10,
         "thunder": 25,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Thigh (Charged)",
@@ -21975,7 +21709,7 @@
         "ice": 10,
         "thunder": 25,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Charged)",
@@ -21987,7 +21721,7 @@
         "ice": 5,
         "thunder": 20,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail Tip (Charged)",
@@ -21999,7 +21733,7 @@
         "ice": 10,
         "thunder": 25,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -22172,7 +21906,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -22184,7 +21918,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -22196,7 +21930,7 @@
         "ice": 25,
         "thunder": 5,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -22208,7 +21942,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -22220,7 +21954,7 @@
         "ice": 15,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -22232,7 +21966,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Enraged)",
@@ -22256,7 +21990,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back (Enraged)",
@@ -22268,7 +22002,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Enraged)",
@@ -22280,7 +22014,7 @@
         "ice": 20,
         "thunder": 5,
         "dragon": 25,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Enraged)",
@@ -22292,7 +22026,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Enraged)",
@@ -22304,7 +22038,7 @@
         "ice": 15,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing (Enraged)",
@@ -22316,7 +22050,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -22495,7 +22229,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -22507,7 +22241,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -22519,7 +22253,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -22531,7 +22265,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Tail Inflated)",
@@ -22567,7 +22301,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Tail Inflated)",
@@ -22579,7 +22313,7 @@
         "ice": 5,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Tail Inflated)",
@@ -22591,7 +22325,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Tail Inflated)",
@@ -22603,7 +22337,7 @@
         "ice": 15,
         "thunder": 30,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -22769,7 +22503,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body",
@@ -22781,7 +22515,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Resonating Organs",
@@ -22793,7 +22527,7 @@
         "ice": 0,
         "thunder": 20,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -22805,7 +22539,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -22817,7 +22551,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -22829,7 +22563,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Fatiqued)",
@@ -22853,7 +22587,7 @@
         "ice": 0,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Body (Fatiqued)",
@@ -22865,7 +22599,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Resonating Organs (Fatiqued)",
@@ -22877,7 +22611,7 @@
         "ice": 0,
         "thunder": 20,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Fatiqued)",
@@ -22889,7 +22623,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Fatiqued)",
@@ -22901,7 +22635,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Fatiqued)",
@@ -22913,7 +22647,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -23072,7 +22806,7 @@
         "ice": 20,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Fin",
@@ -23084,7 +22818,7 @@
         "ice": 20,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -23096,7 +22830,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -23108,7 +22842,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -23120,7 +22854,7 @@
         "ice": 20,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -23132,7 +22866,7 @@
         "ice": 30,
         "thunder": 25,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Enraged)",
@@ -23156,7 +22890,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Fin (Enraged)",
@@ -23168,7 +22902,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Enraged)",
@@ -23180,7 +22914,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Enraged)",
@@ -23192,7 +22926,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Enraged)",
@@ -23204,7 +22938,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly (Enraged)",
@@ -23216,7 +22950,7 @@
         "ice": 0,
         "thunder": 30,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -23383,7 +23117,7 @@
         "ice": 5,
         "thunder": 20,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -23395,7 +23129,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -23407,7 +23141,7 @@
         "ice": 10,
         "thunder": 25,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -23419,7 +23153,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -23431,7 +23165,7 @@
         "ice": 10,
         "thunder": 20,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -23443,7 +23177,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Enraged)",
@@ -23467,7 +23201,7 @@
         "ice": 5,
         "thunder": 20,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly (Enraged)",
@@ -23479,7 +23213,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back (Enraged)",
@@ -23491,7 +23225,7 @@
         "ice": 10,
         "thunder": 25,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Enraged)",
@@ -23503,7 +23237,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Enraged)",
@@ -23515,7 +23249,7 @@
         "ice": 10,
         "thunder": 15,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Enraged)",
@@ -23527,7 +23261,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -23726,7 +23460,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -23738,7 +23472,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -23750,7 +23484,7 @@
         "ice": 0,
         "thunder": 25,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -23762,7 +23496,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -23774,7 +23508,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -23786,7 +23520,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Break Part)",
@@ -23810,7 +23544,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly (Break Part)",
@@ -23822,7 +23556,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back (Break Part)",
@@ -23834,7 +23568,7 @@
         "ice": 0,
         "thunder": 25,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Break Part)",
@@ -23846,7 +23580,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Break Part)",
@@ -23858,7 +23592,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Break Part)",
@@ -23870,7 +23604,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 15,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -24021,7 +23755,7 @@
         "ice": 30,
         "thunder": 25,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       }
     ],
     "status": [
@@ -24280,200 +24014,6 @@
         }
       }
     },
-    "hitzones": [
-      {
-        "part": "Head",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Neck",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Body",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Thigh",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Tail",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Front Legs",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Back Legs",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Wing",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Head (Enraged)",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Neck (Enraged)",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Body (Enraged)",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Thigh (Enraged)",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Tail (Enraged)",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Front Legs (Enraged)",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Back Legs (Enraged)",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      },
-      {
-        "part": "Wing (Enraged)",
-        "cut": -1,
-        "impact": -1,
-        "shot": -1,
-        "fire": -1,
-        "water": -1,
-        "ice": -1,
-        "thunder": -1,
-        "dragon": -1,
-        "ko": -1
-      }
-    ],
     "ailments": [
       "Large Roar",
       "Large Wind Pressure"
@@ -24622,7 +24162,7 @@
         "ice": 15,
         "thunder": 30,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back/Wings",
@@ -24634,7 +24174,7 @@
         "ice": 25,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -24646,7 +24186,7 @@
         "ice": 15,
         "thunder": 25,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing Flaps",
@@ -24658,7 +24198,7 @@
         "ice": 10,
         "thunder": 20,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -24670,7 +24210,7 @@
         "ice": 5,
         "thunder": 10,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -24682,7 +24222,7 @@
         "ice": 15,
         "thunder": 25,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail Tip",
@@ -24694,7 +24234,7 @@
         "ice": 20,
         "thunder": 30,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -24845,7 +24385,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -24857,7 +24397,7 @@
         "ice": 20,
         "thunder": 10,
         "dragon": 30,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -24869,7 +24409,7 @@
         "ice": 15,
         "thunder": 10,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -24881,7 +24421,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -24893,7 +24433,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -24905,7 +24445,7 @@
         "ice": 10,
         "thunder": 5,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -25057,7 +24597,7 @@
         "ice": 40,
         "thunder": 30,
         "dragon": 20,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -25069,7 +24609,7 @@
         "ice": 20,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -25081,7 +24621,7 @@
         "ice": 20,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -25093,7 +24633,7 @@
         "ice": 20,
         "thunder": 15,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Wing",
@@ -25105,7 +24645,7 @@
         "ice": 15,
         "thunder": 25,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Legs",
@@ -25117,7 +24657,7 @@
         "ice": 5,
         "thunder": 5,
         "dragon": 0,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -25268,7 +24808,7 @@
         "ice": 10,
         "thunder": 70,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -25419,7 +24959,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Fin",
@@ -25431,7 +24971,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -25443,7 +24983,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -25455,7 +24995,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -25467,7 +25007,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly",
@@ -25479,7 +25019,7 @@
         "ice": 0,
         "thunder": 30,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Ice Shield)",
@@ -25503,7 +25043,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Fin (Ice Shield)",
@@ -25515,7 +25055,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Ice Shield)",
@@ -25527,7 +25067,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Ice Shield)",
@@ -25539,7 +25079,7 @@
         "ice": 0,
         "thunder": 15,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Ice Shield)",
@@ -25551,7 +25091,7 @@
         "ice": 0,
         "thunder": 10,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Belly (Ice Shield)",
@@ -25563,7 +25103,7 @@
         "ice": 0,
         "thunder": 30,
         "dragon": 10,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [
@@ -25770,7 +25310,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back",
@@ -25782,7 +25322,7 @@
         "ice": 25,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs",
@@ -25794,7 +25334,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs",
@@ -25806,7 +25346,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Thigh",
@@ -25818,7 +25358,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail",
@@ -25830,7 +25370,7 @@
         "ice": 5,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail Tip",
@@ -25842,7 +25382,7 @@
         "ice": 20,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Head (Charged)",
@@ -25866,7 +25406,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back (Charged)",
@@ -25878,7 +25418,7 @@
         "ice": 30,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Front Legs (Charged)",
@@ -25890,7 +25430,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Back Legs (Charged)",
@@ -25902,7 +25442,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Thigh (Charged)",
@@ -25914,7 +25454,7 @@
         "ice": 15,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail (Charged)",
@@ -25926,7 +25466,7 @@
         "ice": 10,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       },
       {
         "part": "Tail Tip (Charged)",
@@ -25938,7 +25478,7 @@
         "ice": 20,
         "thunder": 0,
         "dragon": 5,
-        "ko": -1
+        "ko": 0
       }
     ],
     "ailments": [

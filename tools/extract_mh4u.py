@@ -110,11 +110,26 @@ def extract() -> list[dict]:
 
         # Hitzones (per body part). MH4U lists a "(Break Part)" twin for each
         # part with post-break values; keep body_part verbatim to preserve it.
+        # Two sentinel quirks normalized here:
+        #  - ko = -1 means "part can't be KO'd"; MHGU stores 0 for the same
+        #    meaning. Coerce to 0 so the two sub-structures stay comparable.
+        #  - A few bosses ship all-(-1) rows for states the db has no data for
+        #    (Crimson/White Fatalis entirely; Gogmazios's Enraged parts). Drop
+        #    those rows rather than emit nonsense values; MHGU's hitzones are
+        #    the real source for them. If every row would be dropped, omit the
+        #    hitzones field entirely.
         dmg = _rows(cur, "SELECT * FROM monster_damage WHERE monster_id=?", (mid,))
         if dmg:
-            record["hitzones"] = [
-                {"part": d["body_part"], **{c: d[c] for c in DAMAGE_COLS}} for d in dmg
-            ]
+            kept = []
+            for d in dmg:
+                if all(d[c] == -1 for c in DAMAGE_COLS):
+                    continue
+                kept.append({
+                    "part": d["body_part"],
+                    **{c: (0 if c == "ko" and d[c] == -1 else d[c]) for c in DAMAGE_COLS},
+                })
+            if kept:
+                record["hitzones"] = kept
 
         # Ailments the monster inflicts on the hunter (roar, blights, bleeding...).
         ail = _rows(cur, "SELECT ailment FROM monster_ailment WHERE monster_id=?", (mid,))
