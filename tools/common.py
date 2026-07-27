@@ -48,6 +48,7 @@ GAME_PREFIX = {
     "Monster Hunter Rise": "mhrise",
     "Monster Hunter Sunbreak": "mhrs",
     "Monster Hunter Wilds": "mhwilds",
+    "Monster Hunter Online": "mho",
     "Monster Hunter Stories": "mhst",
     "Monster Hunter Stories 2": "mhst2",
 }
@@ -107,6 +108,7 @@ def icon_ref_to_game(ref: str) -> str | None:
         "MHRS": "mhrs",
         "MHWilds": "mhwilds",
         "MHSWilds": "mhwilds",
+        "MHO": "mho",
     }
     code = ref.split("-", 1)[0]
     return prefix_map.get(code)

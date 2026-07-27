@@ -13,7 +13,7 @@
 | Source | URL | Role | Terms |
 |---|---|---|---|
 | monster-hunter-DB | https://github.com/CrimsonNynja/monster-hunter-DB | the backbone roster + most per-game icons (854 PNGs, 9 titles) | MIT (code, data); © Capcom |
-| Monster Hunter Fandom wiki | https://monsterhunter.fandom.com/wiki/Category:Monster_Icons | fills icon gaps across games, pulled via the MediaWiki API | CC BY-SA; raw files gitignored |
+| Monster Hunter Fandom wiki | https://monsterhunter.fandom.com/wiki/Category:Monster_Icons | fills icon gaps across games, pulled via the MediaWiki API; sole source for Monster Hunter Online (78 MHO icons, including Abiorugu, Baelidae, Estrellian, Lightenna and other MHO-exclusives MHDB doesn't carry) | CC BY-SA; raw files gitignored |
 | MonsterHunter4UDatabase | https://github.com/kamegami13/MonsterHunter4UDatabase | vendored MH4U bestiary icons (106 PNGs), a superset of MHDB's mh4u set; adds Seregios, Shah Dalamadur, and all Apex variants | MIT (code); © Capcom (icons) |
 
 ### Item-type icons

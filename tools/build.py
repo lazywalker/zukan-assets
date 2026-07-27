@@ -443,11 +443,70 @@ def _mh4u_supplement(seen_slugs: set[str], lookups: dict, stats: dict) -> list[d
     return out
 
 
+def _mho_icons() -> dict[str, dict]:
+    """Lazy {slug: manifest_record} for MHO Fandom icons, cached for the build run.
+
+    MHO is the one game with no MHDB baseline (its monsters aren't in
+    monsters.json and MHDB ships no MHO- icons), so its Fandom set is the
+    sole icon source. Two callers: _build_monster_record attaches an MHO game
+    entry to any roster monster whose slug is in here (the 42 shared), and
+    _mho_supplement synthesizes fresh records for the rest (the 36 exclusive).
+
+    Variant suffixes (-NN, like 'merphistophelin-02') collapse to the base slug;
+    the first record wins, same dedup rule build_icon_lookup applies to all
+    Fandom games.
+    """
+    cache = _mho_icons.cache
+    if cache is None:
+        man = load_json(FANDOM_OUT / "_manifest.json") or []
+        deduped: dict[str, dict] = {}
+        for r in man:
+            if r.get("game") != "mho":
+                continue
+            slug = re.sub(r"-\d{1,3}$", "", r["slug"])
+            deduped.setdefault(slug, r)
+        cache = _mho_icons.cache = deduped
+    return cache
+_mho_icons.cache = None
+
+
+def _mho_name_from_wiki_title(wiki_title: str) -> str:
+    """'File:MHO-Abiorugu Icon.png' -> 'Abiorugu', preserving spaces/case.
+
+    The Fandom manifest has no name field, only wiki_title; the slug loses
+    case and word boundaries, so the title is the only source of the real name.
+    """
+    name = wiki_title.split(":", 1)[-1]      # drop "File:"
+    _, rest = name.split("-", 1)              # drop "MHO-"
+    rest = rest.rsplit(" Icon", 1)[0]         # drop " Icon.png" / " Icon 02.png"
+    return rest
+
+
+def _mho_game_entry(rec: dict) -> dict:
+    """One source-shape games[] entry for an MHO monster, routed via its wiki title."""
+    return {
+        "game": "Monster Hunter Online",
+        # image is the Fandom filename (sans "File:"); icon_ref_to_game routes
+        # the MHO- prefix to mho, choose_icon's fandom fallback finds the slug.
+        "image": rec["wiki_title"].split(":", 1)[-1],
+        "info": None,
+        "danger": None,
+    }
+
+
 def _build_monster_record(m: dict, lookups: dict, stats: dict) -> dict:
     """Build one output monster record from a source entry (MHDB or synthesized)."""
     name = m["name"]
     slug = slugify(name)
-    games_out = _resolve_games(name, slug, m.get("games", []), lookups, stats)
+    # Attach an MHO game entry to any roster monster that has an MHO icon and
+    # doesn't already list Monster Hunter Online (the 36 exclusives synthesized
+    # by _mho_supplement already carry one, so the any() guard skips them).
+    games = list(m.get("games", []))
+    mho_rec = _mho_icons().get(slug)
+    if mho_rec and not any(g.get("game") == "Monster Hunter Online" for g in games):
+        games.append(_mho_game_entry(mho_rec))
+        stats.setdefault("mho_game_attach", []).append(name)
+    games_out = _resolve_games(name, slug, games, lookups, stats)
     record = {
         "id": m.get("_id", {}).get("$oid") if isinstance(m.get("_id"), dict) else None,
         "name": name,
@@ -471,6 +530,32 @@ def _build_monster_record(m: dict, lookups: dict, stats: dict) -> dict:
     return record
 
 
+def _mho_supplement(seen_slugs: set[str], lookups: dict, stats: dict) -> list[dict]:
+    """Synthesize roster entries for MHO monsters MHDB doesn't list at all.
+
+    MHO monsters that MHDB already carries under another game get an MHO game
+    entry attached in _build_monster_record, not a fresh record. The slugs left
+    over here (not in seen_slugs) are MHO-exclusives: synthesize a minimal
+    MHDB-shaped record so they ship with an icon. The Fandom set has no class
+    info, so all MHO monsters are treated as Large.
+    """
+    out: list[dict] = []
+    for slug, rec in _mho_icons().items():
+        if slug in seen_slugs:
+            continue
+        seen_slugs.add(slug)
+        stats.setdefault("mho_supplement", []).append(slug)
+        synthesized = {
+            "name": _mho_name_from_wiki_title(rec["wiki_title"]),
+            "_id": None,
+            "type": None,
+            "isLarge": True,
+            "games": [_mho_game_entry(rec)],
+        }
+        out.append(_build_monster_record(synthesized, lookups, stats))
+    return out
+
+
 def build_monsters(lookups: dict, stats: dict) -> list[dict]:
     raw = load_json(MHDB / "monsters.json")
     monsters = raw["monsters"] if isinstance(raw, dict) else raw
@@ -487,6 +572,11 @@ def build_monsters(lookups: dict, stats: dict) -> list[dict]:
 
     # Fill MH4U roster gaps (Apex variants, Dah'ren Mohran) MHDB doesn't carry.
     out.extend(_mh4u_supplement(seen_slugs, lookups, stats))
+
+    # Fill MHO roster gaps (Abiorugu, Baelidae, Estrellian, ...) MHDB doesn't
+    # carry at all. MHO monsters MHDB lists under another game already got an
+    # MHO game entry attached in _build_monster_record; this adds the rest.
+    out.extend(_mho_supplement(seen_slugs, lookups, stats))
 
     out.sort(key=lambda r: r["name"].lower())
     stats["monster_count"] = len(out)
@@ -647,6 +737,12 @@ def main() -> int:
     suppl = stats.get("mh4u_supplement", [])
     if suppl:
         print(f"  mh4u roster supplement: {len(suppl)}: {', '.join(suppl)}")
+    mho_new = stats.get("mho_supplement", [])
+    if mho_new:
+        print(f"  mho roster supplement: {len(mho_new)}: {', '.join(mho_new)}")
+    mho_att = stats.get("mho_game_attach", [])
+    if mho_att:
+        print(f"  mho game attach: {len(mho_att)}")
     print(f"  icon refs: {stats['icon_refs']}")
     print(f"  resolved: {stats['resolved']}")
     print(f"  missing: {len(stats['missing'])}")

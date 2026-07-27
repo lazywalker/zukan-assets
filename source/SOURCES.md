@@ -129,15 +129,19 @@ reproducible and easy to revisit later.
   Crawled with a 1s delay and a browser User-Agent.
 - **Role:** fallback for the icon gaps the other sources miss. **Raw files
   are gitignored**; slug-renamed copies get committed per game.
-- **Actual usage:** of the ~1053 committed files, only 3 end up in the build
-  (remobra, shagaru-magala, vespoid) — monster-hunter-DB's coverage is high
-  enough that the Fandom fallback almost never triggers. The rest sit unused
-  but are worth keeping: Fandom icons are a viable fallback for *any* future
-  MHDB gap, not just these three. Both transparent and opaque (RGB) Fandom
-  icons work — `fill_background.py` flood-fills the transparent ones into a
-  square card and leaves the opaque ones as-is (they're already full cards),
-  so transparency is not a discriminator between the two sources. MHDB wins
-  on coverage and stylistic consistency, not on background handling.
+- **Actual usage:** MHO is the one game where Fandom is the *primary* source,
+  not a fallback: MHDB carries no MHO monsters and ships no `MHO-` icons, so
+  all 78 MHO icons (Abiorugu, Baelidae, Estrellian, Lightenna, ...) come from
+  here, and `_mho_supplement` synthesizes roster entries for the 36
+  MHO-exclusives MHDB doesn't list at all. For the other games Fandom is still
+  just a fallback: of the ~1053 committed files, only a handful end up in the
+  build beyond MHO (remobra, shagaru-magala, vespoid), because MHDB's coverage
+  is high enough that the fallback rarely triggers. Both transparent and
+  opaque (RGB) Fandom icons work — `fill_background.py` flood-fills the
+  transparent ones into a square card and leaves the opaque ones as-is
+  (they're already full cards), so transparency is not a discriminator
+  between the two sources. MHDB wins on coverage and stylistic consistency,
+  not on background handling.
 
 ## Investigated but not used
 

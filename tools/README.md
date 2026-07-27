@@ -152,21 +152,31 @@ For each (monster, game) the build grabs the first icon it can find:
    that's stripped to match (`rathalos-001` → `rathalos`); when multiple
    variants exist, `-001` is the canonical pick.
 4. monster-hunter-DB baseline (its own game references)
-5. Fandom, same game
+5. Fandom, same game. **mho (Monster Hunter Online) is Fandom-only**: MHDB
+   carries no MHO monsters and ships no `MHO-` icons, so every MHO icon comes
+   from `source/fandom-processed/mho/`.
 6. Fandom, any game (cross-matched by slug)
 
 Each output's `games[].icon_source` records which one got used.
 
 ## Roster supplement (build.py)
 
-monster-hunter-DB is the baseline roster, but it omits six MH4U bosses (the
-Apex variants it doesn't list under other games). `build_monsters` fills
-those gaps from the MH4U db after the MHDB loop: any MH4U db Large monster
-whose slug isn't already in the roster gets a synthesized entry with one
-mh4u game (icon from the vendored bestiary set, numeric data from the same
-db). Small/Minion monsters are skipped so the roster doesn't gain
-unremarkable fauna MHDB chose not to carry. The summary prints how many
-were added each run.
+monster-hunter-DB is the baseline roster, but it omits some monsters other
+sources cover. `build_monsters` fills those gaps in two ways:
+
+- **MH4U**: six MH4U bosses (the Apex variants it doesn't list under other
+  games) get a synthesized entry with one mh4u game, drawn from the MH4U db
+  (icon from the vendored bestiary set, numeric data from the same db).
+  Small/Minion monsters are skipped so the roster doesn't gain unremarkable
+  fauna MHDB chose not to carry.
+- **MHO**: Monster Hunter Online isn't in MHDB at all. Its 78 monsters (the
+  Fandom set, with `-NN` variant suffixes collapsed) split into 42 shared
+  with other games and 36 MHO-exclusive. Shared monsters get an MHO game
+  entry attached to their existing record in `_build_monster_record`;
+  exclusives get a synthesized record from `_mho_supplement`. MHO has no
+  numeric data source, so its records carry icons only.
+
+The summary prints how many of each were added each run.
 
 ## Idempotency
 
