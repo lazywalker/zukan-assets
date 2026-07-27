@@ -14,6 +14,7 @@
 |---|---|---|---|
 | monster-hunter-DB | https://github.com/CrimsonNynja/monster-hunter-DB | the backbone roster + most per-game icons (854 PNGs, 9 titles) | MIT (code, data) — © Capcom |
 | Monster Hunter Fandom wiki | https://monsterhunter.fandom.com/wiki/Category:Monster_Icons | fills icon gaps across games, pulled via the MediaWiki API | CC BY-SA; raw files gitignored |
+| MonsterHunter4UDatabase | https://github.com/kamegami13/MonsterHunter4UDatabase | vendored MH4U bestiary icons (106 PNGs) — a superset of MHDB's mh4u set, adds Seregios, Shah Dalamadur, and all Apex variants | MIT (code) — © Capcom (icons) |
 
 ### Item-type icons
 
@@ -28,6 +29,7 @@
 | mhw-db.com | https://mhw-db.com | MHW + Iceborne: descriptions, weaknesses, resistances, ailments, locations, rewards, items | open JSON API |
 | wilds.mhdb.io | https://wilds.mhdb.io | Wilds: same fields, plus parts, hitzones, tips, item recipes | open JSON API |
 | GatheringHallStudios MHGenDatabase | https://github.com/gatheringhallstudios/MHGenDatabase | MHGU: weakness ratings (1-6), hitzones by body part, status thresholds, base HP, trap effectiveness; covers the returning MHFU/MH3U/MH4U roster | © Capcom (data) |
+| MonsterHunter4UDatabase | https://github.com/kamegami13/MonsterHunter4UDatabase | MH4U: per-state weakness ratings (Normal/Enraged/Charged), hitzones by body part, status thresholds, ailments, habitats with site names; 106 monsters | MIT (code) — © Capcom (data) |
 
 ## Investigated but not used
 

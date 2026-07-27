@@ -5,8 +5,8 @@ Turns vendored + fetched sources into `data/` and `icons/`.
 ## Pipeline
 
 ```
-fetch_external.py → fetch_item_icons.py → extract_mhgu.py → clean_mhst2.py → split_sprites.py → build.py → normalize.py → clean_halo.py → clean_background.py → validate.py / audit.py
-   (network)         (item type icons)    (mhgu db→json)   (mhst2 frame)    (fandom raw)      (join)   (48px/32c/enh)  (strip halo)  (zero RGB@α0)        (reports)
+fetch_external.py → fetch_item_icons.py → extract_mhgu.py → extract_mh4u.py → clean_mhst2.py → split_sprites.py → build.py → normalize.py → clean_halo.py → clean_background.py → validate.py / audit.py
+   (network)         (item type icons)    (mhgu db→json)   (mh4u db→json)   (mhst2 frame)    (fandom raw)      (join)   (48px/32c/enh)  (strip halo)  (zero RGB@α0)        (reports)
 ```
 
 The default style keeps icons **transparent** (no background fill). For the
@@ -18,6 +18,7 @@ optional filled-square-card variant, insert `fill_background.py` between
 | `fetch_external.py` | fetch APIs + Fandom monster icons | network | `source/api_cache/`, gitignored `source/fandom-raw/` |
 | `fetch_item_icons.py` | fetch generic item-type icons (Scale/Hide/Potion...) from Fandom SVGs | network | `source/item-icons/` (SVGs + manifest), gitignored `source/fandom-raw/item-icons/` |
 | `extract_mhgu.py` | extract MHGU SQLite db → JSON | `source/MHGenDatabase/mhgu.db` | `source/api_cache/mhgu_monsters.json` |
+| `extract_mh4u.py` | extract MH4U SQLite db → JSON | `source/MH4UDatabase/mh4u.db` | `source/api_cache/mh4u_monsters.json` |
 | `clean_mhst2.py` | remove dark frame from MHDB MHST2 icons | `source/monster-hunter-DB/icons/MHST2-*` | `source/mhst2-cleaned/` |
 | `split_sprites.py` | slug-rename Fandom raw icons by game | `source/fandom-raw` manifest | `source/fandom-processed/` |
 | `build.py` | join baseline roster + icons + numeric data + item-type icons | `source/` | `data/`, `icons/` |
@@ -89,6 +90,7 @@ pip install -r requirements.txt
 python3 fetch_external.py      # --only {api,fandom} to limit
 python3 fetch_item_icons.py    # item-type icons (Scale/Hide/Potion...) from Fandom SVGs
 python3 extract_mhgu.py        # extract MHGU db → JSON
+python3 extract_mh4u.py        # extract MH4U db → JSON
 python3 clean_mhst2.py         # clean MHDB MHST2 dark frames
 python3 split_sprites.py       # slug-rename Fandom raw
 python3 build.py
@@ -139,15 +141,19 @@ pipeline steps. Manual dispatch is available for both.
 For each (monster, game) the build grabs the first icon it can find:
 
 1. cleaned MHDB MHST2 icons (mhst2 only), dark frame removed
-2. Fandom, same game — **mhrise only**: MHDB's Rise icons are a monochrome
+2. vendored official MH4U bestiary icons (mh4u only) — a strict superset of
+   MHDB's mh4u set: it also covers Seregios, Shah Dalamadur, and every Apex
+   variant. For the overlap the art is the same source as MHDB, so picking
+   ours first only fills gaps.
+3. Fandom, same game — **mhrise only**: MHDB's Rise icons are a monochrome
    ink style that doesn't render as character art, so Fandom's colored art is
    preferred where available (Fandom's mhrise set is partial, so MHDB still
-   fills the gaps — see #3). Fandom slugs carry a `-NNN` wiki sequence suffix
+   fills the gaps — see #4). Fandom slugs carry a `-NNN` wiki sequence suffix
    that's stripped to match (`rathalos-001` → `rathalos`); when multiple
    variants exist, `-001` is the canonical pick.
-3. monster-hunter-DB baseline (its own game references)
-4. Fandom, same game
-5. Fandom, any game (cross-matched by slug)
+4. monster-hunter-DB baseline (its own game references)
+5. Fandom, same game
+6. Fandom, any game (cross-matched by slug)
 
 Each output's `games[].icon_source` records which one got used.
 

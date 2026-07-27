@@ -7,7 +7,7 @@ Checks:
   - no orphan files in icons/ (every icon is referenced)
   - items.json is non-empty and well-formed
   - per-game icon coverage counts
-  - numeric data injection rate (mhw-db / wilds)
+  - numeric data injection rate (mhw-db / wilds / mhgu / mh4u)
 
 Exit code is non-zero if integrity checks fail (missing refs or orphans).
 A non-zero-but-present count of missing refs is informational unless strict.
@@ -185,10 +185,14 @@ def main() -> int:
 
     numeric_mhw = stats.get("numeric_mhw", 0)
     numeric_wilds = stats.get("numeric_wilds", 0)
+    numeric_mhgu = stats.get("numeric_mhgu", 0)
+    numeric_mh4u = stats.get("numeric_mh4u", 0)
     w("## Numeric data")
     w("")
     w(f"- mhw-db numeric merge: {numeric_mhw} monsters")
     w(f"- wilds numeric merge: {numeric_wilds} monsters")
+    w(f"- mhgu numeric merge: {numeric_mhgu} monsters")
+    w(f"- mh4u numeric merge: {numeric_mh4u} monsters")
     w("")
 
     # 4. integrity verdict

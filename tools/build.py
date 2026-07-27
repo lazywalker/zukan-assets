@@ -5,13 +5,14 @@ Pipeline:
   1. Load monster-hunter-DB monsters.json as the baseline roster (337).
   2. For each (monster, game) icon reference, resolve it to a processed icon
      using the priority chain:
-       cleaned MHST2 (mhst2) -> monster-hunter-DB baseline
-       -> Fandom (any game) -> mark missing.
+       cleaned MHST2 (mhst2) -> vendored MH4U bestiary (mh4u)
+       -> monster-hunter-DB baseline -> Fandom (any game) -> mark missing.
   3. Copy the chosen icon to icons/<game>/<slug>.png.
   4. Merge per-game hunter-notes text from the baseline.
-  5. Merge mhw-db (MHW/Iceborne), wilds.mhdb.io (Wilds), and MHGU db
-     (Generations Ultimate) numeric data: description, weaknesses,
-     resistances, ailments, locations, rewards, hitzones, status, HP.
+  5. Merge mhw-db (MHW/Iceborne), wilds.mhdb.io (Wilds), MHGU db
+     (Generations Ultimate), and MH4U db numeric data: description,
+     weaknesses, resistances, ailments, locations, rewards, hitzones,
+     status, HP.
   6. Build items.json from both APIs.
   7. Build endemic_life.json from the baseline.
 
@@ -80,6 +81,7 @@ MHDB = SOURCE / "monster-hunter-DB"
 API_CACHE = SOURCE / "api_cache"
 FANDOM_OUT = SOURCE / "fandom-processed"
 MHST2_CLEANED = SOURCE / "mhst2-cleaned"
+MH4U_ICONS = SOURCE / "mh4u-icons"  # vendored official MH4U bestiary icons
 ITEM_ICONS = SOURCE / "item-icons"  # rendered generic item-type icons
 I18N_DIR = SOURCE / "i18n"          # localized name/desc overlay (committed)
 
@@ -135,6 +137,12 @@ def build_icon_lookup() -> dict:
     mhst2_man = load_json(MHST2_CLEANED / "_manifest.json") or []
     for rec in mhst2_man:
         add("mhst2-cleaned", "mhst2", rec["slug"], MHST2_CLEANED / rec["filename"])
+
+    # Vendored official MH4U bestiary icons. Covers the full MH4U roster
+    # including the Apex variants and Seregios that MHDB is missing.
+    mh4u_man = load_json(MH4U_ICONS / "_manifest.json") or []
+    for rec in mh4u_man:
+        add("mh4u-icons", "mh4u", rec["slug"], MH4U_ICONS / rec["filename"])
 
     # Fandom icons are organised by game already. Strip the '-NNN' sequence
     # suffix (see _fandom_clean_slug); when a monster has multiple variants
@@ -222,6 +230,9 @@ def choose_icon(
     Priority is source-specific so a higher-quality derived source can outrank
     the monster-hunter-DB baseline where it overlaps:
       - mhst2: cleaned MHDB (dark frame removed) > raw monster-hunter-DB > fandom
+      - mh4u: vendored official MH4U bestiary icons > monster-hunter-DB > fandom
+        (the vendored set is a strict superset: MHDB is missing Seregios, Shah
+        Dalamadur, and every Apex variant)
       - mhrise: Fandom (clean colored art) > monster-hunter-DB (its Rise icons
         are a monochrome ink style that doesn't render as character art)
       - other games: monster-hunter-DB > fandom
@@ -233,6 +244,12 @@ def choose_icon(
     if game == "mhst2":
         p = lookups.get("mhst2-cleaned", {}).get(game, {}).get(slug)
         candidates.append(("mhst2-cleaned", p))
+
+    # mh4u: prefer the vendored official set; it covers the Apex variants and
+    # Seregios that MHDB lacks. Same source as MHDB for the overlap, so picking
+    # ours first only ever fills gaps, never changes existing icons.
+    if game == "mh4u":
+        candidates.append(("mh4u-icons", lookups.get("mh4u-icons", {}).get(game, {}).get(slug)))
 
     # mhrise: prefer Fandom's colored icons over MHDB's ink-style ones.
     if game == "mhrise":
@@ -257,7 +274,7 @@ def choose_icon(
 
 
 def merge_numeric(baseline: dict) -> dict:
-    """Attach mhw-db, wilds, and/or mhgu numeric data to a monster by name."""
+    """Attach mhw-db, wilds, mhgu, and/or mh4u numeric data to a monster by name."""
     name = baseline["name"]
     enriched = {}
 
@@ -310,6 +327,23 @@ def merge_numeric(baseline: dict) -> dict:
             "ailments": g.get("ailments", []),
             "status": g.get("status", []),
             "habitats": g.get("habitats", []),
+        }
+
+    # mh4u covers MH4U natively. Weakness is per-state (Normal/Enraged/Charged),
+    # not the flat list mhgu produces, so the shape differs deliberately.
+    # Habitats carry a joined location name; hitzones share mhgu's column set.
+    mh4u = load_json(API_CACHE / "mh4u_monsters.json") or []
+    h4 = next((x for x in mh4u if x["name"] == name), None)
+    if h4:
+        enriched["mh4u"] = {
+            "name_jp": h4.get("name_jp"),
+            "class": h4.get("class"),
+            "signature_move": h4.get("signature_move"),
+            "weakness": h4.get("weakness", {}),
+            "hitzones": h4.get("hitzones", []),
+            "ailments": h4.get("ailments", []),
+            "status": h4.get("status", []),
+            "habitats": h4.get("habitats", []),
         }
 
     return enriched
@@ -546,6 +580,7 @@ def main() -> int:
     numeric_mhw = sum(1 for m in monsters if m.get("numeric", {}).get("mhw"))
     numeric_wilds = sum(1 for m in monsters if m.get("numeric", {}).get("wilds"))
     numeric_mhgu = sum(1 for m in monsters if m.get("numeric", {}).get("mhgu"))
+    numeric_mh4u = sum(1 for m in monsters if m.get("numeric", {}).get("mh4u"))
 
     print("== build summary ==")
     print(f"  monsters: {stats['monster_count']}")
@@ -563,6 +598,7 @@ def main() -> int:
     print(f"  mhw numeric merge: {numeric_mhw}")
     print(f"  wilds numeric merge: {numeric_wilds}")
     print(f"  mhgu numeric merge: {numeric_mhgu}")
+    print(f"  mh4u numeric merge: {numeric_mh4u}")
 
     # Persist stats for validate.py and CI summaries.
     stats["items"] = len(items)
@@ -570,6 +606,7 @@ def main() -> int:
     stats["numeric_mhw"] = numeric_mhw
     stats["numeric_wilds"] = numeric_wilds
     stats["numeric_mhgu"] = numeric_mhgu
+    stats["numeric_mh4u"] = numeric_mh4u
     (DATA / "_build_stats.json").write_text(json.dumps(stats, indent=2))
     return 0
 

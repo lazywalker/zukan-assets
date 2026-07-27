@@ -41,6 +41,10 @@ runs:
       shell: bash
       run: python3 tools/extract_mhgu.py
 
+    - name: Extract MH4U data
+      shell: bash
+      run: python3 tools/extract_mh4u.py
+
     - name: Clean MHST2 dark frames
       shell: bash
       run: python3 tools/clean_mhst2.py

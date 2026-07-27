@@ -15,13 +15,14 @@ re-vendor by hand if you want a fresher baseline.
 |---|---|---|---|---|
 | `monster-hunter-DB/` | https://github.com/CrimsonNynja/monster-hunter-DB | `566883a729757a83b596b6ba9963132a9d19afca` | MIT (code, data) © Capcom | 2026-07-23 |
 | `MHGenDatabase/` | https://github.com/gatheringhallstudios/MHGenDatabase | `6ec3ce73f4f4def80f04413094fa0fc033787ee2` | © Capcom (data) | 2026-07-24 |
+| `MH4UDatabase/` | https://github.com/kamegami13/MonsterHunter4UDatabase | `cfe56c36d622066233f50265aa91ed9c0a70e52d` | MIT (code) © Capcom (data) | 2026-07-27 |
 
-> **MHGenDatabase deliberately isn't on the periodic fetch.** Upstream's been
-> dead since 2018-12 (the `mhgu.db` mtime backs that up), and MHGU is a shipped
-> game with a fixed dataset, unlike the live APIs below — so it's a frozen
-> snapshot. The upstream commit is pinned in `MHGenDatabase/.source-commit`, and
-> `tools/extract_mhgu.py` writes the db's sha256/size/mtime into
-> `api_cache/mhgu_monsters.meta.json` each run, so if someone swaps the db
+> **MHGenDatabase and MH4UDatabase deliberately aren't on the periodic fetch.**
+> Both upstreams are dead (MHGenDatabase since 2018-12, MH4UDatabase since
+> 2016-05) and both games are shipped with fixed datasets, unlike the live APIs
+> below — so they're frozen snapshots. The upstream commit is pinned in each
+> dir's `.source-commit`, and `tools/extract_mh{gu,4u}.py` writes the db's
+> sha256/size into `api_cache/*.meta.json` each run, so if someone swaps a db
 > behind our back it shows up. To update: re-vendor, bump `.source-commit`,
 > re-run extract.
 
@@ -33,8 +34,9 @@ outputs and the fetch scripts get committed.
 
 | Directory | Source | Committed? |
 |---|---|---|
-| `api_cache/` | mhw-db.com + wilds.mhdb.io JSON + MHGU db extraction | yes (public/derived data) |
+| `api_cache/` | mhw-db.com + wilds.mhdb.io JSON + MHGU/MH4U db extraction | yes (public/derived data) |
 | `mhst2-cleaned/` | monster-hunter-DB MHST2 icons with dark frame removed | yes (derived output) |
+| `mh4u-icons/` | MonsterHunter4UDatabase bestiary PNGs, slug-renamed from `MH4U-<Name>_Icon.png`; manually vendored (upstream frozen) | yes (derived output) |
 | `item-icons/` | generic item-type icons (Scale/Hide/Potion...): vendored Fandom SVGs + `_manifest.json` (ETag-tracked); PNGs rendered at build time | yes (vendored SVGs) |
 | `fandom-raw/` | Monster Hunter Fandom wiki Category:Monster_Icons (monster icons only) | **no** (gitignored) |
 | `fandom-processed/` | renamed Fandom monster icons | yes (derived output) |
