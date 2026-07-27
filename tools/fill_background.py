@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Complete the partial background on Monster Hunter icons.
 
-OPTIONAL — this is "style 2" (filled square card). The default pipeline keeps
+OPTIONAL: this is "style 2" (filled square card). The default pipeline keeps
 icons transparent and does NOT run this script; CI omits it. Run it between
 build.py and normalize.py only if you want the opaque-card look. See
 tools/README.md "Background styles".
@@ -13,10 +13,10 @@ with the original background color so each icon becomes a complete square card.
 
 Background color is determined per-icon:
   - if the transparent pixels carry a non-zero RGB residue (MHFU green,
-    Rise near-white, etc.), that residue IS the original bg — use it;
+    Rise near-white), that residue IS the original bg; use it;
   - otherwise sample the nearest opaque color from the edges (MHWI gold).
 
-Only the outer transparent region (flood-filled from the border) is filled —
+Only the outer transparent region (flood-filled from the border) is filled;
 interior transparency belonging to the monster (hollows, gaps between limbs)
 is left alone. Runs over icons/ before normalize.py. Idempotent.
 """
@@ -41,7 +41,7 @@ def _sample_bg(px, w: int, h: int) -> tuple[int, int, int]:
          (the keyed-out bg usually leaves its color in the RGB channels);
       2. the most common opaque color on the border ring;
       3. the most common opaque color in the four corner quadrants (used when
-         the whole border ring is transparent, e.g. Wilds, which otherwise
+         the whole border ring is transparent, as with Wilds, which otherwise
          sampled as pure black).
     """
     trans_colors: Counter = Counter()
@@ -67,7 +67,7 @@ def _sample_bg(px, w: int, h: int) -> tuple[int, int, int]:
         return trans_colors.most_common(1)[0][0]
     if opaque_colors:
         return opaque_colors.most_common(1)[0][0]
-    # Border ring fully transparent (Wilds etc.): sample the four corner
+    # Border ring fully transparent (Wilds): sample the four corner
     # quadrants, which are background but inside the transparent ring.
     corner_colors: Counter = Counter()
     cw, ch = max(1, w // 2), max(1, h // 2)
@@ -91,11 +91,10 @@ def fill_background(im: Image.Image) -> tuple[Image.Image, int]:
     im = im.convert("RGBA")
     w, h = im.size
     px = im.load()
-    # Item-type icons are transparent-background sprites (rendered from SVG,
-    # so their transparent pixels carry RGB=0, unlike monster card icons whose
-    # keyed-out ring still holds the original bg color). They have no native
-    # card color, so sample_bg would grab a random subject edge color. Give them
-    # one uniform dark bg instead — matches a dark terminal seamlessly.
+    # Item-type icons are transparent sprites (SVG-rendered, RGB=0 on alpha=0,
+    # unlike monster cards whose keyed-out ring keeps the bg color). They have
+    # no native card color, so sample_bg would grab a random subject edge color;
+    # give them one uniform dark bg that matches a dark terminal.
     border_transparent_rgb_nonzero = False
     for x in range(w):
         for y in (0, h - 1):

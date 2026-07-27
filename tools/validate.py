@@ -1,4 +1,4 @@
-#!/usr/bin env python3
+#!/usr/bin/env python3
 """Validate build output integrity and print a coverage report.
 
 Checks:
@@ -59,7 +59,7 @@ def main() -> int:
             else:
                 missing.append(f"{m['name']} / {g['game_full']}: (no icon)")
 
-    # 2. orphans (monster icons only — items/ handled separately below)
+    # 2. orphans (monster icons only; items/ handled separately below)
     on_disk: set[Path] = set()
     for d in ICONS.iterdir():
         if d.is_dir() and d.name != "items":
@@ -70,7 +70,7 @@ def main() -> int:
     total_refs = sum(per_game.values())
     resolved_refs = sum(1 for m in monsters for g in m.get("games", []) if g.get("icon"))
 
-    # Markdown report — CI pastes this straight into the PR body.
+    # Markdown report: CI pastes this straight into the PR body.
     out: list[str] = []
     w = out.append
 
@@ -112,11 +112,11 @@ def main() -> int:
         w("")
         for slug, idxs in sorted(dupes.items()):
             names = [monsters[i]["name"] for i in idxs]
-            w(f"- `{slug}` — indices {', '.join(map(str, idxs))} ({', '.join(names)})")
+            w(f"- `{slug}`: indices {', '.join(map(str, idxs))} ({', '.join(names)})")
         w("")
         errors.append(f"duplicate slugs: {', '.join(dupes.keys())}")
     else:
-        w("none — all slugs are unique")
+        w("none: all slugs are unique")
     w("")
 
     w("## Icon coverage by game")
@@ -142,7 +142,7 @@ def main() -> int:
             w(f"- `{o.relative_to(ICONS)}`")
         w("")
 
-    # 2b. item icon integrity — every items.json icon ref resolves, no orphans.
+    # 2b. item icon integrity: every items.json icon ref resolves, no orphans.
     item_referenced: set[Path] = set()
     item_missing: list[str] = []
     for it in items:
@@ -208,10 +208,10 @@ def main() -> int:
         hard = [e for e in errors if e.startswith("missing icon file")]
         if hard:
             w("")
-            w(f"{len(hard)} hard — referenced but absent on disk")
+            w(f"{len(hard)} hard: referenced but absent on disk")
             print("\n".join(out))
             return 1
-    w("ok — all referenced icons present")
+    w("ok: all referenced icons present")
     print("\n".join(out))
     return 0
 

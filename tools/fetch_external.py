@@ -9,11 +9,6 @@
 Each source is fetched independently with its own try/except so one
 failure does not abort the others. Raw downloads land in gitignored
 directories (see source/README.md); the cache/manifests are committed.
-
-Usage:
-    python3 tools/fetch_external.py              # fetch all reachable
-    python3 tools/fetch_external.py --only api   # only the JSON APIs
-    python3 tools/fetch_external.py --only fandom
 """
 
 from __future__ import annotations
@@ -62,7 +57,7 @@ FANDOM_CATEGORY_TO_GAME = {
     "MHRise": "mhrise",
     "MHW": "mhw",
     "MHWI": "mhwi",
-    # fallbacks — kept but lower priority
+    # fallbacks, kept but lower priority
     "MH3": "mh3u",
     "MH3G": "mh3u",
     "MH4": "mh4u",
@@ -91,9 +86,7 @@ def fetch_json(url: str, *, browser: bool = False) -> dict | list:
     return resp.json()
 
 
-# --------------------------------------------------------------------------- #
 # JSON APIs (mhw-db.com + wilds.mhdb.io)
-# --------------------------------------------------------------------------- #
 def fetch_api_cache() -> None:
     """Fetch the two JSON APIs into source/api_cache/."""
     API_CACHE.mkdir(parents=True, exist_ok=True)
@@ -114,9 +107,7 @@ def fetch_api_cache() -> None:
             raise FetchError(f"failed to fetch {url}: {exc}") from exc
 
 
-# --------------------------------------------------------------------------- #
 # Fandom wiki (MediaWiki API)
-# --------------------------------------------------------------------------- #
 FANDOM_API = "https://monsterhunter.fandom.com/api.php"
 
 
@@ -134,7 +125,7 @@ def _cmcontinue(data: dict) -> str | None:
 
     MediaWiki returns pagination under either the legacy `query-continue` key
     or the modern `continue` key depending on the request/version, so check
-    both — missing one silently truncates large categories to 500.
+    both; missing one silently truncates large categories to 500.
     """
     cont = data.get("query-continue", {}).get("categorymembers", {})
     return cont.get("cmcontinue") or data.get("continue", {}).get("cmcontinue")
@@ -211,7 +202,7 @@ def fandom_file_urls(file_titles: list[str]) -> dict[str, str]:
 def fandom_category_to_game(category: str) -> str:
     """Derive a game prefix from a Fandom subcategory title.
 
-    e.g. 'Category:MH4U Monster Icons' -> 'mh4u'. Unknown -> 'misc'.
+    'Category:MH4U Monster Icons' -> 'mh4u'. Unknown -> 'misc'.
     """
     m = re.search(r"Category:(MH[A-Z0-9]+)\b", category)
     if not m:
@@ -239,7 +230,7 @@ def fetch_fandom() -> None:
     if manifest_path.exists():
         manifest = json.loads(manifest_path.read_text())
         seen_titles = {r["wiki_title"] for r in manifest}
-        print(f"  [fandom] resuming — {len(manifest)} icons already recorded")
+        print(f"  [fandom] resuming; {len(manifest)} icons already recorded")
 
     # Subcategories give us per-game buckets; the top category itself also
     # holds ~240 files (mostly Frontier), so we fetch both.
@@ -294,9 +285,7 @@ def fetch_fandom() -> None:
     print(f"  [fandom] {len(manifest)} icons total, manifest written")
 
 
-# --------------------------------------------------------------------------- #
 # Dispatch
-# --------------------------------------------------------------------------- #
 SOURCES = {
     "api": fetch_api_cache,
     "fandom": fetch_fandom,

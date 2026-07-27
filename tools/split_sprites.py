@@ -46,7 +46,7 @@ def process_fandom() -> None:
         if not src.exists():
             continue
         # Slug from the wiki filename: drop game prefix and 'Icon' token,
-        # keep extension. e.g. 'Rathalos MH4-Icon.png' -> 'rathalos.png'
+        # keep extension. Example: 'Rathalos MH4-Icon.png' -> 'rathalos.png'
         stem = src.stem
         if "-" in stem:
             _, rest = stem.split("-", 1)

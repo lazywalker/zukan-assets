@@ -7,7 +7,7 @@ with the stdlib `sqlite3` (no new dependency) and emits a normalized JSON array
 at source/api_cache/mhgu_monsters.json, one record per monster keyed by `name`
 so build.py's merge_numeric can join by exact name (same as mhw-db/wilds).
 
-The MHGU db covers 129 monsters — mostly returning roster from MHFU/MH3U/MH4U —
+The MHGU db covers 129 monsters (mostly returning roster from MHFU/MH3U/MH4U),
 filling the numeric-data gap for older games that no JSON API serves.
 
 Idempotent: overwrites the output each run.
@@ -50,7 +50,7 @@ def write_meta(record_count: int) -> dict:
 
     upstream_commit comes from the .source-commit file written at vendor time;
     db_sha256/size are computed from the actual file. sha256 is the definitive
-    fingerprint — if it changes, the db content changed.
+    fingerprint: if it changes, the db content changed.
     """
     meta = {
         "source": "gatheringhallstudios/MHGenDatabase",
@@ -99,7 +99,7 @@ def extract() -> list[dict]:
                 {"part": d["body_part"], **{c: d[c] for c in DAMAGE_COLS}} for d in dmg
             ]
 
-        # Ailments (roar, wind, etc.).
+        # Ailments (roar, wind, and the like).
         ail = _rows(cur, "SELECT ailment FROM monster_ailment WHERE monster_id=?", (mid,))
         if ail:
             record["ailments"] = [a["ailment"] for a in ail]

@@ -8,7 +8,7 @@ import re
 # (Ahtal-Ka, Pukei-Pukei, Tobi-Kadachi). Hyphens are preserved; spaces,
 # apostrophes, periods, colons are normalized away.
 
-# chars removed entirely (cf. pokeget's special-char handling)
+# chars removed entirely (pokeget drops these too)
 _DROP = set("'.:")
 
 
@@ -52,14 +52,12 @@ GAME_PREFIX = {
     "Monster Hunter Stories 2": "mhst2",
 }
 
-# True expansion packs: base game_full -> the icon-prefix used by that base's
-# expansion (Iceborne ships MHWI- icons under "Monster Hunter World" entries;
-# Sunbreak ships MHRS- icons under "Monster Hunter Rise" entries). MHDB records
-# these expansion icons against the *base* game_full, so we keep the expansion
-# subdir to preserve the Iceborne/Sunbreak distinction. Every other icon-ref
-# prefix that disagrees with game_full is an MHDB cross-borrow (e.g. a
-# "Monster Hunter Generations Ultimate" entry reusing a MH4U- icon) and must
-# NOT override game_full — see build.build_monsters.
+# True expansion packs: base game_full -> the expansion's icon prefix. MHDB
+# files Iceborne (MHWI-) under "Monster Hunter World" and Sunbreak (MHRS-)
+# under "Monster Hunter Rise"; we keep the expansion subdir to preserve that.
+# Any other prefix-vs-game_full mismatch is a cross-borrow (a "Generations
+# Ultimate" entry reusing a MH4U- icon) and must NOT override game_full; see
+# build.build_monsters.
 GAME_EXPANSION_ICON = {
     "Monster Hunter World": "mhwi",   # Iceborne
     "Monster Hunter Rise": "mhrs",    # Sunbreak
@@ -93,7 +91,7 @@ def fix_icon_ref(ref: str) -> str | None:
 def icon_ref_to_game(ref: str) -> str | None:
     """Derive the game prefix from a monster-hunter-DB icon filename.
 
-    e.g. 'MHFU-Rathalos_Icon.png' -> 'mhfu'. Returns None if unknown.
+    'MHFU-Rathalos_Icon.png' -> 'mhfu'. Returns None if unknown.
     """
     prefix_map = {
         "MHFU": "mhfu",

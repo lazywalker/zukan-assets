@@ -6,10 +6,10 @@ official MH4U bestiary. Reads it with stdlib `sqlite3` (no new dep) and emits
 source/api_cache/mh4u_monsters.json, one record per monster keyed by `name`
 so merge_numeric can join by exact name like the other numeric sources.
 
-Covers 106 monsters (83 Boss + 23 Minion). The schema diverges from MHGU's
-extractor in three places preserved here: weakness has per-state rows
-(Normal/Enraged/Charged), habitats join to a locations table for the site
-name, and monsters carry signature_move + name_jp.
+Schema diverges from MHGU's extractor in three places preserved here:
+weakness has per-state rows (Normal/Enraged/Charged), habitats join to a
+locations table for the site name, and monsters carry signature_move +
+name_jp.
 
 Idempotent: overwrites the output each run.
 """
@@ -24,12 +24,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DB = ROOT / "source" / "MH4UDatabase" / "mh4u.db"
-# Vendored at fetch time (see source/README.md). Read, not hardcoded, so a
-# re-vendor is visible without editing this script.
 SOURCE_COMMIT = ROOT / "source" / "MH4UDatabase" / ".source-commit"
 OUT = ROOT / "source" / "api_cache" / "mh4u_monsters.json"
-# Provenance for the db this run read; parallel to the records array so
-# merge_numeric's `load_json(...) or []` contract is unchanged.
+# Provenance for the db this run read; sha256 is the definitive fingerprint
+# (if it changes, a silent re-vendor happened).
 META_OUT = ROOT / "source" / "api_cache" / "mh4u_monsters.meta.json"
 
 # monster_weakness element + status columns → field names. MH4U rates 0-3
@@ -51,12 +49,7 @@ def _rows(cur, sql, params=()):
 
 
 def write_meta(record_count: int) -> dict:
-    """Record which db this extraction read, so a silent re-vendor is detectable.
-
-    upstream_commit comes from the .source-commit file written at vendor time;
-    db_sha256/size are computed from the actual file. sha256 is the definitive
-    fingerprint: if it changes, the db content changed.
-    """
+    """Record db provenance so a silent re-vendor is detectable (sha256 is the fingerprint)."""
     meta = {
         "source": "kamegami13/MonsterHunter4UDatabase",
         "upstream_commit": SOURCE_COMMIT.read_text().strip() if SOURCE_COMMIT.exists() else None,
@@ -108,16 +101,11 @@ def extract() -> list[dict]:
         if wk_rows:
             record["weakness"] = {w["state"].lower(): _weakness_block(w) for w in wk_rows}
 
-        # Hitzones (per body part). MH4U lists a "(Break Part)" twin for each
-        # part with post-break values; keep body_part verbatim to preserve it.
-        # Two sentinel quirks normalized here:
-        #  - ko = -1 means "part can't be KO'd"; MHGU stores 0 for the same
-        #    meaning. Coerce to 0 so the two sub-structures stay comparable.
-        #  - A few bosses ship all-(-1) rows for states the db has no data for
-        #    (Crimson/White Fatalis entirely; Gogmazios's Enraged parts). Drop
-        #    those rows rather than emit nonsense values; MHGU's hitzones are
-        #    the real source for them. If every row would be dropped, omit the
-        #    hitzones field entirely.
+        # Hitzones. Two db quirks normalized here:
+        #  - ko = -1 means "can't be KO'd"; MHGU stores 0 for the same meaning.
+        #  - all-(-1) rows mark states with no data (Crimson/White Fatalis
+        #    entirely, Gogmazios Enraged); drop them so MHGU stays the source.
+        # body_part is kept verbatim to preserve the "(Break Part)" post-break rows.
         dmg = _rows(cur, "SELECT * FROM monster_damage WHERE monster_id=?", (mid,))
         if dmg:
             kept = []

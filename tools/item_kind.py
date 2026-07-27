@@ -3,7 +3,7 @@
 
 MH item icons are shared per type, not per item: every "Anjanath Scale" and
 "Rathalos Scale" use the same Scale illustration. The Wilds API hands us this
-{kind, color} directly, but the MHW API (mhw-db) has no such field — so for
+{kind, color} directly, but the MHW API (mhw-db) has no such field, so for
 MHW items we infer the kind from the (highly regular) naming conventions:
 "<Monster> <BodyPart>" for materials, or a consumable keyword (Potion, Herb...).
 
@@ -21,14 +21,11 @@ import re
 # common Wilds color and reads as a neutral rarity tier.
 DEFAULT_COLOR = "white"
 
-# Ordered rules: (regex, kind). First match wins. Patterns are matched
-# case-insensitively against the lowercased item name. Monster-material body
-# parts come first (they're the bulk of MHW items), then consumables.
-#
-# Patterns use plain substring matching (no \b word boundaries) because MH
-# material names are compounds — "Hardfang", "Thickhide", "Fellwing" — so a
-# word-boundary anchored `fang` would miss `hardfang`. Substring `fang` catches
-# both. Order matters: more specific patterns first to avoid mis-routing.
+# Ordered rules: (regex, kind), first match wins, matched case-insensitively
+# against the lowercased name. Monster-material parts come first (the bulk of
+# MHW items), then consumables. Substring matching (no \b): MH material names
+# are compounds ("Hardfang", "Thickhide"), so a word-boundary `fang` would miss
+# `hardfang`. More specific patterns first to avoid mis-routing.
 RULES: list[tuple[str, str]] = [
     # --- monster materials (by body-part root word) ---
     (r"hardfang|fang|tusk|gouge", "claw"),

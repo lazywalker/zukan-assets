@@ -6,13 +6,13 @@ background was keyed toward alpha 0 but a band of *semi-transparent*
 (0 < alpha < 255) near-white pixels remains as anti-aliasing around the
 subject. clean_background.py clears the RGB residue on the fully-transparent
 (alpha=0) pixels, but not this halo, so after normalize.py it shows up as a
-visible white ring — especially on Rise/Sunbreak, whose art style produces a
+visible white ring, especially on Rise/Sunbreak, whose art style produces a
 wide feathered edge.
 
 This pass removes that halo by flood-filling from the image border through the
 set of "near-white semi-transparent" pixels and clearing them to fully
 transparent (alpha=0, RGB=0). Only halo pixels *connected to the border* are
-touched, so white highlights inside the subject (eyes, scales) survive — the
+touched, so white highlights inside the subject (eyes, scales) survive: the
 halo is a connected outer ring, interior whites are isolated.
 
 Runs over icons/ after build.py, before normalize.py. Idempotent: a second
@@ -34,7 +34,7 @@ ICONS = ROOT / "icons"
 # Semi-transparent (not fully opaque) is what distinguishes the feathered edge
 # from the subject's solid white areas; near-white (RGB all > WHITE) matches
 # the keyed-out bg's residue color.
-ALPHA_HIGH = 200      # opaque pixels (a >= this) always keep — subject interior
+ALPHA_HIGH = 200      # opaque pixels (a >= this) always keep: subject interior
 WHITE = 225           # min of R,G,B above which counts as near-white
 
 

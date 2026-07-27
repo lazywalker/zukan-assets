@@ -1,7 +1,7 @@
-# i18n — localized names and descriptions
+# i18n: localized names and descriptions
 
 Translated monster/item names, descriptions, and fixed terms for Japanese (ja)
-and Chinese (zh). These are committed static files — build.py overlays them via
+and Chinese (zh). These are committed static files; build.py overlays them via
 `apply_i18n()` without touching any English fields.
 
 ## Files
@@ -30,7 +30,7 @@ Every translation carries a `source` field that controls overwrite protection:
 
 ## Architecture
 
-This data is an **overlay layer** — it does not participate in the ETL
+This data is an **overlay layer**; it does not participate in the ETL
 fetch/extract pipeline. `build.py` reads these files at build time and injects
 an `i18n` field into `data/monsters.json` and `data/items.json`. Re-running the
 ETL pipeline never overwrites translations.

@@ -2,7 +2,7 @@
 """Remove the dark frame from monster-hunter-DB MHST2 icons.
 
 The monster-hunter-DB MHST2 icons are clean pixel sprites, but they sit on a
-near-black frame (RGB ~21,15,5, alpha ~1) rather than true transparency —
+near-black frame (RGB ~21,15,5, alpha ~1) rather than true transparency,
 unlike every other MHDB game, which is already transparent. This script
 removes that frame by a darkness threshold (the frame is the only near-black
 region; monster parts are rarely pure black), feathering the transition zone
