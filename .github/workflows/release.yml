@@ -3,13 +3,12 @@ name: Release
 # Runs the full pipeline and publishes data/ + icons/ as a Release artifact
 # (tar.gz) for the zukan tool's build.rs to download.
 #
-# Auto-triggers when a PR is merged to master (e.g. the upstream-update PR
-# from check-upstream.yml, or a manual code change). Manual dispatch is also
-# available for ad-hoc releases.
+# Manual dispatch only: merging a PR (including the weekly upstream-update PR
+# from check-upstream.yml) does NOT publish. Run this by hand from the Actions
+# tab once a merge is ready to ship. Set skip_publish=true for a dry run
+# (build + validate, no release).
 
 on:
-  pull_request:
-    types: [closed]
   workflow_dispatch:
     inputs:
       skip_publish:
@@ -23,8 +22,6 @@ permissions:
 
 jobs:
   release:
-    # Only run on merged PRs (not just closed/rejected), plus manual dispatch.
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -50,9 +47,16 @@ jobs:
           fi
           git tag "${TAG}" HEAD
           git push origin "${TAG}"
+          # Release notes are the validate.py + audit.py report the pipeline
+          # wrote to validate_report.txt (coverage, numeric merges, integrity).
+          {
+            echo "## Build ${TAG} (commit ${GITHUB_SHA::7})"
+            echo
+            cat validate_report.txt
+          } > release_notes.md
           gh release create "${TAG}" zukan-assets-bin.tar.gz \
             --title "${TAG}" \
-            --notes "Build output for the zukan terminal tool (commit ${GITHUB_SHA})." \
+            --notes-file release_notes.md \
             --latest
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

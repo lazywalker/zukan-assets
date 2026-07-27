@@ -130,8 +130,11 @@ doesn't stop the rest; the build just goes ahead with whatever got fetched.
 Two workflows in `.github/workflows/`:
 - `check-upstream.yml`, weekly: re-fetches upstream sources, opens a PR if
   anything changed (detected via diff in source/ intermediates).
-- `release.yml`, triggers when a PR merges to master: runs the full pipeline
-  and publishes `data/` + `icons/` as a tar.gz Release artifact for zukan.
+- `release.yml`, manual dispatch only: runs the full pipeline and publishes
+  `data/` + `icons/` as a tar.gz Release artifact for zukan. Merging a PR
+  (including the weekly upstream-update one) does NOT publish; run this by
+  hand once a merge is ready to ship. Release notes are the validate.py +
+  audit.py report.
 
 Both share `.github/actions/run-pipeline/action.yml` (composite action) for the
 pipeline steps. Manual dispatch is available for both.

@@ -2,7 +2,7 @@ name: Check upstream
 
 # Weekly: re-fetches upstream sources (Fandom, mhw-db, wilds API). If any
 # source/ intermediates changed, opens a PR for review. Does NOT publish a
-# Release — merging the PR triggers release.yml (push event).
+# Release: after merging, run release.yml by hand to ship.
 
 on:
   schedule:
@@ -41,13 +41,15 @@ jobs:
             chore: update upstream sources
 
             Detected changes in upstream sources (Fandom/API/MHGU).
-            Review and merge to trigger a Release publish.
+            Merge, then run release.yml by hand to publish.
           branch: chore/upstream-update
           title: "chore: upstream source update"
           body: |
             Upstream sources changed in the weekly check.
 
             ${{ steps.pipeline.outputs.validate-summary }}
+
+            After merging, run the **Release** workflow manually to publish.
           add-paths: |
             source/*-processed/**
             source/api_cache/**
