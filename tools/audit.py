@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Audit monster coverage completeness against external baselines.
 
-This answers "is the database complete?" — a different question from
+This answers "is the database complete?", a different question from
 validate.py's "is the build internally consistent?". It reconciles:
 
   1. monster-hunter-DB's per-game large-monster count vs the franchise's
@@ -28,7 +28,7 @@ DATA = ROOT / "data"
 SOURCE = ROOT / "source"
 
 # A game's coverage is "ok" if its count is within this many of official.
-# Tolerates small catalog drift (e.g. whether a contested variant counts).
+# Tolerates small catalog drift (whether a contested variant counts).
 SHRINK_TOLERANCE = 2
 
 
@@ -78,7 +78,7 @@ def reconcile_api(monsters: list[dict]) -> None:
     small/endemic rosters are noisier and not a coverage target).
     """
     print("=" * 70)
-    print("2. Cross-source name check — large monsters (MHDB vs JSON APIs)")
+    print("2. Cross-source name check: large monsters (MHDB vs JSON APIs)")
     print("=" * 70)
     mhdb_mhw = set()
     mhdb_wilds = set()
@@ -98,7 +98,7 @@ def reconcile_api(monsters: list[dict]) -> None:
         mhw_api = {x["name"] for x in m if x.get("type") == "large"}
         _diff("MHW", "MHDB", mhdb_mhw, "mhw-db.com API", mhw_api)
     else:
-        print("  (mhw-db.com cache missing — run fetch_external.py --only api)")
+        print("  (mhw-db.com cache missing; run fetch_external.py --only api)")
 
     wilds_api = set()
     w = load(SOURCE / "api_cache" / "wilds_monsters.json")
@@ -106,7 +106,7 @@ def reconcile_api(monsters: list[dict]) -> None:
         wilds_api = {x["name"] for x in w if x.get("kind") == "large"}
         _diff("Wilds", "MHDB", mhdb_wilds, "wilds.mhdb.io API", wilds_api)
     else:
-        print("  (wilds.mhdb.io cache missing — run fetch_external.py --only api)")
+        print("  (wilds.mhdb.io cache missing; run fetch_external.py --only api)")
     print()
 
 
@@ -126,17 +126,15 @@ def check_transparency_quality() -> int:
     """Detect RGB residue on fully-transparent pixels.
 
     A correctly transparent sprite has RGB=(0,0,0) wherever alpha=0. Any
-    non-zero RGB at alpha=0 is leftover background color (e.g. an incompletely
+    non-zero RGB at alpha=0 is leftover background color (an incompletely
     removed frame) that can leak as a faint halo in premultiplied compositing.
-
-    This is the one transparency defect that is unambiguously real — unlike
-    'is this dark pixel a frame or the monster', which no heuristic reliably
-    separates. Residue is a strict correctness bug worth flagging per game.
+    Unlike 'is this dark pixel a frame or the monster', residue is a strict
+    correctness bug no heuristic needs to disambiguate, so it is worth flagging.
     """
     from PIL import Image
 
     print("=" * 70)
-    print("3. Transparency quality — RGB residue on alpha=0 pixels")
+    print("3. Transparency quality: RGB residue on alpha=0 pixels")
     print("=" * 70)
     icons = ROOT / "icons"
     defect_games = 0
@@ -225,7 +223,7 @@ def main() -> int:
         print("official_counts.json missing; cannot run coverage audit")
         return 1
 
-    print(f"zukan-assets coverage audit — {len(monsters)} monsters in build\n")
+    print(f"zukan-assets coverage audit: {len(monsters)} monsters in build\n")
     regressions = reconcile_official(monsters, official)
     reconcile_api(monsters)
     defects = check_transparency_quality()

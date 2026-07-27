@@ -13,10 +13,7 @@ The SVGs are community-drawn generic art, not CAPCOM assets, so they're
 vendored into the repo directly (unlike CAPCOM monster icons which stay
 gitignored). Change detection uses the Fandom CDN's ETag: each re-run sends
 If-None-Match per icon, so an unchanged SVG returns 304 with no body and costs
-no bandwidth — periodic re-fetches stay cheap and polite to the wiki.
-
-Usage:
-    python3 tools/fetch_item_icons.py
+no bandwidth, keeping periodic re-fetches cheap and polite to the wiki.
 """
 
 from __future__ import annotations
@@ -89,7 +86,7 @@ def fetch_with_etag(url: str, etag: str | None) -> tuple[bytes | None, str | Non
     """GET a URL with an If-None-Match precondition, via curl.
 
     curl is used (rather than requests) because the Fandom CDN only returns an
-    ETag over HTTP/2, which requests doesn't speak — curl negotiates HTTP/2 and
+    ETag over HTTP/2, which requests doesn't speak; curl negotiates HTTP/2 and
     gets the header. The `?cb=…` query param that MediaWiki appends suppresses
     the ETag, so callers pass the bare /revision/latest URL (cb stripped).
 
@@ -174,19 +171,19 @@ def main() -> int:
         body, new_etag, status = fetch_with_etag(clean_url, prev.get("etag") if prev else None)
 
         if status == 304:
-            # Unchanged — keep the SVG on disk, carry forward the etag.
+            # Unchanged: keep the SVG on disk, carry forward the etag.
             cached += 1
         elif body is not None:
-            # New or updated SVG — persist it.
+            # New or updated SVG: persist it.
             svg_path.write_bytes(body)
             changed += 1
         else:
             # Network/HTTP failure. Fall back to the SVG on disk if we have one;
             # otherwise this icon is dropped from the manifest.
             if svg_path.exists():
-                print(f"    ! fetch {wiki_title} (status {status}) — keeping stale SVG")
+                print(f"    ! fetch {wiki_title} (status {status}); keeping stale SVG")
             else:
-                print(f"    ! fetch {wiki_title} (status {status}) — no SVG, skipping")
+                print(f"    ! fetch {wiki_title} (status {status}); no SVG, skipping")
                 failed += 1
                 continue
 

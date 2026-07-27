@@ -7,16 +7,12 @@ Three modes:
                      into monsters.json with source="official".
   --ai-translate     Call an external AI API to translate remaining names
                      and descriptions. Requires an API key in the environment
-                     (OPENAI_API_KEY or similar). Left as a stub — the initial
+                     (OPENAI_API_KEY or similar). Left as a stub; the initial
                      i18n data was generated offline and committed.
   --status           Print coverage stats (how many monsters/items have ja/zh).
 
 The generated files are committed static data; they do NOT run in CI.
 build.py reads them at build time via apply_i18n() as an overlay layer.
-
-Usage:
-    python3 tools/generate_i18n.py --status
-    python3 tools/generate_i18n.py --fetch-wilds-ja
 """
 
 from __future__ import annotations
@@ -54,7 +50,7 @@ def save_i18n(name: str, data: dict) -> None:
 def fetch_wilds_ja() -> None:
     """Pull official Japanese names+descriptions from wilds /ja/ endpoint.
 
-    Only fills entries that are missing or marked source="ai" — entries with
+    Only fills entries that are missing or marked source="ai"; entries with
     source="official" or "manual" are preserved (the latter protects hand-edited
     translations from being overwritten).
     """
@@ -100,13 +96,9 @@ def fetch_wilds_ja() -> None:
 def ai_translate() -> None:
     """Translate remaining names+descriptions via an external AI API.
 
-    This is a stub — the initial i18n data was generated offline and committed.
-    To use this, implement the API call (OpenAI/Claude/etc.) and set the
-    appropriate environment variable for the API key.
-
-    IMPORTANT: when implemented, only overwrite entries with source="ai" or
-    missing entries. Entries with source="official" or "manual" must be
-    preserved — see the fetch_wilds_ja() function for the pattern.
+    Stub: the initial i18n data was generated offline and committed. When
+    implemented, only overwrite source="ai" or missing entries (official and
+    manual are preserved); see fetch_wilds_ja() for the pattern.
     """
     print("== ai-translate (stub) ==")
     print("  This mode requires an AI API key and is not implemented yet.")

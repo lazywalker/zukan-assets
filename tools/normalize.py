@@ -12,7 +12,7 @@ This pass brings every icon to one spec:
 Icons keep their transparent backgrounds (the default style): the full square
 frame is preserved with no margin trimming, and alpha is left untouched so the
 subject floats on the terminal's own background. For the filled-card variant
-("style 2"), run fill_background.py before this script — see tools/README.md
+("style 2"), run fill_background.py before this script; see tools/README.md
 "Background styles". Runs over icons/ after build.py. Idempotent.
 """
 
@@ -27,7 +27,7 @@ ROOT = Path(__file__).resolve().parent.parent
 ICONS = ROOT / "icons"
 
 # Fixed square output size (terminal columns = rows before half-block).
-# 48px is the stored size — detailed enough to read clearly. zukan shrinks
+# 48px is the stored size, detailed enough to read clearly. zukan shrinks
 # it at runtime (NEAREST) to 32 for viewing or 24 for bash startup art, with
 # negligible loss (a single downscale from 48 is visually clean). Keeping one
 # stored size halves maintenance vs maintaining 32+24 sets.
@@ -51,18 +51,12 @@ def quantize_rgba(im: Image.Image, colors: int) -> Image.Image:
 
 
 def _is_already_normalized(im: Image.Image) -> bool:
-    """True if the image already matches the output spec (size == TARGET_W²).
+    """True if the image is already at output spec (size == TARGET_W²).
 
-    normalize()'s enhancement ops (UnsharpMask/Contrast/Color) are NOT
-    idempotent — re-running on an already-normalized image keeps pushing
-    saturation/sharpness and drifts forever. This guard makes the script safe
-    to re-run: it skips anything already at spec.
-
-    Size alone is a reliable signal here: every source icon is ≥54px (the
-    smallest is MH3U's 54×54), so a 48×48 image can only have come from a
-    prior normalize run. Reading PNG dimensions needs only the header (no
-    pixel decode), so this check is ~500× faster than counting colors —
-    matters when scanning 2395 icons.
+    Enhancement ops are not idempotent: re-running keeps pushing saturation/
+    sharpness and drifts. Size alone is a safe signal here, since every source
+    icon is ≥54px, so only a prior normalize produces 48×48; and reading PNG
+    dimensions is ~500× faster than decoding + counting colors.
     """
     return im.size == (TARGET_W, TARGET_W)
 
@@ -97,7 +91,7 @@ def main() -> int:
     for f in files:
         im = Image.open(f)
         if _is_already_normalized(im):
-            # Already at spec — skip. normalize()'s enhancement ops are not
+            # Already at spec: skip. normalize()'s enhancement ops are not
             # idempotent, so re-processing would keep drifting each run.
             skipped += 1
             continue

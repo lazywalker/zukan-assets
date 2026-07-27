@@ -76,6 +76,47 @@ reproducible and easy to revisit later.
   and trap effectiveness, fields the two APIs don't have. Merged by monster
   name (same join as mhw-db/wilds).
 
+### MonsterHunter4UDatabase (MH4U icons + numeric data)
+- **URL:** https://github.com/kamegami13/MonsterHunter4UDatabase
+- **Vendored commit:** `cfe56c36d622066233f50265aa91ed9c0a70e52d`
+- **License:** MIT (code); icons + data © Capcom.
+- **Contents:** the MH4U Database Android app. Two assets are vendored:
+  - `source/MH4UDatabase/mh4u.db` — compiled SQLite db (42 tables) from the
+    app's `assets/databases/mh4u.db.zip`. Monster tables extracted by
+    `tools/extract_mh4u.py` into `source/api_cache/mh4u_monsters.json`.
+  - `source/mh4u-icons/` — 106 official bestiary PNGs (150×150) renamed from
+    `MH4U-<Name>_Icon.png` to `<slug>.png` (slug via `common.slugify`, so
+    "Dah'ren Mohran" → `dahren-mohran`, matching the roster), with
+    `_manifest.json` mapping back to the original filename.
+- **Monster tables extracted:**
+  `monsters` (106: name, name_jp, class, signature_move, trait),
+  `monster_weakness` (per-state element + status ratings 0-3 + trap/item
+  effectiveness; MH4U carries Normal/Enraged/Charged rows where MHGU only has
+  Normal), `monster_damage` (hitzones per body part, including "(Break Part)"
+  post-break values), `monster_status` (buildup thresholds), `monster_ailment`
+  (inflicted blights/roars/bleeding), `monster_habitat` (joined to the
+  `locations` table for the site name).
+- **Counts:** 106 monsters (83 Boss + 23 Minion).
+- **Data quirks normalized by `extract_mh4u.py`:** the db uses `ko = -1` to
+  mean "part can't be KO'd" where MHGU uses `0` (coerced to 0); and a few
+  bosses ship all-(-1) rows for states with no data (Crimson/White Fatalis
+  entirely; Gogmazios's Enraged parts), which are dropped rather than emitted.
+- **Role:** fills three gaps:
+  - *icons*: a strict superset of MHDB's mh4u set, adding Seregios, Shah
+    Dalamadur, and every Apex variant. The official bestiary art reads
+    cleanly at low resolution (unlike MHDB's Rise ink style).
+  - *numeric data*: the only MH4U-native hitzone/weakness/status source we
+    have (MHGU covers the same roster but with MHGU-tuned values; cross-source
+    comparison shows 123 legitimate part-level retunes and zero sentinel
+    conflicts after the ko normalization).
+  - *roster supplement*: `build_monsters` synthesizes roster entries for the
+    six MH4U bosses MHDB omits (Apex Deviljho/Gravios/Rajang/Seregios/Tidal
+    Najarala/Tigrex), so they get an icon + `numeric.mh4u` instead of being
+    absent from the build entirely.
+- Frozen snapshot: upstream last updated 2016-05; not wired into
+  `fetch_external.py`'s weekly run, same policy as MHGenDatabase. Re-vendor:
+  bump `.source-commit`, re-extract.
+
 ### Monster Hunter Fandom wiki (cross-game gap-fill)
 - **URL:** https://monsterhunter.fandom.com/wiki/Category:Monster_Icons
 - **License:** CC BY-SA; icons © Capcom.

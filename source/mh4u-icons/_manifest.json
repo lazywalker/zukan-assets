@@ -1,0 +1,638 @@
+[
+  {
+    "slug": "akantor",
+    "filename": "akantor.png",
+    "source": "MH4U-Akantor_Icon.png",
+    "name": "Akantor"
+  },
+  {
+    "slug": "altaroth",
+    "filename": "altaroth.png",
+    "source": "MH4U-Altaroth_Icon.png",
+    "name": "Altaroth"
+  },
+  {
+    "slug": "apceros",
+    "filename": "apceros.png",
+    "source": "MH4U-Apceros_Icon.png",
+    "name": "Apceros"
+  },
+  {
+    "slug": "apex-deviljho",
+    "filename": "apex-deviljho.png",
+    "source": "MH4U-Apex_Deviljho_Icon.png",
+    "name": "Apex Deviljho"
+  },
+  {
+    "slug": "apex-diablos",
+    "filename": "apex-diablos.png",
+    "source": "MH4U-Apex_Diablos_Icon.png",
+    "name": "Apex Diablos"
+  },
+  {
+    "slug": "apex-gravios",
+    "filename": "apex-gravios.png",
+    "source": "MH4U-Apex_Gravios_Icon.png",
+    "name": "Apex Gravios"
+  },
+  {
+    "slug": "apex-rajang",
+    "filename": "apex-rajang.png",
+    "source": "MH4U-Apex_Rajang_Icon.png",
+    "name": "Apex Rajang"
+  },
+  {
+    "slug": "apex-seregios",
+    "filename": "apex-seregios.png",
+    "source": "MH4U-Apex_Seregios_Icon.png",
+    "name": "Apex Seregios"
+  },
+  {
+    "slug": "apex-tidal-najarala",
+    "filename": "apex-tidal-najarala.png",
+    "source": "MH4U-Apex_Tidal_Najarala_Icon.png",
+    "name": "Apex Tidal Najarala"
+  },
+  {
+    "slug": "apex-tigrex",
+    "filename": "apex-tigrex.png",
+    "source": "MH4U-Apex_Tigrex_Icon.png",
+    "name": "Apex Tigrex"
+  },
+  {
+    "slug": "apex-zinogre",
+    "filename": "apex-zinogre.png",
+    "source": "MH4U-Apex_Zinogre_Icon.png",
+    "name": "Apex Zinogre"
+  },
+  {
+    "slug": "aptonoth",
+    "filename": "aptonoth.png",
+    "source": "MH4U-Aptonoth_Icon.png",
+    "name": "Aptonoth"
+  },
+  {
+    "slug": "ash-kecha-wacha",
+    "filename": "ash-kecha-wacha.png",
+    "source": "MH4U-Ash_Kecha_Wacha_Icon.png",
+    "name": "Ash Kecha Wacha"
+  },
+  {
+    "slug": "azure-rathalos",
+    "filename": "azure-rathalos.png",
+    "source": "MH4U-Azure_Rathalos_Icon.png",
+    "name": "Azure Rathalos"
+  },
+  {
+    "slug": "basarios",
+    "filename": "basarios.png",
+    "source": "MH4U-Basarios_Icon.png",
+    "name": "Basarios"
+  },
+  {
+    "slug": "berserk-tetsucabra",
+    "filename": "berserk-tetsucabra.png",
+    "source": "MH4U-Berserk_Tetsucabra_Icon.png",
+    "name": "Berserk Tetsucabra"
+  },
+  {
+    "slug": "black-diablos",
+    "filename": "black-diablos.png",
+    "source": "MH4U-Black_Diablos_Icon.png",
+    "name": "Black Diablos"
+  },
+  {
+    "slug": "black-gravios",
+    "filename": "black-gravios.png",
+    "source": "MH4U-Black_Gravios_Icon.png",
+    "name": "Black Gravios"
+  },
+  {
+    "slug": "blue-yian-kut-ku",
+    "filename": "blue-yian-kut-ku.png",
+    "source": "MH4U-Blue_Yian_Kut-Ku_Icon.png",
+    "name": "Blue Yian Kut-Ku"
+  },
+  {
+    "slug": "bnahabra",
+    "filename": "bnahabra.png",
+    "source": "MH4U-Bnahabra_Icon.png",
+    "name": "Bnahabra"
+  },
+  {
+    "slug": "brachydios",
+    "filename": "brachydios.png",
+    "source": "MH4U-Brachydios_Icon.png",
+    "name": "Brachydios"
+  },
+  {
+    "slug": "brute-tigrex",
+    "filename": "brute-tigrex.png",
+    "source": "MH4U-Brute_Tigrex_Icon.png",
+    "name": "Brute Tigrex"
+  },
+  {
+    "slug": "cephadrome",
+    "filename": "cephadrome.png",
+    "source": "MH4U-Cephadrome_Icon.png",
+    "name": "Cephadrome"
+  },
+  {
+    "slug": "cephalos",
+    "filename": "cephalos.png",
+    "source": "MH4U-Cephalos_Icon.png",
+    "name": "Cephalos"
+  },
+  {
+    "slug": "chameleos",
+    "filename": "chameleos.png",
+    "source": "MH4U-Chameleos_Icon.png",
+    "name": "Chameleos"
+  },
+  {
+    "slug": "chaotic-gore-magala",
+    "filename": "chaotic-gore-magala.png",
+    "source": "MH4U-Chaotic_Gore_Magala_Icon.png",
+    "name": "Chaotic Gore Magala"
+  },
+  {
+    "slug": "conga",
+    "filename": "conga.png",
+    "source": "MH4U-Conga_Icon.png",
+    "name": "Conga"
+  },
+  {
+    "slug": "congalala",
+    "filename": "congalala.png",
+    "source": "MH4U-Congalala_Icon.png",
+    "name": "Congalala"
+  },
+  {
+    "slug": "crimson-fatalis",
+    "filename": "crimson-fatalis.png",
+    "source": "MH4U-Crimson_Fatalis_Icon.png",
+    "name": "Crimson Fatalis"
+  },
+  {
+    "slug": "dahren-mohran",
+    "filename": "dahren-mohran.png",
+    "source": "MH4U-Dah'ren_Mohran_Icon.png",
+    "name": "Dah'ren Mohran"
+  },
+  {
+    "slug": "daimyo-hermitaur",
+    "filename": "daimyo-hermitaur.png",
+    "source": "MH4U-Daimyo_Hermitaur_Icon.png",
+    "name": "Daimyo Hermitaur"
+  },
+  {
+    "slug": "dalamadur",
+    "filename": "dalamadur.png",
+    "source": "MH4U-Dalamadur_Icon.png",
+    "name": "Dalamadur"
+  },
+  {
+    "slug": "delex",
+    "filename": "delex.png",
+    "source": "MH4U-Delex_Icon.png",
+    "name": "Delex"
+  },
+  {
+    "slug": "desert-seltas",
+    "filename": "desert-seltas.png",
+    "source": "MH4U-Desert_Seltas_Icon.png",
+    "name": "Desert Seltas"
+  },
+  {
+    "slug": "desert-seltas-queen",
+    "filename": "desert-seltas-queen.png",
+    "source": "MH4U-Desert_Seltas_Queen_Icon.png",
+    "name": "Desert Seltas Queen"
+  },
+  {
+    "slug": "deviljho",
+    "filename": "deviljho.png",
+    "source": "MH4U-Deviljho_Icon.png",
+    "name": "Deviljho"
+  },
+  {
+    "slug": "diablos",
+    "filename": "diablos.png",
+    "source": "MH4U-Diablos_Icon.png",
+    "name": "Diablos"
+  },
+  {
+    "slug": "emerald-congalala",
+    "filename": "emerald-congalala.png",
+    "source": "MH4U-Emerald_Congalala_Icon.png",
+    "name": "Emerald Congalala"
+  },
+  {
+    "slug": "fatalis",
+    "filename": "fatalis.png",
+    "source": "MH4U-Fatalis_Icon.png",
+    "name": "Fatalis"
+  },
+  {
+    "slug": "felyne",
+    "filename": "felyne.png",
+    "source": "MH4U-Felyne_Icon.png",
+    "name": "Felyne"
+  },
+  {
+    "slug": "furious-rajang",
+    "filename": "furious-rajang.png",
+    "source": "MH4U-Furious_Rajang_Icon.png",
+    "name": "Furious Rajang"
+  },
+  {
+    "slug": "gargwa",
+    "filename": "gargwa.png",
+    "source": "MH4U-Gargwa_Icon.png",
+    "name": "Gargwa"
+  },
+  {
+    "slug": "gendrome",
+    "filename": "gendrome.png",
+    "source": "MH4U-Gendrome_Icon.png",
+    "name": "Gendrome"
+  },
+  {
+    "slug": "genprey",
+    "filename": "genprey.png",
+    "source": "MH4U-Genprey_Icon.png",
+    "name": "Genprey"
+  },
+  {
+    "slug": "gogmazios",
+    "filename": "gogmazios.png",
+    "source": "MH4U-Gogmazios_Icon.png",
+    "name": "Gogmazios"
+  },
+  {
+    "slug": "gold-rathian",
+    "filename": "gold-rathian.png",
+    "source": "MH4U-Gold_Rathian_Icon.png",
+    "name": "Gold Rathian"
+  },
+  {
+    "slug": "gore-magala",
+    "filename": "gore-magala.png",
+    "source": "MH4U-Gore_Magala_Icon.png",
+    "name": "Gore Magala"
+  },
+  {
+    "slug": "gravios",
+    "filename": "gravios.png",
+    "source": "MH4U-Gravios_Icon.png",
+    "name": "Gravios"
+  },
+  {
+    "slug": "great-jaggi",
+    "filename": "great-jaggi.png",
+    "source": "MH4U-Great_Jaggi_Icon.png",
+    "name": "Great Jaggi"
+  },
+  {
+    "slug": "gypceros",
+    "filename": "gypceros.png",
+    "source": "MH4U-Gypceros_Icon.png",
+    "name": "Gypceros"
+  },
+  {
+    "slug": "hermitaur",
+    "filename": "hermitaur.png",
+    "source": "MH4U-Hermitaur_Icon.png",
+    "name": "Hermitaur"
+  },
+  {
+    "slug": "iodrome",
+    "filename": "iodrome.png",
+    "source": "MH4U-Iodrome_Icon.png",
+    "name": "Iodrome"
+  },
+  {
+    "slug": "ioprey",
+    "filename": "ioprey.png",
+    "source": "MH4U-Ioprey_Icon.png",
+    "name": "Ioprey"
+  },
+  {
+    "slug": "jaggi",
+    "filename": "jaggi.png",
+    "source": "MH4U-Jaggi_Icon.png",
+    "name": "Jaggi"
+  },
+  {
+    "slug": "jaggia",
+    "filename": "jaggia.png",
+    "source": "MH4U-Jaggia_Icon.png",
+    "name": "Jaggia"
+  },
+  {
+    "slug": "kecha-wacha",
+    "filename": "kecha-wacha.png",
+    "source": "MH4U-Kecha_Wacha_Icon.png",
+    "name": "Kecha Wacha"
+  },
+  {
+    "slug": "kelbi",
+    "filename": "kelbi.png",
+    "source": "MH4U-Kelbi_Icon.png",
+    "name": "Kelbi"
+  },
+  {
+    "slug": "khezu",
+    "filename": "khezu.png",
+    "source": "MH4U-Khezu_Icon.png",
+    "name": "Khezu"
+  },
+  {
+    "slug": "kirin",
+    "filename": "kirin.png",
+    "source": "MH4U-Kirin_Icon.png",
+    "name": "Kirin"
+  },
+  {
+    "slug": "konchu",
+    "filename": "konchu.png",
+    "source": "MH4U-Konchu_Icon.png",
+    "name": "Konchu"
+  },
+  {
+    "slug": "kushala-daora",
+    "filename": "kushala-daora.png",
+    "source": "MH4U-Kushala_Daora_Icon.png",
+    "name": "Kushala Daora"
+  },
+  {
+    "slug": "lagombi",
+    "filename": "lagombi.png",
+    "source": "MH4U-Lagombi_Icon.png",
+    "name": "Lagombi"
+  },
+  {
+    "slug": "melynx",
+    "filename": "melynx.png",
+    "source": "MH4U-Melynx_Icon.png",
+    "name": "Melynx"
+  },
+  {
+    "slug": "molten-tigrex",
+    "filename": "molten-tigrex.png",
+    "source": "MH4U-Molten_Tigrex_Icon.png",
+    "name": "Molten Tigrex"
+  },
+  {
+    "slug": "monoblos",
+    "filename": "monoblos.png",
+    "source": "MH4U-Monoblos_Icon.png",
+    "name": "Monoblos"
+  },
+  {
+    "slug": "najarala",
+    "filename": "najarala.png",
+    "source": "MH4U-Najarala_Icon.png",
+    "name": "Najarala"
+  },
+  {
+    "slug": "nerscylla",
+    "filename": "nerscylla.png",
+    "source": "MH4U-Nerscylla_Icon.png",
+    "name": "Nerscylla"
+  },
+  {
+    "slug": "oroshi-kirin",
+    "filename": "oroshi-kirin.png",
+    "source": "MH4U-Oroshi_Kirin_Icon.png",
+    "name": "Oroshi Kirin"
+  },
+  {
+    "slug": "pink-rathian",
+    "filename": "pink-rathian.png",
+    "source": "MH4U-Pink_Rathian_Icon.png",
+    "name": "Pink Rathian"
+  },
+  {
+    "slug": "plum-daimyo-hermitaur",
+    "filename": "plum-daimyo-hermitaur.png",
+    "source": "MH4U-Plum_Daimyo_Hermitaur_Icon.png",
+    "name": "Plum Daimyo Hermitaur"
+  },
+  {
+    "slug": "popo",
+    "filename": "popo.png",
+    "source": "MH4U-Popo_Icon.png",
+    "name": "Popo"
+  },
+  {
+    "slug": "purple-gypceros",
+    "filename": "purple-gypceros.png",
+    "source": "MH4U-Purple_Gypceros_Icon.png",
+    "name": "Purple Gypceros"
+  },
+  {
+    "slug": "raging-brachydios",
+    "filename": "raging-brachydios.png",
+    "source": "MH4U-Raging_Brachydios_Icon.png",
+    "name": "Raging Brachydios"
+  },
+  {
+    "slug": "rajang",
+    "filename": "rajang.png",
+    "source": "MH4U-Rajang_Icon.png",
+    "name": "Rajang"
+  },
+  {
+    "slug": "rathalos",
+    "filename": "rathalos.png",
+    "source": "MH4U-Rathalos_Icon.png",
+    "name": "Rathalos"
+  },
+  {
+    "slug": "rathian",
+    "filename": "rathian.png",
+    "source": "MH4U-Rathian_Icon.png",
+    "name": "Rathian"
+  },
+  {
+    "slug": "red-khezu",
+    "filename": "red-khezu.png",
+    "source": "MH4U-Red_Khezu_Icon.png",
+    "name": "Red Khezu"
+  },
+  {
+    "slug": "remobra",
+    "filename": "remobra.png",
+    "source": "MH4U-Remobra_Icon.png",
+    "name": "Remobra"
+  },
+  {
+    "slug": "rhenoplos",
+    "filename": "rhenoplos.png",
+    "source": "MH4U-Rhenoplos_Icon.png",
+    "name": "Rhenoplos"
+  },
+  {
+    "slug": "ruby-basarios",
+    "filename": "ruby-basarios.png",
+    "source": "MH4U-Ruby_Basarios_Icon.png",
+    "name": "Ruby Basarios"
+  },
+  {
+    "slug": "rusted-kushala-daora",
+    "filename": "rusted-kushala-daora.png",
+    "source": "MH4U-Rusted_Kushala_Daora_Icon.png",
+    "name": "Rusted Kushala Daora"
+  },
+  {
+    "slug": "savage-deviljho",
+    "filename": "savage-deviljho.png",
+    "source": "MH4U-Savage_Deviljho_Icon.png",
+    "name": "Savage Deviljho"
+  },
+  {
+    "slug": "seltas",
+    "filename": "seltas.png",
+    "source": "MH4U-Seltas_Icon.png",
+    "name": "Seltas"
+  },
+  {
+    "slug": "seltas-queen",
+    "filename": "seltas-queen.png",
+    "source": "MH4U-Seltas_Queen_Icon.png",
+    "name": "Seltas Queen"
+  },
+  {
+    "slug": "seregios",
+    "filename": "seregios.png",
+    "source": "MH4U-Seregios_Icon.png",
+    "name": "Seregios"
+  },
+  {
+    "slug": "shagaru-magala",
+    "filename": "shagaru-magala.png",
+    "source": "MH4U-Shagaru_Magala_Icon.png",
+    "name": "Shagaru Magala"
+  },
+  {
+    "slug": "shah-dalamadur",
+    "filename": "shah-dalamadur.png",
+    "source": "MH4U-Shah_Dalamadur_Icon.png",
+    "name": "Shah Dalamadur"
+  },
+  {
+    "slug": "shrouded-nerscylla",
+    "filename": "shrouded-nerscylla.png",
+    "source": "MH4U-Shrouded_Nerscylla_Icon.png",
+    "name": "Shrouded Nerscylla"
+  },
+  {
+    "slug": "silver-rathalos",
+    "filename": "silver-rathalos.png",
+    "source": "MH4U-Silver_Rathalos_Icon.png",
+    "name": "Silver Rathalos"
+  },
+  {
+    "slug": "slagtoth",
+    "filename": "slagtoth.png",
+    "source": "MH4U-Slagtoth_Icon.png",
+    "name": "Slagtoth"
+  },
+  {
+    "slug": "stygian-zinogre",
+    "filename": "stygian-zinogre.png",
+    "source": "MH4U-Stygian_Zinogre_Icon.png",
+    "name": "Stygian Zinogre"
+  },
+  {
+    "slug": "teostra",
+    "filename": "teostra.png",
+    "source": "MH4U-Teostra_Icon.png",
+    "name": "Teostra"
+  },
+  {
+    "slug": "tetsucabra",
+    "filename": "tetsucabra.png",
+    "source": "MH4U-Tetsucabra_Icon.png",
+    "name": "Tetsucabra"
+  },
+  {
+    "slug": "tidal-najarala",
+    "filename": "tidal-najarala.png",
+    "source": "MH4U-Tidal_Najarala_Icon.png",
+    "name": "Tidal Najarala"
+  },
+  {
+    "slug": "tigerstripe-zamtrios",
+    "filename": "tigerstripe-zamtrios.png",
+    "source": "MH4U-Tigerstripe_Zamtrios_Icon.png",
+    "name": "Tigerstripe Zamtrios"
+  },
+  {
+    "slug": "tigrex",
+    "filename": "tigrex.png",
+    "source": "MH4U-Tigrex_Icon.png",
+    "name": "Tigrex"
+  },
+  {
+    "slug": "ukanlos",
+    "filename": "ukanlos.png",
+    "source": "MH4U-Ukanlos_Icon.png",
+    "name": "Ukanlos"
+  },
+  {
+    "slug": "velocidrome",
+    "filename": "velocidrome.png",
+    "source": "MH4U-Velocidrome_Icon.png",
+    "name": "Velocidrome"
+  },
+  {
+    "slug": "velociprey",
+    "filename": "velociprey.png",
+    "source": "MH4U-Velociprey_Icon.png",
+    "name": "Velociprey"
+  },
+  {
+    "slug": "white-fatalis",
+    "filename": "white-fatalis.png",
+    "source": "MH4U-White_Fatalis_Icon.png",
+    "name": "White Fatalis"
+  },
+  {
+    "slug": "white-monoblos",
+    "filename": "white-monoblos.png",
+    "source": "MH4U-White_Monoblos_Icon.png",
+    "name": "White Monoblos"
+  },
+  {
+    "slug": "yian-garuga",
+    "filename": "yian-garuga.png",
+    "source": "MH4U-Yian_Garuga_Icon.png",
+    "name": "Yian Garuga"
+  },
+  {
+    "slug": "yian-kut-ku",
+    "filename": "yian-kut-ku.png",
+    "source": "MH4U-Yian_Kut-Ku_Icon.png",
+    "name": "Yian Kut-Ku"
+  },
+  {
+    "slug": "zamite",
+    "filename": "zamite.png",
+    "source": "MH4U-Zamite_Icon.png",
+    "name": "Zamite"
+  },
+  {
+    "slug": "zamtrios",
+    "filename": "zamtrios.png",
+    "source": "MH4U-Zamtrios_Icon.png",
+    "name": "Zamtrios"
+  },
+  {
+    "slug": "zinogre",
+    "filename": "zinogre.png",
+    "source": "MH4U-Zinogre_Icon.png",
+    "name": "Zinogre"
+  }
+]
