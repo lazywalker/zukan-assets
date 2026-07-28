@@ -57,7 +57,7 @@ def main() -> int:
                     missing.append(f"{m['name']} / {g['game']}: {icon}")
                     errors.append(f"missing icon file: {icon}")
             else:
-                missing.append(f"{m['name']} / {g['game_full']}: (no icon)")
+                missing.append(f"{m['name']} / {g.get('game', '?')}: (no icon)")
 
     # 2. orphans (monster icons only; items/ and endemic/ handled separately)
     on_disk: set[Path] = set()

@@ -380,7 +380,6 @@ def _resolve_games(name: str, slug: str, games: list[dict], lookups: dict, stats
         icon, origin = choose_icon(slug, game, ref, lookups)
         entry = {
             "game": game,
-            "game_full": game_full,
             "info": g.get("info"),
             "danger": g.get("danger"),
         }
@@ -723,6 +722,10 @@ def apply_i18n(records: list[dict], i18n_path: Path) -> None:
     The i18n files are committed static data (source/i18n/*.json), generated
     locally via tools/generate_i18n.py, not part of the ETL fetch/extract
     pipeline. If the file is missing, records stay English-only.
+
+    The per-locale `source` provenance field is dropped on copy: it drives
+    generate_i18n.py's overwrite guard from source/i18n/*.json, not from this
+    output, so it is dead weight downstream.
     """
     if not i18n_path.exists():
         return
@@ -730,7 +733,10 @@ def apply_i18n(records: list[dict], i18n_path: Path) -> None:
     for rec in records:
         t = i18n.get(rec.get("slug"))
         if t:
-            rec["i18n"] = t
+            rec["i18n"] = {
+                lang: {k: v for k, v in entries.items() if k != "source"}
+                for lang, entries in t.items()
+            }
 
 
 def main() -> int:

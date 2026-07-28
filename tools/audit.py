@@ -38,6 +38,11 @@ def load(path: Path):
     return json.loads(path.read_text())
 
 
+# Expansion codes fold into their base game for counting, matching how
+# official_counts.json rolls Iceborne/Sunbreak into MHW/MHRise.
+BASE_GAME = {"mhwi": "mhw", "mhrs": "mhrise"}
+
+
 def reconcile_official(monsters: list[dict], official: dict) -> int:
     """Compare MHDB large-monster counts per game vs official totals."""
     print("=" * 70)
@@ -48,7 +53,7 @@ def reconcile_official(monsters: list[dict], official: dict) -> int:
         if not mon.get("is_large"):
             continue
         for g in mon.get("games", []):
-            mhdb[g.get("game_full")].add(mon["name"])
+            mhdb[BASE_GAME.get(g.get("game"), g.get("game"))].add(mon["name"])
 
     counts = official["counts"]
     regressions = 0
@@ -86,10 +91,10 @@ def reconcile_api(monsters: list[dict]) -> None:
         if not mon.get("is_large"):
             continue
         for g in mon.get("games", []):
-            gf = g.get("game_full")
-            if gf == "Monster Hunter World":
+            gc = BASE_GAME.get(g.get("game"), g.get("game"))
+            if gc == "mhw":
                 mhdb_mhw.add(mon["name"])
-            elif gf == "Monster Hunter Wilds":
+            elif gc == "mhwilds":
                 mhdb_wilds.add(mon["name"])
 
     mhw_api = set()
