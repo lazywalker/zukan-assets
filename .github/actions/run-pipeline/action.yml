@@ -86,9 +86,11 @@ runs:
         } >> "$GITHUB_OUTPUT"
 
     - name: Audit coverage completeness
-      # Informational, non-blocking.
+      # Informational, non-blocking. Written to a separate file so the Release
+      # notes (which cat validate_report.txt) stay clean markdown: audit.py's
+      # ASCII ===== banners aren't markdown.
       shell: bash
-      run: python3 tools/audit.py | tee -a validate_report.txt
+      run: python3 tools/audit.py | tee audit_report.txt
       continue-on-error: true
 
     - name: Upload artifact
@@ -99,3 +101,4 @@ runs:
           data/
           icons/
           validate_report.txt
+          audit_report.txt

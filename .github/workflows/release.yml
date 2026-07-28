@@ -47,11 +47,9 @@ jobs:
           fi
           git tag "${TAG}" HEAD
           git push origin "${TAG}"
-          # Release notes are the validate.py + audit.py report the pipeline
-          # wrote to validate_report.txt (coverage, numeric merges, integrity).
+          # Release notes are the validate.py report the pipeline wrote to
+          # validate_report.txt:
           {
-            echo "## Build ${TAG} (commit ${GITHUB_SHA::7})"
-            echo
             cat validate_report.txt
           } > release_notes.md
           gh release create "${TAG}" zukan-assets-bin.tar.gz \
