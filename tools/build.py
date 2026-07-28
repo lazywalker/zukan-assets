@@ -771,6 +771,7 @@ def main() -> int:
     )
 
     endemic = build_endemic_life(stats)
+    apply_i18n(endemic, I18N_DIR / "endemic.json")
     (DATA / "endemic_life.json").write_text(
         json.dumps(endemic, ensure_ascii=False, indent=2, sort_keys=False)
     )

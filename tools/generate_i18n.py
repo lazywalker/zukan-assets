@@ -108,8 +108,9 @@ def ai_translate() -> None:
 
 def status() -> None:
     """Print i18n coverage stats."""
-    for name in ("monsters", "items"):
-        records = json.loads((DATA / f"{name}.json").read_text())
+    for name in ("monsters", "items", "endemic"):
+        data_file = "endemic_life" if name == "endemic" else name
+        records = json.loads((DATA / f"{data_file}.json").read_text())
         i18n = load_i18n(name)
         total = len(records)
         for lang in LANGS:
