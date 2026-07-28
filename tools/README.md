@@ -52,7 +52,7 @@ Every output icon gets normalized to one spec (set in `normalize.py`):
   detailed viewing or 24 for compact bash-startup art; one downscale from 48
   loses almost nothing, so a single stored size covers both.
 
-Bundle: ~3.9MB for 873 monster icons + ~3.1MB for 1664 item icons (~7.0MB total).
+Bundle: ~7.7MB for 951 monster icons + ~0.5MB for 132 endemic icons + ~6.6MB for 1664 item icons (~14.8MB total).
 
 ## Background styles
 

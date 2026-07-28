@@ -650,22 +650,67 @@ def build_items(item_lookup: dict[str, dict[str, Path]], stats: dict) -> list[di
     return out
 
 
-def build_endemic_life() -> list[dict]:
+def _resolve_endemic_ref(ref: str) -> str | None:
+    """Normalize an endemicLife image ref to its MHDB filename, or None.
+
+    Endemic refs hit four MHDB upstream naming bugs that monster refs don't:
+    space vs underscore (Gastronome Tuna_Icon), hyphen vs underscore prefix
+    separator (MHWI-Arrowhead, MHW-Flashfly; each is a one-off file whose name
+    diverges from its ~60 siblings), the MMHRise typo, and Icon/icon case. Try
+    the ref as-is, then each normalization in turn.
+    """
+    candidates = [ref, ref.replace(" ", "_")]
+    # prefix separator: a couple of MHWI-/MHW- refs name files stored MHWI_/MHW_
+    for prefix in ("MHWI-", "MHW-"):
+        if ref.startswith(prefix):
+            candidates.append(prefix.replace("-", "_") + ref[len(prefix):])
+    if ref.startswith("MMHRise-"):
+        candidates.append("MHRise-" + ref[len("MMHRise-"):])
+    for cand in candidates:
+        if (MHDB / "icons" / cand).exists():
+            return cand
+    # case-insensitive fallback (Gold Scalebat ships _icon, MHDB has _Icon)
+    for f in (MHDB / "icons").iterdir():
+        if f.name.lower() == ref.lower():
+            return f.name
+    return None
+
+
+def build_endemic_life(stats: dict) -> list[dict]:
     raw = load_json(MHDB / "endemicLife.json")
     life = raw["endemicLife"] if isinstance(raw, dict) else raw
+    endemic_dir = ICONS / "endemic"
+    stats["endemic_refs"] = 0
+    stats["endemic_resolved"] = 0
     out = []
     for e in life or []:
+        slug = slugify(e.get("name", ""))
         games = []
         for g in e.get("game", []):
-            games.append({
+            entry = {
                 "game": GAME_PREFIX.get(g.get("game"), slugify(g.get("game", ""))),
                 "game_full": g.get("game"),
                 "info": g.get("info"),
                 "icon_ref": g.get("image"),
-            })
+            }
+            ref = g.get("image")
+            if ref:
+                stats["endemic_refs"] += 1
+                resolved = _resolve_endemic_ref(ref)
+                if resolved:
+                    src = MHDB / "icons" / resolved
+                    endemic_dir.mkdir(parents=True, exist_ok=True)
+                    dest = endemic_dir / f"{slug}.png"
+                    copy_icon(src, dest)
+                    entry["icon"] = f"endemic/{slug}.png"
+                    entry["icon_source"] = "monster-hunter-DB"
+                    stats["endemic_resolved"] += 1
+                else:
+                    stats.setdefault("endemic_missing", []).append((e.get("name"), ref))
+            games.append(entry)
         out.append({
             "name": e.get("name"),
-            "slug": slugify(e.get("name", "")),
+            "slug": slug,
             "games": games,
         })
     out.sort(key=lambda r: (r["name"] or "").lower())
@@ -719,7 +764,7 @@ def main() -> int:
         json.dumps(items, ensure_ascii=False, indent=2, sort_keys=False)
     )
 
-    endemic = build_endemic_life()
+    endemic = build_endemic_life(stats)
     (DATA / "endemic_life.json").write_text(
         json.dumps(endemic, ensure_ascii=False, indent=2, sort_keys=False)
     )
@@ -751,6 +796,8 @@ def main() -> int:
     if stats.get("item_icon_refs"):
         print(f"  item icons: {stats['item_icons_resolved']}/{stats['item_icon_refs']}")
     print(f"  endemic life: {len(endemic)}")
+    if stats.get("endemic_refs"):
+        print(f"  endemic icons: {stats['endemic_resolved']}/{stats['endemic_refs']}")
     print(f"  mhw numeric merge: {numeric_mhw}")
     print(f"  wilds numeric merge: {numeric_wilds}")
     print(f"  mhgu numeric merge: {numeric_mhgu}")

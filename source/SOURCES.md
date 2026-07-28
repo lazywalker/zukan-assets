@@ -19,9 +19,15 @@ reproducible and easy to revisit later.
   `image`, `info`, `danger`).
 - **Role:** the backbone roster + most per-game icons. Each `games[].info`
   is the in-game hunter-notes text, and it's the only place we get cross-game
-  descriptive text (the APIs below only cover MHW and Wilds).
+  descriptive text (the APIs below only cover MHW and Wilds). `endemicLife.json`
+  also drives the endemic icon set: `build_endemic_life` resolves each entry's
+  `image` ref to its MHDB PNG and renders it to `icons/endemic/<slug>.png`
+  (132 species, covering MHW + MHRise endemic life).
 - **Known issues:** 7 icon-reference typos (e.g. `MHSWilds-` → `MHWilds-`,
-  missing `.png`), patched in `tools/common.py::ICON_TYPO_FIXES`.
+  missing `.png`), patched in `tools/common.py::ICON_TYPO_FIXES`. Endemic refs
+  hit a different set of upstream naming bugs (space vs `_`, `MHWI-` vs `MHWI_`,
+  an `MMHRise` typo, an `Icon`/`icon` case split); those are normalized by
+  `_resolve_endemic_ref` in build.py, not the shared typo table.
 
 ### mhw-db.com (MHW + Iceborne numeric data + items)
 - **URL:** https://mhw-db.com

@@ -59,10 +59,10 @@ def main() -> int:
             else:
                 missing.append(f"{m['name']} / {g['game_full']}: (no icon)")
 
-    # 2. orphans (monster icons only; items/ handled separately below)
+    # 2. orphans (monster icons only; items/ and endemic/ handled separately)
     on_disk: set[Path] = set()
     for d in ICONS.iterdir():
-        if d.is_dir() and d.name != "items":
+        if d.is_dir() and d.name not in ("items", "endemic"):
             on_disk.update(d.glob("*.png"))
     orphans = sorted(on_disk - referenced)
 
@@ -182,6 +182,32 @@ def main() -> int:
         w("")
         w("</details>")
         w("")
+
+    # 2c. endemic icon integrity: same check as items, over icons/endemic/.
+    end_referenced: set[Path] = set()
+    end_missing: list[str] = []
+    for e in endemic:
+        for g in e.get("games", []):
+            icon = g.get("icon")
+            if icon:
+                p = ICONS / icon
+                end_referenced.add(p)
+                if not p.exists():
+                    end_missing.append(f"{e['name']}: {icon}")
+                    errors.append(f"missing endemic icon file: {icon}")
+    end_dir = ICONS / "endemic"
+    end_on_disk: set[Path] = set(end_dir.glob("*.png")) if end_dir.is_dir() else set()
+    end_orphans = sorted(end_on_disk - end_referenced)
+    end_resolved = len(end_referenced) - len(end_missing)
+    w("## Endemic icons")
+    w("")
+    w("| metric | count |")
+    w("| --- | ---: |")
+    w(f"| refs | {len(end_referenced)} |")
+    w(f"| resolved | {end_resolved} |")
+    w(f"| missing | {len(end_missing)} |")
+    w(f"| orphans | {len(end_orphans)} |")
+    w("")
 
     numeric_mhw = stats.get("numeric_mhw", 0)
     numeric_wilds = stats.get("numeric_wilds", 0)
