@@ -50,3 +50,13 @@ reference in case we revisit. Full notes in [source/SOURCES.md](source/SOURCES.m
 ## License of this repository
 
 Code and ETL scripts are MIT; the assets stay © CAPCOM. See [LICENSE](LICENSE).
+
+## pixelart/ — hand-drawn pixel sprite set
+
+The `pixelart/` directory (and its Release copy `icons-pixelart/`) is an
+opt-in icon set drawn by hand for this project in a pokemon-sprite-inspired
+style: natively small pixel art (28-36 x 24) with near-black outlines and
+flat fills. No CAPCOM art is traced or embedded; the designs reference the
+official monster appearances the same way any fan art does. Same licensing
+posture as the rest of the repo: fan use, takedown on request. See
+[pixelart/README.md](pixelart/README.md).
