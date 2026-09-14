@@ -58,7 +58,8 @@ button.sel { background: #3a4a66; border-color: #5a7ab0; }
   padding: 8px 10px;
 }
 .card .card-name { display: flex; justify-content: space-between; gap: 8px; }
-.card .card-zh { color: #9aa0ab; }
+.card .card-loc { display: flex; gap: 6px; color: #9aa0ab; }
+.card .card-loc :empty { display: none; }
 .card .card-row { display: flex; align-items: center; gap: 10px; margin-top: 6px; }
 .card-sprite {
   image-rendering: pixelated;

@@ -73,9 +73,11 @@ function card(m, sprite, d, onOpen) {
     ? `<canvas class="card-sprite" width="${sprite.size[0] * 3}" ` +
       `height="${sprite.size[1] * 3}"></canvas>`
     : `<div class="card-empty">${t("gallery.undrawn")}</div>`;
+  // all three names on every card: english left, ja/zh right
   el.innerHTML =
     `<div class="card-name"><b>${m.name}</b>` +
-    `<span class="card-zh">${m.zh || ""}</span></div>` +
+    `<span class="card-loc"><span class="card-ja">${m.ja || ""}</span>` +
+    `<span class="card-zh">${m.zh || ""}</span></span></div>` +
     `<div class="card-row">${spriteHtml}<div class="card-icons">${icons}</div></div>`;
   el.addEventListener("click", () => onOpen(m.slug));
   if (sprite) {
