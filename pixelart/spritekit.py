@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Pixel-sprite engine for the pixelart monster set.
+"""Pixel-sprite engine for the pixelart sprite sets (monsters + endemic life).
 
 A sprite is defined by a config dict (see sprites/*.py):
 

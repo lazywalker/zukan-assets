@@ -22,3 +22,4 @@ test: ## editor chain self-checks (synthesis, round trip, save refusals)
 
 check: ## byte-verify icons-pixelart against the configs
 	$(PY) pixelart/build_sprites.py --check icons-pixelart
+	$(PY) pixelart/build_sprites.py --endemic --check icons-pixelart/endemic

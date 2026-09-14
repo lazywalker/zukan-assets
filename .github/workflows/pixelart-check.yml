@@ -1,12 +1,13 @@
 name: Pixel art check
 
 # Verifies the hand-drawn pixel sprite set: every config resolves, every
-# sprite name is a monsters.json slug, and the editor save chain still
-# round-trips every committed config (test_editor.py picks new sprites up
-# automatically). The rendered PNGs are deterministic products of the
-# configs (nothing committed, nothing to drift), so building them cleanly
-# IS the check. data/ + icons/ are gitignored pipeline products, so the
-# shared ETL composite action runs first.
+# sprite name is a monsters.json slug (endemic_life.json for the endemic
+# set), and the editor save chain still round-trips every committed config
+# (test_editor.py picks new sprites up automatically). The rendered PNGs are
+# deterministic products of the configs (nothing committed, nothing to
+# drift), so building them cleanly IS the check. data/ + icons/ are
+# gitignored pipeline products, so the shared ETL composite action runs
+# first.
 
 on:
   push:

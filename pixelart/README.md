@@ -1,9 +1,10 @@
 # pixelart/: hand-drawn pixel sprite set
 
-A second, opt-in icon set: natively small pixel art (height <= 24, width
-unlimited; current sprites are 28-36 wide; near-black outline, flat fills,
-transparent background) drawn by hand in this repo's config format, one
-sprite per monster. Release PNGs are emitted at each sprite's native size,
+A second, opt-in icon set: natively small pixel art (height 24, width
+per sprite, roughly 16-52; near-black outline, flat fills, transparent
+background) drawn by hand in this repo's config format. Covers every
+monster (378 configs in `sprites/`) plus the endemic life set (132 configs
+in `endemic/`). Release PNGs are emitted at each sprite's native size,
 never scaled or padded. Contrast with `icons/`, which holds
 screenshot-derived game card icons at 48 x 48. Sprites render crisp at
 terminal sizes where downscaled game icons turn muddy.
@@ -16,18 +17,21 @@ terminal sizes where downscaled game icons turn muddy.
 - `sprites/<name>.py`: one config per monster: `spans` (silhouette runs),
   `fills` (recolor/put ops), `palette`. Palette-only subspecies are ~10-line
   configs importing their base.
+- `endemic/<name>.py`: the endemic life set, same format; several species
+  derive from shared archetype bases (`_fish.py`, `_toad.py, ...).
 - `build_sprites.py`: driver,
   - no flags: dev previews + contact sheet (local only, gitignored)
   - `--out DIR`: release output; one native-size transparent PNG per sprite,
-    centered, named by slug (`rathalos.png`, `azure-rathalos.png`, ...)
+    named by slug (`rathalos.png`, `azure-rathalos.png`, ...)
   - `--check DIR`: byte-compare DIR against a fresh build
+  - `--endemic`: build the `endemic/` set instead of `sprites/` (slugs
+    validated against `data/endemic_life.json`)
 
 ## Web editor
 
-A browser drawing board over the same configs (`docs/pixel-editor-design.md`
-has the full design). Aseprite-style tools and shortcuts, every
-generation's original icon next to the sprite, saves write straight back to
-`sprites/<name>.py` through the same build rules.
+A browser drawing board over the same monster configs. Aseprite-style tools
+and shortcuts, every generation's original icon next to the sprite, saves
+write straight back to `sprites/<name>.py` through the same build rules.
 
     make editor          # rebuild data bundle + serve at http://localhost:8642
     make editor-static   # self-contained bundle (editor + icons) for hosting
@@ -47,9 +51,10 @@ path. `editor/selftest.html` runs the pure JS helper assertions.
 The configs are the source of truth; `icons-pixelart/` is a deterministic
 build product, gitignored like `data/` and `icons/` and built at release
 time (see `.github/workflows/release.yml`). Every sprite name must be a
-slug in `data/monsters.json`; enforced on every build. Coverage is
-intentionally partial: consumers fall back to `icons/` for monsters this
-set does not cover yet.
+slug in `data/monsters.json` (`data/endemic_life.json` for the endemic
+set); enforced on every build. Coverage is complete: all 378 monsters and
+132 endemic life entries; zukan still falls back to `icons/` per creature
+as a safety net.
 
 ## Adding a monster
 
@@ -58,6 +63,7 @@ set does not cover yet.
    subject fully inside the frame).
 2. `python3 build_sprites.py <slug>` and eyeball the preview + contact
    sheet: build, look, tweak, repeat.
-3. `python3 build_sprites.py --out ../icons-pixelart` to refresh the set.
+3. `python3 build_sprites.py --out ../icons-pixelart` to refresh the set;
+   `--endemic --out ../icons-pixelart/endemic` for the endemic set.
 4. `--check` passes byte-identical rebuilds; the pixelart-check workflow
    runs the equivalent in CI.
