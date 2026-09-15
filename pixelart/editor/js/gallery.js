@@ -1,14 +1,22 @@
-// Landing gallery (W1): one card per monster, done cards show the sprite
+// Landing gallery (W1): one card per record, done cards show the sprite
 // next to every generation's icon, undone cards show the icons as the
-// trace reference. Search matches slug / english / chinese / japanese.
+// trace reference. Two scopes: monsters and endemic life. Search matches
+// slug / english / chinese / japanese.
 
 import { data, iconUrl } from "./api.js";
 import { t, applyDom, langSelector } from "./i18n.js";
 
+const SCOPES = {
+  monsters: { records: "monsters", sprites: "sprites", cov: "coverage" },
+  endemic: {
+    records: "endemic", sprites: "endemic_sprites",
+    cov: "endemic_coverage",
+  },
+};
+
 export function renderGallery(gridEl, { onOpen }) {
   const d = data();
-  const bySlug = Object.fromEntries(d.sprites.map((s) => [s.slug, s]));
-  const state = { q: "", filter: "all" };
+  const state = { q: "", filter: "all", scope: "monsters" };
 
   const head = document.createElement("div");
   head.className = "gallery-top";
@@ -16,6 +24,10 @@ export function renderGallery(gridEl, { onOpen }) {
     `<div class="gallery-title"><h1>${t("gallery.title")}</h1>` +
     `<span id="glang"></span></div>` +
     `<div class="gallery-ctl">` +
+    `<div class="chips">` +
+    `<button data-s="monsters" class="sel">${t("gallery.monsters")}</button>` +
+    `<button data-s="endemic">${t("gallery.endemic")}</button>` +
+    `</div>` +
     `<input id="gq" type="search" data-i18n-ph="gallery.search-ph">` +
     `<div class="chips">` +
     `<button data-f="all" class="sel">${t("gallery.all")}</button>` +
@@ -35,17 +47,24 @@ export function renderGallery(gridEl, { onOpen }) {
     state.q = e.target.value.trim().toLowerCase();
     refresh();
   });
-  head.querySelectorAll("[data-f]").forEach((b) =>
-    b.addEventListener("click", () => {
-      state.filter = b.dataset.f;
-      head.querySelectorAll("[data-f]").forEach((x) =>
-        x.classList.toggle("sel", x === b));
-      refresh();
-    }));
+  const chip = (key, attr) => {
+    head.querySelectorAll(`[data-${attr}]`).forEach((b) =>
+      b.addEventListener("click", () => {
+        state[key] = b.dataset[attr];
+        head.querySelectorAll(`[data-${attr}]`).forEach((x) =>
+          x.classList.toggle("sel", x === b));
+        refresh();
+      }));
+  };
+  chip("scope", "s");
+  chip("filter", "f");
 
   function refresh() {
-    const doneSet = new Set(d.coverage.done);
-    const list = d.monsters.filter((m) => {
+    const { records, sprites, cov } = Object.fromEntries(
+      Object.entries(SCOPES[state.scope]).map(([k, field]) => [k, d[field]]));
+    const bySlug = Object.fromEntries(sprites.map((s) => [s.slug, s]));
+    const doneSet = new Set(cov.done);
+    const list = records.filter((m) => {
       if (state.filter === "done" && !doneSet.has(m.slug)) return false;
       if (state.filter === "todo" && doneSet.has(m.slug)) return false;
       if (!state.q) return true;
@@ -53,8 +72,9 @@ export function renderGallery(gridEl, { onOpen }) {
       return hay.includes(state.q);
     });
     head.querySelector("#gcount").textContent =
-      `${list.length} / ${d.monsters.length}`;
-    cards.replaceChildren(...list.map((m) => card(m, bySlug[m.slug], d, onOpen)));
+      `${list.length} / ${records.length}`;
+    cards.replaceChildren(...list.map((m) => card(m, bySlug[m.slug], d,
+      (slug) => onOpen(slug, doneSet.has(slug)))));
   }
   refresh();
 }

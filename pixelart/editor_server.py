@@ -43,6 +43,9 @@ def data_is_stale():
     for p in (HERE / "sprites").glob("*.py"):
         if p.stat().st_mtime > stamp:
             return True
+    for p in (HERE / "endemic").glob("*.py"):
+        if p.stat().st_mtime > stamp:
+            return True
     return False
 
 

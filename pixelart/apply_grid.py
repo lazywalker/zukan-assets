@@ -26,8 +26,9 @@ HERE = Path(__file__).resolve().parent
 SPRITES = HERE / "sprites"
 
 
-def stem_for(slug, sprites_dir=None):
-    """Existing module stem for a slug, or the underscore form for new ones."""
+def stem_for(slug, sprites_dir=None, dashed=False):
+    """Existing module stem for a slug, or the underscore form for new ones.
+    Endemic configs keep the dashed slug as their stem."""
     sys.path.insert(0, str(sprites_dir or SPRITES))
     for p in sorted((sprites_dir or SPRITES).glob("*.py")):
         if p.stem.startswith("_"):
@@ -38,22 +39,24 @@ def stem_for(slug, sprites_dir=None):
             continue
         if mod.CONFIG["name"] == slug:
             return p.stem
-    return slug.replace("-", "_")
+    return slug if dashed else slug.replace("-", "_")
 
 
 def apply(payload, sprites_dir=None, rebuild=False):
-    """Validate a payload and write it as sprites/<stem>.py.
+    """Validate a payload and write it as sprites/<stem>.py (endemic/<stem>.py
+    when payload carries kind="endemic").
 
     Returns a report dict; raises DecompileError/SystemExit on refusal
     (nothing is written in that case). A failed full-set rebuild rolls
     the write back, leaving a sprite set that still builds.
     """
+    endemic = payload.get("kind") == "endemic"
     cfg, text = decompile.decompile(payload)
-    build_sprites.validate_slugs([cfg])
+    build_sprites.validate_slugs([cfg], endemic=endemic)
     build_sprites.validate_dimensions([cfg])
 
-    sprites = sprites_dir or SPRITES
-    stem = stem_for(cfg["name"], sprites)
+    sprites = sprites_dir or (HERE / "endemic" if endemic else SPRITES)
+    stem = stem_for(cfg["name"], sprites, dashed=endemic)
     path = sprites / f"{stem}.py"
     existed = path.exists()
     old_text = path.read_text() if existed else None
@@ -77,34 +80,35 @@ def apply(payload, sprites_dir=None, rebuild=False):
 
     log = ""
     if rebuild:
-        run = subprocess.run(
-            [sys.executable, str(HERE / "build_sprites.py"), cfg["name"]],
-            capture_output=True,
-            text=True,
-        )
+        cmd = [sys.executable, str(HERE / "build_sprites.py")]
+        if endemic:
+            cmd.append("--endemic")
+        cmd.append(cfg["name"])
+        run = subprocess.run(cmd, capture_output=True, text=True)
         log = run.stdout + run.stderr
         if run.returncode != 0:
-            rollback(path, cfg, old_mod, existed, changed, old_text)
+            rollback(path, cfg, old_mod, existed, changed, old_text, endemic)
             raise RuntimeError(f"post-save rebuild failed, save rolled back:\n{log}")
     return {"file": str(path), "stem": stem, "existed": existed,
             "changed": changed, "log": log}
 
 
-def rollback(path, cfg, old_mod, existed, changed, old_text):
+def rollback(path, cfg, old_mod, existed, changed, old_text, endemic=False):
     """Undo a save whose full-set rebuild failed: restore the previous
     config text (or drop a newly added one plus its fresh PNGs), then
     rebuild the saved sprite's own PNGs from the rolled-back config."""
     if not changed:
         return
+    prefix = "endemic-" if endemic else ""
     if existed:
         path.write_text(old_text)
         if old_mod is not None:
-            build_sprites.build_dev(old_mod.CONFIG)
+            build_sprites.build_dev(old_mod.CONFIG, endemic=endemic)
     else:
         path.unlink()
         for suffix in ("_sprite.png", "_sprite_preview.png",
                        "_sprite_vs_original.png"):
-            png = build_sprites.HERE / f"{cfg['name']}{suffix}"
+            png = build_sprites.HERE / f"{prefix}{cfg['name']}{suffix}"
             if png.exists():
                 png.unlink()
 

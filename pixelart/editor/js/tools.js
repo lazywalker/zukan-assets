@@ -123,6 +123,7 @@ export const TOOLS = [
   { id: "marquee", key: "m", label: "tool.marquee", hint: "hint.marquee" },
   { id: "move", key: "v", label: "tool.move", hint: "hint.move" },
   { id: "picker", key: "i", label: "tool.picker", hint: "hint.picker" },
+  { id: "hand", key: "h", label: "tool.hand", hint: "hint.hand" },
 ];
 
 export const MAX_HISTORY = 100;

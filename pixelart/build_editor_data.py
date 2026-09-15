@@ -27,6 +27,7 @@ HERE = Path(__file__).resolve().parent
 EDITOR = HERE / "editor"
 DATA_JSON = EDITOR / "_data" / "data.json"
 MONSTERS_JSON = HERE.parent / "data" / "monsters.json"
+ENDEMIC_JSON = HERE.parent / "data" / "endemic_life.json"
 ICONS = HERE.parent / "icons"
 
 # zukan color::GAMES plus mho (in the data, absent from zukan's table).
@@ -56,19 +57,22 @@ SKELETONS = ["rathalos", "zinogre", "tigrex", "great-jaggi", "kulu-ya-ku",
              "anjanath", "vaal-hazak", "kirin", "namielle", "xenojiiva"]
 
 
-def sprite_bundles():
+def sprite_bundles(dir_name, with_parents=True):
+    """Config dir -> editor bundles. Variants keep derived_from so saving
+    warns before materializing (family fixes stop applying); endemic
+    species derive from archetype bases (_fish and kin), same treatment."""
     out = []
     mods = {}
     import importlib
 
-    sys.path.insert(0, str(HERE / "sprites"))
-    for p in sorted((HERE / "sprites").glob("*.py")):
+    sys.path.insert(0, str(HERE / dir_name))
+    for p in sorted((HERE / dir_name).glob("*.py")):
         if not p.stem.startswith("_"):
             mods[p.stem] = importlib.import_module(p.stem)
     for stem, mod in mods.items():
         cfg = mod.CONFIG
         state = decompile.editor_state(cfg)
-        parent = getattr(mod, "_base", None)
+        parent = getattr(mod, "_base", None) if with_parents else None
         out.append({
             "slug": cfg["name"],
             "module": stem,
@@ -85,10 +89,14 @@ def sprite_bundles():
     return out
 
 
-def monster_bundles():
-    monsters = json.loads(MONSTERS_JSON.read_text())
+def record_bundles(records):
     out = []
-    for m in monsters:
+    seen = set()
+    for m in records:
+        # endemic_life.json keeps one record per game; one card per slug
+        if m["slug"] in seen:
+            continue
+        seen.add(m["slug"])
         games = [{"game": g["game"], "icon": g["icon"]}
                  for g in m.get("games", []) if g.get("icon")]
         primary = ""
@@ -110,14 +118,31 @@ def monster_bundles():
     return out
 
 
+def monster_bundles():
+    return record_bundles(json.loads(MONSTERS_JSON.read_text()))
+
+
 def build(icon_base):
-    sprites = sprite_bundles()
+    sprites = sprite_bundles("sprites")
+    endemic_sprites = sprite_bundles("endemic")
     monsters = monster_bundles()
+    endemic = record_bundles(json.loads(ENDEMIC_JSON.read_text()))
     done = {s["slug"] for s in sprites}
+    done_end = {s["slug"] for s in endemic_sprites}
     slugs = {m["slug"] for m in monsters}
+    slugs_end = {m["slug"] for m in endemic}
     orphans = done - slugs
     if orphans:
         sys.exit(f"sprites missing from monsters.json: {sorted(orphans)}")
+    orphans_end = done_end - slugs_end
+    if orphans_end:
+        sys.exit(f"endemic sprites missing from endemic_life.json: "
+                 f"{sorted(orphans_end)}")
+    # both config dirs are imported into one flat module namespace
+    overlap = {s["module"] for s in sprites} & {s["module"] for s in endemic_sprites}
+    if overlap:
+        sys.exit(f"module name collision between sprites/ and endemic/: "
+                 f"{sorted(overlap)}")
     return {
         "icon_base": icon_base,
         "games": GAMES,
@@ -125,9 +150,15 @@ def build(icon_base):
         "skeletons": [s for s in SKELETONS if s in done],
         "sprites": sprites,
         "monsters": monsters,
+        "endemic_sprites": endemic_sprites,
+        "endemic": endemic,
         "coverage": {
             "done": sorted(done),
             "todo": sorted(slugs - done),
+        },
+        "endemic_coverage": {
+            "done": sorted(done_end),
+            "todo": sorted(slugs_end - done_end),
         },
     }
 
@@ -136,7 +167,9 @@ def write_bundle(data, path):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")))
     print(f"{path} ({len(data['sprites'])} sprites, "
-          f"{len(data['monsters'])} monsters)")
+          f"{len(data['endemic_sprites'])} endemic sprites, "
+          f"{len(data['monsters'])} monsters, "
+          f"{len(data['endemic'])} endemic records)")
 
 
 def build_static(dest):
@@ -154,7 +187,7 @@ def build_static(dest):
     write_bundle(build(icon_base="icons/"), dest / "_data" / "data.json")
     data = json.loads((dest / "_data" / "data.json").read_text())
     copied = 0
-    for m in data["monsters"]:
+    for m in data["monsters"] + data["endemic"]:
         for g in m["games"]:
             src = ICONS / g["icon"]
             target = dest / "icons" / g["icon"]

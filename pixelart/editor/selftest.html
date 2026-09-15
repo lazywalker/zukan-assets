@@ -133,6 +133,39 @@ eq(u.undo(s2), false, "undo empty returns false");
 
 eq(nextFreeChar({ ".": 0, K: 0, A: 0 }), "B", "char pool skips dot and K");
 
+// canvas resize: content stays at the anchor, out-of-bounds cells are cut,
+// explicit entries travel with their cells
+const rs = SpriteState.blank(4, 3, pal, "R");
+rs.paint(1, 2, "R"); // far cell: grows the mask
+rs.paint(0, 2, "C"); // ring cell: explicit override
+eq(rs.view()[1], ".KRK", "resize setup mask");
+eq(rs.view()[0], "..C.", "resize setup override");
+rs.resize(6, 3, "tl");
+eq([rs.w, rs.h], [6, 3], "resize sets the size");
+eq(rs.view()[1], ".KRK..", "top-left anchor keeps coords on grow");
+eq(rs.view()[0], "..C...", "explicit rekeyed to the same coords");
+rs.resize(3, 2, "tl");
+eq(rs.view()[1], ".KR", "crop cuts columns beyond the new width");
+eq(rs.view()[0], "..C", "crop keeps in-bounds overrides");
+const rc = SpriteState.blank(4, 2, pal, "R");
+rc.paint(0, 0, "R");
+rc.resize(6, 4, "c");
+eq(rc.view()[1], "KRK...", "center anchor shifts by half the delta");
+
+// undo snapshots carry w/h so a resize round-trips
+const ru = new Undo(3);
+const st3 = SpriteState.blank(4, 2, pal, "R");
+ru.push(st3);
+st3.resize(6, 3, "tl");
+st3.paint(2, 5, "R");
+eq([st3.w, st3.h], [6, 3], "resized state before undo");
+ru.undo(st3);
+eq([st3.w, st3.h], [4, 2], "undo restores the size");
+eq(st3.view(), ["....", "...."], "undo restores pre-resize content");
+ru.redo(st3);
+eq([st3.w, st3.h], [6, 3], "redo replays the size");
+eq(st3.view()[2], "....KR", "redo replays post-resize content");
+
 out.push(failures ? `\n${failures} FAILED` : "\nall passed");
 document.getElementById("out").textContent = out.join("\n");
 </script>

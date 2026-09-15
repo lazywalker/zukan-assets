@@ -18,6 +18,7 @@ export class Board {
     this.selection = null; // {r0, c0, r1, c1} normalized
     this.hover = null; // [r, c]
     this.onStroke = null; // (phase, cell, button) -> bool
+    this.onRedraw = null; // notified after every draw (navigator thumbnail)
     this.showGrid = true;
     this.showOutline = true; // false = silhouette mode, hide the derived K
 
@@ -56,6 +57,25 @@ export class Board {
     this.pan.x = Math.round((rect.width - this.state.w * this.zoom) / 2);
     this.pan.y = Math.round((rect.height - this.state.h * this.zoom) / 2);
     this.draw();
+  }
+
+  // put sprite cell (r, c) at the center of the viewport (navigator drag)
+  centerOn(r, c) {
+    const rect = this.wrap.getBoundingClientRect();
+    this.pan.x = Math.round(rect.width / 2 - c * this.zoom);
+    this.pan.y = Math.round(rect.height / 2 - r * this.zoom);
+    this.draw();
+  }
+
+  // viewport extent in sprite cell coordinates
+  visibleRect() {
+    const rect = this.wrap.getBoundingClientRect();
+    return {
+      x: -this.pan.x / this.zoom,
+      y: -this.pan.y / this.zoom,
+      w: rect.width / this.zoom,
+      h: rect.height / this.zoom,
+    };
   }
 
   setZoom(z, event) {
@@ -199,6 +219,8 @@ export class Board {
       ctx.lineWidth = 2;
       ctx.strokeRect(x0 + c * z + 1, y0 + r * z + 1, z - 2, z - 2);
     }
+
+    if (this.onRedraw) this.onRedraw();
   }
 
   // reference image normalized to the sprite height, horizontally

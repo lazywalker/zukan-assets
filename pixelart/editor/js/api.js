@@ -35,6 +35,14 @@ export function monsterBySlug(slug) {
   return DATA.monsters.find((m) => m.slug === slug) || null;
 }
 
+export function endemicSpriteBySlug(slug) {
+  return DATA.endemic_sprites.find((s) => s.slug === slug) || null;
+}
+
+export function endemicBySlug(slug) {
+  return DATA.endemic.find((m) => m.slug === slug) || null;
+}
+
 export async function ping() {
   try {
     const res = await fetch("api/ping");

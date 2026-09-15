@@ -187,7 +187,26 @@ button.sel { background: #3a4a66; border-color: #5a7ab0; }
   cursor: crosshair;
   touch-action: none;
 }
+#board-wrap.grab { cursor: grab; }
+#board-wrap.grab:active { cursor: grabbing; }
 #board { position: absolute; inset: 0; image-rendering: pixelated; }
+
+.navigator {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 5px;
+  background: rgba(31, 33, 38, 0.9);
+  border: 1px solid #3a3e46;
+  border-radius: 4px;
+  z-index: 5;
+  line-height: 0;
+}
+.navigator canvas {
+  image-rendering: pixelated;
+  background: repeating-conic-gradient(#26282e 0 25%, #2e3138 0 50%) 0 0/8px 8px;
+  cursor: crosshair;
+}
 
 #sidecol {
   flex: none;
@@ -302,6 +321,20 @@ button.sel { background: #3a4a66; border-color: #5a7ab0; }
 .modal-card table { border-collapse: collapse; margin: 10px 0; }
 .modal-card td { padding: 3px 12px 3px 0; }
 .modal-card td:first-child { color: #e8b45a; white-space: nowrap; }
+
+.resize-row { display: flex; gap: 14px; margin: 12px 0; flex-wrap: wrap; }
+.resize-row label { display: flex; align-items: center; gap: 6px; }
+.resize-row input,
+.resize-row select {
+  background: #22252b;
+  color: inherit;
+  border: 1px solid #363a42;
+  border-radius: 4px;
+  padding: 3px 6px;
+  font: inherit;
+  width: 76px;
+}
+.modal-card .dim { max-width: 380px; }
 
 #toast {
   position: fixed;

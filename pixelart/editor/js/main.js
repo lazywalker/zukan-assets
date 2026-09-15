@@ -5,11 +5,12 @@
 
 import {
   loadData, reloadData, data, save, ping, exportPng, downloadGrid,
-  spriteBySlug, monsterBySlug,
+  spriteBySlug, monsterBySlug, endemicSpriteBySlug, endemicBySlug,
 } from "./api.js";
 import { SpriteState, nearestChar, nextFreeChar } from "./state.js";
 import { Undo } from "./undo.js";
 import { Board } from "./canvas.js";
+import { Navigator } from "./navigator.js";
 import { PaletteBar } from "./palette.js";
 import { RefPanel, quantizeImage } from "./reference.js";
 import { renderGallery, drawGrid } from "./gallery.js";
@@ -23,6 +24,7 @@ const $ = (sel) => document.querySelector(sel);
 
 const S = {
   slug: null,
+  kind: null, // monster or endemic
   state: null,
   bundle: null,
   monster: null,
@@ -62,6 +64,7 @@ async function boot() {
   board.onHover = onHover;
   board.onZoom = (z) => status();
   new ResizeObserver(() => board.resize()).observe($("#board-wrap"));
+  new Navigator(board, $("#board-wrap"));
   pal = new PaletteBar($("#colorbar"), {
     onPick: () => status(),
   });
@@ -72,6 +75,7 @@ async function boot() {
   });
   buildMenubar();
   buildToolcol();
+  wireModals();
   applyDom();
   $("#langslot").append(langSelector());
   $("#btn-undo").addEventListener("click", doUndo);
@@ -114,24 +118,31 @@ function show(pageId) {
 function showGallery() {
   show("page-gallery");
   renderGallery($("#gallery-root"), {
-    onOpen: (slug) => {
-      location.hash = data().coverage.done.includes(slug)
-        ? `#/edit/${slug}`
-        : `#/new/${slug}`;
+    onOpen: (slug, done) => {
+      location.hash = done ? `#/edit/${slug}` : `#/new/${slug}`;
     },
   });
 }
 
 // ---------------------------------------------------------------- editor
 
+function recordBySlug(slug) {
+  return monsterBySlug(slug) || endemicBySlug(slug);
+}
+
+function bundleFor(slug, kind) {
+  return kind === "endemic" ? endemicSpriteBySlug(slug) : spriteBySlug(slug);
+}
+
 async function openEditor(slug, isNew) {
-  const monster = monsterBySlug(slug);
+  const monster = recordBySlug(slug);
   if (!monster) {
     toast(t("unknown-monster", { slug }));
     location.hash = "#/";
     return;
   }
-  const bundle = spriteBySlug(slug);
+  const kind = monsterBySlug(slug) ? "monster" : "endemic";
+  const bundle = bundleFor(slug, kind);
   if (isNew && bundle) {
     location.hash = `#/edit/${slug}`;
     return;
@@ -142,14 +153,17 @@ async function openEditor(slug, isNew) {
   }
   show("page-editor");
   S.slug = slug;
+  S.kind = kind;
   S.monster = monster;
   S.bundle = bundle;
   S.isNew = isNew;
   S.dirty = false;
+  S.state = null;
   undo.past.length = 0;
   undo.future.length = 0;
   board.selection = null;
-
+  // reference panel renders before the state exists for new sprites; the
+  // side thumbnail only fills in once enterCanvas() has a state to draw
   ref.setMonster(monster);
   renderDerivedBadge();
   if (isNew) {
@@ -171,6 +185,7 @@ function enterCanvas() {
   updateGhost();
   setTool(toolId);
   status();
+  renderSideLive();
 }
 
 function renderDerivedBadge() {
@@ -178,11 +193,14 @@ function renderDerivedBadge() {
   const parent = S.bundle ? S.bundle.derived_from : "";
   el.classList.toggle("hidden", !parent);
   if (!parent) return;
+  // archetype bases (_fish and kin) are configs, not gallery records; only
+  // a parent with its own record gets the jump button
+  const editable = !!recordBySlug(parent);
   el.innerHTML =
     `<span class="warn">${t("badge.derived", { parent })}</span>` +
-    `<button data-a="parent">${t("badge.parent")}</button>` +
+    (editable ? `<button data-a="parent">${t("badge.parent")}</button>` : "") +
     `<button data-a="stay">${t("badge.stay")}</button>`;
-  el.querySelector('[data-a="parent"]').addEventListener("click", () => {
+  el.querySelector('[data-a="parent"]')?.addEventListener("click", () => {
     location.hash = `#/edit/${parent}`;
   });
   el.querySelector('[data-a="stay"]').addEventListener("click", () =>
@@ -256,6 +274,11 @@ function startWizard() {
 
   function loadSeed() {
     const holder = wiz.querySelector("#wz-seed");
+    if (!wizardUi.primary) {
+      wizardUi.seedColors = [];
+      holder.innerHTML = `<span class="dim">${t("ref.no-icon")}</span>`;
+      return;
+    }
     holder.innerHTML = `<span class="dim">${t("wiz.quantizing")}</span>`;
     const img = new Image();
     img.onload = () => {
@@ -293,7 +316,9 @@ function finishWizard() {
   if (skeleton) {
     const sk = spriteBySlug(skeleton);
     S.state = SpriteState.fromBundle(sk);
-    S.docstring = `${S.monster.name}: traced from the ${gameAbbrFor(primary)} icon.`;
+    S.docstring = primary
+      ? `${S.monster.name}: traced from the ${gameAbbrFor(primary)} icon.`
+      : `${S.monster.name}: from the ${skeleton} skeleton.`;
   } else {
     const palette = { ".": [0, 0, 0, 0], "K": [24, 20, 22, 255] };
     let base = "K";
@@ -307,9 +332,11 @@ function finishWizard() {
       base = Object.keys(palette)[2];
     }
     S.state = SpriteState.blank(width, 24, palette, base);
-    S.docstring = `${S.monster.name}: traced from the ${gameAbbrFor(primary)} icon.`;
+    S.docstring = primary
+      ? `${S.monster.name}: traced from the ${gameAbbrFor(primary)} icon.`
+      : `${S.monster.name}: pixel sprite.`;
   }
-  S.compareTo = `../icons/${primary}`;
+  S.compareTo = primary ? `../icons/${primary}` : "";
   S.derivedFrom = "";
   wizardUi = null;
   wizardOpen = false;
@@ -328,8 +355,13 @@ function setTool(id) {
   toolId = id;
   document.querySelectorAll("#toolcol [data-tool]").forEach((b) =>
     b.classList.toggle("sel", b.dataset.tool === id));
+  updateCursor();
   renderContextbar();
   status();
+}
+
+function updateCursor() {
+  $("#board-wrap").classList.toggle("grab", spaceHeld || toolId === "hand");
 }
 
 function buildToolcol() {
@@ -377,6 +409,8 @@ function renderContextbar() {
     html = `<span class="dim">${t("ctx.move-hint")}</span>`;
   } else if (toolId === "picker") {
     html = `<span class="dim">${t("ctx.picker-hint")}</span>`;
+  } else if (toolId === "hand") {
+    html = `<span class="dim">${t("ctx.hand-hint")}</span>`;
   }
   bar.innerHTML = outline + html;
   bar.querySelector("#cb-outline")?.addEventListener("change", (e) => {
@@ -476,7 +510,7 @@ function applyStroke(preview) {
 }
 
 function onStroke(phase, cell, e) {
-  if (spaceHeld && phase === "down") {
+  if ((spaceHeld || toolId === "hand") && phase === "down") {
     board.panning = { x: e.clientX, y: e.clientY };
     return;
   }
@@ -614,6 +648,7 @@ function onKeyDown(e) {
   switch (k) {
     case " ":
       spaceHeld = true;
+      updateCursor();
       e.preventDefault();
       break;
     case "x":
@@ -636,6 +671,10 @@ function onKeyDown(e) {
       board.setZoom(board.zoom / 2);
       break;
     case "escape":
+      if (!$("#shortcuts").classList.contains("hidden")) {
+        $("#shortcuts").classList.add("hidden");
+        break;
+      }
       board.selection = null;
       board.draw();
       break;
@@ -652,7 +691,10 @@ function onKeyDown(e) {
 }
 
 function onKeyUp(e) {
-  if (e.key === " ") spaceHeld = false;
+  if (e.key === " ") {
+    spaceHeld = false;
+    updateCursor();
+  }
   if (e.key.toLowerCase() === "a" || e.key === "A") {
     board.abHold = false;
     board.draw();
@@ -707,6 +749,13 @@ function flip(axis) {
 
 // ---------------------------------------------------------------- save
 
+function payloadFor(meta) {
+  const payload = S.state.payload(meta);
+  // apply_grid picks the config dir and the slug source from kind
+  if (S.kind === "endemic") payload.kind = "endemic";
+  return payload;
+}
+
 async function doSave() {
   if (!S.state) return;
   if (S.bundle?.derived_from) {
@@ -719,7 +768,7 @@ async function doSave() {
       return;
     }
   }
-  const payload = S.state.payload({
+  const payload = payloadFor({
     slug: S.slug,
     docstring: S.docstring || `${S.monster.name}: pixel sprite.`,
     compare_to: S.compareTo,
@@ -773,7 +822,7 @@ function menuAction(act) {
   switch (act) {
     case "save": doSave(); break;
     case "grid":
-      downloadGrid(S.state.payload({
+      downloadGrid(payloadFor({
         slug: S.slug, docstring: S.docstring, compare_to: S.compareTo,
       }));
       break;
@@ -801,7 +850,50 @@ function menuAction(act) {
       break;
     case "overlay": ref.setMode(ref.mode === "overlay" ? "side" : "overlay"); break;
     case "shortcuts": $("#shortcuts").classList.toggle("hidden"); break;
+    case "resize": openResize(); break;
   }
+}
+
+function openResize() {
+  if (!S.state) return;
+  $("#rs-w").value = S.state.w;
+  $("#rs-h").value = S.state.h;
+  $("#resize").classList.remove("hidden");
+  $("#rs-w").focus();
+}
+
+function applyResize() {
+  const w = Math.round(+$("#rs-w").value);
+  const h = Math.round(+$("#rs-h").value);
+  if (!(w >= 4 && w <= 128) || !(h >= 4 && h <= 24)) {
+    toast(t("resize.invalid"));
+    return;
+  }
+  $("#resize").classList.add("hidden");
+  if (!S.state || (w === S.state.w && h === S.state.h)) return;
+  undo.push(S.state.clone());
+  S.state.resize(w, h, $("#rs-anchor").value);
+  board.selection = null;
+  S.dirty = true;
+  board.draw();
+  renderSideLive();
+  status();
+}
+
+// Close button, backdrop click, and the Apply/Cancel pair for the resize
+// dialog; the Help > Shortcuts toggle above still opens both modals.
+function wireModals() {
+  $("#shortcuts .close").addEventListener("click", () =>
+    $("#shortcuts").classList.add("hidden"));
+  for (const id of ["shortcuts", "resize"]) {
+    const el = $(`#${id}`);
+    el.addEventListener("click", (e) => {
+      if (!e.target.closest(".modal-card")) el.classList.add("hidden");
+    });
+  }
+  $("#rs-apply").addEventListener("click", applyResize);
+  $("#rs-cancel").addEventListener("click", () =>
+    $("#resize").classList.add("hidden"));
 }
 
 function onHover(cell) {
@@ -836,6 +928,7 @@ function updateGhost() {
 }
 
 function renderSideSprite(canvas) {
+  if (!S.state) return; // openEditor renders the panel before the state exists
   const scale = Math.max(4, Math.floor(200 / S.state.h));
   drawGrid(canvas, S.state.view({ outline: opt.outline }), S.state.palette,
     scale);

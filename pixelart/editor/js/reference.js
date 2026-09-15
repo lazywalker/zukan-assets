@@ -36,6 +36,7 @@ export class RefPanel {
   loadPrimary() {
     this.img = null;
     this.pickCanvas = null;
+    if (!this.primary) return;
     const img = new Image();
     img.onload = () => {
       this.img = img;
@@ -138,20 +139,28 @@ export class RefPanel {
     if (this.mode === "side") {
       const side = document.createElement("div");
       side.className = "side-by-side";
-      const left = document.createElement("img");
-      left.src = iconUrl(this.primary);
-      left.addEventListener("pointerdown", (e) => {
-        if (!e.altKey || !this.pickCanvas) return;
-        const nx = Math.round(e.offsetX / left.clientWidth * this.pickCanvas.width);
-        const ny = Math.round(e.offsetY / left.clientHeight * this.pickCanvas.height);
-        const px = this.pickCanvas.getContext("2d")
-          .getImageData(Math.min(nx, this.pickCanvas.width - 1),
-            Math.min(ny, this.pickCanvas.height - 1), 1, 1).data;
-        if (this.onPick) this.onPick({ r: px[0], g: px[1], b: px[2] });
-      });
+      if (this.primary) {
+        const left = document.createElement("img");
+        left.src = iconUrl(this.primary);
+        left.addEventListener("pointerdown", (e) => {
+          if (!e.altKey || !this.pickCanvas) return;
+          const nx = Math.round(e.offsetX / left.clientWidth * this.pickCanvas.width);
+          const ny = Math.round(e.offsetY / left.clientHeight * this.pickCanvas.height);
+          const px = this.pickCanvas.getContext("2d")
+            .getImageData(Math.min(nx, this.pickCanvas.width - 1),
+              Math.min(ny, this.pickCanvas.height - 1), 1, 1).data;
+          if (this.onPick) this.onPick({ r: px[0], g: px[1], b: px[2] });
+        });
+        side.append(left);
+      } else {
+        const none = document.createElement("span");
+        none.className = "ref-hint";
+        none.textContent = t("ref.no-icon");
+        side.append(none);
+      }
       const right = document.createElement("canvas");
       right.className = "side-sprite";
-      side.append(left, right);
+      side.append(right);
       stage.append(side);
       if (this.onSideBySide) this.onSideBySide(right);
     } else if (this.mode === "overlay") {

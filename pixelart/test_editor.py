@@ -64,6 +64,61 @@ def round_trip_exact():
         assert sk.build_grid(cfg2) == sk.build_grid(cfg), cfg["name"]
 
 
+def endemic_round_trip_exact():
+    cfgs = load_configs(endemic=True)
+    assert cfgs, "no endemic configs found"
+    for cfg in cfgs:
+        p = payload_for(cfg)
+        p["kind"] = "endemic"
+        cfg2, _ = decompile.decompile(p)
+        assert sk.build_grid(cfg2) == sk.build_grid(cfg), cfg["name"]
+
+
+def endemic_save_refusals():
+    # a monster slug must not validate against endemic_life.json
+    cfg = next(c for c in load_configs() if c["name"] == "rathalos")
+    tmp = Path(tempfile.mkdtemp())
+    try:
+        p = payload_for(cfg)
+        p["kind"] = "endemic"
+        try:
+            apply_grid.apply(p, sprites_dir=tmp)
+        except SystemExit:
+            pass
+        else:
+            raise AssertionError("monster slug accepted as endemic")
+        assert not list(tmp.glob("*.py"))
+
+        # an unknown slug is refused for endemic too
+        cfg = next(c for c in load_configs(endemic=True))
+        p = payload_for(cfg)
+        p["kind"] = "endemic"
+        p["slug"] = "not-an-endemic"
+        try:
+            apply_grid.apply(p, sprites_dir=tmp)
+        except SystemExit:
+            pass
+        else:
+            raise AssertionError("unknown endemic slug accepted")
+        assert not list(tmp.glob("*.py"))
+    finally:
+        shutil.rmtree(tmp)
+
+
+def endemic_save_writes():
+    cfg = next(c for c in load_configs(endemic=True))
+    tmp = Path(tempfile.mkdtemp())
+    try:
+        p = payload_for(cfg)
+        p["kind"] = "endemic"
+        r = apply_grid.apply(p, sprites_dir=tmp)
+        assert r["changed"] and (tmp / f"{r['stem']}.py").exists()
+        r2 = apply_grid.apply(p, sprites_dir=tmp)
+        assert not r2["changed"], "identical view rewrote the file"
+    finally:
+        shutil.rmtree(tmp)
+
+
 def save_refusals():
     cfg = {"name": "rathalos", "size": (4, 2), "base": "R",
            "spans": {0: [(1, 2)]}, "fills": [],
@@ -184,12 +239,18 @@ def main():
     print(f"synth_matches_engine: OK ({n} sprites)")
     round_trip_exact()
     print(f"round_trip_exact: OK ({n} sprites)")
+    endemic_round_trip_exact()
+    print(f"endemic_round_trip_exact: OK ({len(load_configs(endemic=True))} endemic)")
     save_refusals()
     print("save_refusals: OK")
     save_writes_and_skips()
     print("save_writes_and_skips: OK")
     save_rollback()
     print("save_rollback: OK")
+    endemic_save_refusals()
+    print("endemic_save_refusals: OK")
+    endemic_save_writes()
+    print("endemic_save_writes: OK")
     print("editor checks passed")
 
 

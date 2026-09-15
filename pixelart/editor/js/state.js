@@ -226,6 +226,31 @@ export class SpriteState {
     for (const [k, v] of explicit) this.explicit.set(k, v);
   }
 
+  // Grow or shrink the canvas, keeping content at the anchor (top left or
+  // center). Cells pushed out of bounds are dropped; explicit entries are
+  // rekeyed with the same offset, so the save payload stays in bounds.
+  resize(newW, newH, anchor) {
+    const dx = anchor === "c" ? Math.floor((newW - this.w) / 2) : 0;
+    const dy = anchor === "c" ? Math.floor((newH - this.h) / 2) : 0;
+    const mask = new Uint8Array(newW * newH);
+    const explicit = new Map();
+    for (let r = 0; r < this.h; r++) {
+      const nr = r + dy;
+      if (nr < 0 || nr >= newH) continue;
+      for (let c = 0; c < this.w; c++) {
+        const nc = c + dx;
+        if (nc < 0 || nc >= newW) continue;
+        mask[nr * newW + nc] = this.mask[r * this.w + c];
+        const e = this.explicit.get(`${r},${c}`);
+        if (e) explicit.set(`${nr},${nc}`, e);
+      }
+    }
+    this.w = newW;
+    this.h = newH;
+    this.mask = mask;
+    this.explicit = explicit;
+  }
+
   payload(meta) {
     const maskRows = [];
     for (let r = 0; r < this.h; r++) {

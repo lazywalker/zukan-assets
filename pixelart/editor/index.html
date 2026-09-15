@@ -31,6 +31,7 @@
         <button data-act="redo" data-i18n="act.redo">Redo Ctrl+Y</button>
         <button data-act="flip-h" data-i18n="act.flip-h">Flip horizontal (warns)</button>
         <button data-act="flip-v" data-i18n="act.flip-v">Flip vertical</button>
+        <button data-act="resize" data-i18n="act.resize">Resize canvas</button>
         <button data-act="clear" data-i18n="act.clear">Clear canvas</button>
       </div>
     </div>
@@ -72,6 +73,28 @@
 
   <div id="wizard" class="hidden"></div>
 
+  <div id="resize" class="modal hidden">
+    <div class="modal-card">
+      <h2 data-i18n="resize.title">Resize canvas</h2>
+      <div class="resize-row">
+        <label><span data-i18n="resize.width">Width</span>
+          <input id="rs-w" type="number" min="4" max="128"></label>
+        <label><span data-i18n="resize.height">Height</span>
+          <input id="rs-h" type="number" min="4" max="24"></label>
+        <label><span data-i18n="resize.anchor">Anchor</span>
+          <select id="rs-anchor">
+            <option value="tl" data-i18n="resize.anchor-tl">Top left</option>
+            <option value="c" data-i18n="resize.anchor-center">Center</option>
+          </select></label>
+      </div>
+      <div class="dim" data-i18n="resize.hint"></div>
+      <div class="wiz-actions">
+        <button id="rs-apply" data-i18n="resize.apply">Apply</button>
+        <button id="rs-cancel" data-i18n="wiz.cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
   <div id="shortcuts" class="modal hidden">
     <div class="modal-card">
       <h2 data-i18n="shortcuts.title">Shortcuts (Aseprite mapping)</h2>
@@ -85,7 +108,8 @@
         <tr><td>M</td><td data-i18n="sc.marquee"></td></tr>
         <tr><td>V</td><td data-i18n="sc.move"></td></tr>
         <tr><td>Z / + / -</td><td data-i18n="sc.zoom"></td></tr>
-        <tr><td>Space / MMB</td><td data-i18n="sc.pan"></td></tr>
+        <tr><td>Space / MMB / H</td><td data-i18n="sc.pan"></td></tr>
+        <tr><td>Navigator</td><td data-i18n="sc.navigator"></td></tr>
         <tr><td>X</td><td data-i18n="sc.swap"></td></tr>
         <tr><td>RMB</td><td data-i18n="sc.rightbtn"></td></tr>
         <tr><td>Ctrl+Z / Ctrl+Y</td><td data-i18n="sc.undo"></td></tr>

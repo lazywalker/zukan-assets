@@ -18,6 +18,7 @@ const DICTS = {
     "act.redo": "Redo Ctrl+Y",
     "act.flip-h": "Flip horizontal (warns)",
     "act.flip-v": "Flip vertical",
+    "act.resize": "Resize canvas",
     "act.clear": "Clear canvas",
     "act.zoom-in": "Zoom in",
     "act.zoom-out": "Zoom out",
@@ -36,7 +37,8 @@ const DICTS = {
     "sc.marquee": "Rect select (arrows nudge, Esc cancels)",
     "sc.move": "Move selection (no selection: whole image)",
     "sc.zoom": "Zoom (mouse wheel works too)",
-    "sc.pan": "Pan",
+    "sc.pan": "Pan (Space held, middle mouse, or the Hand tool)",
+    "sc.navigator": "Drag the thumbnail to move the viewport",
     "sc.swap": "Swap foreground/background color",
     "sc.rightbtn": "Paint background color",
     "sc.undo": "Undo / Redo",
@@ -63,6 +65,21 @@ const DICTS = {
     "wiz.go": "Start tracing",
     "wiz.cancel": "Cancel",
     "wiz.done": "Wizard done; height locked to 24, start tracing",
+
+    "resize.title": "Resize canvas",
+    "resize.width": "Width",
+    "resize.height": "Height (max 24)",
+    "resize.anchor": "Anchor",
+    "resize.anchor-tl": "Top left",
+    "resize.anchor-center": "Center",
+    "resize.hint":
+      "Content keeps its place at the anchor; cells pushed out of bounds are cut. Height above 24 is refused by the build rule.",
+    "resize.apply": "Apply",
+    "resize.invalid": "Width 4-128, height 4-24",
+
+    "tool.hand": "Hand",
+    "hint.hand": "H Hand (drag to pan)",
+    "ctx.hand-hint": "Drag to pan the view; wheel zooms",
 
     "ctx.brush": "Brush",
     "ctx.outline": "outline",
@@ -114,6 +131,8 @@ const DICTS = {
 
     "gallery.title": "pixelart gallery",
     "gallery.search-ph": "Search slug / English / Chinese / Japanese name",
+    "gallery.monsters": "Monsters",
+    "gallery.endemic": "Endemic life",
     "gallery.all": "All",
     "gallery.done": "Done",
     "gallery.todo": "To do",
@@ -132,6 +151,7 @@ const DICTS = {
     "ref.offset": "Offset",
     "ref.hint-overlay": "The reference is layered under the canvas; trace on the canvas",
     "ref.hint-ab": "Back to canvas; hold A for the original, release for the sprite",
+    "ref.no-icon": "No reference icon for this record",
 
     "api.offline":
       "No local server; downloaded the grid JSON. Run python3 pixelart/apply_grid.py <file> to apply",
@@ -149,6 +169,7 @@ const DICTS = {
     "act.redo": "重做 Ctrl+Y",
     "act.flip-h": "水平翻转 (警示)",
     "act.flip-v": "垂直翻转",
+    "act.resize": "调整画布尺寸",
     "act.clear": "清空画布",
     "act.zoom-in": "放大",
     "act.zoom-out": "缩小",
@@ -167,7 +188,8 @@ const DICTS = {
     "sc.marquee": "矩形选区 (方向键微调,Esc 取消)",
     "sc.move": "移动选区 (无选区时移动整图)",
     "sc.zoom": "缩放 (滚轮亦可)",
-    "sc.pan": "平移",
+    "sc.pan": "平移 (按住 Space、鼠标中键或抓手工具)",
+    "sc.navigator": "拖动缩略图移动可视区域",
     "sc.swap": "交换前景/背景色",
     "sc.rightbtn": "画背景色",
     "sc.undo": "撤销 / 重做",
@@ -194,6 +216,21 @@ const DICTS = {
     "wiz.go": "开始描摹",
     "wiz.cancel": "取消",
     "wiz.done": "向导完成;高度已锁 24,开始描摹",
+
+    "resize.title": "调整画布尺寸",
+    "resize.width": "宽度",
+    "resize.height": "高度 (上限 24)",
+    "resize.anchor": "锚点",
+    "resize.anchor-tl": "左上",
+    "resize.anchor-center": "居中",
+    "resize.hint":
+      "内容按锚点保持位置,超出新边界的部分被裁掉。高度超过 24 会被构建规则拒绝。",
+    "resize.apply": "应用",
+    "resize.invalid": "宽度 4-128,高度 4-24",
+
+    "tool.hand": "抓手",
+    "hint.hand": "H 抓手 (拖动平移)",
+    "ctx.hand-hint": "拖动平移视图;滚轮缩放",
 
     "ctx.brush": "笔刷",
     "ctx.outline": "描边",
@@ -246,6 +283,8 @@ const DICTS = {
 
     "gallery.title": "pixelart 画廊",
     "gallery.search-ph": "搜索 slug / 英文 / 中文 / 日文名",
+    "gallery.monsters": "怪物",
+    "gallery.endemic": "环境生物",
     "gallery.all": "全部",
     "gallery.done": "已完成",
     "gallery.todo": "未完成",
@@ -264,6 +303,7 @@ const DICTS = {
     "ref.offset": "偏移",
     "ref.hint-overlay": "底稿已垫在画布下,回画布描摹",
     "ref.hint-ab": "回到画布,按住 A 看原图,松开看 sprite",
+    "ref.no-icon": "该记录没有参考原图",
 
     "api.offline":
       "无本地服务,已下载 grid JSON;运行 python3 pixelart/apply_grid.py <文件> 落盘",
@@ -281,6 +321,7 @@ const DICTS = {
     "act.redo": "やり直す Ctrl+Y",
     "act.flip-h": "左右反転 (警告あり)",
     "act.flip-v": "上下反転",
+    "act.resize": "キャンバスサイズ変更",
     "act.clear": "キャンバスをクリア",
     "act.zoom-in": "拡大",
     "act.zoom-out": "縮小",
@@ -299,7 +340,8 @@ const DICTS = {
     "sc.marquee": "範囲選択 (矢印キーで微調整、Esc で解除)",
     "sc.move": "選択範囲を移動 (未選択なら全体)",
     "sc.zoom": "ズーム (ホイールも可)",
-    "sc.pan": "パン",
+    "sc.pan": "パン (Space 長押し・中ボタン・手ツール)",
+    "sc.navigator": "サムネイルをドラッグして視点を移動",
     "sc.swap": "前景色/背景色を入れ替え",
     "sc.rightbtn": "右クリックで背景色を塗る",
     "sc.undo": "元に戻す / やり直す",
@@ -326,6 +368,21 @@ const DICTS = {
     "wiz.go": "トレース開始",
     "wiz.cancel": "キャンセル",
     "wiz.done": "ウィザード完了。高さは 24 固定、トレース開始",
+
+    "resize.title": "キャンバスサイズ変更",
+    "resize.width": "幅",
+    "resize.height": "高さ (最大 24)",
+    "resize.anchor": "アンカー",
+    "resize.anchor-tl": "左上",
+    "resize.anchor-center": "中央",
+    "resize.hint":
+      "内容はアンカー位置を保ち、新しい境界の外は切り捨てられます。高さ 24 超はビルド規則で拒否されます。",
+    "resize.apply": "適用",
+    "resize.invalid": "幅 4-128、高さ 4-24",
+
+    "tool.hand": "手",
+    "hint.hand": "H 手 (ドラッグでパン)",
+    "ctx.hand-hint": "ドラッグでビューを移動。ホイールでズーム",
 
     "ctx.brush": "ブラシ",
     "ctx.outline": "縁取り",
@@ -378,6 +435,8 @@ const DICTS = {
 
     "gallery.title": "pixelart ギャラリー",
     "gallery.search-ph": "slug / 英語 / 中文 / 日本語名で検索",
+    "gallery.monsters": "モンスター",
+    "gallery.endemic": "環境生物",
     "gallery.all": "すべて",
     "gallery.done": "完了",
     "gallery.todo": "未完了",
@@ -396,6 +455,7 @@ const DICTS = {
     "ref.offset": "オフセット",
     "ref.hint-overlay": "下絵をキャンバスの下に敷きました。キャンバスでトレース",
     "ref.hint-ab": "キャンバスに戻る。A 長押しで原図、離すと sprite",
+    "ref.no-icon": "このレコードには参考画像がありません",
 
     "api.offline":
       "ローカルサーバーなし。grid JSON をダウンロードしました。python3 pixelart/apply_grid.py <file> で適用してください",
