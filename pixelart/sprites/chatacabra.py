@@ -1,42 +1,52 @@
 """Chatacabra, amphibian. The stone-fisted frog: tetranadon's sumo frame
 in grey-blue skin with a wide flat mouth, red eyes, and both forelimbs
 turned into huge pale stone fists planted on the ground."""
-from tetranadon import CONFIG as _base
 
-CONFIG = dict(_base)
-CONFIG["name"] = "chatacabra"
-CONFIG["compare_to"] = ""
-CONFIG["palette"] = dict(_base["palette"])
-CONFIG["palette"]["G"] = (118, 132, 142, 255)  # grey-blue skin
-CONFIG["palette"]["M"] = (88, 100, 110, 255)   # darker shade
-CONFIG["palette"]["C"] = (222, 208, 186, 255)  # pale stone fists / belly
-CONFIG["palette"]["R"] = (216, 120, 70, 255)   # orange eyes / tongue
-
-# huge stone fists replacing the hind legs at the front
-CONFIG["spans"] = {
-    **_base["spans"],
-    18: [(6, 12), (19, 25)],
-    19: [(6, 12), (14, 17), (19, 25)],
-    20: [(6, 12), (14, 17), (19, 25)],
-    21: [(6, 11), (14, 17), (20, 25)],
+CONFIG = {
+    "name": "chatacabra",
+    "size": (24, 24),
+    "compare_to": "../icons/mhwilds/chatacabra.png",
+    "palette": {
+        ".": (0, 0, 0, 0),
+        "K": (24, 20, 22, 255),
+        "B": (108, 137, 100, 255),
+        "C": (2, 200, 135, 255),
+        "D": (220, 215, 179, 255),
+        "E": (255, 254, 249, 255),
+    },
+    "base": "C",
+    "spans": {
+         1: [(3, 4), (19, 20)],
+         2: [(3, 10), (13, 20)],
+         3: [(3, 20)],
+         4: [(3, 20)],
+         5: [(3, 20)],
+         6: [(3, 20)],
+         7: [(3, 20)],
+         8: [(3, 7), (9, 20)],
+         9: [(3, 6), (8, 20)],
+        10: [(2, 21)],
+        11: [(2, 21)],
+        12: [(1, 22)],
+        13: [(1, 22)],
+        14: [(1, 22)],
+        15: [(1, 22)],
+        16: [(1, 22)],
+        17: [(1, 22)],
+        18: [(1, 22)],
+        19: [(2, 8), (15, 21)],
+        20: [(2, 8), (15, 21)],
+        21: [(2, 9), (14, 21)],
+        22: [(2, 8), (15, 21)],
+    },
+    "fills": [
+        ("runs", [(6, 17, 18), (7, 17, 17), (8, 11, 17), (14, 2, 2), (15, 1, 4),
+                  (16, 1, 3), (17, 1, 2), (21, 2, 7), (22, 2, 3)], "B"),
+        ("runs", [(7, 18, 18), (8, 18, 18), (9, 8, 18), (10, 6, 21), (11, 6, 21),
+                  (12, 6, 18), (12, 20, 22), (13, 6, 6), (13, 20, 22), (20, 15, 19),
+                  (21, 8, 9), (21, 14, 21), (22, 4, 8), (22, 15, 21)], "D"),
+        ("runs", [(10, 2, 5), (11, 2, 5), (12, 1, 5), (12, 19, 19), (13, 1, 5),
+                  (13, 7, 19), (14, 1, 1), (14, 3, 19), (15, 5, 21), (16, 4, 22),
+                  (17, 6, 16), (17, 21, 22), (18, 9, 14), (18, 22, 22)], "E"),
+    ],
 }
-
-CONFIG["fills"] = list(_base["fills"]) + [
-    # wide flat mouth line with a tongue tip
-    ("runs", [(11, 13, 18)], "K", "C"),
-    ("runs", [(11, 15, 16)], "R", "K"),
-    # red eyes over the dark pupils
-    ("put", 9, 13, "R"),
-    ("put", 9, 18, "R"),
-    # pale stone fists with dark knuckle seams
-    ("runs", [(18, 6, 12), (19, 6, 12), (20, 6, 12), (21, 6, 11),
-              (18, 19, 25), (19, 19, 25), (20, 19, 25), (21, 20, 25)],
-     "C", "D"),
-    ("runs", [(18, 9, 9), (19, 8, 9), (18, 22, 22), (19, 22, 23),
-              (21, 8, 9), (21, 22, 23)], "M", "C"),
-    # pale claws on the fists
-    ("put", 21, 6, "W"),
-    ("put", 21, 11, "W"),
-    ("put", 21, 20, "W"),
-    ("put", 21, 25, "W"),
-]

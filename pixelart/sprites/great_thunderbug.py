@@ -1,42 +1,44 @@
 """Great Thunderbug, neopteron. The storm bulb: vespoid's frame swollen
 into a round glowing blue body on small dangling legs, with bright
 shimmer glints."""
-from vespoid import CONFIG as _base
 
-CONFIG = dict(_base)
-CONFIG["name"] = "great-thunderbug"
-CONFIG["compare_to"] = ""
-CONFIG["palette"] = dict(_base["palette"])
-CONFIG["palette"]["W"] = (246, 242, 230, 255)   # white belly / glints
-CONFIG["palette"]["R"] = (94, 128, 198, 255)   # storm blue body
-CONFIG["palette"]["Y"] = (180, 216, 246, 255)  # pale shimmer bands
-CONFIG["palette"]["D"] = (64, 92, 156, 255)    # darker blue
-
-# round bulb body on two small legs
-CONFIG["spans"] = {
-    **_base["spans"],
-    10: [(3, 4), (8, 17), (21, 22)],
-    11: [(8, 17)],
-    12: [(6, 6), (8, 17), (19, 19)],
-    13: [(6, 6), (8, 17), (19, 19)],
-    14: [(8, 17)],
-    15: [(8, 17)],
-    16: [(9, 16)],
-    17: [(10, 15)],
-    18: [(11, 14)],
+CONFIG = {
+    "name": "great-thunderbug",
+    "size": (24, 24),
+    "compare_to": "../icons/mhfu/great-thunderbug.png",
+    "palette": {
+        ".": (0, 0, 0, 0),
+        "K": (24, 20, 22, 255),
+        "B": (59, 132, 248, 255),
+        "C": (225, 235, 255, 255),
+    },
+    "base": "B",
+    "spans": {
+         1: [(15, 16)],
+         2: [(13, 18)],
+         3: [(12, 19)],
+         4: [(11, 20)],
+         5: [(10, 21)],
+         6: [(10, 21)],
+         7: [(10, 22)],
+         8: [(9, 22)],
+         9: [(9, 22)],
+        10: [(10, 21)],
+        11: [(10, 21)],
+        12: [(11, 20)],
+        13: [(3, 8), (11, 20)],
+        14: [(2, 9), (12, 19)],
+        15: [(2, 9), (14, 17)],
+        16: [(2, 9)],
+        17: [(1, 10)],
+        18: [(2, 10)],
+        19: [(2, 9)],
+        20: [(2, 9)],
+        21: [(3, 8)],
+        22: [(5, 6)],
+    },
+    "fills": [
+        ("runs", [(6, 15, 16), (7, 14, 17), (8, 9, 21), (9, 14, 17), (10, 14, 17),
+                  (11, 14, 17), (15, 7, 7), (16, 5, 8), (17, 1, 10), (18, 2, 10)], "C"),
+    ],
 }
-
-# drop the parent leg fills that now run inside the bulb, keep the rest
-CONFIG["fills"] = [
-    op for op in _base["fills"]
-    if not (op[0] == "runs" and op[1][0][0] in (12, 13, 14)
-            and op[1][0][1] in (6, 8))
-    and not (op[0] == "put" and op[1] == 14 and op[2] in (6, 8, 17, 19))
-] + [
-    ("runs", [(12, 6, 6), (12, 19, 19), (13, 6, 6), (13, 19, 19)], "D"),
-    # bright shimmer glints on the bulb
-    ("put", 10, 10, "W"),
-    ("put", 10, 15, "W"),
-    ("put", 12, 9, "W"),
-    ("put", 12, 16, "W"),
-]
