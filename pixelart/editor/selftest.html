@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>pixelart editor selftest</title>
+<style>
+  body { background: #181a1e; color: #d8dae0; font: 13px/1.6 Menlo, Consolas, monospace; padding: 24px; }
+  .pass { color: #7ac06a; }
+  .fail { color: #d05a5a; }
+  pre { background: #22252b; padding: 8px 12px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<h2>editor selftest</h2>
+<pre id="out"></pre>
+<script type="module">
+import { pixelPerfect, floodCells, lineCells, shiftConstrain, rectCells }
+  from "./js/tools.js";
+import { SpriteState, packRow, unpackRow, nextFreeChar } from "./js/state.js";
+import { Undo } from "./js/undo.js";
+
+const out = [];
+let failures = 0;
+
+function eq(actual, want, name) {
+  const a = JSON.stringify(actual);
+  const w = JSON.stringify(want);
+  if (a === w) {
+    out.push(`pass ${name}`);
+  } else {
+    failures++;
+    out.push(`FAIL ${name}\n  want ${w}\n  got  ${a}`);
+  }
+}
+
+// pixel-perfect: L corner removed, endpoints kept
+eq(pixelPerfect([[0, 0], [0, 1], [1, 1]]), [[0, 0], [1, 1]], "pp drops L corner");
+eq(pixelPerfect([[0, 0], [0, 1]]), [[0, 0], [0, 1]], "pp keeps short stroke");
+eq(pixelPerfect([[0, 0], [0, 1], [1, 1], [2, 1]]), [[0, 0], [1, 1], [2, 1]],
+  "pp keeps through corner tail");
+// the corner stays when the stroke ends exactly on it
+eq(pixelPerfect([[0, 0], [0, 1], [1, 0]]), [[0, 0], [0, 1], [1, 0]],
+  "pp keeps zigzag (a-c not diagonal)");
+
+// bucket connectivity: diagonal cells are separate under 4, joined under 8
+const diag = ["AB", "BA"];
+eq(floodCells(diag, 0, 0, 4, true), [[0, 0]], "bucket 4 stops at diagonal");
+eq(floodCells(diag, 0, 0, 8, true), [[0, 0], [1, 1]],
+  "bucket 8 crosses diagonal");
+eq(floodCells(["A.A", ".B.", "A.A"], 0, 0, 8, true), [[0, 0]],
+  "bucket contiguous stays inside the island");
+eq(floodCells(["A.A", ".B.", "A.A"], 0, 0, 8, false).sort(),
+  [[0, 0], [0, 2], [2, 0], [2, 2]], "bucket global catches all corners");
+eq(floodCells(["AA", "AA"], 0, 0, 4, false).length, 4, "bucket global fills all");
+
+// bresenham + shift constraint
+eq(lineCells(0, 0, 3, 0), [[0, 0], [0, 1], [0, 2], [0, 3]], "line horizontal");
+eq(lineCells(0, 0, 0, 3).length, 4, "line vertical");
+eq(shiftConstrain(2, 2, 9, 3), [9, 2], "shift snaps horizontal");
+eq(shiftConstrain(2, 2, 3, 8), [2, 8], "shift snaps vertical");
+eq(shiftConstrain(2, 2, 6, 4), [4, 4], "shift snaps 45");
+eq(rectCells(0, 0, 2, 2, false), [[0, 0], [0, 1], [0, 2], [1, 0], [1, 2], [2, 0], [2, 1], [2, 2]],
+  "rect hollow is the ring");
+eq(rectCells(1, 1, 2, 2, true).length, 4, "rect filled counts all");
+
+// synthesis rules from the design doc section 5.2
+const pal = { ".": [0, 0, 0, 0], K: [24, 20, 22, 255], R: [200, 50, 40, 255], C: [220, 200, 160, 255] };
+const st = SpriteState.blank(6, 4, pal, "R");
+st.paint(1, 2, "R"); // transparent far cell: grows the mask
+eq(st.view()[1], ".KRK..", "paint far grows mask + ring");
+eq(st.view()[0], "..K...", "stroke ring appears");
+st.paint(0, 2, "C"); // ring cell: explicit override, the fang move
+eq(st.view()[0], "..C...", "ring cell overridden");
+st.paint(1, 2, "C"); // in-body recolor
+eq(st.view()[1], ".KCK..", "body cell recolored");
+st.erase(1, 2);
+eq(st.view()[1], "......", "erase removes mask");
+eq(st.view()[0], "......", "stroke shrinks with mask");
+
+// outline display toggle: the derived ring hides, authored overrides stay,
+// and view() without arguments (the save path) always keeps the ring
+const so = SpriteState.blank(5, 3, pal, "R");
+so.paint(1, 1, "R");
+eq(so.view()[0], ".K...", "ring shown by default");
+eq(so.view({ outline: false })[0], ".....", "outline off hides derived K");
+so.paint(0, 1, "C", true); // silhouette mode: adjacent paint grows the mask
+eq(so.view({ outline: false })[0], ".C...", "grow paints through the ring");
+eq(so.view()[0], "KCK..", "ring regrows around the grown mask cell");
+so.paint(1, 2, "C"); // outline mode: ring-adjacent paint is an override
+eq(so.view()[1], "KRC..", "outline mode recolors the ring, no growth");
+eq(so.view({ outline: false })[1], ".R...",
+  "ring recolor hides together with the ring");
+
+// mask hex packing: column c is bit (w-1-c) of the row integer, matching
+// decompile.py pack_row/unpack_rows. Vectors below are generated Python-side.
+const bits = [1, 0, 0, 0, 1, 0];
+eq(packRow(bits, 6), "22", "pack w=6");
+eq([...unpackRow("22", 6)], bits, "unpack w=6");
+// w not a multiple of 4: the top hex digit is partially used; the old
+// nibble-first packing shifted every column by (4*ceil(w/4) - w)
+const v34 = new Uint8Array(34);
+v34[9] = 1;
+eq(packRow(v34, 34), "001000000", "pack w=34 partial top digit");
+eq([...unpackRow("001ff0000", 34)].map((b, c) => b ? c : -1).filter((c) => c >= 0),
+  [9, 10, 11, 12, 13, 14, 15, 16, 17], "unpack w=34 cols 9-17");
+const v39 = [..."101001011100100100100001010010100001000"].map(Number);
+eq(packRow(v39, 39), "52e490a508", "pack w=39 matches python");
+eq([...unpackRow("52e490a508", 39)], v39, "unpack w=39 matches python");
+const v26 = [...unpackRow("35acc57", 26)];
+eq(packRow(v26, 26), "35acc57", "pack w=26 round trip");
+// 36-wide rows: JS bitwise ops are 32-bit, pack must not overflow
+const wide = new Uint8Array(36);
+wide[0] = 1;
+wide[31] = 1;
+wide[35] = 1;
+const wideHex = packRow(wide, 36);
+eq(wideHex.length, 9, "pack 36-wide is 9 nibbles");
+eq(wideHex, "800000011", "pack 36-wide msb-first");
+eq([...unpackRow(wideHex, 36)], [...wide], "unpack 36-wide round trip");
+
+// undo snapshots restore mask + explicit and redo replays
+const u = new Undo(3);
+const s2 = SpriteState.blank(4, 2, pal, "R");
+u.push(s2);
+s2.paint(0, 0, "R");
+s2.paint(1, 1, "C");
+eq(u.undo(s2), true, "undo returns true");
+eq(s2.view(), ["....", "...."], "undo restores blank");
+eq(u.redo(s2), true, "redo returns true");
+eq(s2.view()[1], "KCK.", "redo replays edit");
+eq(u.undo(s2), true, "undo again");
+eq(u.undo(s2), false, "undo empty returns false");
+
+eq(nextFreeChar({ ".": 0, K: 0, A: 0 }), "B", "char pool skips dot and K");
+
+out.push(failures ? `\n${failures} FAILED` : "\nall passed");
+document.getElementById("out").textContent = out.join("\n");
+</script>
+</body>
+</html>

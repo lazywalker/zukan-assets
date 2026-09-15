@@ -127,17 +127,20 @@ doesn't stop the rest; the build just goes ahead with whatever got fetched.
 
 ## CI
 
-Two workflows in `.github/workflows/`:
+Three workflows in `.github/workflows/`:
 - `check-upstream.yml`, weekly: re-fetches upstream sources, opens a PR if
   anything changed (detected via diff in source/ intermediates).
 - `release.yml`, manual dispatch only: runs the full pipeline and publishes
-  `data/` + `icons/` as a tar.gz Release artifact for zukan. Merging a PR
-  (including the weekly upstream-update one) does NOT publish; run this by
-  hand once a merge is ready to ship. Release notes are the validate.py +
-  audit.py report.
+  `data/` + `icons/` + `icons-pixelart/` as a tar.gz Release artifact for
+  zukan. Merging a PR (including the weekly upstream-update one) does NOT
+  publish; run this by hand once a merge is ready to ship. Release notes are
+  the validate.py + audit.py report.
+- `pixelart-check.yml`, push/PR gate for `pixelart/**`: rebuilds both pixel
+  sprite sets and runs the editor round-trip checks.
 
-Both share `.github/actions/run-pipeline/action.yml` (composite action) for the
-pipeline steps. Manual dispatch is available for both.
+Both release and check share `.github/actions/run-pipeline/action.yml`
+(composite action) for the pipeline steps. Manual dispatch is available for
+check-upstream and release.
 
 ## Icon priority chain (build.py)
 

@@ -30,8 +30,14 @@ jobs:
         id: pipeline
         uses: ./.github/actions/run-pipeline
 
+      - name: Build pixel sprite set
+        run: |
+          pip install pillow
+          python3 pixelart/build_sprites.py --out icons-pixelart
+          python3 pixelart/build_sprites.py --endemic --out icons-pixelart/endemic
+
       - name: Package release artifact
-        run: tar czf zukan-assets-bin.tar.gz data/ icons/
+        run: tar czf zukan-assets-bin.tar.gz data/ icons/ icons-pixelart/
 
       - name: Publish release artifact
         if: ${{ !inputs.skip_publish }}

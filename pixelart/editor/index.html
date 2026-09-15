@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>pixelart editor</title>
+<link rel="stylesheet" href="editor.css">
+</head>
+<body>
+
+<section id="page-gallery" class="page">
+  <div id="gallery-root"></div>
+</section>
+
+<section id="page-editor" class="page hidden">
+  <div id="menubar">
+    <span class="brand">pixelart</span>
+    <div class="menu">
+      <button class="label" data-i18n="menu.file">File</button>
+      <div class="dropdown">
+        <button data-act="save" data-i18n="act.save">Save Ctrl+S</button>
+        <button data-act="grid" data-i18n="act.grid">Download grid JSON</button>
+        <button data-act="png" data-i18n="act.png">Export PNG</button>
+        <button data-act="gallery" data-i18n="act.gallery">Back to gallery</button>
+      </div>
+    </div>
+    <div class="menu">
+      <button class="label" data-i18n="menu.edit">Edit</button>
+      <div class="dropdown">
+        <button data-act="undo" data-i18n="act.undo">Undo Ctrl+Z</button>
+        <button data-act="redo" data-i18n="act.redo">Redo Ctrl+Y</button>
+        <button data-act="flip-h" data-i18n="act.flip-h">Flip horizontal (warns)</button>
+        <button data-act="flip-v" data-i18n="act.flip-v">Flip vertical</button>
+        <button data-act="clear" data-i18n="act.clear">Clear canvas</button>
+      </div>
+    </div>
+    <div class="menu">
+      <button class="label" data-i18n="menu.view">View</button>
+      <div class="dropdown">
+        <button data-act="zoom-in" data-i18n="act.zoom-in">Zoom in</button>
+        <button data-act="zoom-out" data-i18n="act.zoom-out">Zoom out</button>
+        <button data-act="fit" data-i18n="act.fit">Fit window</button>
+        <button data-act="grid-lines" data-i18n="act.grid-lines">Toggle grid lines</button>
+        <button data-act="overlay" data-i18n="act.overlay">Toggle reference overlay</button>
+      </div>
+    </div>
+    <div class="menu">
+      <button class="label" data-i18n="menu.help">Help</button>
+      <div class="dropdown">
+        <button data-act="shortcuts" data-i18n="act.shortcuts">Shortcuts</button>
+      </div>
+    </div>
+    <button id="btn-undo" class="histbtn" data-i18n-title="act.undo"
+            aria-label="undo" disabled>↶</button>
+    <button id="btn-redo" class="histbtn" data-i18n-title="act.redo"
+            aria-label="redo" disabled>↷</button>
+    <div id="contextbar"></div>
+    <div id="derived-badge" class="hidden"></div>
+    <div id="langslot"></div>
+  </div>
+
+  <div id="main-row">
+    <div id="toolcol"></div>
+    <div id="board-wrap"><canvas id="board"></canvas></div>
+    <div id="sidecol">
+      <div id="colorbar"></div>
+      <div id="refpanel"></div>
+    </div>
+  </div>
+
+  <div id="statusbar"></div>
+
+  <div id="wizard" class="hidden"></div>
+
+  <div id="shortcuts" class="modal hidden">
+    <div class="modal-card">
+      <h2 data-i18n="shortcuts.title">Shortcuts (Aseprite mapping)</h2>
+      <table>
+        <tr><td>B</td><td data-i18n="sc.pencil"></td></tr>
+        <tr><td>E</td><td data-i18n="sc.eraser"></td></tr>
+        <tr><td>I / Alt</td><td data-i18n="sc.picker"></td></tr>
+        <tr><td>G</td><td data-i18n="sc.bucket"></td></tr>
+        <tr><td>L</td><td data-i18n="sc.line"></td></tr>
+        <tr><td>U</td><td data-i18n="sc.rect"></td></tr>
+        <tr><td>M</td><td data-i18n="sc.marquee"></td></tr>
+        <tr><td>V</td><td data-i18n="sc.move"></td></tr>
+        <tr><td>Z / + / -</td><td data-i18n="sc.zoom"></td></tr>
+        <tr><td>Space / MMB</td><td data-i18n="sc.pan"></td></tr>
+        <tr><td>X</td><td data-i18n="sc.swap"></td></tr>
+        <tr><td>RMB</td><td data-i18n="sc.rightbtn"></td></tr>
+        <tr><td>Ctrl+Z / Ctrl+Y</td><td data-i18n="sc.undo"></td></tr>
+        <tr><td>Shift+H / Shift+V</td><td data-i18n="sc.flip"></td></tr>
+        <tr><td>A (hold)</td><td data-i18n="sc.alternate"></td></tr>
+        <tr><td>Ctrl+S</td><td data-i18n="sc.save"></td></tr>
+      </table>
+      <button class="close" data-i18n="shortcuts.close">Close</button>
+    </div>
+  </div>
+</section>
+
+<div id="toast" class="hidden"></div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
