@@ -8,7 +8,8 @@ CONFIG["name"] = "blue-yian-kut-ku"
 CONFIG["compare_to"] = ""
 CONFIG["palette"] = dict(_base["palette"])
 CONFIG["palette"]["O"] = (110, 120, 195, 255)  # blue scales
-CONFIG["palette"]["S"] = (72, 82, 150, 255)    # dark blue spots / shade
+CONFIG["palette"]["S"] = (72, 82, 150, 255)
+CONFIG["palette"]["D"] = (72, 82, 150, 255)   # inherited jaggi shade    # dark blue spots / shade
 
 # wilder frill: raised top edge, wider flare
 CONFIG["spans"] = {

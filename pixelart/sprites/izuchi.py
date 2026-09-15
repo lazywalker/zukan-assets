@@ -6,6 +6,7 @@ CONFIG = dict(_base)
 CONFIG["name"] = "izuchi"
 CONFIG["compare_to"] = ""
 CONFIG["palette"] = dict(_base["palette"])
+CONFIG["palette"]["W"] = (246, 242, 230, 255)   # white belly / glints
 CONFIG["palette"]["O"] = (172, 174, 168, 255)  # pale grey scales
 CONFIG["palette"]["F"] = (206, 208, 202, 255)  # pale crest
 CONFIG["palette"]["C"] = (216, 218, 212, 255)  # pale belly

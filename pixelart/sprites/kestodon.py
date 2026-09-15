@@ -1,42 +1,58 @@
-"""Kestodon, herbivore. The crested puncher: ceratonoth's frame in a hot
-orange coat with a blue belly, and the three horns fused into one big
-broad fan crest sweeping back over the body."""
-from ceratonoth import CONFIG as _base
+"""Kestodon, herbivore. The crested puncher: ceratonoth's traced frame in a
+hot orange coat with a blue belly, and the three horns fused into one big
+broad fan crest sweeping back over the body. Standalone flatten of the
+ceratonoth-derived config."""
 
-CONFIG = dict(_base)
-CONFIG["name"] = "kestodon"
-CONFIG["compare_to"] = ""
-CONFIG["palette"] = dict(_base["palette"])
-CONFIG["palette"]["T"] = (222, 122, 60, 255)   # hot orange hide
-CONFIG["palette"]["D"] = (176, 92, 44, 255)    # darker orange
-CONFIG["palette"]["S"] = (140, 96, 60, 255)    # brown crest fan
-CONFIG["palette"]["C"] = (140, 180, 212, 255)  # blue belly
-
-# one broad fan crest instead of three horns
-CONFIG["spans"] = {
-    **_base["spans"],
-    1:  [(9, 16)],
-    2:  [(7, 18)],
-    3:  [(6, 18)],
+CONFIG = {
+    "name": "kestodon",
+    "size": (32, 24),
+    "compare_to": "../icons/mhwilds/kestodon.png",
+    "palette": {
+        ".": (0, 0, 0, 0),
+        "K": (24, 20, 22, 255),
+        "F": (47, 30, 24, 255),
+        "E": (176, 92, 44, 255),
+        "B": (222, 122, 60, 255),
+        "C": (140, 180, 212, 255),
+        "D": (140, 96, 60, 255),
+        "W": (246, 242, 230, 255),
+    },
+    "base": "B",
+    "spans": {
+         0: [(9, 23)],
+         1: [(13, 13), (7, 24)],
+         2: [(13, 13), (17, 17), (6, 25)],
+         3: [(12, 14), (17, 17)],
+         4: [(12, 14), (16, 18)],
+         5: [(12, 14), (16, 18)],
+         6: [(12, 14), (16, 18), (21, 21)],
+         7: [(11, 18), (20, 21)],
+         8: [(11, 22)],
+         9: [(11, 22)],
+        10: [(9, 22)],
+        11: [(9, 22)],
+        12: [(7, 22)],
+        13: [(5, 22)],
+        14: [(4, 22)],
+        15: [(3, 23)],
+        16: [(7, 24)],
+        17: [(6, 25)],
+        18: [(5, 26)],
+        19: [(2, 27)],
+        20: [(3, 28)],
+        21: [(3, 29)],
+        22: [(4, 22), (28, 30)],
+    },
+    "fills": [
+        ("runs", [(0, 9, 23), (1, 7, 24), (2, 6, 25)], "D"),
+        ("runs", [(1, 12, 13), (1, 19, 20), (2, 13, 13), (2, 17, 17), (2, 21, 22)], "C"),
+        ("put", 6, 13, "W"),
+        ("put", 6, 14, "K"),
+        ("runs", [(12, 7, 17), (13, 4, 13), (13, 15, 17), (14, 4, 9), (14, 13, 13)], "C"),
+        ("runs", [(10, 19, 26), (11, 20, 27), (12, 20, 27)], "E"),
+        ("put", 23, 5, "E"),
+        ("put", 23, 9, "E"),
+        ("put", 23, 14, "E"),
+        ("put", 23, 20, "E"),
+    ],
 }
-
-CONFIG["fills"] = [
-    # brown fan crest with pale ribs
-    ("runs", [(1, 9, 16), (2, 7, 18), (3, 6, 18)], "S"),
-    ("runs", [(2, 10, 10), (2, 14, 14), (3, 12, 12)], "C", "S"),
-    # eye
-    ("put", 5, 5, "K"),
-    # spiked ridge along the back
-    ("runs", [(6, 12, 13), (7, 11, 12), (8, 12, 13), (9, 11, 12),
-              (10, 13, 14), (11, 12, 13)], "D"),
-    # blue belly
-    ("runs", [(12, 4, 16), (13, 4, 16), (14, 5, 15), (15, 6, 14),
-              (16, 7, 13)], "C"),
-    # back shade
-    ("runs", [(10, 19, 26), (11, 20, 27), (12, 20, 27)], "D"),
-    # hooves
-    ("put", 19, 7, "D"),
-    ("put", 19, 9, "D"),
-    ("put", 19, 21, "D"),
-    ("put", 19, 23, "D"),
-]

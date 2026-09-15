@@ -9,6 +9,23 @@ never scaled or padded. Contrast with `icons/`, which holds
 screenshot-derived game card icons at 48 x 48. Sprites render crisp at
 terminal sizes where downscaled game icons turn muddy.
 
+## Icon tracing tools
+
+Most game icons are painterly squares that must be redrawn by hand. A
+few are natively flat pixel art (MHO, MHST2, MHWilds renders) and can be
+traced directly; two tools support that workflow (guide L25/L26):
+
+- `icon_blockiness.py [slug ...]`: ranks icons by big-block traceability
+  (mean same-color blob share after downsampling to the sprite canvas).
+  abiorugu scores ~0.016; that line separates trace-worthy icons from
+  painterly ones. Eyeball the top list: "?" placeholder icons score
+  high but are unusable.
+- `icon_trace.py <slug> <icon.png>`: writes a draft config by mapping
+  every cell to the nearest color of a fixed identity palette
+  (`--seed ch=R,G,B` pins one, e.g. the yellow eyes; `--block 2`
+  pixelates harder). The draft always needs a hand cleanup pass: stray
+  quantizer buckets, then the identity details (eyes, nose, claws).
+
 ## How it works
 
 - `spritekit.py`: engine, hand-authored silhouette spans per row, an

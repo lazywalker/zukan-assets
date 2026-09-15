@@ -7,6 +7,7 @@ CONFIG = dict(_base)
 CONFIG["name"] = "great-thunderbug"
 CONFIG["compare_to"] = ""
 CONFIG["palette"] = dict(_base["palette"])
+CONFIG["palette"]["W"] = (246, 242, 230, 255)   # white belly / glints
 CONFIG["palette"]["R"] = (94, 128, 198, 255)   # storm blue body
 CONFIG["palette"]["Y"] = (180, 216, 246, 255)  # pale shimmer bands
 CONFIG["palette"]["D"] = (64, 92, 156, 255)    # darker blue

@@ -9,7 +9,9 @@ CONFIG = {
     "palette": {
         ".": (0, 0, 0, 0),
         "K": (24, 20, 22, 255),
-        "G": (65, 75, 55, 255),     # black-green scales
+        "G": (65, 75, 55, 255),
+        "B": (65, 75, 55, 255),     # inherited jaggi crest dark
+        "O": (140, 50, 45, 255),     # inherited jaggi face accent     # black-green scales
         "D": (45, 52, 40, 255),     # darker shade
         "S": (205, 210, 220, 255),  # silver spikes
         "F": (65, 75, 55, 255),     # inherited frill color (matches body)

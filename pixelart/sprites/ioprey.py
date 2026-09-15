@@ -7,6 +7,7 @@ CONFIG = dict(_base)
 CONFIG["name"] = "ioprey"
 CONFIG["compare_to"] = "../icons/mh4u/ioprey.png"
 CONFIG["palette"] = dict(_base["palette"])
+CONFIG["palette"]["W"] = (246, 242, 230, 255)   # white belly / glints
 CONFIG["palette"]["O"] = (190, 110, 80, 255)   # red-orange scales
 CONFIG["palette"]["F"] = (210, 130, 100, 255)  # frill
 CONFIG["palette"]["S"] = (140, 70, 50, 255)    # darker stripes

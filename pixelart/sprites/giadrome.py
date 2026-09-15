@@ -6,6 +6,7 @@ CONFIG = dict(_base)
 CONFIG["name"] = "giadrome"
 CONFIG["compare_to"] = ""
 CONFIG["palette"] = dict(_base["palette"])
+CONFIG["palette"]["W"] = (246, 242, 230, 255)   # white belly / glints
 CONFIG["palette"]["O"] = (226, 232, 240, 255)  # white-blue scales
 CONFIG["palette"]["F"] = (168, 196, 224, 255)  # icy crest
 CONFIG["palette"]["C"] = (196, 216, 234, 255)  # pale blue belly

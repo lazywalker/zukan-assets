@@ -14,7 +14,8 @@ CONFIG = {
         "O": (225, 140, 110, 255),  # pink-orange scales
         "C": (235, 190, 150, 255),  # cream frills and belly
         "B": (200, 170, 140, 255),  # beak
-        "S": (170, 95, 75, 255),    # dark spots / shade
+        "S": (170, 95, 75, 255),
+        "D": (170, 95, 75, 255),   # inherited jaggi shade    # dark spots / shade
         "F": (235, 190, 150, 255),  # inherited frill color (cream)
         "W": (246, 242, 230, 255),
     },

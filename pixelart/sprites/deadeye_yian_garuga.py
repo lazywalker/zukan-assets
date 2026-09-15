@@ -7,7 +7,9 @@ CONFIG = dict(_base)
 CONFIG["name"] = "deadeye-yian-garuga"
 CONFIG["compare_to"] = ""
 CONFIG["palette"] = dict(_base["palette"])
-CONFIG["palette"]["S"] = (202, 108, 88, 255)   # red-tipped spikes
+CONFIG["palette"]["S"] = (202, 108, 88, 255)
+CONFIG["palette"]["B"] = (65, 75, 55, 255)
+CONFIG["palette"]["O"] = (140, 50, 45, 255)   # red-tipped spikes
 
 # broken crest: bite notch out of the top edge
 CONFIG["spans"] = {
