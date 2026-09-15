@@ -1,30 +1,54 @@
-"""Chaotic Gore Magala, gore-magala variant. The half-shed chaos: grey-
-violet frame, one gold eye open, and the half-grown wing rising from the
-cloak's back edge while the hem stays ragged."""
-from gore_magala import CONFIG as _base
+"""Chaotic Gore Magala, gore-magala variant. The half-shed chaos: a grey-violet cast over the gore frame, one gold eye open, the right wing only half grown, and a ragged pale hem. A standalone copy of the gore-magala config, edited like any other sprite."""
 
-CONFIG = dict(_base)
-CONFIG["name"] = "chaotic-gore-magala"
-CONFIG["compare_to"] = ""
-CONFIG["palette"] = dict(_base["palette"])
-CONFIG["palette"]["B"] = (74, 66, 88, 255)     # grey-violet body
-CONFIG["palette"]["D"] = (56, 50, 70, 255)     # darker violet
-CONFIG["palette"]["P"] = (150, 120, 185, 255)  # brighter ragged hem
-CONFIG["palette"]["V"] = (222, 178, 82, 255)   # one gold eye open
-
-# the half-grown wing rises from the cloak's back edge
-CONFIG["spans"] = {
-    **_base["spans"],
-    4:  [(6, 7), (11, 11), (20, 21)],
-    5:  [(5, 7), (10, 12), (18, 22)],
-    6:  [(4, 9), (9, 13), (17, 23)],
-    7:  [(3, 10), (8, 23)],
+CONFIG = {
+    "name": "chaotic-gore-magala",
+    "size": (34, 24),
+    "palette": {
+        ".": (0, 0, 0, 0),
+        "K": (24, 20, 22, 255),
+        "E": (52, 46, 68, 255),
+        "D": (40, 36, 56, 255),
+        "P": (150, 120, 185, 255),
+        "O": (222, 132, 60, 255),
+        "V": (222, 178, 82, 255),
+    },
+    "base": "E",
+    "spans": {
+         2: [(13, 14)],
+         3: [(1, 10), (12, 14), (27, 32)],
+         4: [(0, 11), (13, 20), (27, 33)],
+         5: [(0, 33)],
+         6: [(0, 33)],
+         7: [(0, 33)],
+         8: [(1, 32)],
+         9: [(1, 32)],
+        10: [(2, 31)],
+        11: [(2, 31)],
+        12: [(3, 30)],
+        13: [(4, 29)],
+        14: [(5, 28)],
+        15: [(7, 26)],
+        16: [(9, 24)],
+        17: [(12, 21)],
+        18: [(13, 20)],
+        19: [(14, 19)],
+        20: [(15, 18)],
+        21: [(16, 17)],
+    },
+    "fills": [
+        ("runs", [(5, 14, 15)], "V"),
+        ("runs", [(2, 13, 14), (2, 19, 20), (3, 12, 13), (3, 20, 21)], "O"),
+        ("runs", [(4, 14, 19), (5, 15, 18)], "D"),
+        ("runs", [(6, 5, 9), (6, 24, 28), (9, 8, 12), (9, 21, 25), (12, 6, 10),
+                  (12, 23, 27), (15, 10, 12), (15, 21, 23)], "D"),
+        ("put", 4, 0, "O"),
+        ("put", 4, 33, "O"),
+        ("put", 5, 1, "O"),
+        ("put", 5, 32, "O"),
+        ("runs", [(6, 14, 15), (6, 18, 19)], "P"),
+        ("put", 21, 16, "P"),
+        ("put", 21, 17, "P"),
+        ("runs", [(13, 4, 5), (13, 27, 28), (14, 5, 6), (14, 26, 27), (15, 7, 8),
+                  (15, 25, 26)], "P"),
+    ],
 }
-
-CONFIG["fills"] = list(_base["fills"]) + [
-    # the half-grown wing: violet membrane with a gold rim
-    ("runs", [(5, 18, 22), (6, 17, 23)], "D"),
-    ("runs", [(4, 20, 21), (5, 21, 22), (6, 22, 23)], "V"),
-    # the gold eye replaces the pale one
-    ("put", 6, 5, "V"),
-]

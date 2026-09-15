@@ -146,7 +146,7 @@ button.sel { background: #3a4a66; border-color: #5a7ab0; }
   min-width: 0;
 }
 #contextbar .opt { padding: 2px 8px; }
-#contextbar label.opt { display: flex; align-items: center; gap: 4px; }
+#contextbar label.opt { display: flex; align-items: center; gap: 4px; white-space: nowrap; }
 
 #derived-badge {
   display: flex;
@@ -211,7 +211,7 @@ button.sel { background: #3a4a66; border-color: #5a7ab0; }
 .swatch.fg { outline: 2px solid #e8b45a; }
 .swatch.bg { outline: 2px solid #6a9ad0; }
 .swatch.off { opacity: 0.25; }
-.add-color { margin-top: 6px; width: 100%; }
+.add-color { margin-top: 6px; width: 100%; height: 24px; padding: 2px; cursor: pointer; }
 .pal-hint { color: #c09040; margin-top: 6px; }
 
 #refpanel { padding: 10px; }

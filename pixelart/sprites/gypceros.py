@@ -1,7 +1,7 @@
-"""Gypceros, bird wyvern. The poison rubber bird: purple-blue rubbery
-body, a wide crest comb like a fan on top of the head with an orange knob
-at the front, a long straight pale beak, white ringed eye, green poison
-only on the tail tip. No mouth blob."""
+"""Gypceros, bird wyvern. The poison rubber bird, drawn in the crested
+front of its icon: a wide purple crest fan with an orange knob, a
+rubbery purple head with white ringed eyes, a long pale beak below,
+wings spread at the sides, a pale chest and a green poison tail tip."""
 
 CONFIG = {
     "name": "gypceros",
@@ -10,52 +10,73 @@ CONFIG = {
     "palette": {
         ".": (0, 0, 0, 0),
         "K": (24, 20, 22, 255),
-        "B": (140, 120, 175, 255),  # purple-blue rubber body
-        "C": (185, 170, 210, 255),  # pale lavender belly
-        "H": (170, 150, 200, 255),  # crest comb
-        "G": (150, 190, 90, 255),   # green poison (tail tip)
-        "O": (235, 150, 60, 255),   # orange head knob
+        "P": (110, 80, 150, 255),    # purple rubber body
+        "D": (80, 55, 115, 255),     # dark purple shade
+        "C": (205, 195, 180, 255),   # pale beak / chest
+        "O": (230, 140, 60, 255),    # orange crest knob
+        "G": (100, 160, 70, 255),    # poison green tail tip
         "W": (246, 242, 230, 255),
     },
-    "base": "B",
+    "base": "P",
     "spans": {
-        3:  [(3, 12)],                        # crest comb
-        4:  [(2, 12), (10, 11)],
-        5:  [(1, 12), (11, 11)],
-        6:  [(0, 12)],
-        7:  [(0, 12)],
-        8:  [(1, 11)],
-        9:  [(2, 12), (13, 24)],
-        10: [(3, 13), (14, 26)],
-        11: [(4, 14), (15, 27)],
-        12: [(5, 14), (16, 28)],
-        13: [(6, 14), (17, 29)],
-        14: [(7, 14), (18, 30)],
-        15: [(8, 20), (21, 30)],
-        16: [(9, 21), (22, 29)],
-        17: [(11, 14), (15, 18), (20, 23), (24, 28)],
-        18: [(11, 14), (21, 23), (24, 27)],
-        19: [(11, 13), (21, 22), (25, 26)],
-        20: [(12, 13), (21, 22)],
-        21: [(12, 12), (13, 13), (21, 21), (22, 22)],
+        1:  [(12, 13), (20, 21)],                # crest fan tips
+        2:  [(10, 15), (18, 23)],
+        3:  [(9, 16), (17, 24), (15, 18)],       # crest + knob
+        4:  [(9, 24)],
+        5:  [(8, 25)],                           # head top
+        6:  [(8, 25)],
+        7:  [(7, 26)],
+        8:  [(7, 26)],
+        9:  [(7, 26), (13, 20)],                 # head + beak
+        10: [(7, 26), (13, 20)],
+        11: [(1, 7), (7, 26), (26, 32)],         # wings + beak
+        12: [(1, 7), (7, 26), (26, 32)],
+        13: [(1, 8), (8, 25), (25, 32)],
+        14: [(2, 8), (8, 25), (25, 31)],
+        15: [(2, 8), (8, 25), (25, 31)],         # body
+        16: [(3, 8), (8, 25), (25, 30)],
+        17: [(3, 8), (9, 24), (25, 30)],
+        18: [(4, 8), (10, 23), (25, 29)],        # legs + tail tip
+        19: [(5, 7), (11, 13), (15, 18), (20, 22), (26, 28)],
+        20: [(5, 6), (16, 17), (27, 28)],
     },
     "fills": [
-        # wide crest comb fan, orange knob at the front
-        ("runs", [(3, 3, 12), (4, 2, 10)], "H"),
-        ("runs", [(4, 2, 3), (5, 1, 2)], "O"),
-        # white ringed eye
-        ("put", 6, 4, "W"),
-        ("put", 6, 5, "K"),
-        # long straight pale beak
-        ("runs", [(6, 0, 1), (7, 0, 1), (8, 1, 2)], "C"),
-        # pale belly along the bottom edge
-        ("runs", [(14, 8, 13), (15, 8, 13), (16, 9, 13)], "C"),
-        # green poison only at the tail tip
-        ("runs", [(13, 26, 28), (14, 27, 29)], "G"),
-        # claws
-        ("put", 21, 12, "W"),
-        ("put", 21, 13, "W"),
-        ("put", 21, 21, "W"),
-        ("put", 21, 22, "W"),
+        # purple crest fan with dark ribs and orange knob
+        ("runs", [(1, 12, 13), (1, 20, 21), (2, 10, 12), (2, 14, 15),
+                  (2, 18, 19), (2, 21, 23), (3, 9, 11), (3, 13, 14),
+                  (3, 19, 20), (3, 22, 24), (4, 9, 11), (4, 22, 24)],
+         "P"),
+        ("runs", [(2, 10, 11), (2, 22, 23), (3, 9, 10), (3, 23, 24),
+                  (4, 9, 10), (4, 23, 24)], "D", "P"),
+        ("runs", [(3, 15, 18), (4, 14, 19)], "O"),
+        # rubbery head with white ringed eyes
+        ("runs", [(5, 10, 23), (6, 10, 23), (7, 9, 24), (8, 9, 24)],
+         "P"),
+        ("runs", [(6, 12, 13), (6, 20, 21), (7, 11, 12), (7, 21, 22),
+                  (8, 11, 12), (8, 21, 22)], "W", "P"),
+        ("put", 7, 12, "K"),
+        ("put", 7, 21, "K"),
+        # long pale beak
+        ("runs", [(9, 13, 20), (10, 13, 20), (11, 14, 19)], "C"),
+        ("runs", [(10, 15, 16), (10, 18, 19), (11, 16, 17)], "D", "C"),
+        # wings spread with pale membrane bars
+        ("runs", [(11, 1, 7), (12, 1, 7), (13, 1, 8), (14, 2, 8),
+                  (15, 2, 8), (16, 3, 8), (17, 3, 8), (18, 4, 8),
+                  (11, 26, 32), (12, 26, 32), (13, 25, 32), (14, 25, 31),
+                  (15, 25, 31), (16, 25, 30), (17, 25, 30), (18, 25, 29)],
+         "D", "P"),
+        ("runs", [(12, 2, 5), (14, 3, 6), (12, 28, 31), (14, 27, 30)],
+         "C", "D"),
+        # pale chest with dark speckles
+        ("runs", [(13, 10, 23), (14, 10, 23), (15, 10, 23), (16, 11, 22),
+                  (17, 11, 22)], "C", "P"),
+        ("runs", [(14, 12, 13), (14, 16, 17), (14, 20, 21), (16, 13, 14),
+                  (16, 19, 20)], "D", "C"),
+        # green poison tail tip below
+        ("runs", [(18, 15, 18), (19, 15, 18), (20, 16, 17)], "G"),
+        # dark legs
+        ("runs", [(18, 4, 8), (18, 25, 29), (19, 5, 7), (19, 26, 28),
+                  (19, 11, 13), (19, 20, 22), (20, 5, 6), (20, 27, 27)],
+         "D", "P"),
     ],
 }

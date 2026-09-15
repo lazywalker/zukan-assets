@@ -1,6 +1,7 @@
-"""Malfestio, bird wyvern. The night owl: a round blue-grey head with dark
-ear tufts, wide folded wings with barred feather bands, an orange chest
-collar over a scaled cream belly, and orange eyes."""
+"""Malfestio, bird wyvern. The night owl, drawn in the round front of its
+icon: a plump blue body with cream ear tufts, a wide dark face with big
+yellow eyes and a small beak, a gold collar band across the chest, folded
+wing bars at the sides and gold talons below."""
 
 CONFIG = {
     "name": "malfestio",
@@ -9,56 +10,69 @@ CONFIG = {
     "palette": {
         ".": (0, 0, 0, 0),
         "K": (24, 20, 22, 255),
-        "B": (112, 126, 152, 255),  # blue-grey plumage
-        "D": (82, 94, 120, 255),    # darker bars / tufts
-        "C": (204, 200, 178, 255),  # cream belly
-        "O": (232, 152, 62, 255),   # orange chest collar / eyes
-        "N": (50, 56, 82, 255),     # dark ear tufts
+        "B": (70, 90, 140, 255),     # blue body
+        "D": (52, 68, 108, 255),     # dark blue shade
+        "Y": (230, 190, 70, 255),    # gold collar / eyes / talons
+        "C": (225, 215, 185, 255),   # cream tufts / belly
+        "E": (40, 35, 50, 255),      # dark face
         "W": (246, 242, 230, 255),
     },
     "base": "B",
     "spans": {
-        2:  [(5, 6), (12, 13)],               # ear tufts
-        3:  [(4, 8), (11, 14)],
-        4:  [(3, 9), (10, 16)],               # round head
-        5:  [(2, 10), (9, 18)],
-        6:  [(1, 11), (8, 19)],
-        7:  [(1, 12), (8, 21)],
-        8:  [(1, 13), (7, 22)],
-        9:  [(1, 13), (7, 23)],
-        10: [(2, 13), (6, 23)],
-        11: [(2, 14), (6, 22)],
-        12: [(3, 14), (6, 21)],
-        13: [(4, 13), (7, 20)],
-        14: [(5, 12), (8, 19)],
-        15: [(6, 11), (9, 18)],
-        16: [(7, 10), (11, 16)],
-        17: [(8, 9), (12, 15)],               # feet
-        18: [(8, 8), (13, 14)],
+        1:  [(10, 11), (20, 21)],                # ear tuft tips
+        2:  [(9, 12), (19, 22)],
+        3:  [(8, 13), (18, 23), (14, 17)],       # tufts + head top
+        4:  [(8, 23)],
+        5:  [(7, 24)],
+        6:  [(6, 25)],
+        7:  [(6, 25)],
+        8:  [(5, 26)],
+        9:  [(5, 26)],
+        10: [(5, 26)],                           # collar row
+        11: [(5, 26)],
+        12: [(4, 27)],                           # body widest
+        13: [(4, 27)],
+        14: [(4, 27)],
+        15: [(5, 26)],
+        16: [(5, 26)],
+        17: [(6, 25)],
+        18: [(7, 24)],
+        19: [(8, 11), (13, 18), (20, 23)],       # talons
+        20: [(9, 10), (14, 17), (21, 22)],
     },
     "fills": [
-        # dark ear tufts
-        ("runs", [(2, 5, 6), (2, 12, 13), (3, 4, 5), (3, 12, 13)], "N"),
-        # face disc lighter
-        ("runs", [(5, 4, 9), (6, 3, 10), (7, 3, 10)], "C", "B"),
-        # orange eyes
-        ("put", 6, 5, "O"),
-        ("put", 6, 8, "O"),
-        # small dark beak
-        ("put", 8, 6, "N"),
-        ("put", 8, 7, "N"),
-        # orange chest collar
-        ("runs", [(9, 2, 12), (10, 2, 13)], "O"),
-        # cream scaled belly
-        ("runs", [(11, 3, 12), (12, 4, 12), (13, 5, 11), (14, 6, 10)],
-         "C"),
-        ("runs", [(11, 5, 6), (11, 9, 10), (12, 7, 8), (13, 7, 8)],
-         "D", "C"),
-        # barred wing feathers
-        ("runs", [(10, 16, 22), (12, 15, 20), (14, 10, 18),
-                  (16, 12, 15)], "D"),
-        # claws
-        ("put", 18, 8, "N"),
-        ("put", 18, 13, "N"),
+        # cream ear tufts
+        ("runs", [(1, 10, 11), (1, 20, 21), (2, 9, 12), (2, 19, 22),
+                  (3, 8, 10), (3, 21, 23)], "C"),
+        # wide dark face with big yellow eyes
+        ("runs", [(4, 8, 23), (5, 8, 23), (6, 8, 23), (7, 7, 24),
+                  (8, 7, 24), (9, 8, 23)], "E", "B"),
+        ("runs", [(6, 10, 13), (6, 18, 21), (7, 10, 13), (7, 18, 21),
+                  (8, 11, 12), (8, 19, 20)], "Y", "E"),
+        ("put", 7, 11, "K"),
+        ("put", 7, 20, "K"),
+        # small pale beak
+        ("runs", [(8, 15, 16)], "C", "E"),
+        ("put", 9, 15, "C"),
+        ("put", 9, 16, "C"),
+        # gold collar band across the chest
+        ("runs", [(10, 6, 25), (11, 5, 26)], "Y", "B"),
+        ("runs", [(10, 9, 10), (10, 14, 15), (10, 19, 20), (11, 7, 8),
+                  (11, 12, 13), (11, 17, 18), (11, 22, 23)], "D", "Y"),
+        # folded wing bars at the sides
+        ("runs", [(12, 4, 7), (13, 4, 7), (14, 4, 7), (15, 5, 8),
+                  (16, 5, 8), (17, 6, 9), (12, 24, 27), (13, 24, 27),
+                  (14, 24, 27), (15, 23, 26), (16, 23, 26), (17, 22, 25)],
+         "D", "B"),
+        ("runs", [(13, 4, 7), (15, 5, 8), (13, 24, 27), (15, 23, 26)],
+         "E", "D"),
+        # pale belly patch
+        ("runs", [(13, 11, 20), (14, 11, 20), (15, 11, 20), (16, 12, 19),
+                  (17, 13, 18)], "C", "B"),
+        # gold talons
+        ("runs", [(19, 8, 11), (19, 20, 23), (20, 9, 10), (20, 21, 22),
+                  (19, 13, 18), (20, 14, 17)], "Y", "B"),
+        ("put", 20, 9, "D"),
+        ("put", 20, 22, "D"),
     ],
 }

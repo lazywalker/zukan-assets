@@ -1,19 +1,21 @@
-"""Jade Barroth, barroth subspecies. Snow-clay crown: pale ice-blue body
-with a spikier white crown, over the same hammerhead frame."""
+"""Jade Barroth, barroth subspecies. Snow-clay crown: the hammerhead
+frame in pale ice-blue clay with a white snow crown and darker icy
+grooves, two snow spikes breaking off the crown top."""
 from barroth import CONFIG as _base
 
 CONFIG = dict(_base)
 CONFIG["name"] = "jade-barroth"
 CONFIG["compare_to"] = ""
 CONFIG["palette"] = dict(_base["palette"])
-CONFIG["palette"]["G"] = (128, 148, 152, 255)  # ice-blue body
-CONFIG["palette"]["D"] = (96, 114, 120, 255)   # darker shade
-CONFIG["palette"]["O"] = (226, 232, 236, 255)  # white snow crown
-CONFIG["palette"]["S"] = (170, 186, 192, 255)  # crown notch lines
-CONFIG["palette"]["L"] = (168, 184, 190, 255)  # icy belly band
+CONFIG["palette"]["Y"] = (128, 148, 152, 255)  # ice-blue clay body
+CONFIG["palette"]["B"] = (210, 220, 224, 255)  # white snow crown
+CONFIG["palette"]["D"] = (96, 114, 120, 255)   # darker icy shade
 
-# spikier snow crown: bumps above the ridge
+# snow spikes breaking off the crown top
 CONFIG["spans"] = {
     **_base["spans"],
-    1:  [(4, 5), (7, 8)],
+    1:  [(13, 14), (21, 22)],
 }
+CONFIG["fills"] = list(_base["fills"]) + [
+    ("runs", [(1, 13, 14), (1, 21, 22)], "D", "Y"),
+]

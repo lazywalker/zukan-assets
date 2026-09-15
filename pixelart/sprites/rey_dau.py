@@ -1,7 +1,7 @@
-"""Rey Dau, flying wyvern. The thunder rail: a storm-yellow wyvern with
-thin black rail horns rising from the head, a white toothy grin, a black
-wing-gun wing folded over the back with coil lines, and a slim tail with
-a black lightning tip."""
+"""Rey Dau, flying wyvern. The thunder rail, drawn in the wing-fan front
+of its icon: two dark storm fans spread high with gold bands and blue
+lightning forks, a gold head between thin rail horns, glaring eyes, a
+pale chest with a lightning seam, and a tapering tail."""
 
 CONFIG = {
     "name": "rey-dau",
@@ -10,52 +10,76 @@ CONFIG = {
     "palette": {
         ".": (0, 0, 0, 0),
         "K": (24, 20, 22, 255),
-        "Y": (222, 180, 62, 255),   # storm yellow body
-        "D": (176, 138, 44, 255),   # darker yellow
-        "N": (44, 44, 52, 255),     # black horns / wing guns
+        "Y": (240, 214, 40, 255),    # storm gold
+        "O": (170, 140, 20, 255),    # dark gold bands
+        "D": (60, 50, 140, 255),     # dark storm fan
+        "B": (90, 80, 230, 255),     # blue lightning
+        "P": (170, 90, 220, 255),    # purple fan sheen
+        "C": (246, 240, 190, 255),   # pale chest
         "W": (246, 242, 230, 255),
     },
     "base": "Y",
     "spans": {
-        2:  [(4, 4), (8, 8)],                 # rail horn tips
-        3:  [(3, 5), (7, 9), (16, 16)],       # horns + wing spike
-        4:  [(2, 6), (6, 10), (13, 25)],      # horns + wing top
-        5:  [(1, 7), (5, 11), (12, 27)],      # head + wing + tail
-        6:  [(1, 27)],                        # head + wing + body merged
-        7:  [(0, 27)],
-        8:  [(0, 26)],
-        9:  [(1, 25)],
-        10: [(1, 24)],
-        11: [(2, 23)],
-        12: [(3, 22)],
-        13: [(5, 20)],
-        14: [(7, 12), (16, 19)],              # legs
-        15: [(7, 12), (16, 19)],
-        16: [(7, 7), (9, 9), (11, 11), (16, 16), (18, 18)],
+        2:  [(8, 9), (26, 27)],                  # fan tips
+        3:  [(6, 10), (25, 29)],
+        4:  [(5, 11), (24, 30), (16, 19)],       # horn tips + head top
+        5:  [(4, 12), (23, 31), (15, 20)],
+        6:  [(3, 13), (22, 32), (14, 21)],
+        7:  [(3, 13), (22, 32), (14, 21)],
+        8:  [(2, 14), (21, 33), (13, 22)],
+        9:  [(2, 14), (21, 33), (13, 22)],
+        10: [(3, 14), (21, 32), (13, 22)],
+        11: [(4, 14), (21, 31), (13, 22)],
+        12: [(5, 14), (21, 30), (13, 22)],
+        13: [(6, 13), (22, 29), (13, 22)],       # fans end + head base
+        14: [(13, 22)],                          # chest
+        15: [(13, 22)],
+        16: [(14, 21)],
+        17: [(14, 21)],
+        18: [(15, 20)],
+        19: [(15, 20)],
+        20: [(16, 19)],
+        21: [(16, 19)],
     },
     "fills": [
-        # thin black rail horns
-        ("runs", [(2, 4, 4), (3, 3, 5), (4, 2, 6)], "N"),
-        ("runs", [(2, 8, 8), (3, 7, 9), (4, 6, 10)], "N"),
-        # dark eye + white toothy grin
-        ("put", 5, 3, "N"),
-        ("runs", [(6, 1, 4)], "K"),
-        ("put", 6, 1, "W"),
-        ("put", 6, 3, "W"),
-        # black wing-gun wing with coil lines
-        ("runs", [(4, 13, 21), (5, 12, 20), (6, 12, 20)], "N"),
-        ("runs", [(5, 14, 14), (5, 18, 18), (6, 13, 13), (6, 16, 16),
-                  (6, 19, 19)], "D", "N"),
-        # wing spike + lightning tail tip black
-        ("put", 3, 16, "N"),
-        ("runs", [(4, 24, 25), (5, 25, 27), (6, 25, 27)], "N"),
-        # body shade along the bottom
-        ("runs", [(11, 3, 22), (12, 4, 21), (13, 6, 19)], "D"),
-        # claws
-        ("put", 16, 7, "W"),
-        ("put", 16, 9, "W"),
-        ("put", 16, 11, "W"),
-        ("put", 16, 16, "W"),
-        ("put", 16, 18, "W"),
+        # thin dark rail horns rising from the head
+        ("runs", [(4, 16, 19), (5, 15, 20)], "D"),
+        ("put", 4, 16, "B"),
+        ("put", 4, 19, "B"),
+        # dark storm fans with purple sheen
+        ("runs", [(2, 8, 9), (3, 6, 10), (4, 5, 11), (5, 4, 12),
+                  (6, 3, 13), (7, 3, 13), (8, 2, 14), (9, 2, 14),
+                  (10, 3, 14), (11, 4, 14), (12, 5, 14), (13, 6, 13),
+                  (2, 26, 27), (3, 25, 29), (4, 24, 30), (5, 23, 31),
+                  (6, 22, 32), (7, 22, 32), (8, 21, 33), (9, 21, 33),
+                  (10, 21, 32), (11, 21, 31), (12, 21, 30), (13, 22, 29)],
+         "D"),
+        ("runs", [(5, 5, 7), (6, 4, 6), (5, 28, 30), (6, 29, 31),
+                  (8, 3, 5), (9, 2, 4), (8, 30, 32), (9, 31, 33)],
+         "P", "D"),
+        # gold bands sweeping down the fans
+        ("runs", [(4, 8, 10), (5, 7, 9), (6, 6, 8), (7, 5, 7),
+                  (4, 25, 27), (5, 26, 28), (6, 27, 29), (7, 28, 30),
+                  (9, 4, 6), (10, 5, 7), (11, 6, 8), (12, 7, 9),
+                  (9, 29, 31), (10, 28, 30), (11, 27, 29), (12, 26, 28)],
+         "O", "D"),
+        # blue lightning forks on the fans
+        ("runs", [(6, 10, 11), (7, 9, 10), (6, 24, 25), (7, 25, 26),
+                  (10, 9, 10), (11, 8, 9), (10, 25, 26), (11, 26, 27)],
+         "B", "D"),
+        # gold head with dark wire band and glaring eyes
+        ("runs", [(7, 15, 20), (8, 14, 21), (9, 14, 21)], "Y"),
+        ("runs", [(8, 14, 21)], "O", "Y"),
+        ("runs", [(8, 16, 19)], "Y", "O"),
+        ("runs", [(7, 15, 16), (7, 19, 20)], "K", "Y"),
+        ("put", 7, 15, "W"),
+        ("put", 7, 20, "W"),
+        # pale chest with a lightning seam
+        ("runs", [(14, 15, 20), (15, 15, 20), (16, 16, 19)], "C"),
+        ("runs", [(15, 17, 18), (16, 17, 18), (17, 17, 18)], "B", "Y"),
+        # gold body bands down the tail
+        ("runs", [(17, 14, 15), (17, 20, 21), (18, 15, 16), (18, 19, 20),
+                  (19, 16, 16), (19, 19, 19), (20, 16, 17), (20, 18, 19)],
+         "O", "Y"),
     ],
 }

@@ -1,32 +1,68 @@
-"""Lunastra, elder dragon. Teostra's mate: blue-purple body with the mane
-flared into extra pale spikes around the ring and the horns sweeping one
-row taller than the king's."""
-from teostra import CONFIG as _base
+"""Lunastra, elder dragon. Teostra's mate: the same front pose with a blue-purple mane and face, the crown and jaw gone pale blue, and the fur flaring one row prouder. A standalone copy of the teostra config, edited like any other sprite."""
 
-CONFIG = dict(_base)
-CONFIG["name"] = "lunastra"
-CONFIG["compare_to"] = "../icons/mhfu/lunastra.png"
-CONFIG["palette"] = {
-    ".": (0, 0, 0, 0),
-    "K": (24, 20, 22, 255),
-    "R": (110, 90, 180, 255),   # blue-purple body
-    "D": (80, 62, 140, 255),    # dark purple wings
-    "M": (205, 200, 230, 255),  # pale blue mane / tail tuft
-    "H": (90, 70, 130, 255),    # dark horns
-    "E": (150, 180, 240, 255),  # blue ember dots
-    "W": (246, 242, 230, 255),
+CONFIG = {
+    "name": "lunastra",
+    "size": (32, 24),
+    "compare_to": "../icons/mhfu/lunastra.png",
+    "palette": {
+        ".": (0, 0, 0, 0),
+        "K": (24, 20, 22, 255),
+        "R": (110, 90, 180, 255),
+        "D": (80, 62, 140, 255),
+        "O": (126, 104, 196, 255),
+        "C": (205, 200, 230, 255),
+        "W": (246, 242, 230, 255),
+    },
+    "base": "R",
+    "spans": {
+         2: [(6, 9), (12, 13), (18, 19), (22, 25)],
+         3: [(4, 27)],
+         4: [(3, 28)],
+         5: [(2, 29)],
+         6: [(2, 29)],
+         7: [(1, 30)],
+         8: [(1, 30)],
+         9: [(1, 30)],
+        10: [(1, 30)],
+        11: [(1, 30)],
+        12: [(1, 30)],
+        13: [(2, 29)],
+        14: [(2, 29)],
+        15: [(3, 28)],
+        16: [(4, 27)],
+        17: [(5, 26)],
+        18: [(6, 11), (14, 17), (20, 25)],
+        19: [(6, 10), (14, 17), (21, 25)],
+        20: [(5, 9), (15, 16), (22, 24)],
+        21: [(5, 5), (7, 7), (9, 9), (14, 14), (16, 16), (22, 22), (24, 24)],
+    },
+    "fills": [
+        ("runs", [(4, 9, 22), (5, 7, 24), (6, 6, 25), (7, 5, 26), (8, 4, 27),
+                  (9, 4, 27), (10, 4, 27), (11, 4, 27), (12, 4, 27), (13, 5, 26),
+                  (14, 5, 26), (15, 6, 25), (16, 7, 24), (17, 8, 23)], "O"),
+        ("runs", [(2, 12, 13), (2, 18, 19), (3, 11, 20), (4, 12, 19), (5, 13, 18)], "C"),
+        ("runs", [(3, 4, 6), (3, 25, 27), (4, 3, 4), (4, 27, 28), (6, 2, 3),
+                  (6, 28, 29), (8, 1, 2), (8, 29, 30), (10, 1, 2), (10, 29, 30),
+                  (12, 1, 2), (12, 29, 30), (14, 2, 3), (14, 28, 29), (15, 3, 4),
+                  (15, 27, 28), (16, 4, 5), (16, 26, 27), (17, 5, 6), (17, 25, 26)], "D"),
+        ("runs", [(6, 9, 12), (6, 19, 22), (7, 9, 10), (7, 21, 22), (7, 12, 12),
+                  (7, 19, 19)], "D"),
+        ("put", 7, 11, "K"),
+        ("put", 7, 20, "K"),
+        ("put", 8, 11, "K"),
+        ("put", 8, 20, "K"),
+        ("runs", [(10, 13, 18)], "D"),
+        ("put", 11, 15, "K"),
+        ("put", 11, 16, "K"),
+        ("runs", [(12, 6, 25)], "C"),
+        ("put", 12, 6, "W"),
+        ("put", 12, 7, "W"),
+        ("put", 12, 24, "W"),
+        ("put", 12, 25, "W"),
+        ("put", 13, 7, "W"),
+        ("put", 13, 24, "W"),
+        ("runs", [(14, 13, 18), (15, 14, 17)], "D"),
+        ("runs", [(18, 6, 11), (19, 6, 10), (18, 20, 25), (19, 21, 25)], "D"),
+        ("runs", [(21, 5, 5), (21, 7, 7), (21, 9, 9), (21, 22, 22), (21, 24, 24)], "W"),
+    ],
 }
-
-# taller horns + mane flaring into spikes at the ring's edge
-CONFIG["spans"] = {
-    **_base["spans"],
-    2:  [(8, 9), (14, 15)],
-    3:  [(8, 10), (14, 16), (6, 6), (12, 12), (17, 17)],
-}
-
-CONFIG["fills"] = list(_base["fills"]) + [
-    # dark horn tips, one row up
-    ("runs", [(2, 8, 9), (2, 14, 15)], "H"),
-    # pale mane spikes flaring out
-    ("runs", [(3, 6, 6), (3, 12, 12), (3, 17, 17)], "M"),
-]

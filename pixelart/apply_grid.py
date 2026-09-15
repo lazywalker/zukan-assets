@@ -2,9 +2,10 @@
 """Write an editor save payload back to sprites/<name>.py.
 
 Single write path shared by editor_server.py (POST /api/save) and the
-serverless flow: when no local server is running, the editor downloads the
-grid JSON instead of saving, and this CLI applies that dump through the
-same decompile + assert + atomic replace:
+serverless flow: when no local server is running, the editor downloads
+the grid JSON instead of saving, and this CLI applies that dump through
+the same decompile + assert + atomic replace (rolled back if the
+full-set rebuild fails):
 
     python3 pixelart/apply_grid.py dump.json
 """
@@ -44,7 +45,8 @@ def apply(payload, sprites_dir=None, rebuild=False):
     """Validate a payload and write it as sprites/<stem>.py.
 
     Returns a report dict; raises DecompileError/SystemExit on refusal
-    (nothing is written in that case).
+    (nothing is written in that case). A failed full-set rebuild rolls
+    the write back, leaving a sprite set that still builds.
     """
     cfg, text = decompile.decompile(payload)
     build_sprites.validate_slugs([cfg])
@@ -54,9 +56,13 @@ def apply(payload, sprites_dir=None, rebuild=False):
     stem = stem_for(cfg["name"], sprites)
     path = sprites / f"{stem}.py"
     existed = path.exists()
+    old_text = path.read_text() if existed else None
+    # the cached module still holds the pre-save config even after the
+    # replace below; rollback needs it to restore the sprite's PNGs
+    old_mod = sys.modules.get(stem)
     changed = True
     if existed:
-        if path.read_text() == text:
+        if old_text == text:
             changed = False
         else:
             # same view, different text (hand-authored comments/run splits):
@@ -78,9 +84,29 @@ def apply(payload, sprites_dir=None, rebuild=False):
         )
         log = run.stdout + run.stderr
         if run.returncode != 0:
-            raise RuntimeError(f"post-save rebuild failed:\n{log}")
+            rollback(path, cfg, old_mod, existed, changed, old_text)
+            raise RuntimeError(f"post-save rebuild failed, save rolled back:\n{log}")
     return {"file": str(path), "stem": stem, "existed": existed,
             "changed": changed, "log": log}
+
+
+def rollback(path, cfg, old_mod, existed, changed, old_text):
+    """Undo a save whose full-set rebuild failed: restore the previous
+    config text (or drop a newly added one plus its fresh PNGs), then
+    rebuild the saved sprite's own PNGs from the rolled-back config."""
+    if not changed:
+        return
+    if existed:
+        path.write_text(old_text)
+        if old_mod is not None:
+            build_sprites.build_dev(old_mod.CONFIG)
+    else:
+        path.unlink()
+        for suffix in ("_sprite.png", "_sprite_preview.png",
+                       "_sprite_vs_original.png"):
+            png = build_sprites.HERE / f"{cfg['name']}{suffix}"
+            if png.exists():
+                png.unlink()
 
 
 def main():

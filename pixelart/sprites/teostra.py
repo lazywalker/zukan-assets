@@ -1,73 +1,83 @@
-"""Teostra, elder dragon. Flaming lion: huge cream mane ringing a red face,
-twin swept-back horns, red-orange body, folded dark-red wings, cream tail
-tuft, ember dots on the mane.
-
-Palette: red body (195,65,45), dark red wings (150,45,38), cream mane and
-tail tuft (232,206,150), dark horns (110,60,50), ember dots (240,140,60).
-Recognition: cream lion mane + red face = teostra instantly.
-"""
+"""Teostra, elder dragon. The blazing emperor lion, drawn in the front
+pose of its icon: a huge pink mane framing an orange face, a pale crown
+mark on the forehead, glaring eyes, white fangs at the jaw corners, and
+forepaws under the mane."""
 
 CONFIG = {
     "name": "teostra",
-    "size": (34, 24),
+    "size": (32, 24),
     "compare_to": "../icons/mh4u/teostra.png",
     "palette": {
         ".": (0, 0, 0, 0),
         "K": (24, 20, 22, 255),
-        "R": (195, 65, 45, 255),    # red body
-        "D": (150, 45, 38, 255),    # dark red: wings, shade
-        "M": (232, 206, 150, 255),  # cream: mane, tail tuft, chest
-        "H": (110, 60, 50, 255),    # dark horns
-        "E": (240, 140, 60, 255),   # ember dots
-        "W": (246, 242, 230, 255),  # eye
+        "R": (206, 92, 104, 255),
+        "D": (152, 54, 74, 255),
+        "O": (214, 122, 62, 255),
+        "C": (238, 214, 158, 255),
+        "W": (246, 242, 230, 255),
     },
     "base": "R",
     "spans": {
-        3:  [(8, 10), (14, 16)],
-        4:  [(6, 12), (13, 17)],
-        5:  [(4, 13), (12, 18)],
-        6:  [(3, 14), (12, 20)],
-        7:  [(2, 14), (13, 22)],
-        8:  [(2, 15), (14, 24)],
-        9:  [(2, 15), (15, 26)],
-        10: [(2, 15), (16, 27)],
-        11: [(2, 15), (16, 27)],
-        12: [(3, 14), (16, 26)],
-        13: [(4, 14), (16, 25)],
-        14: [(5, 14), (17, 25)],
-        15: [(6, 14), (18, 24)],
-        16: [(7, 14), (19, 23)],
-        17: [(8, 14), (20, 22)],
-        18: [(8, 13), (21, 22)],
-        19: [(9, 12), (22, 22)],
+        2:  [(6, 9), (12, 13), (18, 19), (22, 25)],   # tufts + crown spikes
+        3:  [(4, 27)],
+        4:  [(3, 28)],
+        5:  [(2, 29)],
+        6:  [(2, 29)],
+        7:  [(1, 30)],
+        8:  [(1, 30)],
+        9:  [(1, 30)],
+        10: [(1, 30)],
+        11: [(1, 30)],
+        12: [(1, 30)],
+        13: [(2, 29)],
+        14: [(2, 29)],
+        15: [(3, 28)],
+        16: [(4, 27)],
+        17: [(5, 26)],
+        18: [(6, 11), (14, 17), (20, 25)],    # forepaws + chin
+        19: [(6, 10), (14, 17), (21, 25)],
+        20: [(5, 9), (15, 16), (22, 24)],
+        21: [(5, 5), (7, 7), (9, 9), (14, 14), (16, 16), (22, 22), (24, 24)],
     },
     "fills": [
-        # cream mane ring around the face
-        ("runs", [(4, 6, 12), (5, 4, 12), (6, 3, 4), (6, 9, 14),
-                  (7, 2, 3), (7, 9, 14), (8, 2, 3), (8, 9, 15),
-                  (9, 2, 3), (9, 9, 15)], "M"),
-        # red face inside the ring
-        ("runs", [(6, 5, 8), (7, 4, 8), (8, 4, 8), (9, 4, 8)], "R"),
-        # dark horns, swept back
-        ("runs", [(3, 8, 10), (4, 10, 12), (5, 12, 13)], "H"),
-        ("runs", [(3, 14, 16), (4, 15, 17), (5, 16, 17)], "H"),
-        # white eyes
-        ("put", 7, 5, "W"),
-        ("put", 7, 7, "W"),
-        # cream chest under the face
-        ("runs", [(10, 3, 9), (11, 4, 10), (12, 5, 10)], "M"),
-        # folded dark-red wings on the back
-        ("runs", [(10, 17, 26), (11, 17, 27), (12, 17, 26), (13, 17, 25),
-                  (14, 18, 25), (15, 19, 24)], "D"),
-        # ember dots on the mane and wings
-        ("put", 5, 6, "E"),
-        ("put", 8, 4, "E"),
-        ("put", 9, 14, "E"),
-        ("put", 11, 18, "E"),
-        ("put", 13, 18, "E"),
-        # tail with cream tuft
-        ("runs", [(16, 20, 23), (17, 21, 22), (18, 21, 22), (19, 22, 22)],
-         "R"),
-        ("runs", [(18, 20, 21), (19, 21, 22)], "M"),
+        # orange face inside the mane
+        ("runs", [(4, 9, 22), (5, 7, 24), (6, 6, 25), (7, 5, 26), (8, 4, 27),
+                  (9, 4, 27), (10, 4, 27), (11, 4, 27), (12, 4, 27),
+                  (13, 5, 26), (14, 5, 26), (15, 6, 25), (16, 7, 24),
+                  (17, 8, 23)], "O"),
+        # pale crown spikes on the forehead
+        ("runs", [(2, 12, 13), (2, 18, 19), (3, 11, 20), (4, 12, 19),
+                  (5, 13, 18)], "C"),
+        # mane scallop shade along the outer edge
+        ("runs", [(3, 4, 6), (3, 25, 27), (4, 3, 4), (4, 27, 28),
+                  (6, 2, 3), (6, 28, 29), (8, 1, 2), (8, 29, 30),
+                  (10, 1, 2), (10, 29, 30), (12, 1, 2), (12, 29, 30),
+                  (14, 2, 3), (14, 28, 29), (15, 3, 4), (15, 27, 28),
+                  (16, 4, 5), (16, 26, 27), (17, 5, 6), (17, 25, 26)], "D"),
+        # glaring slanted eyes under the crown
+        ("runs", [(6, 9, 12), (6, 19, 22), (7, 9, 10), (7, 21, 22),
+                  (7, 12, 12), (7, 19, 19)], "D"),
+        ("put", 7, 11, "K"),
+        ("put", 7, 20, "K"),
+        ("put", 8, 11, "K"),
+        ("put", 8, 20, "K"),
+        # snout and dark nose
+        ("runs", [(10, 13, 18)], "D"),
+        ("put", 11, 15, "K"),
+        ("put", 11, 16, "K"),
+        # jaw line with white fangs at the corners
+        ("runs", [(12, 6, 25)], "C"),
+        ("put", 12, 6, "W"),
+        ("put", 12, 7, "W"),
+        ("put", 12, 24, "W"),
+        ("put", 12, 25, "W"),
+        ("put", 13, 7, "W"),
+        ("put", 13, 24, "W"),
+        # chin beard tuft
+        ("runs", [(14, 13, 18), (15, 14, 17)], "D"),
+        # forepaws with claws
+        ("runs", [(18, 6, 11), (19, 6, 10), (18, 20, 25), (19, 21, 25)], "D"),
+        ("runs", [(21, 5, 5), (21, 7, 7), (21, 9, 9), (21, 22, 22),
+                  (21, 24, 24)], "W"),
     ],
 }

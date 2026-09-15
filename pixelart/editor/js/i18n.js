@@ -65,6 +65,7 @@ const DICTS = {
     "wiz.done": "Wizard done; height locked to 24, start tracing",
 
     "ctx.brush": "Brush",
+    "ctx.outline": "outline",
     "ctx.contiguous": "Contiguous",
     "ctx.connectivity": "Connectivity",
     "ctx.line-hint": "Shift constrains H/V/45°",
@@ -195,6 +196,7 @@ const DICTS = {
     "wiz.done": "向导完成;高度已锁 24,开始描摹",
 
     "ctx.brush": "笔刷",
+    "ctx.outline": "描边",
     "ctx.contiguous": "连续",
     "ctx.connectivity": "连通",
     "ctx.line-hint": "Shift 约束 水平/垂直/45°",
@@ -326,6 +328,7 @@ const DICTS = {
     "wiz.done": "ウィザード完了。高さは 24 固定、トレース開始",
 
     "ctx.brush": "ブラシ",
+    "ctx.outline": "縁取り",
     "ctx.contiguous": "連続",
     "ctx.connectivity": "近傍",
     "ctx.line-hint": "Shift で水平/垂直/45° に制限",

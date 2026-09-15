@@ -1,6 +1,7 @@
-"""Seltas Queen, neopteron. The armored tank: a massive green beetle with
-a heavy horn crown, yellow eyes under the brow, spiked shoulder plates,
-and thick legs. Big and wide."""
+"""Seltas Queen, neopteron. The armored tank, drawn in the head-on front
+of its icon: a massive green dome with red spots, two dark mandible
+horns curving up and out, orange eyes on the lower dome, a tan jaw rim
+with pale mandibles, and a small striped body below."""
 
 CONFIG = {
     "name": "seltas-queen",
@@ -9,50 +10,64 @@ CONFIG = {
     "palette": {
         ".": (0, 0, 0, 0),
         "K": (24, 20, 22, 255),
-        "G": (104, 144, 88, 255),   # green armor
-        "D": (74, 108, 62, 255),    # darker green
-        "Y": (232, 190, 74, 255),   # yellow eyes / horn tips
+        "G": (46, 96, 26, 255),      # green shell
+        "D": (30, 66, 18, 255),      # dark green horns / shade
+        "R": (160, 32, 28, 255),     # red spots
+        "C": (190, 180, 110, 255),   # tan jaw rim
+        "O": (240, 150, 50, 255),    # orange eyes
         "W": (246, 242, 230, 255),
     },
     "base": "G",
     "spans": {
-        2:  [(3, 5), (9, 10)],                # horn crown tips
-        3:  [(2, 6), (8, 11), (16, 17)],
-        4:  [(1, 7), (7, 12), (15, 19)],
-        5:  [(1, 8), (6, 14), (14, 21)],
-        6:  [(1, 9), (5, 15), (13, 23)],
-        7:  [(0, 10), (5, 16), (12, 25)],     # head + shoulders + back
-        8:  [(0, 11), (5, 17), (11, 26)],
-        9:  [(0, 12), (5, 18), (11, 27)],
-        10: [(0, 13), (6, 18), (11, 27)],
-        11: [(1, 13), (7, 18), (12, 26)],
-        12: [(1, 13), (8, 18), (13, 25)],
-        13: [(2, 12), (9, 17), (14, 24)],
-        14: [(3, 11), (10, 16), (16, 23)],
-        15: [(4, 10), (18, 22)],
-        16: [(4, 9), (19, 21)],
-        17: [(5, 12), (15, 19)],              # legs
-        18: [(5, 11), (16, 18)],
-        19: [(5, 9), (16, 17)],
+        1:  [(10, 10), (23, 23)],                # horn tips
+        2:  [(9, 11), (22, 24)],
+        3:  [(8, 12), (21, 25)],
+        4:  [(8, 12), (13, 20), (21, 25)],       # horns + dome top
+        5:  [(7, 12), (12, 21), (21, 26)],
+        6:  [(11, 22)],                          # dome
+        7:  [(10, 23)],
+        8:  [(10, 23)],
+        9:  [(10, 23)],
+        10: [(10, 23)],
+        11: [(11, 22)],                          # eyes row
+        12: [(12, 21)],                          # tan jaw rim
+        13: [(14, 19)],                          # body
+        14: [(14, 19)],
+        15: [(13, 20)],                          # skirt
+        16: [(12, 13), (15, 18), (20, 21)],      # legs
+        17: [(12, 12), (16, 17), (21, 21)],      # tips
     },
     "fills": [
-        # yellow horn crown tips
-        ("runs", [(2, 3, 5), (2, 9, 10), (3, 2, 4)], "Y"),
-        # angry yellow eyes under the brow
-        ("runs", [(6, 2, 5), (7, 1, 6)], "D"),
-        ("put", 7, 2, "Y"),
-        ("put", 7, 5, "Y"),
-        # spiked shoulder plates
-        ("runs", [(8, 5, 17), (9, 5, 18), (10, 6, 18)], "D"),
-        ("runs", [(8, 8, 9), (8, 13, 14), (9, 11, 12), (9, 15, 16)],
-         "Y", "D"),
-        # back shell shade
-        ("runs", [(12, 14, 25), (13, 15, 24), (14, 17, 23)], "D"),
-        # legs darker
-        ("runs", [(17, 15, 19), (18, 16, 18)], "D"),
-        # claws
-        ("put", 19, 5, "W"),
-        ("put", 19, 9, "W"),
-        ("put", 19, 16, "W"),
+        # dark horns with pale inner edge
+        ("runs", [(1, 10, 10), (2, 9, 11), (3, 8, 12), (4, 8, 12),
+                  (5, 7, 12), (1, 23, 23), (2, 22, 24), (3, 21, 25),
+                  (4, 21, 25), (5, 21, 26)], "D"),
+        ("runs", [(2, 10, 11), (3, 10, 12), (4, 11, 12), (2, 22, 23),
+                  (3, 21, 23), (4, 21, 22)], "G", "D"),
+        # red spots across the dome
+        ("runs", [(5, 15, 16), (5, 19, 20), (7, 12, 13), (7, 20, 21),
+                  (9, 16, 17), (6, 18, 18)], "R"),
+        # dome shading
+        ("runs", [(6, 11, 11), (7, 10, 10), (8, 10, 10), (9, 10, 10),
+                  (10, 10, 11), (6, 22, 22), (7, 23, 23), (8, 23, 23),
+                  (9, 23, 23), (10, 22, 23), (11, 11, 11), (11, 22, 22)],
+         "D"),
+        # orange eyes with dark pupils
+        ("runs", [(10, 12, 13), (10, 20, 21), (11, 12, 13), (11, 20, 21)],
+         "O"),
+        ("put", 10, 13, "K"),
+        ("put", 10, 20, "K"),
+        # tan jaw rim with pale mandibles
+        ("runs", [(12, 12, 21)], "C"),
+        ("put", 12, 15, "W"),
+        ("put", 12, 18, "W"),
+        # body stripes
+        ("runs", [(13, 14, 19), (14, 14, 19)], "D"),
+        ("runs", [(14, 15, 18)], "G", "D"),
+        # dark legs with pale tips
+        ("runs", [(16, 12, 13), (16, 20, 21), (17, 12, 12), (17, 21, 21)],
+         "D"),
+        ("put", 17, 12, "W"),
+        ("put", 17, 21, "W"),
     ],
 }

@@ -1,6 +1,6 @@
-"""Tetranadon, amphibian. The sumo wrestler: a shaggy moss-green bulk with
-a pale beaked face, a red eye, a huge round belly resting on thick legs,
-and a shell plate on the back."""
+"""Tetranadon, amphibian. The sumo wrestler, drawn in the belly-front of
+its icon: a shaggy moss-green shell dome with a seaweed strand, a pale
+beaked face with red eyes, a huge pale belly resting on thick legs."""
 
 CONFIG = {
     "name": "tetranadon",
@@ -9,55 +9,69 @@ CONFIG = {
     "palette": {
         ".": (0, 0, 0, 0),
         "K": (24, 20, 22, 255),
-        "G": (110, 138, 82, 255),   # moss-green shaggy hide
-        "D": (82, 108, 60, 255),    # darker green
-        "C": (216, 200, 164, 255),  # pale belly / beak
-        "R": (206, 68, 56, 255),    # red eye
+        "G": (110, 140, 70, 255),    # moss green shell
+        "M": (80, 110, 50, 255),     # dark moss shade
+        "D": (60, 85, 40, 255),      # darkest green
+        "C": (220, 200, 160, 255),   # pale belly / beak
+        "E": (60, 40, 30, 255),      # dark beak line
+        "R": (200, 60, 50, 255),     # red eyes
         "W": (246, 242, 230, 255),
     },
     "base": "G",
     "spans": {
-        3:  [(5, 8)],                         # head top
-        4:  [(3, 10), (11, 12)],
-        5:  [(2, 12), (11, 15)],
-        6:  [(1, 13), (10, 17)],
-        7:  [(1, 14), (9, 19)],
-        8:  [(0, 15), (9, 21)],               # beak + back
-        9:  [(0, 15), (8, 23)],
-        10: [(0, 16), (8, 24)],
-        11: [(0, 16), (8, 25)],
-        12: [(0, 16), (8, 26)],               # belly mass
-        13: [(0, 16), (8, 26)],
-        14: [(1, 16), (8, 26)],
-        15: [(1, 15), (9, 25)],
-        16: [(2, 15), (10, 24)],
-        17: [(3, 14), (12, 22)],
-        18: [(4, 12), (14, 20)],              # legs
-        19: [(4, 11), (15, 19)],
-        20: [(4, 10), (16, 18)],
-        21: [(4, 4), (6, 6), (10, 10), (16, 16), (18, 18)],
+        1:  [(15, 16)],                          # seaweed strand
+        2:  [(14, 17)],
+        3:  [(12, 19)],                          # shell top
+        4:  [(10, 21)],
+        5:  [(9, 22)],
+        6:  [(8, 23)],
+        7:  [(7, 24)],
+        8:  [(7, 24), (11, 20)],                 # shell + face top
+        9:  [(6, 25), (11, 20)],
+        10: [(6, 25), (11, 20)],
+        11: [(6, 25), (11, 20)],
+        12: [(6, 25)],                           # face base
+        13: [(6, 25)],
+        14: [(7, 24)],                           # belly
+        15: [(7, 24)],
+        16: [(8, 23)],
+        17: [(8, 23)],
+        18: [(9, 22)],
+        19: [(9, 13), (15, 16), (18, 22)],       # legs
+        20: [(9, 13), (15, 16), (18, 22)],
+        21: [(9, 12), (15, 16), (19, 22)],
     },
     "fills": [
-        # shaggy fur texture strokes
-        ("runs", [(4, 4, 6), (5, 3, 5), (6, 3, 4), (7, 2, 4),
-                  (8, 9, 14), (9, 10, 15)], "D"),
-        # pale beak face
-        ("runs", [(7, 1, 8), (8, 0, 8), (9, 0, 7)], "C"),
-        # red eye
-        ("put", 6, 5, "R"),
-        # nostrils on the beak
-        ("put", 8, 0, "K"),
-        # shell plate on the back
-        ("runs", [(10, 20, 24), (11, 19, 25), (12, 19, 26),
-                  (13, 20, 26)], "D"),
-        # huge pale belly
-        ("runs", [(13, 2, 14), (14, 2, 14), (15, 2, 13), (16, 3, 12)],
+        # seaweed strand on the shell top
+        ("runs", [(1, 15, 16), (2, 14, 17)], "M", "G"),
+        # shaggy moss dome with dark patches
+        ("runs", [(3, 12, 19), (4, 10, 21), (5, 9, 22), (6, 8, 23),
+                  (7, 7, 24)], "G"),
+        ("runs", [(4, 12, 14), (5, 10, 12), (6, 9, 10), (4, 17, 19),
+                  (5, 19, 21), (6, 21, 23), (7, 8, 10), (7, 21, 23)],
+         "M", "G"),
+        # pale beaked face with red eyes
+        ("runs", [(8, 12, 19), (9, 12, 19), (10, 12, 19), (11, 12, 19)],
          "C"),
-        # claws
-        ("put", 21, 4, "W"),
-        ("put", 21, 6, "W"),
+        ("runs", [(9, 12, 13), (9, 18, 19), (10, 12, 13), (10, 18, 19)],
+         "R", "C"),
+        ("put", 9, 13, "K"),
+        ("put", 9, 18, "K"),
+        # dark beak line
+        ("runs", [(11, 14, 17)], "E", "C"),
+        ("put", 11, 13, "E"),
+        ("put", 11, 18, "E"),
+        # huge pale belly
+        ("runs", [(13, 9, 22), (14, 9, 22), (15, 9, 22), (16, 10, 21),
+                  (17, 10, 21), (18, 11, 20)], "C"),
+        ("runs", [(15, 13, 14), (15, 17, 18), (16, 13, 14), (16, 17, 18)],
+         "E", "C"),
+        # thick dark legs with pale claws
+        ("runs", [(19, 9, 13), (19, 18, 22), (20, 9, 13), (20, 18, 22),
+                  (21, 9, 12), (21, 19, 22), (19, 15, 16), (20, 15, 16)],
+         "D"),
         ("put", 21, 10, "W"),
-        ("put", 21, 16, "W"),
-        ("put", 21, 18, "W"),
+        ("put", 21, 15, "W"),
+        ("put", 21, 21, "W"),
     ],
 }

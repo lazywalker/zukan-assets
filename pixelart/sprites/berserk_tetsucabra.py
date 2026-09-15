@@ -9,12 +9,18 @@ CONFIG["palette"] = dict(_base["palette"])
 CONFIG["palette"]["O"] = (188, 62, 50, 255)    # crimson hide
 CONFIG["palette"]["D"] = (142, 42, 36, 255)    # darker crimson
 
-# tusk hooks grown bigger
+# tusk hooks grown huge, tips hooking outward past the jaw
 CONFIG["spans"] = {
     **_base["spans"],
-    8:  [(1, 18), (1, 1), (4, 4), (7, 7), (10, 10), (13, 13)],
+    9:  [(3, 5), (28, 30)],
+    10: [(3, 5), (28, 30)],
+    11: [(1, 1), (2, 29), (31, 31)],
 }
 CONFIG["fills"] = list(_base["fills"]) + [
-    ("runs", [(8, 1, 1), (8, 4, 4), (8, 7, 7), (8, 10, 10),
-              (8, 13, 13)], "W"),
+    # hook bases rising through the upper jaw
+    ("runs", [(8, 3, 5), (8, 28, 30)], "W", "O"),
+    ("runs", [(9, 3, 5), (10, 3, 5), (9, 28, 30), (10, 28, 30)], "W"),
+    # outward hook tips
+    ("put", 11, 1, "W"),
+    ("put", 11, 31, "W"),
 ]

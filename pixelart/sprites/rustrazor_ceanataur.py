@@ -1,5 +1,5 @@
 """Rustrazor Ceanataur, ceanataur deviant. The rust saw: rust-red shell
-over the shogun frame, the blade edge turned into a sawtooth with pale
+over the shogun frame, the blade cutting edges lined with pale saw
 teeth."""
 from shogun_ceanataur import CONFIG as _base
 
@@ -9,14 +9,17 @@ CONFIG["compare_to"] = ""
 CONFIG["palette"] = dict(_base["palette"])
 CONFIG["palette"]["B"] = (150, 84, 54, 255)    # rust-red shell
 CONFIG["palette"]["D"] = (112, 60, 38, 255)    # darker rust
-CONFIG["palette"]["G"] = (172, 148, 118, 255)  # tan body
 
-# sawtooth teeth along the blade top edge
+# saw teeth islands on each blade cutting edge
 CONFIG["spans"] = {
     **_base["spans"],
-    15: [(2, 2), (5, 5), (8, 8), (1, 11), (11, 31)],
+    6:  [(2, 10), (11, 11), (28, 28), (29, 37)],
+    9:  [(4, 10), (11, 11), (17, 22), (28, 28), (29, 35)],
 }
 
 CONFIG["fills"] = list(_base["fills"]) + [
-    ("runs", [(15, 2, 2), (15, 5, 5), (15, 8, 8)], "W", "B"),
+    ("put", 6, 11, "W"),
+    ("put", 9, 11, "W"),
+    ("put", 6, 28, "W"),
+    ("put", 9, 28, "W"),
 ]

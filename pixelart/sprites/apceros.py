@@ -1,7 +1,6 @@
-"""Apceros, herbivore. The shelled grazer: a domed brown shell with pale
-spikes over a cream body, a frilled little head at the left, and a spiked
-tail club dragging behind. The armored-herbivore archetype rhenoplos
-derives from."""
+"""Apceros, herbivore. The shelled grazer, drawn in the dome front of its
+icon: a brown shell dome with pale spikes sticking out around the rim, a
+cream frilled face peeking out below, and stubby legs."""
 
 CONFIG = {
     "name": "apceros",
@@ -10,51 +9,58 @@ CONFIG = {
     "palette": {
         ".": (0, 0, 0, 0),
         "K": (24, 20, 22, 255),
-        "R": (152, 92, 58, 255),    # brown shell
-        "D": (116, 66, 42, 255),    # darker shell
-        "C": (208, 182, 150, 255),  # cream body
-        "S": (228, 210, 178, 255),  # pale spikes
+        "B": (140, 100, 60, 255),    # brown shell
+        "D": (100, 68, 40, 255),     # dark shell shade
+        "C": (222, 200, 160, 255),   # pale spikes / face
+        "E": (60, 40, 30, 255),      # dark face shade
         "W": (246, 242, 230, 255),
     },
-    "base": "R",
+    "base": "B",
     "spans": {
-        3:  [(8, 10), (15, 16)],              # shell spike tips
-        4:  [(6, 12), (14, 18)],
-        5:  [(5, 19)],
-        6:  [(4, 21), (22, 23)],              # shell + tail spike
-        7:  [(3, 23), (22, 25)],
-        8:  [(2, 24), (21, 26)],
-        9:  [(1, 25), (20, 27)],
-        10: [(1, 26), (19, 28)],
-        11: [(2, 27), (18, 28)],
-        12: [(2, 27), (17, 29)],
-        13: [(3, 26), (17, 29)],
-        14: [(4, 25), (18, 29)],
-        15: [(5, 24), (19, 29)],
-        16: [(6, 23), (20, 29)],              # tail club
-        17: [(7, 11), (14, 17), (21, 28)],
-        18: [(7, 10), (15, 16), (22, 27)],
-        19: [(7, 7), (9, 9), (15, 15), (24, 24), (26, 26)],
+        2:  [(8, 8), (14, 15), (21, 21)],        # spike tips
+        3:  [(6, 9), (13, 16), (20, 23)],
+        4:  [(5, 10), (12, 17), (19, 24)],
+        5:  [(4, 11), (11, 18), (18, 25)],
+        6:  [(4, 25)],                           # shell
+        7:  [(3, 26)],
+        8:  [(3, 26)],
+        9:  [(3, 26)],
+        10: [(3, 26)],
+        11: [(4, 25)],                           # shell rim
+        12: [(5, 24), (10, 19)],                 # rim + face top
+        13: [(5, 24), (10, 19)],
+        14: [(6, 23), (10, 19)],
+        15: [(6, 23), (11, 18)],                 # face base
+        16: [(7, 22)],
+        17: [(8, 10), (13, 16), (19, 21)],       # legs
+        18: [(8, 10), (13, 16), (19, 21)],
     },
     "fills": [
-        # pale shell spikes
-        ("runs", [(3, 8, 10), (3, 15, 16), (4, 6, 7), (4, 11, 12),
-                  (4, 17, 18), (6, 22, 23), (7, 22, 23)], "S"),
-        # shell scute lines
-        ("runs", [(6, 8, 9), (7, 11, 12), (8, 10, 11), (9, 13, 14),
-                  (10, 12, 13), (11, 15, 16), (12, 14, 15)], "D", "R"),
-        # cream head under the shell front
-        ("runs", [(9, 1, 6), (10, 1, 7), (11, 2, 7)], "C"),
-        # eye + beak
-        ("put", 10, 3, "K"),
-        ("put", 9, 1, "D"),
-        # cream legs
-        ("runs", [(17, 7, 11), (17, 14, 17)], "C"),
-        # tail club spikes
-        ("runs", [(15, 27, 29), (16, 26, 29), (17, 27, 28)], "S"),
-        # claws
-        ("put", 19, 7, "W"),
-        ("put", 19, 9, "W"),
-        ("put", 19, 15, "W"),
+        # pale spikes around the shell rim
+        ("runs", [(2, 8, 8), (2, 14, 15), (2, 21, 21), (3, 6, 7),
+                  (3, 13, 14), (3, 16, 16), (3, 22, 23), (4, 5, 6),
+                  (4, 13, 14), (4, 23, 24), (5, 4, 5), (5, 24, 25)],
+         "C", "B"),
+        # shell dome shading
+        ("runs", [(4, 10, 11), (5, 8, 10), (6, 4, 8), (7, 3, 7),
+                  (8, 3, 7), (9, 3, 7), (10, 3, 7), (4, 18, 19),
+                  (5, 19, 21), (6, 21, 25), (7, 22, 26), (8, 22, 26),
+                  (9, 22, 26), (10, 22, 26)], "D", "B"),
+        # pale scute lines across the shell
+        ("runs", [(6, 12, 17), (7, 11, 18), (8, 11, 18), (9, 11, 18),
+                  (10, 11, 18)], "C", "B"),
+        ("runs", [(6, 14, 15), (8, 14, 15), (10, 14, 15)], "D", "C"),
+        # cream frilled face with dark eyes
+        ("runs", [(12, 10, 19), (13, 10, 19), (14, 10, 19), (15, 11, 18)],
+         "C", "B"),
+        ("put", 13, 12, "K"),
+        ("put", 13, 17, "K"),
+        # dark beak line
+        ("runs", [(14, 13, 16)], "E", "C"),
+        # dark legs with pale claws
+        ("runs", [(17, 8, 10), (17, 19, 21), (18, 8, 10), (18, 19, 21),
+                  (17, 13, 16), (18, 13, 16)], "D"),
+        ("put", 18, 8, "W"),
+        ("put", 18, 21, "W"),
     ],
 }

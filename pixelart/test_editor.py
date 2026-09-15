@@ -6,9 +6,12 @@
   later join automatically
 - apply() refuses bad payloads (unknown slug, too tall, bad mask, view
   that disagrees with the mask rules) and writes nothing when refusing
+- a save whose post-save rebuild fails is rolled back: previous config
+  text restored, newly added config removed
 """
 
 import shutil
+import subprocess
 import sys
 import tempfile
 from pathlib import Path
@@ -141,6 +144,40 @@ def save_writes_and_skips():
         shutil.rmtree(tmp)
 
 
+def save_rollback():
+    cfg = next(c for c in load_configs() if c["name"] == "rathalos")
+    tmp = Path(tempfile.mkdtemp())
+    # a real config tweak so the save counts as changed: recolor one cell
+    recolored = dict(cfg, fills=[("runs", [(0, 1, 1)], "K")])
+    failed = subprocess.CompletedProcess([], 1, stdout="", stderr="boom")
+    real_run = apply_grid.subprocess.run
+    apply_grid.subprocess.run = lambda *a, **k: failed
+    try:
+        apply_grid.apply(payload_for(cfg), sprites_dir=tmp)
+        src = (tmp / "rathalos.py").read_text()
+        try:
+            apply_grid.apply(payload_for(recolored), sprites_dir=tmp,
+                             rebuild=True)
+        except RuntimeError:
+            pass
+        else:
+            raise AssertionError("failed rebuild did not raise")
+        assert (tmp / "rathalos.py").read_text() == src, "rollback lost the old text"
+
+        new = dict(next(c for c in load_configs() if c["name"] == "rathian"),
+                   name="purple-gypceros")
+        try:
+            apply_grid.apply(payload_for(new), sprites_dir=tmp, rebuild=True)
+        except RuntimeError:
+            pass
+        else:
+            raise AssertionError("failed rebuild did not raise")
+        assert not (tmp / "purple_gypceros.py").exists(), "new sprite not removed"
+    finally:
+        apply_grid.subprocess.run = real_run
+        shutil.rmtree(tmp)
+
+
 def main():
     n = len(load_configs())
     synth_matches_engine()
@@ -151,6 +188,8 @@ def main():
     print("save_refusals: OK")
     save_writes_and_skips()
     print("save_writes_and_skips: OK")
+    save_rollback()
+    print("save_rollback: OK")
     print("editor checks passed")
 
 

@@ -77,10 +77,37 @@ st.erase(1, 2);
 eq(st.view()[1], "......", "erase removes mask");
 eq(st.view()[0], "......", "stroke shrinks with mask");
 
-// mask hex round trip, column 0 is the MSB of the first nibble
+// outline display toggle: the derived ring hides, authored overrides stay,
+// and view() without arguments (the save path) always keeps the ring
+const so = SpriteState.blank(5, 3, pal, "R");
+so.paint(1, 1, "R");
+eq(so.view()[0], ".K...", "ring shown by default");
+eq(so.view({ outline: false })[0], ".....", "outline off hides derived K");
+so.paint(0, 1, "C", true); // silhouette mode: adjacent paint grows the mask
+eq(so.view({ outline: false })[0], ".C...", "grow paints through the ring");
+eq(so.view()[0], "KCK..", "ring regrows around the grown mask cell");
+so.paint(1, 2, "C"); // outline mode: ring-adjacent paint is an override
+eq(so.view()[1], "KRC..", "outline mode recolors the ring, no growth");
+eq(so.view({ outline: false })[1], ".R...",
+  "ring recolor hides together with the ring");
+
+// mask hex packing: column c is bit (w-1-c) of the row integer, matching
+// decompile.py pack_row/unpack_rows. Vectors below are generated Python-side.
 const bits = [1, 0, 0, 0, 1, 0];
-eq(packRow(bits, 6), "22", "pack msb-first");
-eq([...unpackRow("22", 6)], bits, "unpack msb-first");
+eq(packRow(bits, 6), "22", "pack w=6");
+eq([...unpackRow("22", 6)], bits, "unpack w=6");
+// w not a multiple of 4: the top hex digit is partially used; the old
+// nibble-first packing shifted every column by (4*ceil(w/4) - w)
+const v34 = new Uint8Array(34);
+v34[9] = 1;
+eq(packRow(v34, 34), "001000000", "pack w=34 partial top digit");
+eq([...unpackRow("001ff0000", 34)].map((b, c) => b ? c : -1).filter((c) => c >= 0),
+  [9, 10, 11, 12, 13, 14, 15, 16, 17], "unpack w=34 cols 9-17");
+const v39 = [..."101001011100100100100001010010100001000"].map(Number);
+eq(packRow(v39, 39), "52e490a508", "pack w=39 matches python");
+eq([...unpackRow("52e490a508", 39)], v39, "unpack w=39 matches python");
+const v26 = [...unpackRow("35acc57", 26)];
+eq(packRow(v26, 26), "35acc57", "pack w=26 round trip");
 // 36-wide rows: JS bitwise ops are 32-bit, pack must not overflow
 const wide = new Uint8Array(36);
 wide[0] = 1;

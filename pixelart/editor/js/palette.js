@@ -63,37 +63,29 @@ export class PaletteBar {
         `style="background:rgb(${r},${g},${b})" title="${ch}"></div>`;
     };
     const over = chars.length > 8;
+    // the visible input itself is the affordance: Safari only opens the
+    // color panel for a trusted click on the element, so a hidden input
+    // driven by .click() stays dead there
     this.el.innerHTML =
       `<div class="fgbg">${cell(this.fg)}${cell(this.bg === "." ? "K" : this.bg)}</div>` +
       `<div class="swatches">${chars.map(cell).join("")}</div>` +
-      `<button class="add-color" title="${t("pal.add-title")}">+</button>` +
+      `<input type="color" class="add-color" value="${this.lastAdd || "#c05030"}" ` +
+      `title="${t("pal.add-title")}">` +
       (over ? `<div class="pal-hint">${t("pal.over-hint")}</div>` : "");
-    const addBtn = this.el.querySelector(".add-color");
-    addBtn.addEventListener("click", () => this.promptColor());
-  }
-
-  promptColor(preset) {
-    const ch = nextFreeChar(this.state.palette);
-    if (!ch) {
-      alert(t("pal.exhausted"));
-      return;
-    }
-    const input = document.createElement("input");
-    input.type = "color";
-    input.value = preset || "#c05030";
-    input.style.position = "fixed";
-    input.style.left = "-100px";
-    document.body.appendChild(input);
-    input.addEventListener("change", () => {
-      const hex = input.value;
+    this.el.querySelector(".add-color").addEventListener("change", (e) => {
+      const ch = nextFreeChar(this.state.palette);
+      if (!ch) {
+        alert(t("pal.exhausted"));
+        return;
+      }
+      const hex = e.target.value;
       const r = parseInt(hex.slice(1, 3), 16);
       const g = parseInt(hex.slice(3, 5), 16);
       const b = parseInt(hex.slice(5, 7), 16);
-      input.remove();
+      this.lastAdd = hex;
       if (confirm(t("pal.add-confirm", { ch, rgb: `${r},${g},${b}` }))) {
         this.addColor(r, g, b);
       }
-    }, { once: true });
-    input.click();
+    });
   }
 }

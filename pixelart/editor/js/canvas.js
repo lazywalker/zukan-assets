@@ -19,6 +19,7 @@ export class Board {
     this.hover = null; // [r, c]
     this.onStroke = null; // (phase, cell, button) -> bool
     this.showGrid = true;
+    this.showOutline = true; // false = silhouette mode, hide the derived K
 
     wrapEl.addEventListener("pointerdown", (e) => this.pointerDown(e));
     wrapEl.addEventListener("pointermove", (e) => this.pointerMove(e));
@@ -156,7 +157,7 @@ export class Board {
     }
     ctx.restore();
 
-    const view = state.view();
+    const view = state.view({ outline: this.showOutline });
     for (let r = 0; r < state.h; r++) {
       for (let c = 0; c < state.w; c++) {
         const ch = view[r][c];

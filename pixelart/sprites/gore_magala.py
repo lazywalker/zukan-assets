@@ -1,7 +1,6 @@
-"""Gore Magala, elder dragon. The black eclipse: a hunched body draped in
-the tattered wing cloak whose bottom edge is cut by deep V notches, a low
-head with two thin feeler-horns sweeping up-back to pale tips, tiny legs
-peeking below the cloak front. The ragged cloak edge is the signature."""
+"""Gore Magala, elder dragon. The gothic cloak: the body hidden under a
+near-black symmetric wing cloak with purple streaks, orange feelers
+curling from the hood, no visible eyes, and a tailed tip below."""
 
 CONFIG = {
     "name": "gore-magala",
@@ -10,53 +9,52 @@ CONFIG = {
     "palette": {
         ".": (0, 0, 0, 0),
         "K": (24, 20, 22, 255),
-        "B": (40, 35, 55, 255),     # near-black body
-        "D": (28, 25, 40, 255),     # darker shade
-        "P": (120, 90, 160, 255),   # purple: ragged cloak hem
-        "W": (230, 228, 240, 255),  # pale feeler tips, eye
+        "E": (32, 26, 42, 255),
+        "D": (56, 44, 74, 255),
+        "P": (96, 72, 110, 255),
+        "O": (222, 132, 60, 255),
     },
-    "base": "B",
+    "base": "E",
     "spans": {
-        2:  [(8, 8)],                     # near feeler tip
-        3:  [(7, 8)],                     # feeler
-        4:  [(6, 7), (11, 11)],           # feeler base + far feeler tip
-        5:  [(5, 7), (10, 12)],           # head top + far feeler
-        6:  [(4, 9), (9, 13)],            # head + far feeler base
-        7:  [(3, 10), (8, 14)],           # head + cloak top edge
-        8:  [(3, 22)],                    # head/neck/cloak merged
-        9:  [(2, 25)],
-        10: [(1, 27)],
-        11: [(1, 28)],
-        12: [(0, 28)],
-        13: [(0, 27), (28, 30)],          # cloak hem + thin tail tip
-        14: [(0, 27), (29, 31)],
-        15: [(1, 24)],                    # notch 1 open at the hem
-        16: [(1, 26)],                    # tatter 2
-        17: [(2, 22)],                    # notch 2
-        18: [(3, 24)],                    # tatter 3
-        19: [(4, 20)],                    # notch 3
-        20: [(5, 18)],                    # tatter 4
-        21: [(6, 8), (11, 13)],           # tiny legs
-        22: [(6, 6), (8, 8), (11, 11), (13, 13)],
+        2:  [(13, 14), (19, 20)],             # feeler tips
+        3:  [(1, 10), (12, 14), (19, 21), (23, 32)],
+        4:  [(0, 11), (13, 20), (22, 33)],
+        5:  [(0, 33)],
+        6:  [(0, 33)],
+        7:  [(0, 33)],
+        8:  [(1, 32)],
+        9:  [(1, 32)],
+        10: [(2, 31)],
+        11: [(2, 31)],
+        12: [(3, 30)],
+        13: [(4, 29)],
+        14: [(5, 28)],
+        15: [(7, 26)],
+        16: [(9, 24)],
+        17: [(12, 21)],
+        18: [(13, 20)],
+        19: [(14, 19)],
+        20: [(15, 18)],
+        21: [(16, 17)],                       # tail tip
     },
     "fills": [
-        # feelers purple with pale tips
-        ("runs", [(2, 8, 8), (3, 7, 8), (4, 6, 7), (5, 5, 6)], "P"),
-        ("runs", [(4, 11, 11), (5, 10, 11), (6, 9, 11)], "P"),
-        ("put", 2, 8, "W"),
-        ("put", 4, 11, "W"),
-        # brow shade + pale eye on the low head
-        ("put", 5, 4, "D"),
-        ("put", 6, 4, "WK"),
-        # purple only on the tatter spikes below the hem line
-        ("runs", [(15, 20, 23), (16, 22, 25), (17, 18, 21), (18, 19, 23),
-                  (19, 13, 18), (20, 10, 16)], "P", "B"),
-        # chest shade
-        ("runs", [(8, 3, 6), (9, 2, 5), (10, 1, 4)], "D"),
-        # legs dark with pale claws
-        ("runs", [(21, 6, 8), (21, 11, 13), (22, 6, 6), (22, 8, 8),
-                  (22, 11, 11), (22, 13, 13)], "D"),
-        ("put", 22, 6, "W"),
-        ("put", 22, 11, "W"),
+        # orange feelers curling from the hood
+        ("runs", [(2, 13, 14), (2, 19, 20), (3, 12, 13), (3, 20, 21)], "O"),
+        # hood crest band
+        ("runs", [(4, 14, 19), (5, 15, 18)], "D"),
+        # purple streaks down the cloak
+        ("runs", [(6, 5, 9), (6, 24, 28), (9, 8, 12), (9, 21, 25),
+                  (12, 6, 10), (12, 23, 27), (15, 10, 12), (15, 21, 23)],
+         "D"),
+        # wing-arm claws at the cloak edge
+        ("put", 4, 0, "O"),
+        ("put", 4, 33, "O"),
+        ("put", 5, 1, "O"),
+        ("put", 5, 32, "O"),
+        # hood glints where eyes would be, if it had them
+        ("runs", [(6, 14, 15), (6, 18, 19)], "P"),
+        # tail tip highlight
+        ("put", 21, 16, "P"),
+        ("put", 21, 17, "P"),
     ],
 }

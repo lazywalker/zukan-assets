@@ -13,27 +13,33 @@ export function nextFreeChar(palette) {
   return null;
 }
 
-// nibble-at-a-time: JS bitwise ops are 32-bit, and sprites run 36 wide
+// nibble-at-a-time: JS bitwise ops are 32-bit, and sprites run 36 wide.
+// Column c is bit (w-1-c) of the row integer, matching decompile.py
+// pack_row/unpack_rows. When w is not a multiple of 4 the top hex digit
+// is partially used; getting this wrong shifts every mask column by
+// (4*ceil(w/4) - w) on both load and save.
 export function packRow(bits, w) {
-  let out = "";
-  for (let i = 0; i < Math.ceil(w / 4); i++) {
-    let n = 0;
-    for (let j = 0; j < 4; j++) {
-      const c = i * 4 + j;
-      n = (n << 1) | (c < w && bits[c] ? 1 : 0);
-    }
-    out += n.toString(16);
+  const D = Math.ceil(w / 4);
+  const nib = new Uint8Array(D);
+  for (let c = 0; c < w; c++) {
+    if (!bits[c]) continue;
+    const p = w - 1 - c;
+    nib[D - 1 - (p >> 2)] |= 1 << (p & 3);
   }
+  let out = "";
+  for (let i = 0; i < D; i++) out += nib[i].toString(16);
   return out;
 }
 
 export function unpackRow(hex, w) {
   const bits = new Uint8Array(w);
-  for (let i = 0; i < hex.length; i++) {
+  const D = hex.length;
+  for (let i = 0; i < D; i++) {
     const n = parseInt(hex[i], 16);
-    for (let j = 0; j < 4; j++) {
-      const c = i * 4 + j;
-      if (c < w) bits[c] = (n >> (3 - j)) & 1;
+    const base = (D - 1 - i) * 4;
+    for (let b = 0; b < 4; b++) {
+      const c = w - 1 - (base + b);
+      if (c >= 0 && c < w && (n >> b) & 1) bits[c] = 1;
     }
   }
   return bits;
@@ -104,14 +110,16 @@ export class SpriteState {
       this.inMask(r, c + 1) || this.inMask(r, c - 1);
   }
 
-  paint(r, c, ch) {
+  // grow: paint a mask-adjacent empty cell as silhouette growth instead of
+  // an override on the stroke ring (silhouette mode, outline display off)
+  paint(r, c, ch, grow) {
     if (!this.inBounds(r, c)) return;
     const i = this.idx(r, c);
     const key = `${r},${c}`;
     if (this.mask[i] === 1) {
       if (ch === this.base) this.explicit.delete(key);
       else this.explicit.set(key, ch);
-    } else if (this.touchesMask(r, c)) {
+    } else if (!grow && this.touchesMask(r, c)) {
       this.explicit.set(key, ch);
     } else {
       this.mask[i] = 1;
@@ -125,15 +133,20 @@ export class SpriteState {
     this.explicit.delete(`${r},${c}`);
   }
 
-  view() {
+  // outline: false hides the derived K ring for display only (silhouette
+  // mode). Authored explicit overrides still render, and the save path
+  // always sends the full view: decompile.py synthesize() must keep
+  // matching it cell for cell.
+  view(opts) {
+    const outline = !opts || opts.outline !== false;
     const rows = [];
     for (let r = 0; r < this.h; r++) {
       let row = "";
       for (let c = 0; c < this.w; c++) {
-        const i = this.idx(r, c);
+        const i = r * this.w + c;
         let ch;
         if (this.mask[i] === 1) ch = this.base;
-        else if (this.touchesMask(r, c)) ch = "K";
+        else if (outline && this.touchesMask(r, c)) ch = "K";
         else ch = ".";
         if (ch !== ".") {
           const e = this.explicit.get(`${r},${c}`);

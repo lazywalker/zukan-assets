@@ -34,9 +34,13 @@ const S = {
   serverUp: false,
 };
 
+// outline checkbox survives reloads ("0" = ring hidden); shown by default
+const OUTLINE_KEY = "zukan.outline";
+
 const opt = {
   brush: 1, perfect: true, bucketContiguous: true, bucket8: false,
   rectFilled: true,
+  outline: localStorage.getItem(OUTLINE_KEY) !== "0",
 };
 let toolId = "pencil";
 let stroke = null; // {base, pts, anchor, button}
@@ -50,6 +54,7 @@ async function boot() {
   await loadData();
   S.serverUp = await ping();
   board = new Board($("#board"), $("#board-wrap"));
+  board.showOutline = opt.outline;
   board.onStroke = onStroke;
   // local debug handles; the editor is a dev tool, not a shipped product
   window.__board = board;
@@ -344,6 +349,8 @@ function renderContextbar() {
       [1, 2, 3, 4].map((n) =>
         `<button class="opt ${opt.brush === n ? "sel" : ""}" data-brush="${n}">${n}</button>`).join("");
   };
+  const outline = `<label class="opt"><input type="checkbox" id="cb-outline" ` +
+    `${opt.outline ? "checked" : ""}>${t("ctx.outline")}</label>`;
   let html = "";
   if (toolId === "pencil") {
     html = seg(true) +
@@ -371,7 +378,14 @@ function renderContextbar() {
   } else if (toolId === "picker") {
     html = `<span class="dim">${t("ctx.picker-hint")}</span>`;
   }
-  bar.innerHTML = html;
+  bar.innerHTML = outline + html;
+  bar.querySelector("#cb-outline")?.addEventListener("change", (e) => {
+    opt.outline = e.target.checked;
+    localStorage.setItem(OUTLINE_KEY, opt.outline ? "1" : "0");
+    board.showOutline = opt.outline;
+    board.draw();
+    renderSideLive();
+  });
   bar.querySelectorAll("[data-brush]").forEach((b) =>
     b.addEventListener("click", () => {
       opt.brush = +b.dataset.brush;
@@ -425,24 +439,27 @@ function applyStroke(preview) {
     }
     return [];
   };
+  // silhouette mode (outline hidden): strokes grow the mask through the
+  // ring instead of overriding it; outline recoloring needs the ring shown
+  const grow = !opt.outline;
   if (toolId === "eraser" || (toolId === "pencil" && erase)) {
     for (const [r, c] of cellsFor()) st.erase(r, c);
   } else if (toolId === "pencil") {
-    for (const [r, c] of cellsFor()) st.paint(r, c, ch);
+    for (const [r, c] of cellsFor()) st.paint(r, c, ch, grow);
   } else if (toolId === "line" || toolId === "rect") {
     for (const [r, c] of cellsFor()) {
       if (erase) st.erase(r, c);
-      else st.paint(r, c, ch);
+      else st.paint(r, c, ch, grow);
     }
   } else if (toolId === "bucket") {
-    const view = st.view();
+    const view = st.view({ outline: opt.outline });
     const [r, c] = stroke.anchor;
     if (st.inBounds(r, c)) {
       const cells = floodCells(view, r, c, opt.bucket8 ? 8 : 4,
         opt.bucketContiguous);
       for (const [rr, cc] of cells) {
         if (erase) st.erase(rr, cc);
-        else st.paint(rr, cc, ch);
+        else st.paint(rr, cc, ch, grow);
       }
     }
   } else if (toolId === "move") {
@@ -536,7 +553,7 @@ function refreshPreview() {
 }
 
 function pickFromCell(cell) {
-  const ch = S.state.view()[cell[0]][cell[1]];
+  const ch = S.state.view({ outline: opt.outline })[cell[0]][cell[1]];
   if (ch && ch !== ".") pal.setFg(ch);
   status();
 }
@@ -802,7 +819,7 @@ function status(cell) {
   }
   const parts = [];
   if (cell) {
-    const ch = S.state.view()[cell[0]][cell[1]];
+    const ch = S.state.view({ outline: opt.outline })[cell[0]][cell[1]];
     parts.push(`r${cell[0]} c${cell[1]}`, ch);
   }
   parts.push(`${board.zoom}x`, `${S.state.w}x${S.state.h}`);
@@ -820,7 +837,8 @@ function updateGhost() {
 
 function renderSideSprite(canvas) {
   const scale = Math.max(4, Math.floor(200 / S.state.h));
-  drawGrid(canvas, S.state.view(), S.state.palette, scale);
+  drawGrid(canvas, S.state.view({ outline: opt.outline }), S.state.palette,
+    scale);
   canvas.style.width = "auto";
 }
 
