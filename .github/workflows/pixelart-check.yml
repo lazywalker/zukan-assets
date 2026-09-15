@@ -5,9 +5,13 @@ name: Pixel art check
 # set), and the editor save chain still round-trips every committed config
 # (test_editor.py picks new sprites up automatically). The rendered PNGs are
 # deterministic products of the configs (nothing committed, nothing to
-# drift), so building them cleanly IS the check. data/ + icons/ are
-# gitignored pipeline products, so the shared ETL composite action runs
-# first.
+# drift), so building them cleanly IS the check.
+#
+# The check needs only the two roster JSONs from data/, not the rebuilt
+# icons, so the full ETL composite runs on a cache miss only: data/ is
+# cached under a key hashed from tools/ + source/ + the shared composite
+# action, so pixelart-only pushes skip the multi-minute pipeline entirely
+# and an actual pipeline change reruns it.
 
 on:
   push:
@@ -24,7 +28,29 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      # Python + PIL are needed on a cache hit too, where the composite
+      # (which would otherwise set them up) is skipped.
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: tools/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r tools/requirements.txt
+
+      - name: Restore cached roster
+        id: roster
+        uses: actions/cache@v4
+        with:
+          path: data/
+          key: pixelart-roster-${{ hashFiles('tools/**', 'source/**', '.github/actions/run-pipeline/**') }}
+
       - name: Run ETL pipeline
+        # Cache miss means the pipeline, its vendored sources, or the
+        # composite action changed, so the roster must be rebuilt.
+        if: steps.roster.outputs.cache-hit != 'true'
         uses: ./.github/actions/run-pipeline
 
       - name: Build pixel sprites
