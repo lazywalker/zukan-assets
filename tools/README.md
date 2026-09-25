@@ -129,7 +129,11 @@ doesn't stop the rest; the build just goes ahead with whatever got fetched.
 
 Three workflows in `.github/workflows/`:
 - `check-upstream.yml`, weekly: re-fetches upstream sources, opens a PR if
-  anything changed (detected via diff in source/ intermediates).
+  anything changed (detected via diff in source/ intermediates). Before the
+  PR step it runs `revert_byte_drift.py`, which restores source files whose
+  pixels are unchanged: the Fandom CDN re-encodes WebP over time, so a fresh
+  download can be byte-different yet identical, and without this the PR
+  churns with empty image diffs.
 - `release.yml`, manual dispatch only: runs the full pipeline and publishes
   `data/` + `icons/` + `icons-pixelart/` as a tar.gz Release artifact for
   zukan. Merging a PR (including the weekly upstream-update one) does NOT
